@@ -146,9 +146,13 @@ class Application extends BaseModel
                 if (!is_null($this->source?->html_url) && !is_null($this->git_repository) && !is_null($this->git_branch)) {
                     return "{$this->source->html_url}/{$this->git_repository}/tree/{$this->git_branch}";
                 }
+                // Convert the SSH URL to HTTPS URL
+                if (strpos($this->git_repository, 'git@') === 0) {
+                    $git_repository = str_replace(['git@', ':', '.git'], ['', '/', ''], $this->git_repository);
+                    return "https://{$git_repository}/tree/{$this->git_branch}";
+                }
                 return $this->git_repository;
             }
-
         );
     }
 
@@ -158,6 +162,11 @@ class Application extends BaseModel
             get: function () {
                 if (!is_null($this->source?->html_url) && !is_null($this->git_repository) && !is_null($this->git_branch)) {
                     return "{$this->source->html_url}/{$this->git_repository}/settings/hooks";
+                }
+                // Convert the SSH URL to HTTPS URL
+                if (strpos($this->git_repository, 'git@') === 0) {
+                    $git_repository = str_replace(['git@', ':', '.git'], ['', '/', ''], $this->git_repository);
+                    return "https://{$git_repository}/settings/hooks";
                 }
                 return $this->git_repository;
             }
@@ -171,9 +180,28 @@ class Application extends BaseModel
                 if (!is_null($this->source?->html_url) && !is_null($this->git_repository) && !is_null($this->git_branch)) {
                     return "{$this->source->html_url}/{$this->git_repository}/commits/{$this->git_branch}";
                 }
+                // Convert the SSH URL to HTTPS URL
+                if (strpos($this->git_repository, 'git@') === 0) {
+                    $git_repository = str_replace(['git@', ':', '.git'], ['', '/', ''], $this->git_repository);
+                    return "https://{$git_repository}/commits/{$this->git_branch}";
+                }
                 return $this->git_repository;
             }
         );
+    }
+    public function gitCommitLink($link): string
+    {
+        if (!is_null($this->source?->html_url) && !is_null($this->git_repository) && !is_null($this->git_branch)) {
+            if (str($this->source->html_url)->contains('bitbucket')) {
+                return "{$this->source->html_url}/{$this->git_repository}/commits/{$link}";
+            }
+            return "{$this->source->html_url}/{$this->git_repository}/commit/{$link}";
+        }
+        if (strpos($this->git_repository, 'git@') === 0) {
+            $git_repository = str_replace(['git@', ':', '.git'], ['', '/', ''], $this->git_repository);
+            return "https://{$git_repository}/commit/{$link}";
+        }
+        return $this->git_repository;
     }
     public function dockerfileLocation(): Attribute
     {
@@ -428,6 +456,10 @@ class Application extends BaseModel
             return true;
         }
         return false;
+    }
+    public function get_last_successful_deployment()
+    {
+        return ApplicationDeploymentQueue::where('application_id', $this->id)->where('status', 'finished')->where('pull_request_id', 0)->orderBy('created_at', 'desc')->first();
     }
     public function get_last_days_deployments()
     {
@@ -964,7 +996,8 @@ class Application extends BaseModel
         getFilesystemVolumesFromServer($this, $isInit);
     }
 
-    public function parseHealthcheckFromDockerfile($dockerfile, bool $isInit = false) {
+    public function parseHealthcheckFromDockerfile($dockerfile, bool $isInit = false)
+    {
         if (str($dockerfile)->contains('HEALTHCHECK') && ($this->isHealthcheckDisabled() || $isInit)) {
             $healthcheckCommand = null;
             $lines = $dockerfile->toArray();

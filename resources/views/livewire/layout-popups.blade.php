@@ -14,7 +14,7 @@
             checkPusherInterval = setInterval(() => {
                 if (window.Echo && window.Echo.connector.pusher.connection.state !== 'connected') {
                     checkNumber++;
-                    if (checkNumber > 4) {
+                    if (checkNumber > 5) {
                         this.popups.realtime = true;
                         console.error(
                             'Publify could not connect to its real-time service. This will cause unusual problems on the UI if not fixed!'
@@ -22,7 +22,7 @@
                         clearInterval(checkPusherInterval);
                     }
                 }
-            }, 1000);
+            }, 2000);
         }
     }
 }">
