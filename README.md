@@ -1,3 +1,6 @@
+[![Bounty Issues](https://img.shields.io/static/v1?labelColor=grey&color=6366f1&label=Algora&message=%F0%9F%92%8E+Bounty+issues&style=for-the-badge)](https://console.algora.io/org/coollabsio/bounties/new)
+[![Open Bounties](https://img.shields.io/endpoint?url=https%3A%2F%2Fconsole.algora.io%2Fapi%2Fshields%2Fcoollabsio%2Fbounties%3Fstatus%3Dopen&style=for-the-badge)](https://console.algora.io/org/coollabsio/bounties?status=open)
+[![Rewarded Bounties](https://img.shields.io/endpoint?url=https%3A%2F%2Fconsole.algora.io%2Fapi%2Fshields%2Fcoollabsio%2Fbounties%3Fstatus%3Dcompleted&style=for-the-badge)](https://console.algora.io/org/coollabsio/bounties?status=completed)
 # About the Project
 
 Coolify is an open-source & self-hostable alternative to Heroku / Netlify / Vercel / etc. 
@@ -42,6 +45,7 @@ Special thanks to our biggest sponsor, [CCCareers](https://cccareers.org/)!
 <a href="https://www.flint.sh/en/home?utm_source=coolify.io"> <img src="https://github.com/Flint-company.png" width="60px" alt="FlintCompany"/></a>
 <a href="https://americancloud.com/?utm_source=coolify.io"><img src="https://github.com/American-Cloud.png" width="60px" alt="American Cloud"/></a>
 <a href="https://cryptojobslist.com/?utm_source=coolify.io"><img src="https://github.com/cryptojobslist.png" width="60px" alt="CryptoJobsList" /></a>
+<a href="https://x.com/mrsmith9ja?utm_source=coolify.io"><img width="60px" alt="Thompson Edolo" src="https://github.com/verygreenboi.png"/></a>
 <a href="https://www.uxwizz.com/?utm_source=coolify.io"><img width="60px" alt="UXWizz" src="https://github.com/UXWizz.png"/></a>
 <a href="https://github.com/Flowko"><img src="https://barrad.me/_ipx/f_webp&s_300x300/younes.jpg" width="60px" alt="Younes Barrad" /></a>
 <a href="https://github.com/automazeio"><img src="https://github.com/automazeio.png" width="60px" alt="Automaze" /></a>
