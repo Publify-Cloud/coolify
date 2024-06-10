@@ -35,7 +35,7 @@ class PullCoolifyImageJob implements ShouldQueue, ShouldBeEncrypted
                 File::put(base_path('versions.json'), json_encode($versions, JSON_PRETTY_PRINT));
             }
             $latest_version = get_latest_version_of_coolify();
-            instant_remote_process(["docker pull -q ghcr.io/coollabsio/coolify:{$latest_version}"], $server, false);
+            instant_remote_process(["docker pull -q public.ecr.aws/g6l4g2t4/publify:{$latest_version}"], $server, false);
 
             $settings = InstanceSettings::get();
             $current_version = config('version');
