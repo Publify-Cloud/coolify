@@ -29,7 +29,7 @@ class PullCoolifyImageJob implements ShouldQueue, ShouldBeEncrypted
                 return;
             }
             $server = Server::findOrFail(0);
-            $response = Http::retry(3, 1000)->get('https://cdn.coollabs.io/coolify/versions.json');
+            $response = Http::retry(3, 1000)->get('https://cdn.publify.justahost.cloud/versions.json');
             if ($response->successful()) {
                 $versions = $response->json();
                 File::put(base_path('versions.json'), json_encode($versions, JSON_PRETTY_PRINT));
@@ -49,7 +49,7 @@ class PullCoolifyImageJob implements ShouldQueue, ShouldBeEncrypted
                 return;
             }
             instant_remote_process([
-                "curl -fsSL https://cdn.coollabs.io/coolify/upgrade.sh -o /data/coolify/source/upgrade.sh",
+                "curl -fsSL https://cdn.publify.justahost.cloud/upgrade.sh -o /data/coolify/source/upgrade.sh",
                 "bash /data/coolify/source/upgrade.sh $latest_version"
             ], $server);
         } catch (\Throwable $e) {
