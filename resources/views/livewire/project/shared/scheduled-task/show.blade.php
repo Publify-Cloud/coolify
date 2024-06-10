@@ -1,4 +1,7 @@
 <div>
+    <x-slot:title>
+        {{ data_get_str($resource, 'name')->limit(10) }} > Scheduled Tasks | Publify
+    </x-slot>
     @if ($type === 'application')
         <h1>Scheduled Task</h1>
         <livewire:project.application.heading :application="$resource" />

@@ -35,7 +35,7 @@ class TaskFailed extends Notification implements ShouldQueue
     public function toMail(): MailMessage
     {
         $mail = new MailMessage();
-        $mail->subject("Coolify: [ACTION REQUIRED] Scheduled task ({$this->task->name}) failed.");
+        $mail->subject("Publify: [ACTION REQUIRED] Scheduled task ({$this->task->name}) failed.");
         $mail->view('emails.scheduled-task-failed', [
             'task' => $this->task,
             'url' => $this->url,
@@ -46,14 +46,14 @@ class TaskFailed extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        return "Coolify: Scheduled task ({$this->task->name}, [link]({$this->url})) failed with output: {$this->output}";
+        return "Publify: Scheduled task ({$this->task->name}, [link]({$this->url})) failed with output: {$this->output}";
     }
     public function toTelegram(): array
     {
-        $message = "Coolify: Scheduled task ({$this->task->name}) failed with output: {$this->output}";
+        $message = "Publify: Scheduled task ({$this->task->name}) failed with output: {$this->output}";
         if ($this->url) {
             $buttons[] = [
-                "text" => "Open task in Coolify",
+                "text" => "Open task in Publify",
                 "url" => (string) $this->url
             ];
         }

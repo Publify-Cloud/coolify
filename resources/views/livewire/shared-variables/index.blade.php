@@ -1,4 +1,7 @@
 <div>
+    <x-slot:title>
+        Shared Variables | Publify
+    </x-slot>
     <div class="flex items-start gap-2">
         <h1>Shared Variables</h1>
     </div>

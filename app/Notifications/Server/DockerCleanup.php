@@ -51,13 +51,13 @@ class DockerCleanup extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        $message = "Coolify: Server '{$this->server->name}' cleanup job done!\n\n{$this->message}";
+        $message = "Publify: Server '{$this->server->name}' cleanup job done!\n\n{$this->message}";
         return $message;
     }
     public function toTelegram(): array
     {
         return [
-            "message" => "Coolify: Server '{$this->server->name}' cleanup job done!\n\n{$this->message}"
+            "message" => "Publify: Server '{$this->server->name}' cleanup job done!\n\n{$this->message}"
         ];
     }
 }

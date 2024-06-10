@@ -1,4 +1,7 @@
 <div>
+    <x-slot:title>
+        Dashboard | Publify
+    </x-slot>
     @if (session('error'))
         <span x-data x-init="$wire.emit('error', '{{ session('error') }}')" />
     @endif

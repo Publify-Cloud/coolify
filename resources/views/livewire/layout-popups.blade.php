@@ -47,7 +47,7 @@
     <span x-show="popups.sponsorship">
         <x-popup>
             <x-slot:title>
-                Love Coolify as we do?
+                Love Publify as we do?
             </x-slot:title>
             <x-slot:icon>
                 <img src="https://cdn-icons-png.flaticon.com/512/8236/8236748.png"

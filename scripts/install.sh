@@ -6,7 +6,7 @@ set -e # Exit immediately if a command exits with a non-zero status
 #set -u # Treat unset variables as an error and exit
 set -o pipefail # Cause a pipeline to return the status of the last command that exited with a non-zero status
 
-VERSION="1.3.1"
+VERSION="1.3.2"
 DOCKER_VERSION="26.0"
 
 CDN="https://cdn.publify.justahost.cloud"
@@ -15,6 +15,16 @@ OS_TYPE=$(grep -w "ID" /etc/os-release | cut -d "=" -f 2 | tr -d '"')
 # Check if the OS is manjaro, if so, change it to arch
 if [ "$OS_TYPE" = "manjaro" ]; then
     OS_TYPE="arch"
+fi
+
+# Check if the OS is popOS, if so, change it to ubuntu
+if [ "$OS_TYPE" = "pop" ]; then
+    OS_TYPE="ubuntu"
+fi
+
+# Check if the OS is linuxmint, if so, change it to ubuntu
+if [ "$OS_TYPE" = "linuxmint" ]; then
+    OS_TYPE="ubuntu"
 fi
 
 if [ "$OS_TYPE" = "arch" ]; then
@@ -52,13 +62,12 @@ if [ "$1" != "" ]; then
 fi
 
 echo -e "-------------"
-echo -e "Welcome to Coolify v4 beta installer!"
+echo -e "Welcome to Publify v4 beta installer!"
 echo -e "This script will install everything for you."
-echo -e "(Source code: https://github.com/coollabsio/coolify/blob/main/scripts/install.sh)\n"
 echo -e "-------------"
 
 echo "OS: $OS_TYPE $OS_VERSION"
-echo "Coolify version: $LATEST_VERSION"
+echo "Publify version: $LATEST_VERSION"
 
 echo -e "-------------"
 echo "Installing required packages..."
@@ -118,7 +127,7 @@ fi
 if [ "$SSH_DETECTED" = "false" ]; then
     echo "###############################################################################"
     echo "WARNING: Could not detect if OpenSSH server is installed and running - this does not mean that it is not installed, just that we could not detect it."
-    echo -e "Please make sure it is set, otherwise Coolify cannot connect to the host system. \n"
+    echo -e "Please make sure it is set, otherwise Publify cannot connect to the host system. \n"
     echo "###############################################################################"
 fi
 
@@ -134,7 +143,7 @@ if [ "$SSH_PERMIT_ROOT_LOGIN" != "true" ]; then
     echo "###############################################################################"
     echo "WARNING: PermitRootLogin is not enabled in /etc/ssh/sshd_config."
     echo -e "It is set to $SSH_PERMIT_ROOT_LOGIN_CONFIG. Should be prohibit-password, yes or without-password.\n"
-    echo -e "Please make sure it is set, otherwise Coolify cannot connect to the host system. \n"
+    echo -e "Please make sure it is set, otherwise Publify cannot connect to the host system. \n"
     echo "###############################################################################"
 fi
 
@@ -142,7 +151,7 @@ fi
 if [ -x "$(command -v snap)" ]; then
     if snap list | grep -q docker; then
         echo "Docker is installed via snap."
-        echo "Please note that Coolify does not support Docker installed via snap."
+        echo "Please note that Publify does not support Docker installed via snap."
         echo "Please remove Docker with snap (snap remove docker) and reexecute this script."
         exit 1
     fi
@@ -319,5 +328,5 @@ fi
 
 bash /data/coolify/source/upgrade.sh "${LATEST_VERSION:-latest}"
 
-echo -e "\nCongratulations! Your Coolify instance is ready to use.\n"
+echo -e "\nCongratulations! Your Publify instance is ready to use.\n"
 echo "Please visit http://$(curl -4s https://ifconfig.io):8000 to get started."

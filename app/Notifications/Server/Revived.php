@@ -49,7 +49,7 @@ class Revived extends Notification implements ShouldQueue
     public function toMail(): MailMessage
     {
         $mail = new MailMessage();
-        $mail->subject("Coolify: Server ({$this->server->name}) revived.");
+        $mail->subject("Publify: Server ({$this->server->name}) revived.");
         $mail->view('emails.server-revived', [
             'name' => $this->server->name,
         ]);
@@ -58,13 +58,13 @@ class Revived extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        $message = "Coolify: Server '{$this->server->name}' revived. All automations & integrations are turned on again!";
+        $message = "Publify: Server '{$this->server->name}' revived. All automations & integrations are turned on again!";
         return $message;
     }
     public function toTelegram(): array
     {
         return [
-            "message" => "Coolify: Server '{$this->server->name}' revived. All automations & integrations are turned on again!"
+            "message" => "Publify: Server '{$this->server->name}' revived. All automations & integrations are turned on again!"
         ];
     }
 }

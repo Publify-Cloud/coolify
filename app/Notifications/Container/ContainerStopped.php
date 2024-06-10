@@ -26,7 +26,7 @@ class ContainerStopped extends Notification implements ShouldQueue
     public function toMail(): MailMessage
     {
         $mail = new MailMessage();
-        $mail->subject("Coolify: A resource  has been stopped unexpectedly on {$this->server->name}");
+        $mail->subject("Publify: A resource  has been stopped unexpectedly on {$this->server->name}");
         $mail->view('emails.container-stopped', [
             'containerName' => $this->name,
             'serverName' => $this->server->name,
@@ -37,12 +37,12 @@ class ContainerStopped extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        $message = "Coolify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
+        $message = "Publify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
         return $message;
     }
     public function toTelegram(): array
     {
-        $message = "Coolify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
+        $message = "Publify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
         $payload = [
             "message" => $message,
         ];
@@ -50,7 +50,7 @@ class ContainerStopped extends Notification implements ShouldQueue
             $payload['buttons'] = [
                 [
                     [
-                        "text" => "Open Application in Coolify",
+                        "text" => "Open Application in Publify",
                         "url" => $this->url
                     ]
                 ]
