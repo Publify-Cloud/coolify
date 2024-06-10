@@ -40,7 +40,7 @@ class CheckLogDrainContainerJob implements ShouldQueue, ShouldBeEncrypted
             return false;
         }
     }
-    public function handle(): void
+    public function handle()
     {
         // ray("checking log drain statuses for {$this->server->id}");
         try {
@@ -80,9 +80,9 @@ class CheckLogDrainContainerJob implements ShouldQueue, ShouldBeEncrypted
                 }
             }
         } catch (\Throwable $e) {
-            send_internal_notification("CheckLogDrainContainerJob failed on ({$this->server->id}) with: " . $e->getMessage());
+            if (!isCloud()) send_internal_notification("CheckLogDrainContainerJob failed on ({$this->server->id}) with: " . $e->getMessage());
             ray($e->getMessage());
-            handleError($e);
+            return handleError($e);
         }
     }
 }

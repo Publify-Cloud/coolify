@@ -1,4 +1,7 @@
 <div>
+    <x-slot:title>
+        Proxy Configuration | Publify
+    </x-slot>
     <x-server.navbar :server="$server" :parameters="$parameters" />
     @if ($server->isFunctional())
         <div class="flex gap-2">

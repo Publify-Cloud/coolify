@@ -1,4 +1,7 @@
 <div>
+    <x-slot:title>
+        API Tokens | Publify
+    </x-slot>
     <x-security.navbar />
     <div class="flex gap-2">
         <h2 class="pb-4">API Tokens</h2>
