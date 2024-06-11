@@ -16,10 +16,13 @@ class StatusChanged extends Notification implements ShouldQueue
     public $tries = 1;
 
     public string $resource_name;
+
     public string $project_uuid;
+
     public string $environment_name;
 
     public ?string $resource_url = null;
+
     public ?string $fqdn;
 
     public function __construct(public Application $resource)
@@ -31,7 +34,7 @@ class StatusChanged extends Notification implements ShouldQueue
         if (Str::of($this->fqdn)->explode(',')->count() > 1) {
             $this->fqdn = Str::of($this->fqdn)->explode(',')->first();
         }
-        $this->resource_url = base_url() . "/project/{$this->project_uuid}/" . urlencode($this->environment_name) . "/application/{$this->resource->uuid}";
+        $this->resource_url = base_url()."/project/{$this->project_uuid}/".urlencode($this->environment_name)."/application/{$this->resource->uuid}";
     }
 
     public function via(object $notifiable): array
@@ -49,6 +52,7 @@ class StatusChanged extends Notification implements ShouldQueue
             'fqdn' => $fqdn,
             'resource_url' => $this->resource_url,
         ]);
+
         return $mail;
     }
 
@@ -60,12 +64,13 @@ class StatusChanged extends Notification implements ShouldQueue
         $message .= '[Open Application in Publify](' . $this->resource_url . ')';
         return $message;
     }
+
     public function toTelegram(): array
     {
         $message = 'Publify: ' . $this->resource_name . ' has been stopped.';
         return [
-            "message" => $message,
-            "buttons" => [
+            'message' => $message,
+            'buttons' => [
                 [
                     "text" => "Open Application in Publify",
                     "url" => $this->resource_url

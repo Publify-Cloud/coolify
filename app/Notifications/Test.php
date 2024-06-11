@@ -12,7 +12,8 @@ class Test extends Notification implements ShouldQueue
     use Queueable;
 
     public $tries = 5;
-    public function __construct(public string|null $emails = null)
+
+    public function __construct(public ?string $emails = null)
     {
     }
 
@@ -26,6 +27,7 @@ class Test extends Notification implements ShouldQueue
         $mail = new MailMessage();
         $mail->subject("Publify: Test Email");
         $mail->view('emails.test');
+
         return $mail;
     }
 
@@ -33,18 +35,20 @@ class Test extends Notification implements ShouldQueue
     {
         $message = 'Publify: This is a test Discord notification from Publify.';
         $message .= "\n\n";
-        $message .= '[Go to your dashboard](' . base_url() . ')';
+        $message .= '[Go to your dashboard]('.base_url().')';
+
         return $message;
     }
+
     public function toTelegram(): array
     {
         return [
             "message" => 'Publify: This is a test Telegram notification from Publify.',
             "buttons" => [
                 [
-                    "text" => "Go to your dashboard",
-                    "url" =>  base_url()
-                ]
+                    'text' => 'Go to your dashboard',
+                    'url' => base_url(),
+                ],
             ],
         ];
     }

@@ -32,6 +32,7 @@ class ContainerStopped extends Notification implements ShouldQueue
             'serverName' => $this->server->name,
             'url' => $this->url,
         ]);
+
         return $mail;
     }
 
@@ -40,11 +41,12 @@ class ContainerStopped extends Notification implements ShouldQueue
         $message = "Publify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
         return $message;
     }
+
     public function toTelegram(): array
     {
         $message = "Publify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
         $payload = [
-            "message" => $message,
+            'message' => $message,
         ];
         if ($this->url) {
             $payload['buttons'] = [
@@ -56,6 +58,7 @@ class ContainerStopped extends Notification implements ShouldQueue
                 ]
             ];
         }
+
         return $payload;
     }
 }
