@@ -145,7 +145,7 @@ uZx9iFkCELtxrh31QJ68AAAAEXNhaWxANzZmZjY2ZDJlMmRkAQIDBA==
                 $server_details = [
                     'id' => 0,
                     'uuid' => 'coolify-testing-host',
-                    'name' => "localhost",
+                    'name' => 'localhost',
                     'description' => "This is the server where Publify is running on. Don't delete this!",
                     'user' => 'root',
                     'ip' => 'coolify-testing-host',

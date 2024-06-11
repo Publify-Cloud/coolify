@@ -55,8 +55,8 @@ class UpdateCoolify
             return;
         }
         remote_process([
-            "curl -fsSL https://cdn.publify.justahost.cloud/upgrade.sh -o /data/coolify/source/upgrade.sh",
-            "bash /data/coolify/source/upgrade.sh $this->latestVersion"
+            'curl -fsSL https://cdn.publify.justahost.cloud/upgrade.sh -o /data/coolify/source/upgrade.sh',
+            "bash /data/coolify/source/upgrade.sh $this->latestVersion",
         ], $this->server);
 
     }

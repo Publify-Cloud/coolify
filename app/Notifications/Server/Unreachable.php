@@ -56,13 +56,14 @@ class Unreachable extends Notification implements ShouldQueue
     public function toDiscord(): string
     {
         $message = "Publify: Your server '{$this->server->name}' is unreachable. All automations & integrations are turned off! Please check your server! IMPORTANT: We automatically try to revive your server and turn on all automations & integrations.";
+
         return $message;
     }
 
     public function toTelegram(): array
     {
         return [
-            "message" => "Publify: Your server '{$this->server->name}' is unreachable. All automations & integrations are turned off! Please check your server! IMPORTANT: We automatically try to revive your server and turn on all automations & integrations."
+            'message' => "Publify: Your server '{$this->server->name}' is unreachable. All automations & integrations are turned off! Please check your server! IMPORTANT: We automatically try to revive your server and turn on all automations & integrations.",
         ];
     }
 }

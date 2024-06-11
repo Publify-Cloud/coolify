@@ -55,13 +55,14 @@ class ForceEnabled extends Notification implements ShouldQueue
     public function toDiscord(): string
     {
         $message = "Publify: Server ({$this->server->name}) enabled again!";
+
         return $message;
     }
 
     public function toTelegram(): array
     {
         return [
-            "message" => "Publify: Server ({$this->server->name}) enabled again!"
+            'message' => "Publify: Server ({$this->server->name}) enabled again!",
         ];
     }
 }

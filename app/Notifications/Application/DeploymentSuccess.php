@@ -82,7 +82,7 @@ class DeploymentSuccess extends Notification implements ShouldQueue
     public function toDiscord(): string
     {
         if ($this->preview) {
-            $message = 'Publify: New PR' . $this->preview->pull_request_id . ' version successfully deployed of ' . $this->application_name . '
+            $message = 'Publify: New PR'.$this->preview->pull_request_id.' version successfully deployed of '.$this->application_name.'
 
 ';
             if ($this->preview->fqdn) {
@@ -90,7 +90,7 @@ class DeploymentSuccess extends Notification implements ShouldQueue
             }
             $message .= '[Deployment logs]('.$this->deployment_url.')';
         } else {
-            $message = 'Publify: New version successfully deployed of ' . $this->application_name . '
+            $message = 'Publify: New version successfully deployed of '.$this->application_name.'
 
 ';
             if ($this->fqdn) {
@@ -105,7 +105,7 @@ class DeploymentSuccess extends Notification implements ShouldQueue
     public function toTelegram(): array
     {
         if ($this->preview) {
-            $message = 'Publify: New PR' . $this->preview->pull_request_id . ' version successfully deployed of ' . $this->application_name . '';
+            $message = 'Publify: New PR'.$this->preview->pull_request_id.' version successfully deployed of '.$this->application_name.'';
             if ($this->preview->fqdn) {
                 $buttons[] = [
                     'text' => 'Open Application',

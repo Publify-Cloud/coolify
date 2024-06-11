@@ -55,7 +55,8 @@ class ResetPassword extends Notification
     {
         $mail = new MailMessage();
         $mail->subject('Publify: Reset Password');
-        $mail->view('emails.reset-password', ['url' => $url, 'count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')]);
+        $mail->view('emails.reset-password', ['url' => $url, 'count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]);
+
         return $mail;
     }
 

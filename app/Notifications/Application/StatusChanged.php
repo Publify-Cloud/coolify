@@ -58,23 +58,25 @@ class StatusChanged extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        $message = 'Publify: ' . $this->resource_name . ' has been stopped.
+        $message = 'Publify: '.$this->resource_name.' has been stopped.
 
 ';
-        $message .= '[Open Application in Publify](' . $this->resource_url . ')';
+        $message .= '[Open Application in Publify]('.$this->resource_url.')';
+
         return $message;
     }
 
     public function toTelegram(): array
     {
-        $message = 'Publify: ' . $this->resource_name . ' has been stopped.';
+        $message = 'Publify: '.$this->resource_name.' has been stopped.';
+
         return [
             'message' => $message,
             'buttons' => [
                 [
-                    "text" => "Open Application in Publify",
-                    "url" => $this->resource_url
-                ]
+                    'text' => 'Open Application in Publify',
+                    'url' => $this->resource_url,
+                ],
             ],
         ];
     }

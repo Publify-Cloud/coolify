@@ -56,8 +56,8 @@ class TaskFailed extends Notification implements ShouldQueue
         $message = "Publify: Scheduled task ({$this->task->name}) failed with output: {$this->output}";
         if ($this->url) {
             $buttons[] = [
-                "text" => "Open task in Publify",
-                "url" => (string) $this->url
+                'text' => 'Open task in Publify',
+                'url' => (string) $this->url,
             ];
         }
 

@@ -58,10 +58,10 @@ class DeploymentFailed extends Notification implements ShouldQueue
         $pull_request_id = data_get($this->preview, 'pull_request_id', 0);
         $fqdn = $this->fqdn;
         if ($pull_request_id === 0) {
-            $mail->subject('Publify: Deployment failed of ' . $this->application_name . '.');
+            $mail->subject('Publify: Deployment failed of '.$this->application_name.'.');
         } else {
             $fqdn = $this->preview->fqdn;
-            $mail->subject('Publify: Deployment failed of pull request #' . $this->preview->pull_request_id . ' of ' . $this->application_name . '.');
+            $mail->subject('Publify: Deployment failed of pull request #'.$this->preview->pull_request_id.' of '.$this->application_name.'.');
         }
         $mail->view('emails.application-deployment-failed', [
             'name' => $this->application_name,
@@ -76,11 +76,11 @@ class DeploymentFailed extends Notification implements ShouldQueue
     public function toDiscord(): string
     {
         if ($this->preview) {
-            $message = 'Publify:  Pull request #' . $this->preview->pull_request_id . ' of ' . $this->application_name . ' (' . $this->preview->fqdn . ') deployment failed: ';
-            $message .= '[View Deployment Logs](' . $this->deployment_url . ')';
+            $message = 'Publify:  Pull request #'.$this->preview->pull_request_id.' of '.$this->application_name.' ('.$this->preview->fqdn.') deployment failed: ';
+            $message .= '[View Deployment Logs]('.$this->deployment_url.')';
         } else {
-            $message = 'Publify: Deployment failed of ' . $this->application_name . ' (' . $this->fqdn . '): ';
-            $message .= '[View Deployment Logs](' . $this->deployment_url . ')';
+            $message = 'Publify: Deployment failed of '.$this->application_name.' ('.$this->fqdn.'): ';
+            $message .= '[View Deployment Logs]('.$this->deployment_url.')';
         }
 
         return $message;
@@ -89,9 +89,9 @@ class DeploymentFailed extends Notification implements ShouldQueue
     public function toTelegram(): array
     {
         if ($this->preview) {
-            $message = 'Publify: Pull request #' . $this->preview->pull_request_id . ' of ' . $this->application_name . ' (' . $this->preview->fqdn . ') deployment failed: ';
+            $message = 'Publify: Pull request #'.$this->preview->pull_request_id.' of '.$this->application_name.' ('.$this->preview->fqdn.') deployment failed: ';
         } else {
-            $message = 'Publify: Deployment failed of ' . $this->application_name . ' (' . $this->fqdn . '): ';
+            $message = 'Publify: Deployment failed of '.$this->application_name.' ('.$this->fqdn.'): ';
         }
         $buttons[] = [
             'text' => 'Deployment logs',

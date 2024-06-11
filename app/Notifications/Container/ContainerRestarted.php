@@ -39,6 +39,7 @@ class ContainerRestarted extends Notification implements ShouldQueue
     public function toDiscord(): string
     {
         $message = "Publify: A resource ({$this->name}) has been restarted automatically on {$this->server->name}";
+
         return $message;
     }
 
@@ -52,10 +53,10 @@ class ContainerRestarted extends Notification implements ShouldQueue
             $payload['buttons'] = [
                 [
                     [
-                        "text" => "Check Proxy in Publify",
-                        "url" => $this->url
-                    ]
-                ]
+                        'text' => 'Check Proxy in Publify',
+                        'url' => $this->url,
+                    ],
+                ],
             ];
         }
 

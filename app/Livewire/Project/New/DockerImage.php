@@ -51,7 +51,7 @@ class DockerImage extends Component
         $application = Application::create([
             'name' => 'docker-image-'.new Cuid2(7),
             'repository_project_id' => 0,
-            'git_repository' => "Publify-Cloud/coolify",
+            'git_repository' => 'Publify-Cloud/coolify',
             'git_branch' => 'main',
             'build_pack' => 'dockerimage',
             'ports_exposes' => 80,

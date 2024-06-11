@@ -50,8 +50,8 @@ class PullCoolifyImageJob implements ShouldBeEncrypted, ShouldQueue
                 return;
             }
             instant_remote_process([
-                "curl -fsSL https://cdn.publify.justahost.cloud/upgrade.sh -o /data/coolify/source/upgrade.sh",
-                "bash /data/coolify/source/upgrade.sh $latest_version"
+                'curl -fsSL https://cdn.publify.justahost.cloud/upgrade.sh -o /data/coolify/source/upgrade.sh',
+                "bash /data/coolify/source/upgrade.sh $latest_version",
             ], $server);
         } catch (\Throwable $e) {
             throw $e;

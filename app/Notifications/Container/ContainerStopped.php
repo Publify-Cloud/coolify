@@ -39,6 +39,7 @@ class ContainerStopped extends Notification implements ShouldQueue
     public function toDiscord(): string
     {
         $message = "Publify: A resource ($this->name) has been stopped unexpectedly on {$this->server->name}";
+
         return $message;
     }
 
@@ -52,10 +53,10 @@ class ContainerStopped extends Notification implements ShouldQueue
             $payload['buttons'] = [
                 [
                     [
-                        "text" => "Open Application in Publify",
-                        "url" => $this->url
-                    ]
-                ]
+                        'text' => 'Open Application in Publify',
+                        'url' => $this->url,
+                    ],
+                ],
             ];
         }
 
