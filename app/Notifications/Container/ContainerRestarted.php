@@ -14,7 +14,6 @@ class ContainerRestarted extends Notification implements ShouldQueue
 
     public $tries = 1;
 
-
     public function __construct(public string $name, public Server $server, public ?string $url = null)
     {
     }
@@ -33,6 +32,7 @@ class ContainerRestarted extends Notification implements ShouldQueue
             'serverName' => $this->server->name,
             'url' => $this->url,
         ]);
+
         return $mail;
     }
 
@@ -41,11 +41,12 @@ class ContainerRestarted extends Notification implements ShouldQueue
         $message = "Publify: A resource ({$this->name}) has been restarted automatically on {$this->server->name}";
         return $message;
     }
+
     public function toTelegram(): array
     {
         $message = "Publify: A resource ({$this->name}) has been restarted automatically on {$this->server->name}";
         $payload = [
-            "message" => $message,
+            'message' => $message,
         ];
         if ($this->url) {
             $payload['buttons'] = [
@@ -56,7 +57,8 @@ class ContainerRestarted extends Notification implements ShouldQueue
                     ]
                 ]
             ];
-        };
+        }
+
         return $payload;
     }
 }

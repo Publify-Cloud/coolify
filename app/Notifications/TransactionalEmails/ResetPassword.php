@@ -9,8 +9,11 @@ use Illuminate\Notifications\Notification;
 class ResetPassword extends Notification
 {
     public static $createUrlCallback;
+
     public static $toMailCallback;
+
     public $token;
+
     public InstanceSettings $settings;
 
     public function __construct($token)
@@ -32,9 +35,10 @@ class ResetPassword extends Notification
     public function via($notifiable)
     {
         $type = set_transanctional_email_settings();
-        if (!$type) {
+        if (! $type) {
             throw new \Exception('No email settings found.');
         }
+
         return ['mail'];
     }
 
