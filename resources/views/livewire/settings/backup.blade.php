@@ -26,7 +26,7 @@
             @else
                 To configure automatic backup for your Publify instance, you first need to add as a database resource
                 into Publify.
-                <x-forms.button wire:click="add_coolify_database">Add Database</x-forms.button>
+                <x-forms.button class="mt-2" wire:click="add_coolify_database">Add Database</x-forms.button>
             @endif
         </div>
         <div class="py-4">
