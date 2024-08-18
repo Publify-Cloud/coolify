@@ -67,4 +67,4 @@ RUN /bin/bash -c "if [[ ${TARGETPLATFORM} == 'linux/arm64' ]]; then \
 RUN { \
     echo 'upload_max_filesize=256M'; \
     echo 'post_max_size=256M'; \
-  } > /etc/php/current_version/cli/conf.d/upload-limits.ini
+    } > /etc/php/current_version/cli/conf.d/upload-limits.ini

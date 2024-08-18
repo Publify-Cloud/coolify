@@ -49,7 +49,7 @@ class NotifyDemo extends Command
             <<<'HTML'
         <div>
             <div class="title-box">
-                Coolify
+                Publify
             </div>
             <p class="mt-1 ml-1 ">
               Demo Notify <strong class="text-coolify">=></strong> Send a demo notification to a given channel.
@@ -72,7 +72,7 @@ class NotifyDemo extends Command
 
         ask(<<<'HTML'
         <div class="mr-1">
-            In which manner you wish a <strong class="text-coolify">coolified</strong> notification?
+            In which manner you wish a <strong class="text-coolify">publified</strong> notification?
         </div>
         HTML, ['email', 'slack', 'discord', 'telegram']);
     }

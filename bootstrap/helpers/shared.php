@@ -164,7 +164,7 @@ function get_route_parameters(): array
 function get_latest_sentinel_version(): string
 {
     try {
-        $response = Http::get('https://cdn.coollabs.io/sentinel/versions.json');
+        $response = Http::get('https://cdn.publify.justahost.cloud/versions.json');
         $versions = $response->json();
 
         return data_get($versions, 'sentinel.version');
@@ -2530,7 +2530,7 @@ function check_domain_usage(ServiceApplication|Application|null $resource = null
             }
             $naked_domain = str($domain)->value();
             if ($domains->contains($naked_domain)) {
-                throw new \RuntimeException("Domain $naked_domain is already in use by this Coolify instance.");
+                throw new \RuntimeException("Domain $naked_domain is already in use by this Publify instance.");
             }
         }
     }

@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Dashboard | Coolify
+        Dashboard | Publify
     </x-slot>
     @if (session('error'))
         <span x-data x-init="$wire.emit('error', '{{ session('error') }}')" />
@@ -81,7 +81,7 @@
                                 &
                             @endif
                             @if (!$server->settings->is_usable)
-                                Not usable by Coolify
+                                Not usable by Publify
                             @endif
                         </div>
                     </div>

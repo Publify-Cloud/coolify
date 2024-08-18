@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Subscribe | Coolify
+        Subscribe | Publify
     </x-slot>
     @if ($settings->is_resale_license_active)
         @if (auth()->user()->isAdminFromSession())

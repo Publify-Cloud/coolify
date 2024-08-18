@@ -23,7 +23,7 @@ class Upgrade extends Component
     {
         try {
             $settings = InstanceSettings::get();
-            $response = Http::retry(3, 1000)->get('https://cdn.coollabs.io/coolify/versions.json');
+            $response = Http::retry(3, 1000)->get('https://cdn.publify.justahost.cloud/versions.json');
             if ($response->successful()) {
                 $versions = $response->json();
                 $this->latestVersion = data_get($versions, 'coolify.v4.version');

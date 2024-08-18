@@ -1,11 +1,10 @@
 <div x-data="{
     popups: {
-        sponsorship: true,
+        sponsorship: false,
         notification: true,
         realtime: false,
     },
     init() {
-        this.popups.sponsorship = localStorage.getItem('popupSponsorship') !== 'false';
         this.popups.notification = localStorage.getItem('popupNotification') !== 'false';
         this.popups.realtime = localStorage.getItem('popupRealtime');
 
@@ -18,7 +17,7 @@
                     if (checkNumber > 5) {
                         this.popups.realtime = true;
                         console.error(
-                            'Coolify could not connect to its real-time service. This will cause unusual problems on the UI if not fixed! Please check the related documentation (https://coolify.io/docs/knowledge-base/cloudflare/tunnels) or get help on Discord (https://coollabs.io/discord).)'
+                            'Publify could not connect to its real-time service. This will cause unusual problems on the UI if not fixed!'
                         );
                         clearInterval(checkPusherInterval);
                     }
@@ -29,36 +28,26 @@
 }">
     @auth
         <span x-show="popups.realtime === true">
-            @if (!isCloud())
-                <x-popup>
-                    <x-slot:title>
-                        <span class="font-bold text-left text-red-500">WARNING: </span>Realtime Error?!
-                    </x-slot:title>
-                    <x-slot:description>
-                        <span>Coolify could not connect to its real-time service.<br>This will cause unusual problems on the
-                            UI
-                            if
-                            not fixed! <br><br>
-                            Please ensure that you have opened the
-                            <a class="underline" href='https://coolify.io/docs/knowledge-base/server/firewall'
-                                target='_blank'>required ports</a>,
-                            check the
-                            related <a class="underline" href='https://coolify.io/docs/knowledge-base/cloudflare/tunnels'
-                                target='_blank'>documentation</a> or get
-                            help on <a class="underline" href='https://coollabs.io/discord' target='_blank'>Discord</a>.
+            <x-popup>
+                <x-slot:title>
+                    <span class="font-bold text-left text-red-500">WARNING: </span>Realtime Error?!
+                </x-slot:title>
+                <x-slot:description>
+                    <span>Publify could not connect to its real-time service.<br>This will cause unusual problems on the UI
+                        if
+                        not fixed!
                         </span>
-                    </x-slot:description>
-                    <x-slot:button-text @click="disableRealtime()">
-                        Acknowledge & Disable This Popup
-                    </x-slot:button-text>
-                </x-popup>
-            @endif
+                </x-slot:description>
+                <x-slot:button-text @click="disableRealtime()">
+                    Acknowledge & Disable This Popup
+                </x-slot:button-text>
+            </x-popup>
         </span>
     @endauth
     <span x-show="popups.sponsorship">
         <x-popup>
             <x-slot:title>
-                Love Coolify as we do?
+                Love Publify as we do?
             </x-slot:title>
             <x-slot:icon>
                 <img src="https://cdn-icons-png.flaticon.com/512/8236/8236748.png"
@@ -116,10 +105,6 @@
         </span>
     @endif
     <script>
-        function disableSponsorship() {
-            localStorage.setItem('popupSponsorship', false);
-        }
-
         function disableNotification() {
             localStorage.setItem('popupNotification', false);
         }

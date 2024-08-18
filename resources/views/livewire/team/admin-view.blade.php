@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Team Admin | Coolify
+        Team Admin | Publify
     </x-slot>
     <x-team.navbar />
     <form wire:submit="submitSearch" class="flex flex-col gap-2 lg:flex-row">
@@ -17,7 +17,7 @@
                 <div class="flex items-center justify-center gap-2 mx-4 text-xs font-bold ">
                     <x-modal-confirmation isErrorButton action="delete({{ $user->id }})" buttonTitle="Delete">
                         This will delete all resources (application, databases, services, configurations, servers,
-                        private keys, tags, etc.) from Coolify and <span
+                        private keys, tags, etc.) from Publify and <span
                             class="font-bold text-red-500 dark:text-warning">from the server (if it's reachable)</span>.
                         <br> <br>
                         It is not reversible. <br><br>

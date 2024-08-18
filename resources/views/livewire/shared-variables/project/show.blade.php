@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Project Variable | Coolify
+        Project Variable | Publify
     </x-slot>
     <div class="flex gap-2">
         <h1>Shared Variables for {{data_get($project,'name')}}</h1>

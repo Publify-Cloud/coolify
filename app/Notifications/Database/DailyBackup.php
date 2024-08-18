@@ -25,8 +25,8 @@ class DailyBackup extends Notification implements ShouldQueue
 
     public function toMail(): MailMessage
     {
-        $mail = new MailMessage;
-        $mail->subject('Coolify: Daily backup statuses');
+        $mail = new MailMessage();
+        $mail->subject('Publify: Daily backup statuses');
         $mail->view('emails.daily-backup', [
             'databases' => $this->databases,
         ]);
@@ -36,12 +36,12 @@ class DailyBackup extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        return 'Coolify: Daily backup statuses';
+        return 'Publify: Daily backup statuses';
     }
 
     public function toTelegram(): array
     {
-        $message = 'Coolify: Daily backup statuses';
+        $message = 'Publify: Daily backup statuses';
 
         return [
             'message' => $message,
