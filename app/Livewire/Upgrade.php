@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Actions\Server\UpdateCoolify;
 use App\Models\InstanceSettings;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
 class Upgrade extends Component
@@ -21,8 +22,13 @@ class Upgrade extends Component
     public function checkUpdate()
     {
         try {
-            $this->latestVersion = get_latest_version_of_coolify();
-            $this->isUpgradeAvailable = data_get(InstanceSettings::get(), 'new_version_available', false);
+            $settings = InstanceSettings::get();
+            $response = Http::retry(3, 1000)->get('https://cdn.publify.justahost.cloud/versions.json');
+            if ($response->successful()) {
+                $versions = $response->json();
+                $this->latestVersion = data_get($versions, 'coolify.v4.version');
+            }
+            $this->isUpgradeAvailable = $settings->new_version_available;
 
         } catch (\Throwable $e) {
             return handleError($e, $this);

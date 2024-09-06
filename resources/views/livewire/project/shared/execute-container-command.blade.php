@@ -32,18 +32,18 @@
                         @if (data_get($this->parameters, 'application_uuid'))
                             @foreach ($containers as $container)
                                 <option value="{{ data_get($container, 'container.Names') }}">
-                                    {{ data_get($container, 'container.Names') }} ({{ data_get($container, 'server.name') }})
+                                    {{ data_get($container, 'container.Names') }}
                                 </option>
                             @endforeach
                         @elseif(data_get($this->parameters, 'service_uuid'))
                             @foreach ($containers as $container)
                                 <option value="{{ $container }}">
-                                    {{ $container }} ({{ data_get($servers, '0.name') }})
+                                    {{ $container }}
                                 </option>
                             @endforeach
                         @else
                             <option value="{{ $container }}">
-                                {{ $container }} ({{ data_get($servers, '0.name') }})
+                                {{ $container }}
                             </option>
                         @endif
                     </x-forms.select>

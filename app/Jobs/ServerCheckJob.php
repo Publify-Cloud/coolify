@@ -124,9 +124,6 @@ class ServerCheckJob implements ShouldBeEncrypted, ShouldQueue
 
     private function checkLogDrainContainer()
     {
-        if(! $this->server->isLogDrainEnabled()) {
-            return;
-        }
         $foundLogDrainContainer = $this->containers->filter(function ($value, $key) {
             return data_get($value, 'Name') === '/coolify-log-drain';
         })->first();

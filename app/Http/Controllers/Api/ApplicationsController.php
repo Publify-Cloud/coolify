@@ -53,7 +53,6 @@ class ApplicationsController extends Controller
         summary: 'List',
         description: 'List all applications.',
         path: '/applications',
-        operationId: 'list-applications',
         security: [
             ['bearerAuth' => []],
         ],
@@ -102,7 +101,6 @@ class ApplicationsController extends Controller
         summary: 'Create (Public)',
         description: 'Create new application based on a public git repository.',
         path: '/applications/public',
-        operationId: 'create-public-application',
         security: [
             ['bearerAuth' => []],
         ],
@@ -204,7 +202,6 @@ class ApplicationsController extends Controller
         summary: 'Create (Private - GH App)',
         description: 'Create new application based on a private repository through a Github App.',
         path: '/applications/private-github-app',
-        operationId: 'create-private-github-app-application',
         security: [
             ['bearerAuth' => []],
         ],
@@ -306,7 +303,6 @@ class ApplicationsController extends Controller
         summary: 'Create (Private - Deploy Key)',
         description: 'Create new application based on a private repository through a Deploy Key.',
         path: '/applications/private-deploy-key',
-        operationId: 'create-private-deploy-key-application',
         security: [
             ['bearerAuth' => []],
         ],
@@ -408,7 +404,6 @@ class ApplicationsController extends Controller
         summary: 'Create (Dockerfile)',
         description: 'Create new application based on a simple Dockerfile.',
         path: '/applications/dockerfile',
-        operationId: 'create-dockerfile-application',
         security: [
             ['bearerAuth' => []],
         ],
@@ -495,7 +490,6 @@ class ApplicationsController extends Controller
         summary: 'Create (Docker Image)',
         description: 'Create new application based on a prebuilt docker image',
         path: '/applications/dockerimage',
-        operationId: 'create-dockerimage-application',
         security: [
             ['bearerAuth' => []],
         ],
@@ -579,7 +573,6 @@ class ApplicationsController extends Controller
         summary: 'Create (Docker Compose)',
         description: 'Create new application based on a docker-compose file.',
         path: '/applications/dockercompose',
-        operationId: 'create-dockercompose-application',
         security: [
             ['bearerAuth' => []],
         ],
@@ -1178,7 +1171,6 @@ class ApplicationsController extends Controller
         summary: 'Get',
         description: 'Get application by UUID.',
         path: '/applications/{uuid}',
-        operationId: 'get-application-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -1243,7 +1235,6 @@ class ApplicationsController extends Controller
         summary: 'Delete',
         description: 'Delete application by UUID.',
         path: '/applications/{uuid}',
-        operationId: 'delete-application-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -1330,7 +1321,6 @@ class ApplicationsController extends Controller
         summary: 'Update',
         description: 'Update application by UUID.',
         path: '/applications/{uuid}',
-        operationId: 'update-application-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -1567,7 +1557,6 @@ class ApplicationsController extends Controller
         summary: 'List Envs',
         description: 'List all envs by application UUID.',
         path: '/applications/{uuid}/envs',
-        operationId: 'list-envs-by-application-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -1650,7 +1639,6 @@ class ApplicationsController extends Controller
         summary: 'Update Env',
         description: 'Update env by application UUID.',
         path: '/applications/{uuid}/envs',
-        operationId: 'update-env-by-application-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -1833,7 +1821,6 @@ class ApplicationsController extends Controller
         summary: 'Update Envs (Bulk)',
         description: 'Update multiple envs by application UUID.',
         path: '/applications/{uuid}/envs/bulk',
-        operationId: 'update-envs-by-application-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -2025,7 +2012,6 @@ class ApplicationsController extends Controller
         summary: 'Create Env',
         description: 'Create env by application UUID.',
         path: '/applications/{uuid}/envs',
-        operationId: 'create-env-by-application-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -2185,7 +2171,6 @@ class ApplicationsController extends Controller
         summary: 'Delete Env',
         description: 'Delete env by UUID.',
         path: '/applications/{uuid}/envs/{env_uuid}',
-        operationId: 'delete-env-by-application-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -2271,7 +2256,6 @@ class ApplicationsController extends Controller
         summary: 'Start',
         description: 'Start application. `Post` request is also accepted.',
         path: '/applications/{uuid}/start',
-        operationId: 'start-application-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -2375,7 +2359,6 @@ class ApplicationsController extends Controller
         summary: 'Stop',
         description: 'Stop application. `Post` request is also accepted.',
         path: '/applications/{uuid}/stop',
-        operationId: 'stop-application-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -2448,7 +2431,6 @@ class ApplicationsController extends Controller
         summary: 'Restart',
         description: 'Restart application. `Post` request is also accepted.',
         path: '/applications/{uuid}/restart',
-        operationId: 'restart-application-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],

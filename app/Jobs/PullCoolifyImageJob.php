@@ -3,15 +3,17 @@
 namespace App\Jobs;
 
 use App\Models\InstanceSettings;
+use App\Models\Server;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeEncrypted;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 
-class CheckForUpdatesJob implements ShouldBeEncrypted, ShouldQueue
+class PullCoolifyImageJob implements ShouldBeEncrypted, ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -22,21 +24,27 @@ class CheckForUpdatesJob implements ShouldBeEncrypted, ShouldQueue
                 return;
             }
             $settings = InstanceSettings::get();
+            $server = Server::findOrFail(0);
             $response = Http::retry(3, 1000)->get('https://cdn.publify.justahost.cloud/versions.json');
             if ($response->successful()) {
                 $versions = $response->json();
-                $latest_version = data_get($versions, 'coolify.v4.version');
-                $current_version = config('version');
+                File::put(base_path('versions.json'), json_encode($versions, JSON_PRETTY_PRINT));
+            }
+            $latest_version = get_latest_version_of_coolify();
+            instant_remote_process(["docker pull -q public.ecr.aws/g6l4g2t4/publify:{$latest_version}"], $server, false);
 
-                if (version_compare($latest_version, $current_version, '>')) {
-                    // New version available
-                    $settings->update(['new_version_available' => true]);
-                } else {
-                    $settings->update(['new_version_available' => false]);
-                }
+            $current_version = config('version');
+            if (! $settings->is_auto_update_enabled) {
+                return;
+            }
+            if ($latest_version === $current_version) {
+                return;
+            }
+            if (version_compare($latest_version, $current_version, '<')) {
+                return;
             }
         } catch (\Throwable $e) {
-            // Consider implementing a notification to administrators
+            throw $e;
         }
     }
 }

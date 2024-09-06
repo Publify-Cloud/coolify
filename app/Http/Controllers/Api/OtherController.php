@@ -13,7 +13,6 @@ class OtherController extends Controller
         summary: 'Version',
         description: 'Get Coolify version.',
         path: '/version',
-        operationId: 'version',
         security: [
             ['bearerAuth' => []],
         ],
@@ -44,7 +43,6 @@ class OtherController extends Controller
         summary: 'Enable API',
         description: 'Enable API (only with root permissions).',
         path: '/enable',
-        operationId: 'enable-api',
         security: [
             ['bearerAuth' => []],
         ],
@@ -96,7 +94,6 @@ class OtherController extends Controller
         summary: 'Disable API',
         description: 'Disable API (only with root permissions).',
         path: '/disable',
-        operationId: 'disable-api',
         security: [
             ['bearerAuth' => []],
         ],
@@ -161,7 +158,6 @@ class OtherController extends Controller
         summary: 'Healthcheck',
         description: 'Healthcheck endpoint.',
         path: '/healthcheck',
-        operationId: 'healthcheck',
         responses: [
             new OA\Response(
                 response: 200,

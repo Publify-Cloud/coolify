@@ -46,7 +46,6 @@ class ServersController extends Controller
         summary: 'List',
         description: 'List all servers.',
         path: '/servers',
-        operationId: 'list-servers',
         security: [
             ['bearerAuth' => []],
         ],
@@ -101,7 +100,6 @@ class ServersController extends Controller
         summary: 'Get',
         description: 'Get server by UUID.',
         path: '/servers/{uuid}',
-        operationId: 'get-server-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -179,7 +177,6 @@ class ServersController extends Controller
         summary: 'Resources',
         description: 'Get resources by server.',
         path: '/servers/{uuid}/resources',
-        operationId: 'get-resources-by-server-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -257,7 +254,6 @@ class ServersController extends Controller
         summary: 'Domains',
         description: 'Get domains by server.',
         path: '/servers/{uuid}/domains',
-        operationId: 'get-domains-by-server-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -405,7 +401,6 @@ class ServersController extends Controller
         summary: 'Create',
         description: 'Create Server.',
         path: '/servers',
-        operationId: 'create-server',
         security: [
             ['bearerAuth' => []],
         ],
@@ -550,7 +545,6 @@ class ServersController extends Controller
         summary: 'Update',
         description: 'Update Server.',
         path: '/servers/{uuid}',
-        operationId: 'update-server-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -661,7 +655,6 @@ class ServersController extends Controller
         summary: 'Delete',
         description: 'Delete server by UUID.',
         path: '/servers/{uuid}',
-        operationId: 'delete-server-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -734,7 +727,6 @@ class ServersController extends Controller
         summary: 'Validate',
         description: 'Validate server by UUID.',
         path: '/servers/{uuid}/validate',
-        operationId: 'validate-server-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],

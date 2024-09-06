@@ -22,8 +22,7 @@ class ScheduledDatabaseBackup extends BaseModel
 
     public function executions(): HasMany
     {
-        // Last execution first
-        return $this->hasMany(ScheduledDatabaseBackupExecution::class)->orderBy('created_at', 'desc');
+        return $this->hasMany(ScheduledDatabaseBackupExecution::class);
     }
 
     public function s3()

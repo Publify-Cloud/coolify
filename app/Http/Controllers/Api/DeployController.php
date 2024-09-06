@@ -32,7 +32,6 @@ class DeployController extends Controller
         summary: 'List',
         description: 'List currently running deployments',
         path: '/deployments',
-        operationId: 'list-deployments',
         security: [
             ['bearerAuth' => []],
         ],
@@ -80,7 +79,6 @@ class DeployController extends Controller
         summary: 'Get',
         description: 'Get deployment by UUID.',
         path: '/deployments/{uuid}',
-        operationId: 'get-deployment-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -136,7 +134,6 @@ class DeployController extends Controller
         summary: 'Deploy',
         description: 'Deploy by tag or uuid. `Post` request also accepted.',
         path: '/deploy',
-        operationId: 'deploy-by-tag-or-uuid',
         security: [
             ['bearerAuth' => []],
         ],

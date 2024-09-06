@@ -32,7 +32,6 @@ class TeamController extends Controller
         summary: 'List',
         description: 'Get all teams.',
         path: '/teams',
-        operationId: 'list-teams',
         security: [
             ['bearerAuth' => []],
         ],
@@ -80,7 +79,6 @@ class TeamController extends Controller
         summary: 'Get',
         description: 'Get team by TeamId.',
         path: '/teams/{id}',
-        operationId: 'get-team-by-id',
         security: [
             ['bearerAuth' => []],
         ],
@@ -131,7 +129,6 @@ class TeamController extends Controller
         summary: 'Members',
         description: 'Get members by TeamId.',
         path: '/teams/{id}/members',
-        operationId: 'get-members-by-team-id',
         security: [
             ['bearerAuth' => []],
         ],
@@ -192,7 +189,6 @@ class TeamController extends Controller
         summary: 'Authenticated Team',
         description: 'Get currently authenticated team.',
         path: '/teams/current',
-        operationId: 'get-current-team',
         security: [
             ['bearerAuth' => []],
         ],
@@ -229,7 +225,6 @@ class TeamController extends Controller
         summary: 'Authenticated Team Members',
         description: 'Get currently authenticated team members.',
         path: '/teams/current/members',
-        operationId: 'get-current-team-members',
         security: [
             ['bearerAuth' => []],
         ],

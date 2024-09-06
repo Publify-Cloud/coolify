@@ -13,7 +13,6 @@ class ProjectController extends Controller
         summary: 'List',
         description: 'list projects.',
         path: '/projects',
-        operationId: 'list-projects',
         security: [
             ['bearerAuth' => []],
         ],
@@ -57,7 +56,6 @@ class ProjectController extends Controller
         summary: 'Get',
         description: 'Get project by Uuid.',
         path: '/projects/{uuid}',
-        operationId: 'get-project-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -104,7 +102,6 @@ class ProjectController extends Controller
         summary: 'Environment',
         description: 'Get environment by name.',
         path: '/projects/{uuid}/{environment_name}',
-        operationId: 'get-environment-by-name',
         security: [
             ['bearerAuth' => []],
         ],
@@ -145,9 +142,6 @@ class ProjectController extends Controller
             return response()->json(['message' => 'Environment name is required.'], 422);
         }
         $project = Project::whereTeamId($teamId)->whereUuid($request->uuid)->first();
-        if (! $project) {
-            return response()->json(['message' => 'Project not found.'], 404);
-        }
         $environment = $project->environments()->whereName($request->environment_name)->first();
         if (! $environment) {
             return response()->json(['message' => 'Environment not found.'], 404);
@@ -161,7 +155,6 @@ class ProjectController extends Controller
         summary: 'Create',
         description: 'Create Project.',
         path: '/projects',
-        operationId: 'create-project',
         security: [
             ['bearerAuth' => []],
         ],
@@ -174,7 +167,7 @@ class ProjectController extends Controller
                 schema: new OA\Schema(
                     type: 'object',
                     properties: [
-                        'name' => ['type' => 'string', 'description' => 'The name of the project.'],
+                        'uuid' => ['type' => 'string', 'description' => 'The name of the project.'],
                         'description' => ['type' => 'string', 'description' => 'The description of the project.'],
                     ],
                 ),
@@ -257,7 +250,6 @@ class ProjectController extends Controller
         summary: 'Update',
         description: 'Update Project.',
         path: '/projects/{uuid}',
-        operationId: 'update-project-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
@@ -363,7 +355,6 @@ class ProjectController extends Controller
         summary: 'Delete',
         description: 'Delete project by UUID.',
         path: '/projects/{uuid}',
-        operationId: 'delete-project-by-uuid',
         security: [
             ['bearerAuth' => []],
         ],
