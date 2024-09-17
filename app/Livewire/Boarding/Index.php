@@ -83,8 +83,8 @@ hwAAAAtzc2gtZWQyNTUxOQAAACBbhpqHhqv6aI67Mj9abM3DVbmcfYhZAhC7ca4d9UCevA
 AAAECBQw4jg1WRT2IGHMncCiZhURCts2s24HoDS0thHnnRKVuGmoeGq/pojrsyP1pszcNV
 uZx9iFkCELtxrh31QJ68AAAAEXNhaWxANzZmZjY2ZDJlMmRkAQIDBA==
 -----END OPENSSH PRIVATE KEY-----';
-            $this->privateKeyDescription = 'Created by Coolify';
-            $this->remoteServerDescription = 'Created by Coolify';
+            $this->privateKeyDescription = 'Created by Publify';
+            $this->remoteServerDescription = 'Created by Publify';
             $this->remoteServerHost = 'coolify-testing-host';
         }
         // if ($this->currentState === 'create-project') {
@@ -387,7 +387,7 @@ uZx9iFkCELtxrh31QJ68AAAAEXNhaWxANzZmZjY2ZDJlMmRkAQIDBA==
     private function createNewPrivateKey()
     {
         $this->privateKeyName = generate_random_name();
-        $this->privateKeyDescription = 'Created by Coolify';
+        $this->privateKeyDescription = 'Created by Publify';
         ['private' => $this->privateKey, 'public' => $this->publicKey] = generateSSHKey();
     }
 

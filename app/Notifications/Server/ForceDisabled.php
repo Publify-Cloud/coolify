@@ -41,8 +41,8 @@ class ForceDisabled extends Notification implements ShouldQueue
 
     public function toMail(): MailMessage
     {
-        $mail = new MailMessage;
-        $mail->subject("Coolify: Server ({$this->server->name}) disabled because it is not paid!");
+        $mail = new MailMessage();
+        $mail->subject("Publify: Server ({$this->server->name}) disabled because it is not paid!");
         $mail->view('emails.server-force-disabled', [
             'name' => $this->server->name,
         ]);
@@ -52,7 +52,7 @@ class ForceDisabled extends Notification implements ShouldQueue
 
     public function toDiscord(): string
     {
-        $message = "Coolify: Server ({$this->server->name}) disabled because it is not paid!\n All automations and integrations are stopped.\nPlease update your subscription to enable the server again [here](https://app.coolify.io/subsciprtions).";
+        $message = "Publify: Server ({$this->server->name}) disabled because it is not paid!\n All automations and integrations are stopped.\nPlease update your subscription to enable the server again [here](https://app.coolify.io/subsciprtions).";
 
         return $message;
     }
@@ -60,7 +60,7 @@ class ForceDisabled extends Notification implements ShouldQueue
     public function toTelegram(): array
     {
         return [
-            'message' => "Coolify: Server ({$this->server->name}) disabled because it is not paid!\n All automations and integrations are stopped.\nPlease update your subscription to enable the server again [here](https://app.coolify.io/subsciprtions).",
+            'message' => "Publify: Server ({$this->server->name}) disabled because it is not paid!\n All automations and integrations are stopped.\nPlease update your subscription to enable the server again [here](https://app.coolify.io/subsciprtions).",
         ];
     }
 }

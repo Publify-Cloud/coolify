@@ -34,7 +34,7 @@ class SyncBunny extends Command
         $only_template = $this->option('templates');
         $only_version = $this->option('release');
         $nightly = $this->option('nightly');
-        $bunny_cdn = 'https://cdn.coollabs.io';
+        $bunny_cdn = 'https://cdn.publify.justahost.cloud';
         $bunny_cdn_path = 'coolify';
         $bunny_cdn_storage_name = 'coolcdn';
 

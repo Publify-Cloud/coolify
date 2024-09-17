@@ -4,7 +4,7 @@
 # logo: svgs/plunk.svg
 # port: 3000
 
-version: '3'
+version: "3"
 services:
   plunk:
     image: driaug/plunk
@@ -26,7 +26,7 @@ services:
       - APP_URI=${SERVICE_FQDN_PLUNK}
       - API_URI=${SERVICE_FQDN_PLUNK}/api
       - DISABLE_SIGNUPS=False
-    entrypoint: [ "/app/entry.sh" ]
+    entrypoint: ["/app/entry.sh"]
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000"]
       interval: 2s
@@ -41,7 +41,7 @@ services:
     volumes:
       - postgresql-data:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres -d postgres" ]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
       interval: 5s
       timeout: 10s
       retries: 20

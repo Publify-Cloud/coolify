@@ -178,7 +178,7 @@ class Init extends Command
         try {
             $database = StandalonePostgresql::withTrashed()->find(0);
             if ($database && $database->trashed()) {
-                echo "Restoring coolify db backup\n";
+                echo "Restoring Publify db backup\n";
                 $database->restore();
                 $scheduledBackup = ScheduledDatabaseBackup::find(0);
                 if (! $scheduledBackup) {
@@ -194,7 +194,7 @@ class Init extends Command
                 }
             }
         } catch (\Throwable $e) {
-            echo "Error in restoring coolify db backup: {$e->getMessage()}\n";
+            echo "Error in restoring Publify db backup: {$e->getMessage()}\n";
         }
     }
 

@@ -2,7 +2,7 @@
 ## Do not modify this file. You will lose the ability to autoupdate!
 
 VERSION="1.1"
-CDN="https://cdn.coollabs.io/coolify"
+CDN="https://cdn.publify.justahost.cloud"
 LATEST_IMAGE=${1:-latest}
 LATEST_HELPER_VERSION=${2:-latest}
 

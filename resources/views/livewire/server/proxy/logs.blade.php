@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Proxy Logs | Coolify
+        Proxy Logs | Publify
     </x-slot>
     <x-server.navbar :server="$server" :parameters="$parameters" />
     <div class="flex gap-2">

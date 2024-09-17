@@ -73,7 +73,7 @@ class SettingsBackup extends Component
             $this->database = StandalonePostgresql::create([
                 'id' => 0,
                 'name' => 'coolify-db',
-                'description' => 'Coolify database',
+                'description' => 'Publify database',
                 'postgres_user' => $postgres_user,
                 'postgres_password' => $postgres_password,
                 'postgres_db' => $postgres_db,

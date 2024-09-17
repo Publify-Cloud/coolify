@@ -2,7 +2,7 @@
 ## Do not modify this file. You will lose the ability to autoupdate!
 
 VERSION="1.1"
-CDN="https://cdn.coollabs.io/coolify-nightly"
+CDN="https://cdn.publify.justahost.cloud/nightly"
 LATEST_IMAGE=${1:-latest}
 LATEST_HELPER_VERSION=${2:-latest}
 
@@ -26,7 +26,7 @@ if grep -q "PUSHER_APP_SECRET=$" /data/coolify/source/.env; then
 fi
 
 # Make sure coolify network exists
-# It is created when starting Coolify with docker compose
+# It is created when starting Publify with docker compose
 docker network create --attachable coolify 2>/dev/null
 # docker network create --attachable --driver=overlay coolify-overlay 2>/dev/null
 

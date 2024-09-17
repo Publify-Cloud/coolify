@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Sources | Coolify
+        Sources | Publify
     </x-slot>
     <div class="flex items-start gap-2">
         <h1>Sources</h1>

@@ -5,7 +5,7 @@ set -e # Exit immediately if a command exits with a non-zero status
 ## $1 could be empty, so we need to disable this check
 #set -u # Treat unset variables as an error and exit
 set -o pipefail # Cause a pipeline to return the status of the last command that exited with a non-zero status
-CDN="https://cdn.coollabs.io/coolify-nightly"
+CDN="https://cdn.publify.justahost.cloud/nightly"
 DATE=$(date +"%Y%m%d-%H%M%S")
 
 VERSION="1.5"
@@ -98,19 +98,17 @@ fi
 
 echo -e "\033[0;35m"
 cat << "EOF"
-   _____            _ _  __
-  / ____|          | (_)/ _|
- | |     ___   ___ | |_| |_ _   _
- | |    / _ \ / _ \| | |  _| | | |
- | |___| (_) | (_) | | | | | |_| |
-  \_____\___/ \___/|_|_|_|  \__, |
-                             __/ |
-                            |___/
+ ____        _     _ _  __
+|  _ \ _   _| |__ | (_)/ _|_   _
+| |_) | | | | '_ \| | | |_| | | |
+|  __/| |_| | |_) | | |  _| |_| |
+|_|    \__,_|_.__/|_|_|_|  \__, |
+                           |___/
 EOF
 echo -e "\033[0m"
-echo -e "Welcome to Coolify Installer!"
+echo -e "Welcome to Publify Installer!"
 echo -e "This script will install everything for you. Sit back and relax."
-echo -e "Source code: https://github.com/coollabsio/coolify/blob/main/scripts/install.sh\n"
+echo -e "Source code: https://cdn.publify.justahost.cloud/install.sh\n"
 echo -e "---------------------------------------------"
 echo "| Operating System  | $OS_TYPE $OS_VERSION"
 echo "| Docker            | $DOCKER_VERSION"
@@ -182,7 +180,7 @@ fi
 if [ "$SSH_DETECTED" = "false" ]; then
     echo "###############################################################################"
     echo "WARNING: Could not detect if OpenSSH server is installed and running - this does not mean that it is not installed, just that we could not detect it."
-    echo -e "Please make sure it is set, otherwise Coolify cannot connect to the host system. \n"
+    echo -e "Please make sure it is set, otherwise Publify cannot connect to the host system. \n"
     echo "###############################################################################"
 fi
 
@@ -200,7 +198,7 @@ if [ -x "$(command -v snap)" ]; then
     SNAP_DOCKER_INSTALLED=$(snap list docker >/dev/null 2>&1 && echo "true" || echo "false")
     if [ "$SNAP_DOCKER_INSTALLED" = "true" ]; then
         echo " - Docker is installed via snap."
-        echo "   Please note that Coolify does not support Docker installed via snap."
+        echo "   Please note that Publify does not support Docker installed via snap."
         echo "   Please remove Docker with snap (snap remove docker) and reexecute this script."
         exit 1
     fi
@@ -491,7 +489,7 @@ bash /data/coolify/source/upgrade.sh "${LATEST_VERSION:-latest}" "${LATEST_HELPE
 echo " - Coolify installed successfully."
 rm -f $ENV_FILE-$DATE
 
-echo " - Waiting for 20 seconds for Coolify (database migrations) to be ready."
+echo " - Waiting for 20 seconds for Publify (database migrations) to be ready."
 getAJoke
 
 sleep 20
