@@ -68,11 +68,13 @@
                         <option value="www">Redirect to www.</option>
                         <option value="non-www">Redirect to non-www.</option>
                     </x-forms.select>
-                    <x-modal-confirmation action="set_redirect">
+                    <x-modal-confirmation title="Confirm Redirection Setting?" buttonTitle="Set Direction"
+                        submitAction="set_redirect" :actions="['All traffic will be redirected to the selected direction.']" confirmationText="{{ $application->fqdn . '/' }}"
+                        confirmationLabel="Please confirm the execution of the action by entering the Application URL below"
+                        shortConfirmationLabel="Application URL" :confirmWithPassword="false" step2ButtonText="Set Direction">
                         <x-slot:customButton>
                             <div class="w-[7.2rem]">Set Direction</div>
                         </x-slot:customButton>
-                        This will reset the container labels. Are you sure?
                     </x-modal-confirmation>
                 </div>
             @endif
@@ -222,7 +224,7 @@
                                 </div>
                             @endif
                             <x-forms.input
-                                helper="You can add custom docker run options that will be used when your container is started.<br>Note: Not all options are supported, as they could mess up Coolify's automation and could cause bad experience for users.<br><br>Check the <a class='underline dark:text-white' href='https://coolify.io/docs/knowledge-base/docker/custom-commands'>docs.</a>"
+                                helper="You can add custom docker run options that will be used when your container is started.<br>Note: Not all options are supported, as they could mess up Publify's automation and could cause bad experience for users.<br><br>Check the <a class='underline dark:text-white' href='https://coolify.io/docs/knowledge-base/docker/custom-commands'>docs.</a>"
                                 placeholder="--cap-add SYS_ADMIN --device=/dev/fuse --security-opt apparmor:unconfined --ulimit nofile=1024:1024 --tmpfs /run:rw,noexec,nosuid,size=65536k"
                                 id="application.custom_docker_run_options" label="Custom Docker Options" />
 
@@ -268,7 +270,7 @@
                         helper="By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$.<br><br>If you want to use env variables inside the labels, turn this off."
                         id="application.settings.is_container_label_escape_enabled" instantSave></x-forms.checkbox>
                     <x-forms.checkbox label="Readonly labels"
-                        helper="If you know what are you doing, you can enable this to edit the labels directly. Coolify won't update labels automatically. <br><br>Be careful, it could break the proxy configuration after you restart the container."
+                        helper="If you know what are you doing, you can enable this to edit the labels directly. Publify won't update labels automatically. <br><br>Be careful, it could break the proxy configuration after you restart the container."
                         id="application.settings.is_container_label_readonly_enabled" instantSave></x-forms.checkbox>
                 </div>
             @endif
@@ -299,13 +301,18 @@
                         helper="By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$.<br><br>If you want to use env variables inside the labels, turn this off."
                         id="application.settings.is_container_label_escape_enabled" instantSave></x-forms.checkbox>
                     <x-forms.checkbox label="Readonly labels"
-                        helper="If you know what are you doing, you can enable this to edit the labels directly. Coolify won't update labels automatically. <br><br>Be careful, it could break the proxy configuration after you restart the container."
+                        helper="If you know what are you doing, you can enable this to edit the labels directly. Publify won't update labels automatically. <br><br>Be careful, it could break the proxy configuration after you restart the container."
                         id="application.settings.is_container_label_readonly_enabled" instantSave></x-forms.checkbox>
                 </div>
-                <x-modal-confirmation buttonFullWidth action="resetDefaultLabels" buttonTitle="Reset to Coolify Generated Labels">
-                    Are you sure you want to reset the labels to Publify generated labels? <br>It could break the proxy configuration after you restart the container.
-                </x-modal-confirmation>
-
+                <x-modal-confirmation title="Confirm Labels Reset to Publify Defaults?"
+                    buttonTitle="Reset Labels to Publify Defaults" buttonFullWidth submitAction="resetDefaultLabels"
+                    :actions="[
+                        'All your custom proxy labels will be lost.',
+                        'Proxy labels (traefik, caddy, etc) will be reset to the publify defaults.',
+                    ]" confirmationText="{{ $application->fqdn . '/' }}"
+                    confirmationLabel="Please confirm the execution of the actions by entering the Application URL below"
+                    shortConfirmationLabel="Application URL" :confirmWithPassword="false"
+                    step2ButtonText="Permanently Reset Labels" />
             @endif
 
             <h3 class="pt-8">Pre/Post Deployment Commands</h3>

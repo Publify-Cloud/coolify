@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Settings | Coolify
+        Settings | Publify
     </x-slot>
     <x-settings.navbar />
     <div class="flex flex-col">

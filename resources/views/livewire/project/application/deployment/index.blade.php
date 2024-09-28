@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        {{ data_get_str($application, 'name')->limit(10) }} > Deployments | Coolify
+        {{ data_get_str($application, 'name')->limit(10) }} > Deployments | Publify
     </x-slot>
     <h1>Deployments</h1>
     <livewire:project.shared.configuration-checker :resource="$application" />

@@ -10,7 +10,7 @@
                 Save
             </x-forms.button>
         </div>
-        <div>General configuration for your Coolify instance.</div>
+        <div>General configuration for your Publify instance.</div>
 
         <div class="flex flex-col gap-2">
             <h4 class="pt-6">Instance Settings</h4>
@@ -19,7 +19,7 @@
                     <x-forms.input id="settings.fqdn" label="Instance's Domain"
                         helper="Enter the full domain name (FQDN) of the instance, including 'https://' if you want to secure the dashboard with HTTPS. Setting this will make the dashboard accessible via this domain, secured by HTTPS, instead of just the IP address."
                         placeholder="https://coolify.yourdomain.com" />
-                    <x-forms.input id="settings.instance_name" label="Instance's Name" placeholder="Coolify" />
+                    <x-forms.input id="settings.instance_name" label="Instance's Name" placeholder="Publify" />
                     <div class="w-full" x-data="{
                         open: false,
                         search: '{{ $settings->instance_timezone ?: '' }}',
@@ -37,7 +37,7 @@
                             <label for="settings.instance_timezone">Instance
                                 Timezone</label>
                             <x-helper class="ml-2"
-                                helper="Timezone for the Coolify instance. This is used for the update check and automatic update frequency." />
+                                helper="Timezone for the Publify instance. This is used for the update check and automatic update frequency." />
                         </div>
                         <div class="relative">
                             <div class="inline-flex items-center relative w-full">
@@ -110,7 +110,7 @@
             <div class="flex items-end gap-2">
                 <x-forms.input required id="update_check_frequency" label="Update Check Frequency"
                     placeholder="0 * * * *"
-                    helper="Cron expression for update check frequency (check for new Coolify versions and pull new Service Templates from CDN).<br>You can use every_minute, hourly, daily, weekly, monthly, yearly.<br><br>Default is every hour." />
+                    helper="Cron expression for update check frequency (check for new Publify versions and pull new Service Templates from CDN).<br>You can use every_minute, hourly, daily, weekly, monthly, yearly.<br><br>Default is every hour." />
                 <x-forms.button wire:click='checkManually'>Check Manually</x-forms.button>
             </div>
 
