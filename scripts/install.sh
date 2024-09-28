@@ -8,8 +8,10 @@ set -o pipefail # Cause a pipeline to return the status of the last command that
 CDN="https://cdn.publify.justahost.cloud"
 DATE=$(date +"%Y%m%d-%H%M%S")
 
-VERSION="1.5"
+VERSION="1.6"
 DOCKER_VERSION="26.0"
+# TODO: Ask for a user
+CURRENT_USER=$USER
 
 mkdir -p /data/coolify/{source,ssh,applications,databases,backups,services,proxy,webhooks-during-maintenance,metrics,logs}
 mkdir -p /data/coolify/ssh/{keys,mux}
@@ -23,7 +25,7 @@ INSTALLATION_LOG_WITH_DATE="/data/coolify/source/installation-${DATE}.log"
 exec > >(tee -a $INSTALLATION_LOG_WITH_DATE) 2>&1
 
 getAJoke() {
-    JOKES=$(curl -s --max-time 2 https://v2.jokeapi.dev/joke/Programming?format=txt&type=single&amount=1 || true)
+    JOKES=$(curl -s --max-time 2 "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt&type=single" || true)
     if [ "$JOKES" != "" ]; then
         echo -e " - Until then, here's a joke for you:\n"
         echo -e "$JOKES\n"
@@ -35,6 +37,11 @@ ENV_FILE="/data/coolify/source/.env"
 # Check if the OS is manjaro, if so, change it to arch
 if [ "$OS_TYPE" = "manjaro" ] || [ "$OS_TYPE" = "manjaro-arm" ]; then
     OS_TYPE="arch"
+fi
+
+# Check if the OS is Asahi Linux, if so, change it to fedora
+if [ "$OS_TYPE" = "fedora-asahi-remix" ]; then
+    OS_TYPE="fedora"
 fi
 
 # Check if the OS is popOS, if so, change it to ubuntu
@@ -112,7 +119,7 @@ echo -e "Source code: https://cdn.publify.justahost.cloud/install.sh\n"
 echo -e "---------------------------------------------"
 echo "| Operating System  | $OS_TYPE $OS_VERSION"
 echo "| Docker            | $DOCKER_VERSION"
-echo "| Coolify           | $LATEST_VERSION"
+echo "| Publify           | $LATEST_VERSION"
 echo "| Helper            | $LATEST_HELPER_VERSION"
 echo "| Realtime          | $LATEST_REALTIME_VERSION"
 echo -e "---------------------------------------------\n"
@@ -394,99 +401,29 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
     chmod 600 ~/.ssh/authorized_keys
 fi
 
-checkSshKeyInAuthorizedKeys() {
-    grep -qw "root@coolify" ~/.ssh/authorized_keys
-    return $?
-}
+set +e
+IS_COOLIFY_VOLUME_EXISTS=$(docker volume ls | grep coolify-db | wc -l)
+set -e
 
-checkSshKeyInCoolifyData() {
-    [ -s /data/coolify/ssh/keys/id.root@host.docker.internal ]
-    return $?
-}
-
-generateAuthorizedKeys() {
-    sed -i "/root@coolify/d" ~/.ssh/authorized_keys
-    cat /data/coolify/ssh/keys/id.root@host.docker.internal.pub >> ~/.ssh/authorized_keys
-    rm -f /data/coolify/ssh/keys/id.root@host.docker.internal.pub
-}
-generateSshKey() {
+if [ "$IS_COOLIFY_VOLUME_EXISTS" -eq 0 ]; then
     echo " - Generating SSH key."
-    ssh-keygen -t ed25519 -a 100 -f /data/coolify/ssh/keys/id.root@host.docker.internal -q -N "" -C root@coolify
-    chown 9999 /data/coolify/ssh/keys/id.root@host.docker.internal
-    generateAuthorizedKeys
-}
-
-syncSshKeys() {
-    DB_RUNNING=$(docker inspect coolify-db --format '{{ .State.Status }}' 2>/dev/null)
-    # Check if SSH key exists in Coolify data but not in authorized_keys
-    if checkSshKeyInCoolifyData && ! checkSshKeyInAuthorizedKeys; then
-        # Add the existing Coolify SSH key to authorized_keys
-        cat /data/coolify/ssh/keys/id.root@host.docker.internal.pub >> ~/.ssh/authorized_keys
-    # Check if SSH key exists in authorized_keys but not in Coolify data
-    elif checkSshKeyInAuthorizedKeys && ! checkSshKeyInCoolifyData; then
-        # Ensure Coolify DB is running before proceeding
-        if [ "$DB_RUNNING" = "running" ]; then
-            # Retrieve DB user and SSH key from Coolify database
-            DB_USER=$(docker inspect coolify-db --format '{{ .Config.Env }}' | grep -oP 'POSTGRES_USER=\K[^ ]+')
-            DB_SSH_KEY=$(docker exec coolify-db psql -U $DB_USER -d coolify -t -c "SELECT \"private_key\" FROM \"private_keys\" WHERE id = 0 AND team_id = 0 LIMIT 1;" -A -t)
-
-            if [ -z "$DB_SSH_KEY" ]; then
-                # If no key found in DB, generate a new one
-                echo " - SSH key not found in database. Generating new key."
-                generateSshKey
-            else
-                # If key found in DB, save it and update authorized_keys
-                echo " - SSH key found in database. Saving to file."
-                echo "$DB_SSH_KEY" > /data/coolify/ssh/keys/id.root@host.docker.internal
-                chmod 600 /data/coolify/ssh/keys/id.root@host.docker.internal
-                chown 9999 /data/coolify/ssh/keys/id.root@host.docker.internal
-
-                # Generate public key from private key and update authorized_keys
-                ssh-keygen -y -f /data/coolify/ssh/keys/id.root@host.docker.internal -C root@coolify > /data/coolify/ssh/keys/id.root@host.docker.internal.pub
-                sed -i "/root@coolify/d" ~/.ssh/authorized_keys
-                cat /data/coolify/ssh/keys/id.root@host.docker.internal.pub >> ~/.ssh/authorized_keys
-                rm -f /data/coolify/ssh/keys/id.root@host.docker.internal.pub
-                chmod 600 ~/.ssh/authorized_keys
-            fi
-        fi
-    # If SSH key doesn't exist in either location
-    elif ! checkSshKeyInAuthorizedKeys && ! checkSshKeyInCoolifyData; then
-        # Ensure Coolify DB is running before proceeding
-        if [ "$DB_RUNNING" = "running" ]; then
-            # Retrieve DB user and SSH key from Coolify database
-            DB_USER=$(docker inspect coolify-db --format '{{ .Config.Env }}' | grep -oP 'POSTGRES_USER=\K[^ ]+')
-            DB_SSH_KEY=$(docker exec coolify-db psql -U $DB_USER -d coolify -t -c "SELECT \"private_key\" FROM \"private_keys\" WHERE id = 0 AND team_id = 0 LIMIT 1;" -A -t)
-            if [ -z "$DB_SSH_KEY" ]; then
-                # If no key found in DB, generate a new one
-                echo " - SSH key not found in database. Generating new key."
-                generateSshKey
-            else
-                # If key found in DB, save it and update authorized_keys
-                echo " - SSH key found in database. Saving to file."
-                echo "$DB_SSH_KEY" > /data/coolify/ssh/keys/id.root@host.docker.internal
-                chmod 600 /data/coolify/ssh/keys/id.root@host.docker.internal
-                ssh-keygen -y -f /data/coolify/ssh/keys/id.root@host.docker.internal -C root@coolify > /data/coolify/ssh/keys/id.root@host.docker.internal.pub
-                sed -i "/root@coolify/d" ~/.ssh/authorized_keys
-                cat /data/coolify/ssh/keys/id.root@host.docker.internal.pub >> ~/.ssh/authorized_keys
-            fi
-        else
-         generateSshKey
-        fi
-    fi
-}
-
-syncSshKeys || true
+    ssh-keygen -t ed25519 -a 100 -f /data/coolify/ssh/keys/id.$CURRENT_USER@host.docker.internal -q -N "" -C coolify
+    chown 9999 /data/coolify/ssh/keys/id.$CURRENT_USER@host.docker.internal
+    sed -i "/coolify/d" ~/.ssh/authorized_keys
+    cat /data/coolify/ssh/keys/id.$CURRENT_USER@host.docker.internal.pub >> ~/.ssh/authorized_keys
+    rm -f /data/coolify/ssh/keys/id.$CURRENT_USER@host.docker.internal.pub
+fi
 
 chown -R 9999:root /data/coolify
 chmod -R 700 /data/coolify
 
-echo -e "9. Installing Coolify ($LATEST_VERSION)"
+echo -e "9. Installing Publify ($LATEST_VERSION)"
 echo -e " - It could take a while based on your server's performance, network speed, stars, etc."
 echo -e " - Please wait."
 getAJoke
 
-bash /data/coolify/source/upgrade.sh "${LATEST_VERSION:-latest}" "${LATEST_HELPER_VERSION:-latest}" >/dev/null 2>&1
-echo " - Coolify installed successfully."
+bash /data/coolify/source/upgrade.sh "${LATEST_VERSION:-latest}" "${LATEST_HELPER_VERSION:-latest}"
+echo " - Publify installed successfully."
 rm -f $ENV_FILE-$DATE
 
 echo " - Waiting for 20 seconds for Publify (database migrations) to be ready."

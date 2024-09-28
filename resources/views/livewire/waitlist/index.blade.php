@@ -2,7 +2,7 @@
     <div class="w-96 min-w-fit">
         <div class="flex flex-col items-center pb-8">
             <a href="{{ route('dashboard') }}">
-                <div class="text-5xl font-bold tracking-tight text-center dark:text-white">Coolify</div>
+                <div class="text-5xl font-bold tracking-tight text-center dark:text-white">Publify</div>
             </a>
         </div>
         <div class="flex items-center justify-center pb-4 text-center">
@@ -24,9 +24,9 @@
             <x-forms.button type="submit">Join Waitlist</x-forms.button>
         </form>
         <div>People waiting in the line: <span class="font-bold dark:text-warning">{{ $waitingInLine }}</div>
-        <div>Already using Coolify Cloud: <span class="font-bold dark:text-warning">{{ $users }}</div>
+        <div>Already using Publify Cloud: <span class="font-bold dark:text-warning">{{ $users }}</div>
         <div class="pt-8">
-            This is a paid & hosted version of Coolify.<br> See the pricing <a href="https://coolify.io/pricing"
+            This is a paid & hosted version of Publify.<br> See the pricing <a href="https://coolify.io/pricing"
                 class="dark:text-warning">here</a>.
         </div>
         <div class="pt-4">

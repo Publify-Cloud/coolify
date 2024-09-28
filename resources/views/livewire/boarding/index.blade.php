@@ -91,7 +91,7 @@
                                     <li>The correct public key is in your <code
                                             class="bg-red-200 dark:bg-red-900 px-1 rounded">~/.ssh/authorized_keys</code>
                                         file for the specified user</li>
-                                    <li>Or skip the boarding process and manually add a new private key to Coolify and
+                                    <li>Or skip the boarding process and manually add a new private key to Publify and
                                         the server</li>
                                 </ul>
                             </div>
@@ -273,27 +273,23 @@
                     Please let me know your server details.
                 </x-slot:question>
                 <x-slot:actions>
-                    <form wire:submit='saveServer' class="flex flex-col w-full gap-4 lg:pr-10">
-                        <div class="flex flex-col gap-2 lg:flex-row">
-                            <x-forms.input required placeholder="Choose a name for your Server. Could be anything."
-                                label="Name" id="remoteServerName" wire:model="remoteServerName" />
-                            <x-forms.input placeholder="Description, so others will know more about this."
-                                label="Description" id="remoteServerDescription"
-                                wire:model="remoteServerDescription" />
-                        </div>
-                        <div class="flex flex-col gap-2 lg:flex-row ">
-                            <x-forms.input required placeholder="127.0.0.1" label="IP Address" id="remoteServerHost"
-                                wire:model="remoteServerHost" />
-                        </div>
+                    <form wire:submit='saveServer' class="flex flex-col w-full gap-4 lg:w-96">
+                        <x-forms.input required placeholder="Choose a name for your Server. Could be anything."
+                            label="Name" id="remoteServerName" wire:model="remoteServerName" />
+                        <x-forms.input placeholder="Description, so others will know more about this."
+                            label="Description" id="remoteServerDescription"
+                            wire:model="remoteServerDescription" />
+                        <x-forms.input required placeholder="127.0.0.1" label="IP Address" id="remoteServerHost"
+                            wire:model="remoteServerHost" />
                         <div x-data="{ showAdvanced: false }" class="flex flex-col gap-2">
                             <button @click="showAdvanced = !showAdvanced" type="button"
                                 class="text-left text-sm text-gray-600 dark:text-gray-300 hover:underline">
                                 Advanced Settings
                             </button>
-                            <div x-show="showAdvanced" class="flex flex-col gap-2 lg:flex-row">
+                            <div x-show="showAdvanced" class="flex flex-col gap-2">
                                 <x-forms.input placeholder="Port number of your server. Default is 22." label="Port"
                                     id="remoteServerPort" wire:model="remoteServerPort" />
-                                <div class="w-full">
+                                <div>
                                     <x-forms.input placeholder="Default is root." label="User"
                                         id="remoteServerUser" wire:model="remoteServerUser" />
                                     <div class="text-xs text-gray-600 dark:text-gray-300">Non-root user is
@@ -302,11 +298,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="lg:w-64">
-                            <x-forms.checkbox
-                                helper="If you are using Cloudflare Tunnels, enable this. It will proxy all ssh requests to your server through Cloudflare.<br><span class='dark:text-warning'>Coolify does not install/setup Cloudflare (cloudflared) on your server.</span>"
-                                id="isCloudflareTunnel" label="Cloudflare Tunnel" wire:model="isCloudflareTunnel" />
                         </div>
                         <x-forms.button type="submit">Continue</x-forms.button>
                     </form>
