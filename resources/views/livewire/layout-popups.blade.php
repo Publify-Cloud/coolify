@@ -28,20 +28,24 @@
 }">
     @auth
         <span x-show="popups.realtime === true">
-            <x-popup>
-                <x-slot:title>
-                    <span class="font-bold text-left text-red-500">WARNING: </span>Realtime Error?!
-                </x-slot:title>
-                <x-slot:description>
-                    <span>Publify could not connect to its real-time service.<br>This will cause unusual problems on the UI
-                        if
-                        not fixed!
-                        </span>
-                </x-slot:description>
-                <x-slot:button-text @click="disableRealtime()">
-                    Acknowledge & Disable This Popup
-                </x-slot:button-text>
-            </x-popup>
+            @if (!isCloud())
+                <x-popup>
+                    <x-slot:title>
+                        <span class="font-bold text-left text-red-500">WARNING: </span> Cannot connect to real-time service
+                    </x-slot:title>
+                    <x-slot:description>
+                        <div>This will cause unusual problems on the
+                            UI! <br><br>
+                            Please ensure that you have opened the
+                            <a class="underline" href='#'
+                                target='_blank'>required ports</a>.
+                        </div>
+                    </x-slot:description>
+                    <x-slot:button-text @click="disableRealtime()">
+                        Acknowledge & Disable This Popup
+                    </x-slot:button-text>
+                </x-popup>
+            @endif
         </span>
     @endauth
     <span x-show="popups.sponsorship">
