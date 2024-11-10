@@ -6,6 +6,13 @@
                 <img src="/publify-logo-horizontal-light.png" alt="Publify Logo" class="hidden dark:visible dark:block dark:w-[300px] dark:h-auto">
             </a>
             <div class="w-full bg-white shadow md:mt-0 sm:max-w-md xl:p-0 dark:bg-base ">
+                @if ($errors->any())
+                    <div class="text-center text-error">
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <form action="/login" method="POST" class="flex flex-col gap-2">
                         @csrf
@@ -28,26 +35,20 @@
                             {{ __('auth.forgot_password') }}?
                         </a>
                         @endenv
-                        <x-forms.button class="mt-10" type="submit">{{ __('auth.login') }}</x-forms.button>
 
+                        <x-forms.button class="mt-4" type="submit">{{ __('auth.login') }}</x-forms.button>
+
+                        @if (session('error'))
+                            <div class="mb-4 font-medium text-red-600">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                         @if (!$is_registration_enabled)
                             <div class="text-center text-neutral-500">{{ __('auth.registration_disabled') }}</div>
-                        @endif
-                        @if ($errors->any())
-                            <div class="text-xs text-center text-error">
-                                @foreach ($errors->all() as $error)
-                                    <p>{{ $error }}</p>
-                                @endforeach
-                            </div>
                         @endif
                         @if (session('status'))
                             <div class="mb-4 font-medium text-green-600">
                                 {{ session('status') }}
-                            </div>
-                        @endif
-                        @if (session('error'))
-                            <div class="mb-4 font-medium text-red-600">
-                                {{ session('error') }}
                             </div>
                         @endif
                     </form>
