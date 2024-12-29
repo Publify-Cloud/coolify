@@ -92,7 +92,7 @@ class Test extends Notification implements ShouldQueue
     {
         return new PushoverMessage(
             title: 'Test Pushover Notification',
-            message: 'This is a test Pushover notification from Coolify.',
+            message: 'This is a test Pushover notification from Publify.',
             buttons: [
                 [
                     'text' => 'Go to your dashboard',
@@ -106,7 +106,7 @@ class Test extends Notification implements ShouldQueue
     {
         return new SlackMessage(
             title: 'Test Slack Notification',
-            description: 'This is a test Slack notification from Coolify.'
+            description: 'This is a test Slack notification from Publify.'
         );
     }
 }

@@ -200,7 +200,7 @@ class Init extends Command
             try {
                 $database = StandalonePostgresql::withTrashed()->find(0);
                 if ($database && $database->trashed()) {
-                    echo "Restoring coolify db backup\n";
+                    echo "Restoring publify db backup\n";
                     $database->restore();
                     $scheduledBackup = ScheduledDatabaseBackup::find(0);
                     if (! $scheduledBackup) {

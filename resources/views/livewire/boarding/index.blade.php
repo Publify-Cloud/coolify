@@ -22,7 +22,7 @@
                     integrations, deploy databases and services, monitor these resources with notifications and
                     alerts
                     without vendor lock-in. <br/>
-                <a href="https://coolify.io" class="dark:text-white hover:underline">Coolify Home</a>.
+                <a href="https://coolify.io" class="dark:text-white hover:underline">Publify Home</a>.
                     <br><br>
                     <span class="text-xl">
                         <x-highlighted text="Self-hosting with superpowers!" /></span>

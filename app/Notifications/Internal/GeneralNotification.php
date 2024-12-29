@@ -53,7 +53,7 @@ class GeneralNotification extends Notification implements ShouldQueue
     public function toSlack(): SlackMessage
     {
         return new SlackMessage(
-            title: 'Coolify: General Notification',
+            title: 'Publify: General Notification',
             description: $this->message,
             color: SlackMessage::infoColor(),
         );

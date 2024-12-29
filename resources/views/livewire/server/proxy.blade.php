@@ -31,7 +31,7 @@
                             label="Override default request handler"
                             helper="Requests to unknown hosts or stopped services will recieve a 503 response or be redirected to the URL you set below (need to enable this first)." />
                         @if ($redirect_enabled)
-                            <x-forms.input placeholder="https://app.coolify.io" id="redirect_url"
+                            <x-forms.input placeholder="https://app.publify.io" id="redirect_url"
                                 label="Redirect to (optional)" />
                         @endif
                     </div>

@@ -88,7 +88,7 @@ class StatusChanged extends CustomEmailNotification
             message: $message,
             buttons: [
                 [
-                    'text' => 'Open Application in Coolify',
+                    'text' => 'Open Application in Publify',
                     'url' => $this->resource_url,
                 ],
             ],

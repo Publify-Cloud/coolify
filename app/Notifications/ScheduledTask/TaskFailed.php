@@ -82,7 +82,7 @@ class TaskFailed extends CustomEmailNotification
         $buttons = [];
         if ($this->url) {
             $buttons[] = [
-                'text' => 'Open task in Coolify',
+                'text' => 'Open task in Publify',
                 'url' => (string) $this->url,
             ];
         }

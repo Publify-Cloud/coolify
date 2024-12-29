@@ -74,7 +74,7 @@ class ContainerStopped extends CustomEmailNotification
         $buttons = [];
         if ($this->url) {
             $buttons[] = [
-                'text' => 'Open Application in Coolify',
+                'text' => 'Open Application in Publify',
                 'url' => $this->url,
             ];
         }

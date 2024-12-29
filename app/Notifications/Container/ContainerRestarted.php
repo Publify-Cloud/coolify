@@ -74,7 +74,7 @@ class ContainerRestarted extends CustomEmailNotification
         $buttons = [];
         if ($this->url) {
             $buttons[] = [
-                'text' => 'Check Proxy in Coolify',
+                'text' => 'Check Proxy in Publify',
                 'url' => $this->url,
             ];
         }
