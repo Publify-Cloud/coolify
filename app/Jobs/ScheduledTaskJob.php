@@ -10,6 +10,7 @@ use App\Models\Server;
 use App\Models\Service;
 use App\Models\Team;
 use App\Notifications\ScheduledTask\TaskFailed;
+use App\Notifications\ScheduledTask\TaskSuccess;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -40,6 +41,8 @@ class ScheduledTaskJob implements ShouldQueue
 
     public function __construct($task)
     {
+        $this->onQueue('high');
+
         $this->task = $task;
         if ($service = $task->service()->first()) {
             $this->resource = $service;
@@ -109,6 +112,8 @@ class ScheduledTaskJob implements ShouldQueue
                         'message' => $this->task_output,
                     ]);
 
+                    $this->team?->notify(new TaskSuccess($this->task, $this->task_output));
+
                     return;
                 }
             }
@@ -123,7 +128,6 @@ class ScheduledTaskJob implements ShouldQueue
                 ]);
             }
             $this->team?->notify(new TaskFailed($this->task, $e->getMessage()));
-            // send_internal_notification('ScheduledTaskJob failed with: ' . $e->getMessage());
             throw $e;
         } finally {
             ScheduledTaskDone::dispatch($this->team->id);

@@ -18,6 +18,11 @@ class UpdateCoolifyJob implements ShouldBeEncrypted, ShouldQueue
 
     public $timeout = 600;
 
+    public function __construct()
+    {
+        $this->onQueue('high');
+    }
+
     public function handle(): void
     {
         try {
@@ -42,7 +47,7 @@ class UpdateCoolifyJob implements ShouldBeEncrypted, ShouldQueue
             $settings->update(['new_version_available' => false]);
             Log::info('Publify update completed successfully.');
         } catch (\Throwable $e) {
-            Log::error('UpdateCoolifyJob failed: '.$e->getMessage());
+            Log::error('UpdatePublifyJob failed: '.$e->getMessage());
             // Consider implementing a notification to administrators
         }
     }

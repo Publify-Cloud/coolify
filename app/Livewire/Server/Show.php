@@ -4,8 +4,9 @@ namespace App\Livewire\Server;
 
 use App\Actions\Server\StartSentinel;
 use App\Actions\Server\StopSentinel;
+use App\Events\ServerReachabilityChanged;
 use App\Models\Server;
-use Livewire\Attributes\Locked;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -79,9 +80,6 @@ class Show extends Component
     #[Validate(['required'])]
     public string $serverTimezone;
 
-    #[Locked]
-    public array $timezones;
-
     public function getListeners()
     {
         $teamId = auth()->user()->currentTeam()->id;
@@ -96,17 +94,34 @@ class Show extends Component
     {
         try {
             $this->server = Server::ownedByCurrentTeam()->whereUuid($server_uuid)->firstOrFail();
-            $this->timezones = collect(timezone_identifiers_list())->sort()->values()->toArray();
             $this->syncData();
         } catch (\Throwable $e) {
             return handleError($e, $this);
         }
     }
 
+    #[Computed]
+    public function timezones(): array
+    {
+        return collect(timezone_identifiers_list())
+            ->sort()
+            ->values()
+            ->toArray();
+    }
+
     public function syncData(bool $toModel = false)
     {
         if ($toModel) {
             $this->validate();
+
+            if (Server::where('team_id', currentTeam()->id)
+                ->where('ip', $this->ip)
+                ->where('id', '!=', $this->server->id)
+                ->exists()) {
+                $this->ip = $this->server->ip;
+                throw new \Exception('This IP/Domain is already in use by another server in your team.');
+            }
+
             $this->server->name = $this->name;
             $this->server->description = $this->description;
             $this->server->ip = $this->ip;
@@ -127,7 +142,14 @@ class Show extends Component
             $this->server->settings->sentinel_custom_url = $this->sentinelCustomUrl;
             $this->server->settings->is_sentinel_enabled = $this->isSentinelEnabled;
             $this->server->settings->is_sentinel_debug_enabled = $this->isSentinelDebugEnabled;
-            $this->server->settings->server_timezone = $this->serverTimezone;
+
+            if (! validate_timezone($this->serverTimezone)) {
+                $this->serverTimezone = config('app.timezone');
+                throw new \Exception('Invalid timezone.');
+            } else {
+                $this->server->settings->server_timezone = $this->serverTimezone;
+            }
+
             $this->server->settings->save();
         } else {
             $this->name = $this->server->name;
@@ -181,6 +203,7 @@ class Show extends Component
             $this->server->settings->is_reachable = $this->isReachable = true;
             $this->server->settings->is_usable = $this->isUsable = true;
             $this->server->settings->save();
+            ServerReachabilityChanged::dispatch($this->server);
             $this->dispatch('proxyStatusUpdated');
         } else {
             $this->dispatch('error', 'Server is not reachable.', 'Please validate your configuration and connection.<br><br>Check this <a target="_blank" class="underline" href="https://coolify.io/docs/knowledge-base/server/openssh">documentation</a> for further help. <br><br>Error: '.$error);

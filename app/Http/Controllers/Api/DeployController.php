@@ -16,14 +16,11 @@ class DeployController extends Controller
 {
     private function removeSensitiveData($deployment)
     {
-        $token = auth()->user()->currentAccessToken();
-        if ($token->can('view:sensitive')) {
-            return serializeApiResponse($deployment);
+        if (request()->attributes->get('can_read_sensitive', false) === false) {
+            $deployment->makeHidden([
+                'logs',
+            ]);
         }
-
-        $deployment->makeHidden([
-            'logs',
-        ]);
 
         return serializeApiResponse($deployment);
     }
@@ -307,7 +304,7 @@ class DeployController extends Controller
                 break;
             default:
                 // Database resource
-                StartDatabase::dispatch($resource)->onQueue('high');
+                StartDatabase::dispatch($resource);
                 $resource->update([
                     'started_at' => now(),
                 ]);

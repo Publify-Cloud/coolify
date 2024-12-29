@@ -20,11 +20,11 @@
                         </a>
                     </button>
                 @endif
-                <x-modal-confirmation 
+                <x-modal-confirmation
                     title="Confirm Proxy Restart?"
                     buttonTitle="Restart Proxy"
                     submitAction="restart"
-                    :actions="['This proxy will be stopped and started again.', 'All resources hosted on coolify will be unavailable during the restart.']"
+                    :actions="['This proxy will be stopped and started again.', 'All resources hosted on publify will be unavailable during the restart.']"
                     :confirmWithText="false"
                     :confirmWithPassword="false"
                     step2ButtonText="Restart Proxy"
@@ -42,11 +42,11 @@
                         Restart Proxy
                     </x-slot:button-title>
                 </x-modal-confirmation>
-                <x-modal-confirmation 
+                <x-modal-confirmation
                     title="Confirm Proxy Stopping?"
                     buttonTitle="Stop Proxy"
                     submitAction="stop(true)"
-                    :actions="['The coolify proxy will be stopped.', 'All resources hosted on coolify will be unavailable.']"
+                    :actions="['The publify proxy will be stopped.', 'All resources hosted on publify will be unavailable.']"
                     :confirmWithText="false"
                     :confirmWithPassword="false"
                     step2ButtonText="Stop Proxy"

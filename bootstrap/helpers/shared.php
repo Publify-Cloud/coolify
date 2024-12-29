@@ -7,6 +7,7 @@ use App\Models\Application;
 use App\Models\ApplicationDeploymentQueue;
 use App\Models\ApplicationPreview;
 use App\Models\EnvironmentVariable;
+use App\Models\GithubApp;
 use App\Models\InstanceSettings;
 use App\Models\LocalFileVolume;
 use App\Models\LocalPersistentVolume;
@@ -24,22 +25,15 @@ use App\Models\StandalonePostgresql;
 use App\Models\StandaloneRedis;
 use App\Models\Team;
 use App\Models\User;
-use App\Notifications\Channels\DiscordChannel;
-use App\Notifications\Channels\EmailChannel;
-use App\Notifications\Channels\TelegramChannel;
-use App\Notifications\Internal\GeneralNotification;
 use Carbon\CarbonImmutable;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Illuminate\Database\UniqueConstraintViolationException;
-use Illuminate\Mail\Message;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Process\Pool;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Request;
@@ -89,8 +83,31 @@ function metrics_dir(): string
     return base_configuration_dir().'/metrics';
 }
 
+function sanitize_string(?string $input = null): ?string
+{
+    if (is_null($input)) {
+        return null;
+    }
+    // Remove any HTML/PHP tags
+    $sanitized = strip_tags($input);
+
+    // Convert special characters to HTML entities
+    $sanitized = htmlspecialchars($sanitized, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+    // Remove any control characters
+    $sanitized = preg_replace('/[\x00-\x1F\x7F]/u', '', $sanitized);
+
+    // Trim whitespace
+    $sanitized = trim($sanitized);
+
+    return $sanitized;
+}
+
 function generate_readme_file(string $name, string $updated_at): string
 {
+    $name = sanitize_string($name);
+    $updated_at = sanitize_string($updated_at);
+
     return "Resource name: $name\nLatest Deployment Date: $updated_at";
 }
 
@@ -242,43 +259,6 @@ function generate_application_name(string $git_repository, string $git_branch, ?
     return Str::kebab("$git_repository:$git_branch-$cuid");
 }
 
-function is_transactional_emails_active(): bool
-{
-    return isEmailEnabled(\App\Models\InstanceSettings::get());
-}
-
-function set_transanctional_email_settings(?InstanceSettings $settings = null): ?string
-{
-    if (! $settings) {
-        $settings = instanceSettings();
-    }
-    config()->set('mail.from.address', data_get($settings, 'smtp_from_address'));
-    config()->set('mail.from.name', data_get($settings, 'smtp_from_name'));
-    if (data_get($settings, 'resend_enabled')) {
-        config()->set('mail.default', 'resend');
-        config()->set('resend.api_key', data_get($settings, 'resend_api_key'));
-
-        return 'resend';
-    }
-    if (data_get($settings, 'smtp_enabled')) {
-        config()->set('mail.default', 'smtp');
-        config()->set('mail.mailers.smtp', [
-            'transport' => 'smtp',
-            'host' => data_get($settings, 'smtp_host'),
-            'port' => data_get($settings, 'smtp_port'),
-            'encryption' => data_get($settings, 'smtp_encryption'),
-            'username' => data_get($settings, 'smtp_username'),
-            'password' => data_get($settings, 'smtp_password'),
-            'timeout' => data_get($settings, 'smtp_timeout'),
-            'local_domain' => null,
-        ]);
-
-        return 'smtp';
-    }
-
-    return null;
-}
-
 function base_ip(): string
 {
     if (isDev()) {
@@ -358,7 +338,7 @@ function isDev(): bool
 
 function isCloud(): bool
 {
-    return ! config('coolify.self_hosted');
+    return ! config('constants.coolify.self_hosted');
 }
 
 function translate_cron_expression($expression_to_validate): string
@@ -384,80 +364,12 @@ function validate_cron_expression($expression_to_validate): bool
 
     return $isValid;
 }
-function send_internal_notification(string $message): void
-{
-    try {
-        $team = Team::find(0);
-        $team?->notify(new GeneralNotification($message));
-    } catch (\Throwable $e) {
-        ray($e->getMessage());
-    }
-}
-function send_user_an_email(MailMessage $mail, string $email, ?string $cc = null): void
-{
-    $settings = instanceSettings();
-    $type = set_transanctional_email_settings($settings);
-    if (! $type) {
-        throw new Exception('No email settings found.');
-    }
-    if ($cc) {
-        Mail::send(
-            [],
-            [],
-            fn (Message $message) => $message
-                ->to($email)
-                ->replyTo($email)
-                ->cc($cc)
-                ->subject($mail->subject)
-                ->html((string) $mail->render())
-        );
-    } else {
-        Mail::send(
-            [],
-            [],
-            fn (Message $message) => $message
-                ->to($email)
-                ->subject($mail->subject)
-                ->html((string) $mail->render())
-        );
-    }
-}
-function isTestEmailEnabled($notifiable)
-{
-    if (data_get($notifiable, 'use_instance_email_settings') && isInstanceAdmin()) {
-        return true;
-    } elseif (data_get($notifiable, 'smtp_enabled') || data_get($notifiable, 'resend_enabled') && auth()->user()->isAdminFromSession()) {
-        return true;
-    }
 
-    return false;
-}
-function isEmailEnabled($notifiable)
+function validate_timezone(string $timezone): bool
 {
-    return data_get($notifiable, 'smtp_enabled') || data_get($notifiable, 'resend_enabled') || data_get($notifiable, 'use_instance_email_settings');
+    return in_array($timezone, timezone_identifiers_list());
 }
-function setNotificationChannels($notifiable, $event)
-{
-    $channels = [];
-    $isEmailEnabled = isEmailEnabled($notifiable);
-    $isDiscordEnabled = data_get($notifiable, 'discord_enabled');
-    $isTelegramEnabled = data_get($notifiable, 'telegram_enabled');
-    $isSubscribedToEmailEvent = data_get($notifiable, "smtp_notifications_$event");
-    $isSubscribedToDiscordEvent = data_get($notifiable, "discord_notifications_$event");
-    $isSubscribedToTelegramEvent = data_get($notifiable, "telegram_notifications_$event");
 
-    if ($isDiscordEnabled && $isSubscribedToDiscordEvent) {
-        $channels[] = DiscordChannel::class;
-    }
-    if ($isEmailEnabled && $isSubscribedToEmailEvent) {
-        $channels[] = EmailChannel::class;
-    }
-    if ($isTelegramEnabled && $isSubscribedToTelegramEvent) {
-        $channels[] = TelegramChannel::class;
-    }
-
-    return $channels;
-}
 function parseEnvFormatToArray($env_file_contents)
 {
     $env_array = [];
@@ -912,6 +824,12 @@ function generateEnvValue(string $command, Service|Application|null $service = n
         case 'PASSWORD_64':
             $generatedValue = Str::password(length: 64, symbols: false);
             break;
+        case 'PASSWORDWITHSYMBOLS':
+            $generatedValue = Str::password(symbols: true);
+            break;
+        case 'PASSWORDWITHSYMBOLS_64':
+            $generatedValue = Str::password(length: 64, symbols: true);
+            break;
             // This is not base64, it's just a random string
         case 'BASE64_64':
             $generatedValue = Str::random(64);
@@ -933,6 +851,15 @@ function generateEnvValue(string $command, Service|Application|null $service = n
         case 'REALBASE64':
         case 'REALBASE64_32':
             $generatedValue = base64_encode(Str::random(32));
+            break;
+        case 'HEX_32':
+            $generatedValue = bin2hex(Str::random(32));
+            break;
+        case 'HEX_64':
+            $generatedValue = bin2hex(Str::random(64));
+            break;
+        case 'HEX_128':
+            $generatedValue = bin2hex(Str::random(128));
             break;
         case 'USER':
             $generatedValue = Str::random(16);
@@ -988,7 +915,7 @@ function generateEnvValue(string $command, Service|Application|null $service = n
 
 function getRealtime()
 {
-    $envDefined = env('PUSHER_PORT');
+    $envDefined = config('constants.pusher.port');
     if (empty($envDefined)) {
         $url = Url::fromString(Request::getSchemeAndHttpHost());
         $port = $url->getPort();
@@ -4061,4 +3988,84 @@ function isEmailRateLimited(string $limiterKey, int $decaySeconds = 3600, ?calla
     }
 
     return $rateLimited;
+}
+
+function defaultNginxConfiguration(): string
+{
+    return 'server {
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        try_files $uri $uri.html $uri/index.html $uri/index.htm $uri/ /index.html /index.htm =404;
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+        try_files $uri @redirect_to_index;
+        internal;
+    }
+
+    error_page 404 = @handle_404;
+
+    location @handle_404 {
+        root /usr/share/nginx/html;
+        try_files /404.html @redirect_to_index;
+        internal;
+    }
+
+    location @redirect_to_index {
+        return 302 /;
+    }
+}';
+}
+
+function convertGitUrl(string $gitRepository, string $deploymentType, ?GithubApp $source = null): array
+{
+    $repository = $gitRepository;
+    $providerInfo = [
+        'host' => null,
+        'user' => 'git',
+        'port' => 22,
+        'repository' => $gitRepository,
+    ];
+    $sshMatches = [];
+    $matches = [];
+
+    // Let's try and parse the string to detect if it's a valid SSH string or not
+    preg_match('/((.*?)\:\/\/)?(.*@.*:.*)/', $gitRepository, $sshMatches);
+
+    if ($deploymentType === 'deploy_key' && empty($sshMatches) && $source) {
+        // If this happens, the user may have provided an HTTP URL when they needed an SSH one
+        // Let's try and fix that for known Git providers
+        switch ($source->getMorphClass()) {
+            case \App\Models\GithubApp::class:
+                $providerInfo['host'] = Url::fromString($source->html_url)->getHost();
+                $providerInfo['port'] = $source->custom_port;
+                $providerInfo['user'] = $source->custom_user;
+                break;
+        }
+        if (! empty($providerInfo['host'])) {
+            // Until we do not support more providers with App (like GithubApp), this will be always true, port will be 22
+            if ($providerInfo['port'] === 22) {
+                $repository = "{$providerInfo['user']}@{$providerInfo['host']}:{$providerInfo['repository']}";
+            } else {
+                $repository = "ssh://{$providerInfo['user']}@{$providerInfo['host']}:{$providerInfo['port']}/{$providerInfo['repository']}";
+            }
+        }
+    }
+
+    preg_match('/(?<=:)\d+(?=\/)/', $gitRepository, $matches);
+
+    if (count($matches) === 1) {
+        $providerInfo['port'] = $matches[0];
+        $gitHost = str($gitRepository)->before(':');
+        $gitRepo = str($gitRepository)->after('/');
+        $repository = "$gitHost:$gitRepo";
+    }
+
+    return [
+        'repository' => $repository,
+        'port' => $providerInfo['port'],
+    ];
 }

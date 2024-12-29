@@ -12,10 +12,10 @@
                     <x-forms.button type="submit">Save</x-forms.button>
                     <x-modal-confirmation title="Confirm Docker Cleanup?" buttonTitle="Trigger Manual Cleanup"
                         isHighlightedButton submitAction="manualCleanup" :actions="[
-                            'Permanently deletes all stopped containers managed by Coolify (as containers are non-persistent, no data will be lost)',
+                            'Permanently deletes all stopped containers managed by Publify (as containers are non-persistent, no data will be lost)',
                             'Permanently deletes all unused images',
                             'Clears build cache',
-                            'Removes old versions of the Coolify helper image',
+                            'Removes old versions of the Publify helper image',
                             'Optionally permanently deletes all unused volumes (if enabled in advanced options).',
                             'Optionally permanently deletes all unused networks (if enabled in advanced options).',
                         ]" :confirmWithText="false"
@@ -29,7 +29,7 @@
                     <div class="flex flex-wrap gap-2 sm:flex-nowrap pt-4">
                         <x-forms.input id="serverDiskUsageNotificationThreshold"
                             label="Server disk usage notification threshold (%)" required
-                            helper="If the server disk usage exceeds this threshold, Coolify will send a notification to the team members." />
+                            helper="If the server disk usage exceeds this threshold, Publify will send a notification to the team members." />
                     </div>
                 </div>
                 <div class="flex flex-col gap-2">
@@ -49,10 +49,10 @@
                             <x-forms.checkbox
                                 helper="Enabling Force Docker Cleanup or manually triggering a cleanup will perform the following actions:
                         <ul class='list-disc pl-4 mt-2'>
-                            <li>Removes stopped containers managed by Coolify (as containers are none persistent, no data will be lost).</li>
+                            <li>Removes stopped containers managed by Publify (as containers are none persistent, no data will be lost).</li>
                             <li>Deletes unused images.</li>
                             <li>Clears build cache.</li>
-                            <li>Removes old versions of the Coolify helper image.</li>
+                            <li>Removes old versions of the Publify helper image.</li>
                             <li>Optionally delete unused volumes (if enabled in advanced options).</li>
                             <li>Optionally remove unused networks (if enabled in advanced options).</li>
                         </ul>"
