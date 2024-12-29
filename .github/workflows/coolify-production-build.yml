@@ -11,7 +11,7 @@ on:
       - docker/coolify-helper/Dockerfile
       - docker/coolify-realtime/Dockerfile
       - docker/testing-host/Dockerfile
-      - templates/*
+      - templates/**
 
 env:
   GITHUB_REGISTRY: ghcr.io
@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker/prod/Dockerfile
+          file: docker/production/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
@@ -82,7 +82,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: docker/prod/Dockerfile
+          file: docker/production/Dockerfile
           platforms: linux/aarch64
           push: true
           tags: |

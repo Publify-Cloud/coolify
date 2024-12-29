@@ -19,25 +19,22 @@ class DatabasesController extends Controller
 {
     private function removeSensitiveData($database)
     {
-        $token = auth()->user()->currentAccessToken();
         $database->makeHidden([
             'id',
             'laravel_through_key',
         ]);
-        if ($token->can('view:sensitive')) {
-            return serializeApiResponse($database);
+        if (request()->attributes->get('can_read_sensitive', false) === false) {
+            $database->makeHidden([
+                'internal_db_url',
+                'external_db_url',
+                'postgres_password',
+                'dragonfly_password',
+                'redis_password',
+                'mongo_initdb_root_password',
+                'keydb_password',
+                'clickhouse_admin_password',
+            ]);
         }
-
-        $database->makeHidden([
-            'internal_db_url',
-            'external_db_url',
-            'postgres_password',
-            'dragonfly_password',
-            'redis_password',
-            'mongo_initdb_root_password',
-            'keydb_password',
-            'clickhouse_admin_password',
-        ]);
 
         return serializeApiResponse($database);
     }
@@ -211,8 +208,9 @@ class DatabasesController extends Controller
                         'mongo_conf' => ['type' => 'string', 'description' => 'Mongo conf'],
                         'mongo_initdb_root_username' => ['type' => 'string', 'description' => 'Mongo initdb root username'],
                         'mongo_initdb_root_password' => ['type' => 'string', 'description' => 'Mongo initdb root password'],
-                        'mongo_initdb_init_database' => ['type' => 'string', 'description' => 'Mongo initdb init database'],
+                        'mongo_initdb_database' => ['type' => 'string', 'description' => 'Mongo initdb init database'],
                         'mysql_root_password' => ['type' => 'string', 'description' => 'MySQL root password'],
+                        'mysql_password' => ['type' => 'string', 'description' => 'MySQL password'],
                         'mysql_user' => ['type' => 'string', 'description' => 'MySQL user'],
                         'mysql_database' => ['type' => 'string', 'description' => 'MySQL database'],
                         'mysql_conf' => ['type' => 'string', 'description' => 'MySQL conf'],
@@ -241,7 +239,7 @@ class DatabasesController extends Controller
     )]
     public function update_by_uuid(Request $request)
     {
-        $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'postgres_user', 'postgres_password', 'postgres_db', 'postgres_initdb_args', 'postgres_host_auth_method', 'postgres_conf', 'clickhouse_admin_user', 'clickhouse_admin_password', 'dragonfly_password', 'redis_password', 'redis_conf', 'keydb_password', 'keydb_conf', 'mariadb_conf', 'mariadb_root_password', 'mariadb_user', 'mariadb_password', 'mariadb_database', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_init_database', 'mysql_root_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
+        $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'postgres_user', 'postgres_password', 'postgres_db', 'postgres_initdb_args', 'postgres_host_auth_method', 'postgres_conf', 'clickhouse_admin_user', 'clickhouse_admin_password', 'dragonfly_password', 'redis_password', 'redis_conf', 'keydb_password', 'keydb_conf', 'mariadb_conf', 'mariadb_root_password', 'mariadb_user', 'mariadb_password', 'mariadb_database', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_database', 'mysql_root_password', 'mysql_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
         $teamId = getTeamIdFromToken();
         if (is_null($teamId)) {
             return invalidTokenResponse();
@@ -413,12 +411,12 @@ class DatabasesController extends Controller
                 }
                 break;
             case 'standalone-mongodb':
-                $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_init_database'];
+                $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_database'];
                 $validator = customApiValidator($request->all(), [
                     'mongo_conf' => 'string',
                     'mongo_initdb_root_username' => 'string',
                     'mongo_initdb_root_password' => 'string',
-                    'mongo_initdb_init_database' => 'string',
+                    'mongo_initdb_database' => 'string',
                 ]);
                 if ($request->has('mongo_conf')) {
                     if (! isBase64Encoded($request->mongo_conf)) {
@@ -443,9 +441,10 @@ class DatabasesController extends Controller
 
                 break;
             case 'standalone-mysql':
-                $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mysql_root_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
+                $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mysql_root_password', 'mysql_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
                 $validator = customApiValidator($request->all(), [
                     'mysql_root_password' => 'string',
+                    'mysql_password' => 'string',
                     'mysql_user' => 'string',
                     'mysql_database' => 'string',
                     'mysql_conf' => 'string',
@@ -497,9 +496,9 @@ class DatabasesController extends Controller
         $database->update($request->all());
 
         if ($whatToDoWithDatabaseProxy === 'start') {
-            StartDatabaseProxy::dispatch($database)->onQueue('high');
+            StartDatabaseProxy::dispatch($database);
         } elseif ($whatToDoWithDatabaseProxy === 'stop') {
-            StopDatabaseProxy::dispatch($database)->onQueue('high');
+            StopDatabaseProxy::dispatch($database);
         }
 
         return response()->json([
@@ -909,6 +908,7 @@ class DatabasesController extends Controller
                         'environment_name' => ['type' => 'string', 'description' => 'Name of the environment'],
                         'destination_uuid' => ['type' => 'string', 'description' => 'UUID of the destination if the server has multiple destinations'],
                         'mysql_root_password' => ['type' => 'string', 'description' => 'MySQL root password'],
+                        'mysql_password' => ['type' => 'string', 'description' => 'MySQL password'],
                         'mysql_user' => ['type' => 'string', 'description' => 'MySQL user'],
                         'mysql_database' => ['type' => 'string', 'description' => 'MySQL database'],
                         'mysql_conf' => ['type' => 'string', 'description' => 'MySQL conf'],
@@ -1013,7 +1013,7 @@ class DatabasesController extends Controller
 
     public function create_database(Request $request, NewDatabaseTypes $type)
     {
-        $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'project_uuid', 'environment_name', 'server_uuid', 'destination_uuid', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'postgres_user', 'postgres_password', 'postgres_db', 'postgres_initdb_args', 'postgres_host_auth_method', 'postgres_conf', 'clickhouse_admin_user', 'clickhouse_admin_password', 'dragonfly_password', 'redis_password', 'redis_conf', 'keydb_password', 'keydb_conf', 'mariadb_conf', 'mariadb_root_password', 'mariadb_user', 'mariadb_password', 'mariadb_database', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_init_database', 'mysql_root_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
+        $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'project_uuid', 'environment_name', 'server_uuid', 'destination_uuid', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'postgres_user', 'postgres_password', 'postgres_db', 'postgres_initdb_args', 'postgres_host_auth_method', 'postgres_conf', 'clickhouse_admin_user', 'clickhouse_admin_password', 'dragonfly_password', 'redis_password', 'redis_conf', 'keydb_password', 'keydb_conf', 'mariadb_conf', 'mariadb_root_password', 'mariadb_user', 'mariadb_password', 'mariadb_database', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_database', 'mysql_root_password', 'mysql_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
 
         $teamId = getTeamIdFromToken();
         if (is_null($teamId)) {
@@ -1151,7 +1151,7 @@ class DatabasesController extends Controller
             }
             $database = create_standalone_postgresql($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
             $database->refresh();
             $payload = [
@@ -1206,7 +1206,7 @@ class DatabasesController extends Controller
             }
             $database = create_standalone_mariadb($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             $database->refresh();
@@ -1220,9 +1220,10 @@ class DatabasesController extends Controller
 
             return response()->json(serializeApiResponse($payload))->setStatusCode(201);
         } elseif ($type === NewDatabaseTypes::MYSQL) {
-            $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'project_uuid', 'environment_name', 'server_uuid', 'destination_uuid', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mysql_user', 'mysql_database', 'mysql_conf'];
+            $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'project_uuid', 'environment_name', 'server_uuid', 'destination_uuid', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mysql_root_password', 'mysql_password', 'mysql_user', 'mysql_database', 'mysql_conf'];
             $validator = customApiValidator($request->all(), [
                 'mysql_root_password' => 'string',
+                'mysql_password' => 'string',
                 'mysql_user' => 'string',
                 'mysql_database' => 'string',
                 'mysql_conf' => 'string',
@@ -1264,7 +1265,7 @@ class DatabasesController extends Controller
             }
             $database = create_standalone_mysql($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             $database->refresh();
@@ -1320,7 +1321,7 @@ class DatabasesController extends Controller
             }
             $database = create_standalone_redis($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             $database->refresh();
@@ -1357,7 +1358,7 @@ class DatabasesController extends Controller
             removeUnnecessaryFieldsFromRequest($request);
             $database = create_standalone_dragonfly($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             return response()->json(serializeApiResponse([
@@ -1406,7 +1407,7 @@ class DatabasesController extends Controller
             }
             $database = create_standalone_keydb($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             $database->refresh();
@@ -1442,7 +1443,7 @@ class DatabasesController extends Controller
             removeUnnecessaryFieldsFromRequest($request);
             $database = create_standalone_clickhouse($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             $database->refresh();
@@ -1456,12 +1457,12 @@ class DatabasesController extends Controller
 
             return response()->json(serializeApiResponse($payload))->setStatusCode(201);
         } elseif ($type === NewDatabaseTypes::MONGODB) {
-            $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'project_uuid', 'environment_name', 'server_uuid', 'destination_uuid', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_init_database'];
+            $allowedFields = ['name', 'description', 'image', 'public_port', 'is_public', 'project_uuid', 'environment_name', 'server_uuid', 'destination_uuid', 'instant_deploy', 'limits_memory', 'limits_memory_swap', 'limits_memory_swappiness', 'limits_memory_reservation', 'limits_cpus', 'limits_cpuset', 'limits_cpu_shares', 'mongo_conf', 'mongo_initdb_root_username', 'mongo_initdb_root_password', 'mongo_initdb_database'];
             $validator = customApiValidator($request->all(), [
                 'mongo_conf' => 'string',
                 'mongo_initdb_root_username' => 'string',
                 'mongo_initdb_root_password' => 'string',
-                'mongo_initdb_init_database' => 'string',
+                'mongo_initdb_database' => 'string',
             ]);
             $extraFields = array_diff(array_keys($request->all()), $allowedFields);
             if ($validator->fails() || ! empty($extraFields)) {
@@ -1500,7 +1501,7 @@ class DatabasesController extends Controller
             }
             $database = create_standalone_mongodb($environment->id, $destination->uuid, $request->all());
             if ($instantDeploy) {
-                StartDatabase::dispatch($database)->onQueue('high');
+                StartDatabase::dispatch($database);
             }
 
             $database->refresh();
@@ -1557,7 +1558,8 @@ class DatabasesController extends Controller
                             ]
                         )
                     ),
-                ]),
+                ]
+            ),
             new OA\Response(
                 response: 401,
                 ref: '#/components/responses/401',
@@ -1593,7 +1595,7 @@ class DatabasesController extends Controller
             deleteVolumes: $request->query->get('delete_volumes', true),
             dockerCleanup: $request->query->get('docker_cleanup', true),
             deleteConnectedNetworks: $request->query->get('delete_connected_networks', true)
-        )->onQueue('high');
+        );
 
         return response()->json([
             'message' => 'Database deletion request queued.',
@@ -1632,9 +1634,11 @@ class DatabasesController extends Controller
                             type: 'object',
                             properties: [
                                 'message' => ['type' => 'string', 'example' => 'Database starting request queued.'],
-                            ])
+                            ]
+                        )
                     ),
-                ]),
+                ]
+            ),
             new OA\Response(
                 response: 401,
                 ref: '#/components/responses/401',
@@ -1666,7 +1670,7 @@ class DatabasesController extends Controller
         if (str($database->status)->contains('running')) {
             return response()->json(['message' => 'Database is already running.'], 400);
         }
-        StartDatabase::dispatch($database)->onQueue('high');
+        StartDatabase::dispatch($database);
 
         return response()->json(
             [
@@ -1708,9 +1712,11 @@ class DatabasesController extends Controller
                             type: 'object',
                             properties: [
                                 'message' => ['type' => 'string', 'example' => 'Database stopping request queued.'],
-                            ])
+                            ]
+                        )
                     ),
-                ]),
+                ]
+            ),
             new OA\Response(
                 response: 401,
                 ref: '#/components/responses/401',
@@ -1742,7 +1748,7 @@ class DatabasesController extends Controller
         if (str($database->status)->contains('stopped') || str($database->status)->contains('exited')) {
             return response()->json(['message' => 'Database is already stopped.'], 400);
         }
-        StopDatabase::dispatch($database)->onQueue('high');
+        StopDatabase::dispatch($database);
 
         return response()->json(
             [
@@ -1784,9 +1790,11 @@ class DatabasesController extends Controller
                             type: 'object',
                             properties: [
                                 'message' => ['type' => 'string', 'example' => 'Database restaring request queued.'],
-                            ])
+                            ]
+                        )
                     ),
-                ]),
+                ]
+            ),
             new OA\Response(
                 response: 401,
                 ref: '#/components/responses/401',
@@ -1815,7 +1823,7 @@ class DatabasesController extends Controller
         if (! $database) {
             return response()->json(['message' => 'Database not found.'], 404);
         }
-        RestartDatabase::dispatch($database)->onQueue('high');
+        RestartDatabase::dispatch($database);
 
         return response()->json(
             [
