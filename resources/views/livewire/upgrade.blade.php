@@ -54,7 +54,7 @@
                         <div class="relative w-auto pb-8">
                             <p>Are you sure you would like to upgrade your instance to {{ $latestVersion }}?</p>
                             <br />
-                            
+
                             <div class="p-4 mb-4 text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 dark:text-yellow-300 dark:border-yellow-800">
                                 <p class="font-medium">Warning: Any deployments running during the update process will fail. Please ensure no deployments are in progress on any server before continuing.</p>
                             </div>
@@ -116,7 +116,7 @@
                                 }, 5000)
                             } else {
                                 this.currentStatus =
-                                    "Waiting for Publify to come back from dead..."
+                                    "Waiting for Publify to come back from the dead..."
                             }
                         })
                 }, 2000);
