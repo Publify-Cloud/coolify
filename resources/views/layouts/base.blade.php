@@ -46,7 +46,7 @@
             display: none !important;
         }
     </style>
-    @if (config('app.name') == 'Coolify Cloud')
+    @if (config('app.name') == 'Publify Cloud')
         <script defer data-domain="app.coolify.io" src="https://analytics.coollabs.io/js/plausible.js"></script>
         <script src="https://js.sentry-cdn.com/0f8593910512b5cdd48c6da78d4093be.min.js" crossorigin="anonymous"></script>
     @endif
@@ -83,6 +83,9 @@
 
             function checkTheme() {
                 theme = localStorage.theme
+                if (theme == 'system') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+                }
                 if (theme == 'dark') {
                     baseColor = '#FCD452'
                     textColor = '#ffffff'

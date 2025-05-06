@@ -52,7 +52,8 @@ class UpdateCoolify
     {
         PullHelperImageJob::dispatch($this->server);
 
-        instant_remote_process(["docker pull -q public.ecr.aws/g6l4g2t4/publify:{$this->latestVersion}"], $this->server, false);
+        $image = config('constants.coolify.registry_url').'/publify:'.$this->latestVersion;
+        instant_remote_process(["docker pull -q $image"], $this->server, false);
 
         remote_process([
             'curl -fsSL https://cdn.publify.justahost.cloud/upgrade.sh -o /data/coolify/source/upgrade.sh',

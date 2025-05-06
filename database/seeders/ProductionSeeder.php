@@ -192,5 +192,6 @@ uZx9iFkCELtxrh31QJ68AAAAEXNhaWxANzZmZjY2ZDJlMmRkAQIDBA==
         $this->call(PopulateSshKeysDirectorySeeder::class);
         $this->call(SentinelSeeder::class);
         $this->call(RootUserSeeder::class);
+        $this->call(CaSslCertSeeder::class);
     }
 }
