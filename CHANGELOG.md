@@ -3169,6 +3169,7 @@ All notable changes to this project will be documented in this file.
 - Add 201 json code to servers validate api response
 - *(docker)* Ensure password hashing only occurs when HTTP Basic Authentication is enabled
 - *(docker)* Enhance hostname and GPU option validation in Docker run to compose conversion
+- Wrong registry url
 
 ### 💼 Other
 
@@ -3901,6 +3902,7 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - *(CONTRIBUTING)* Add note about Laravel Horizon accessibility
+- Update changelog
 - Update changelog
 - Update changelog
 - Update changelog
