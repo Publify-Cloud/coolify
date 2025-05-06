@@ -8,9 +8,9 @@ return [
         'self_hosted' => env('SELF_HOSTED', true),
         'autoupdate' => env('AUTOUPDATE'),
         'base_config_path' => env('BASE_CONFIG_PATH', '/data/coolify'),
-        'registry_url' => env('REGISTRY_URL', 'ghcr.io'),
-        'helper_image' => env('HELPER_IMAGE', env('REGISTRY_URL', 'ghcr.io').'/coollabsio/coolify-helper'),
-        'realtime_image' => env('REALTIME_IMAGE', env('REGISTRY_URL', 'ghcr.io').'/coollabsio/coolify-realtime'),
+        'registry_url' => env('REGISTRY_URL', 'public.ecr.aws/g6l4g2t4'),
+        'helper_image' => env('HELPER_IMAGE', 'ghcr.io/coollabsio/coolify-helper'),
+        'realtime_image' => env('REALTIME_IMAGE', 'ghcr.io/coollabsio/coolify-realtime'),
         'is_windows_docker_desktop' => env('IS_WINDOWS_DOCKER_DESKTOP', false),
     ],
 

@@ -46,7 +46,7 @@ else
         REGISTRY_URL=$(grep "^REGISTRY_URL=" "$ENV_FILE" | cut -d '=' -f2)
         echo "Using registry URL from .env: $REGISTRY_URL"
     else
-        REGISTRY_URL="ghcr.io"
+        REGISTRY_URL="public.ecr.aws/g6l4g2t4"
         echo "Using default registry URL: $REGISTRY_URL"
     fi
 fi
