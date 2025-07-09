@@ -5,7 +5,7 @@
                 <img src="/publify-logo-horizontal-dark.png" alt="Publify Logo" class="visible w-[300px] h-auto dark:hidden dark:w-0 dark:h-0">
                 <img src="/publify-logo-horizontal-light.png" alt="Publify Logo" class="hidden dark:visible dark:block dark:w-[300px] dark:h-auto">
             </a>
-            <div class="w-full bg-white shadow md:mt-0 sm:max-w-md xl:p-0 dark:bg-base ">
+            <div class="w-full bg-white shadow-sm md:mt-0 sm:max-w-md xl:p-0 dark:bg-base ">
                 @if ($errors->any())
                     <div class="text-center text-error">
                         @foreach ($errors->all() as $error)
