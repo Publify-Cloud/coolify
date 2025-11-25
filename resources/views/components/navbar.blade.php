@@ -357,6 +357,7 @@
                             Onboarding
                         </a>
                     </li> --}}
+                @endif
                 @if (!isSubscribed() && isCloud() && auth()->user()->teams()->get()->count() > 1)
                     <livewire:navbar-delete-team />
                 @endif
