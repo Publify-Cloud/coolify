@@ -5,13 +5,17 @@ namespace App\Livewire\Server;
 use App\Actions\Proxy\CheckProxy;
 use App\Actions\Proxy\StartProxy;
 use App\Actions\Proxy\StopProxy;
-use App\Jobs\RestartProxyJob;
+use App\Enums\ProxyTypes;
+use App\Jobs\CheckTraefikVersionForServerJob;
 use App\Models\Server;
 use App\Services\ProxyDashboardCacheService;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
 class Navbar extends Component
 {
+    use AuthorizesRequests;
+
     public Server $server;
 
     public bool $isChecking = false;
@@ -29,7 +33,7 @@ class Navbar extends Component
         $teamId = auth()->user()->currentTeam()->id;
 
         return [
-            'refreshServerShow' => '$refresh',
+            'refreshServerShow' => 'refreshServer',
             "echo-private:team.{$teamId},ProxyStatusChangedUI" => 'showNotification',
         ];
     }
@@ -57,7 +61,19 @@ class Navbar extends Component
     public function restart()
     {
         try {
-            RestartProxyJob::dispatch($this->server);
+            $this->authorize('manageProxy', $this->server);
+            StopProxy::run($this->server, restarting: true);
+
+            $this->server->proxy->force_stop = false;
+            $this->server->save();
+
+            $activity = StartProxy::run($this->server, force: true, restarting: true);
+            $this->dispatch('activityMonitor', $activity->id);
+
+            // Check Traefik version after restart to provide immediate feedback
+            if ($this->server->proxyType() === ProxyTypes::TRAEFIK->value) {
+                CheckTraefikVersionForServerJob::dispatch($this->server, get_traefik_versions());
+            }
         } catch (\Throwable $e) {
             return handleError($e, $this);
         }
@@ -66,6 +82,7 @@ class Navbar extends Component
     public function checkProxy()
     {
         try {
+            $this->authorize('manageProxy', $this->server);
             CheckProxy::run($this->server, true);
             $this->dispatch('startProxy')->self();
         } catch (\Throwable $e) {
@@ -76,6 +93,7 @@ class Navbar extends Component
     public function startProxy()
     {
         try {
+            $this->authorize('manageProxy', $this->server);
             $activity = StartProxy::run($this->server, force: true);
             $this->dispatch('activityMonitor', $activity->id);
         } catch (\Throwable $e) {
@@ -86,6 +104,7 @@ class Navbar extends Component
     public function stop(bool $forceStop = true)
     {
         try {
+            $this->authorize('manageProxy', $this->server);
             StopProxy::dispatch($this->server, $forceStop);
         } catch (\Throwable $e) {
             return handleError($e, $this);
@@ -111,20 +130,62 @@ class Navbar extends Component
 
     public function showNotification()
     {
+        $previousStatus = $this->proxyStatus;
+        $this->server->refresh();
         $this->proxyStatus = $this->server->proxy->status ?? 'unknown';
-        $forceStop = $this->server->proxy->force_stop ?? false;
 
         switch ($this->proxyStatus) {
             case 'running':
                 $this->loadProxyConfiguration();
+                // Only show "Proxy is running" notification when transitioning from a stopped/error state
+                // Don't show during normal start/restart flows (starting, restarting, stopping)
+                if (in_array($previousStatus, ['exited', 'stopped', 'unknown', null])) {
+                    $this->dispatch('success', 'Proxy is running.');
+                }
                 break;
-            case 'restarting':
-                $this->dispatch('info', 'Initiating proxy restart.');
+            case 'exited':
+                // Only show "Proxy has exited" notification when transitioning from running state
+                // Don't show during normal stop/restart flows (stopping, restarting)
+                if (in_array($previousStatus, ['running'])) {
+                    $this->dispatch('info', 'Proxy has exited.');
+                }
+                break;
+            case 'stopping':
+                $this->dispatch('info', 'Proxy is stopping.');
+                break;
+            case 'starting':
+                $this->dispatch('info', 'Proxy is starting.');
+                break;
+            case 'unknown':
+                $this->dispatch('info', 'Proxy status is unknown.');
                 break;
             default:
+                $this->dispatch('info', 'Proxy status updated.');
                 break;
         }
 
+    }
+
+    public function refreshServer()
+    {
+        $this->server->refresh();
+        $this->server->load('settings');
+    }
+
+    /**
+     * Check if Traefik has any outdated version info (patch or minor upgrade).
+     * This shows a warning indicator in the navbar.
+     */
+    public function getHasTraefikOutdatedProperty(): bool
+    {
+        if ($this->server->proxyType() !== ProxyTypes::TRAEFIK->value) {
+            return false;
+        }
+
+        // Check if server has outdated info stored
+        $outdatedInfo = $this->server->traefik_outdated_info;
+
+        return ! empty($outdatedInfo) && isset($outdatedInfo['type']);
     }
 
     public function render()

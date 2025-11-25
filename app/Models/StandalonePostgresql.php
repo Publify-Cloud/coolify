@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\ClearsGlobalSearchCache;
+use App\Traits\HasSafeStringAttribute;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class StandalonePostgresql extends BaseModel
 {
-    use HasFactory, SoftDeletes;
+    use ClearsGlobalSearchCache, HasFactory, HasSafeStringAttribute, SoftDeletes;
 
     protected $guarded = [];
 
@@ -28,7 +30,6 @@ class StandalonePostgresql extends BaseModel
                 'host_path' => null,
                 'resource_id' => $database->id,
                 'resource_type' => $database->getMorphClass(),
-                'is_readonly' => true,
             ]);
         });
         static::forceDeleting(function ($database) {
@@ -42,6 +43,11 @@ class StandalonePostgresql extends BaseModel
                 $database->forceFill(['last_online_at' => now()]);
             }
         });
+    }
+
+    public static function ownedByCurrentTeam()
+    {
+        return StandalonePostgresql::whereRelation('environment.project.team', 'id', currentTeam()->id)->orderBy('name');
     }
 
     public function workdir()
@@ -240,9 +246,13 @@ class StandalonePostgresql extends BaseModel
         return new Attribute(
             get: function () {
                 if ($this->is_public && $this->public_port) {
+                    $serverIp = $this->destination->server->getIp;
+                    if (empty($serverIp)) {
+                        return null;
+                    }
                     $encodedUser = rawurlencode($this->postgres_user);
                     $encodedPass = rawurlencode($this->postgres_password);
-                    $url = "postgres://{$encodedUser}:{$encodedPass}@{$this->destination->server->getIp}:{$this->public_port}/{$this->postgres_db}";
+                    $url = "postgres://{$encodedUser}:{$encodedPass}@{$serverIp}:{$this->public_port}/{$this->postgres_db}";
                     if ($this->enable_ssl) {
                         $url .= "?sslmode={$this->ssl_mode}";
                         if (in_array($this->ssl_mode, ['verify-ca', 'verify-full'])) {
@@ -296,7 +306,14 @@ class StandalonePostgresql extends BaseModel
     public function environment_variables()
     {
         return $this->morphMany(EnvironmentVariable::class, 'resourceable')
-            ->orderBy('key', 'asc');
+            ->orderByRaw("
+                CASE 
+                    WHEN LOWER(key) LIKE 'service_%' THEN 1
+                    WHEN is_required = true AND (value IS NULL OR value = '') THEN 2
+                    ELSE 3
+                END,
+                LOWER(key) ASC
+            ");
     }
 
     public function isBackupSolutionAvailable()
@@ -320,7 +337,10 @@ class StandalonePostgresql extends BaseModel
         }
         $metrics = json_decode($metrics, true);
         $parsedCollection = collect($metrics)->map(function ($metric) {
-            return [(int) $metric['time'], (float) $metric['percent']];
+            return [
+                (int) $metric['time'],
+                (float) ($metric['percent'] ?? 0.0),
+            ];
         });
 
         return $parsedCollection->toArray();
