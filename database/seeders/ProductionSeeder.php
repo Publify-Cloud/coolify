@@ -113,6 +113,8 @@ class ProductionSeeder extends Seeder
                 $server_details['proxy'] = ServerMetadata::from([
                     'type' => ProxyTypes::TRAEFIK->value,
                     'status' => ProxyStatus::EXITED->value,
+                    'last_saved_settings' => null,
+                    'last_applied_settings' => null,
                 ]);
                 $server = Server::create($server_details);
                 $server->settings->is_reachable = true;
@@ -176,6 +178,8 @@ uZx9iFkCELtxrh31QJ68AAAAEXNhaWxANzZmZjY2ZDJlMmRkAQIDBA==
                 $server_details['proxy'] = ServerMetadata::from([
                     'type' => ProxyTypes::TRAEFIK->value,
                     'status' => ProxyStatus::EXITED->value,
+                    'last_saved_settings' => null,
+                    'last_applied_settings' => null,
                 ]);
                 $server = Server::create($server_details);
                 $server->settings->is_reachable = true;
