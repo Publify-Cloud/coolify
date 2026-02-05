@@ -37,7 +37,7 @@ All notable changes to this project will be documented in this file.
 - Ghost service
 - Initial python support
 - Add loading on register button
-- _(dev)_ Allow windows users to use pnpm dev
+- *(dev)* Allow windows users to use pnpm dev
 - MeiliSearch service
 - Add abilitry to paste env files
 - Wordpress on-demand SFTP
@@ -108,14 +108,14 @@ All notable changes to this project will be documented in this file.
 - Force rebuild + env.PORT for port + public repo build
 - Add GlitchTip service
 - Searxng service
-- _(ui)_ Rework home UI and with responsive design
+- *(ui)* Rework home UI and with responsive design
 - New service - weblate
 - Restart application
 - Show elapsed time on running builds
 - Github allow fual branches
 - Gitlab dual branch
 - Taiga
-- _(routes)_ Rework ui from login and register page
+- *(routes)* Rework ui from login and register page
 - Add traefik acme json to coolify container
 - Database secrets
 - New servers view
@@ -124,11 +124,11 @@ All notable changes to this project will be documented in this file.
 - PreviewApplications finalized
 - Fluentbit
 - Show remote servers
-- _(layout)_ Added drawer when user is in mobile
+- *(layout)* Added drawer when user is in mobile
 - Re-apply ui improves
-- _(ui)_ Improve header of pages
-- _(styles)_ Make header css component
-- _(routes)_ Improve ui for apps, databases and services logs
+- *(ui)* Improve header of pages
+- *(styles)* Make header css component
+- *(routes)* Improve ui for apps, databases and services logs
 - Add migration button to appwrite
 - Custom certificate
 - Ssl cert on traefik config
@@ -161,10 +161,10 @@ All notable changes to this project will be documented in this file.
 - SimpleDockerfile deployment
 - Able to push image to docker registry
 - Revert to remote image
-- _(api)_ Name label
+- *(api)* Name label
 - Add Openblocks icon
 - Adding icon for whoogle
-- _(ui)_ Add libretranslate service icon
+- *(ui)* Add libretranslate service icon
 - Handle invite_only plausible analytics
 - Init h2c (http2/grpc) support
 - Http + h2c paralel
@@ -303,7 +303,7 @@ All notable changes to this project will be documented in this file.
 - Change page width
 - Watch paths
 - Able to make rsa/ed ssh keys
-- _(application)_ Update submodules after git checkout
+- *(application)* Update submodules after git checkout
 - Add amazon linux 2023
 - Upload large backups
 - Edit domains easier for compose
@@ -327,7 +327,7 @@ All notable changes to this project will be documented in this file.
 - Pull new sentinel image and restart container
 - Init metrics
 - Add AdminRemoveUser command to remove users from the database
-- Adding new COOLIFY\_ variables
+- Adding new COOLIFY_ variables
 - Save commit message and better view on deployments
 - Toggle label escaping mechanism
 - Shows the latest deployment commit + message on status
@@ -438,8 +438,8 @@ All notable changes to this project will be documented in this file.
 - Custom terminal host
 - Add buddy logo
 - Add nullable constraint to 'fingerprint' column in private_keys table
-- _(api)_ Add an endpoint to execute a command
-- _(api)_ Add endpoint to execute a command
+- *(api)* Add an endpoint to execute a command
+- *(api)* Add endpoint to execute a command
 - Add ContainerStatusTypes enum for managing container status
 - Allow specify use_build_server when creating/updating an application
 - Add support for `use_build_server` in API endpoints for creating/updating applications
@@ -495,16 +495,16 @@ All notable changes to this project will be documented in this file.
 - Debug mode for sentinel
 - Add jitsi template
 - Add --gpu support for custom docker command
+- Add upgrade logs to /data/coolify/source
 - Add Firefox template
 - Add template for Wiki.js
-- Add upgrade logs to /data/coolify/source
 - Custom nginx configuration for static deployments + fix 404 redirects in nginx conf
 - Check local horizon scheduler deployments
 - Add internal api docs to /docs/api with auth
 - Add proxy type change to create/update apis
 - Add MacOS template
 - Add Windows template
-- _(service)_ :sparkles: add mealie
+- *(service)* :sparkles: add mealie
 - Add hex magic env var
 - Add deploy-only token permission
 - Able to deploy without cache on every commit
@@ -549,10 +549,12 @@ All notable changes to this project will be documented in this file.
 - Scheduled task success email
 - Send new docker cleanup notifications
 - :passport_control: integrate Authentik authentication with Coolify
-- _(notification)_ Add Pushover
+- *(notification)* Add Pushover
 - Add seeder command and configuration for database seeding
 - Add new password magic env with symbols
 - Add documenso service
+- Migrate to new encryption options
+- New encryption options
 - New ServerReachabilityChanged event
 - Use new ServerReachabilityChanged event instead of isDirty
 - Add infomaniak oauth
@@ -561,8 +563,6 @@ All notable changes to this project will be documented in this file.
 - Add service/resource/project labels
 - Add coolify.environment label
 - Add database subtype
-- Migrate to new encryption options
-- New encryption options
 - Able to import full db backups for pg/mysql/mariadb
 - Restore backup from server file
 - Docker volume data cloning
@@ -597,362 +597,362 @@ All notable changes to this project will be documented in this file.
 - Add root user configuration variables to production environment
 - Add log file check message in upgrade script for better troubleshooting
 - Add root user details to install script
-- _(core)_ Wip version of coolify.json
-- _(core)_ Add SOURCE_COMMIT variable to build environment in ApplicationDeploymentJob
-- _(service)_ Update affine.yaml with AI environment variables (#4918)
-- _(service)_ Add new service Flipt (#4875)
-- _(docs)_ Update tech stack
-- _(terminal)_ Show terminal unavailable if the container does not have a shell on the global terminal UI
-- _(ui)_ Improve deployment UI
-- _(template)_ Add Open Web UI
-- _(templates)_ Add Open Web UI service template
-- _(ui)_ Update GitHub source creation advanced section label
-- _(core)_ Add dynamic label reset for application settings
-- _(ui)_ Conditionally enable advanced application settings based on label readonly status
-- _(env)_ Added COOLIFY_RESOURCE_UUID environment variable
-- _(vite)_ Add Cloudflare async script and style tag attributes
-- _(meta)_ Add comprehensive SEO and social media meta tags
-- _(core)_ Add name to default proxy configuration
+- *(core)* Wip version of coolify.json
+- *(core)* Add SOURCE_COMMIT variable to build environment in ApplicationDeploymentJob
+- *(service)* Update affine.yaml with AI environment variables (#4918)
+- *(service)* Add new service Flipt (#4875)
+- *(docs)* Update tech stack
+- *(terminal)* Show terminal unavailable if the container does not have a shell on the global terminal UI
+- *(ui)* Improve deployment UI
+- *(template)* Add Open Web UI
+- *(templates)* Add Open Web UI service template
+- *(ui)* Update GitHub source creation advanced section label
+- *(core)* Add dynamic label reset for application settings
+- *(ui)* Conditionally enable advanced application settings based on label readonly status
+- *(env)* Added COOLIFY_RESOURCE_UUID environment variable
+- *(vite)* Add Cloudflare async script and style tag attributes
+- *(meta)* Add comprehensive SEO and social media meta tags
+- *(core)* Add name to default proxy configuration
 - Add application api route
 - Container logs
 - Remove ansi color from log
 - Add lines query parameter
-- _(changelog)_ Add git cliff for automatic changelog generation
-- _(workflows)_ Improve changelog generation and workflows
-- _(ui)_ Add periodic status checking for services
-- _(deployment)_ Ensure private key is stored in filesystem before deployment
-- _(slack)_ Show message title in notification previews (#5063)
-- _(i18n)_ Add Arabic translations (#4991)
-- _(i18n)_ Add French translations (#4992)
-- _(services)_ Update `service-templates.json`
-- _(ui)_ Add top padding to pricing plans view
-- _(core)_ Add error logging and cron parsing to docker/server schedules
-- _(core)_ Prevent using servers with existing resources as build servers
-- _(ui)_ Add textarea switching option in service compose editor
-- _(ui)_ Add wire:key to two-step confirmation settings
-- _(database)_ Add index to scheduled task executions for improved query performance
-- _(database)_ Add index to scheduled database backup executions
-- _(billing)_ Add Stripe past due subscription status tracking
-- _(ui)_ Add past due subscription warning banner
-- _(service)_ Neon
-- _(migration)_ Add `ssl_certificates` table and model
-- _(migration)_ Add ssl setting to `standalone_postgresqls` table
-- _(ui)_ Add ssl settings to Postgres ui
-- _(db)_ Add ssl mode to Postgres URLs
-- _(db)_ Setup ssl during Postgres start
-- _(migration)_ Encrypt local file volumes content and paths
-- _(ssl)_ Ssl generation helper
-- _(ssl)_ Migrate to `ECC`certificates using `secp521r1`
-- _(ssl)_ Improve SSL helper
-- _(ssl)_ Add a Coolify CA Certificate to all servers
-- _(seeder)_ Call CA SSL seeder in prod and dev
-- _(ssl)_ Add Coolify CA Certificate when adding a new server
-- _(installer)_ Create CA folder during installation
-- _(ssl)_ Improve SSL helper
-- _(ssl)_ Use new improved helper for SSL generation
-- _(ui)_ Add CA cert UI
-- _(ui)_ New copy button component
-- _(ui)_ Use new copy button component everywhere
-- _(ui)_ Improve server advanced view
-- _(migration)_ Add CN and alternative names to DB
-- _(databases)_ Add CA SSL crt location to Postgres URLs
-- _(ssl)_ Improve ssl generation
-- _(ssl)_ Regenerate SSL certs job
-- _(ssl)_ Regenerate certificate and valid until UI
-- _(ssl)_ Regenerate CA cert and all other certs logic
-- _(ssl)_ Add full MySQL SSL Support
-- _(ssl)_ Add full MariaDB SSL support
-- _(ssl)_ Add `openssl.conf` to configure SSL extension properly
-- _(ssl)_ Improve SSL generation and security a lot
-- _(ssl)_ Check for SSL renewal twice daily
-- _(ssl)_ Add SSL relationships to all DBs
+- *(changelog)* Add git cliff for automatic changelog generation
+- *(workflows)* Improve changelog generation and workflows
+- *(ui)* Add periodic status checking for services
+- *(deployment)* Ensure private key is stored in filesystem before deployment
+- *(slack)* Show message title in notification previews (#5063)
+- *(i18n)* Add Arabic translations (#4991)
+- *(i18n)* Add French translations (#4992)
+- *(services)* Update `service-templates.json`
+- *(ui)* Add top padding to pricing plans view
+- *(core)* Add error logging and cron parsing to docker/server schedules
+- *(core)* Prevent using servers with existing resources as build servers
+- *(ui)* Add textarea switching option in service compose editor
+- *(ui)* Add wire:key to two-step confirmation settings
+- *(database)* Add index to scheduled task executions for improved query performance
+- *(database)* Add index to scheduled database backup executions
+- *(billing)* Add Stripe past due subscription status tracking
+- *(ui)* Add past due subscription warning banner
+- *(service)* Neon
+- *(migration)* Add `ssl_certificates` table and model
+- *(migration)* Add ssl setting to `standalone_postgresqls` table
+- *(ui)* Add ssl settings to Postgres ui
+- *(db)* Add ssl mode to Postgres URLs
+- *(db)* Setup ssl during Postgres start
+- *(migration)* Encrypt local file volumes content and paths
+- *(ssl)* Ssl generation helper
+- *(ssl)* Migrate to `ECC`certificates using `secp521r1`
+- *(ssl)* Improve SSL helper
+- *(ssl)* Add a Coolify CA Certificate to all servers
+- *(seeder)* Call CA SSL seeder in prod and dev
+- *(ssl)* Add Coolify CA Certificate when adding a new server
+- *(installer)* Create CA folder during installation
+- *(ssl)* Improve SSL helper
+- *(ssl)* Use new improved helper for SSL generation
+- *(ui)* Add CA cert UI
+- *(ui)* New copy button component
+- *(ui)* Use new copy button component everywhere
+- *(ui)* Improve server advanced view
+- *(migration)* Add CN and alternative names to DB
+- *(databases)* Add CA SSL crt location to Postgres URLs
+- *(ssl)* Improve ssl generation
+- *(ssl)* Regenerate SSL certs job
+- *(ssl)* Regenerate certificate and valid until UI
+- *(ssl)* Regenerate CA cert and all other certs logic
+- *(ssl)* Add full MySQL SSL Support
+- *(ssl)* Add full MariaDB SSL support
+- *(ssl)* Add `openssl.conf` to configure SSL extension properly
+- *(ssl)* Improve SSL generation and security a lot
+- *(ssl)* Check for SSL renewal twice daily
+- *(ssl)* Add SSL relationships to all DBs
 - Add full SSL support to MongoDB
-- _(ssl)_ Fix some issues and improve ssl generation helper
-- _(ssl)_ Ability to create `.pem` certs and add `clientAuth` to `extendedKeyUsage`
-- _(ssl)_ New modes for MongoDB and get `caCert` and `mountPath` correctly
-- _(ssl)_ Full SSL support for Redis
+- *(ssl)* Fix some issues and improve ssl generation helper
+- *(ssl)* Ability to create `.pem` certs and add `clientAuth` to `extendedKeyUsage`
+- *(ssl)* New modes for MongoDB and get `caCert` and `mountPath` correctly
+- *(ssl)* Full SSL support for Redis
 - New mode implementation for MongoDB
-- _(ssl)_ Improve Redis and remove modes
+- *(ssl)* Improve Redis and remove modes
 - Full SSL support for DrangonflyDB
 - SSL notification
-- _(github-source)_ Enhance GitHub App configuration with manual and private key support
-- _(ui)_ Improve GitHub repository selection and styling
-- _(database)_ Implement two-step confirmation for database deletion
-- _(assets)_ Add new SVG logo for Coolify
-- _(install)_ Enhance Docker address pool configuration and validation
-- _(install)_ Improve Docker address pool management and service restart logic
-- _(install)_ Add missing env variable to install script
-- _(LocalFileVolume)_ Add binary file detection and update UI logic
-- _(templates)_ Change glance for v0.7
-- _(templates)_ Add Freescout service template
-- _(service)_ Add Evolution API template
-- _(service)_ Add evolution-api and neon-ws-proxy templates
-- _(svg)_ Add coolify and evolution-api SVG logos
-- _(api)_ Add api to create custom services
-- _(api)_ Separate create and one-click routes
-- _(api)_ Update Services api routes and handlers
-- _(api)_ Unify service creation endpoint and enhance validation
-- _(notifications)_ Add discord ping functionality and settings
-- _(user)_ Implement session deletion on password reset
-- _(github)_ Enhance repository loading and validation in applications
-- _(database)_ Disable MongoDB SSL by default in migration
-- _(database)_ Add CA certificate generation for database servers
-- _(application)_ Add SPA configuration and update Nginx generation logic
-- _(deployments)_ Add list application deployments api route
-- _(deploy)_ Add pull request ID parameter to deploy endpoint
-- _(api)_ Add pull request ID parameter to applications endpoint
-- _(api)_ Add endpoints for retrieving application logs and deployments
-- _(lang)_ Added Norwegian language (#5280)
-- _(dep)_ Bump all dependencies
-- _(lang)_ Added Azerbaijani language updated turkish language. (#5497)
-- _(lang)_ Added Portuguese from Brazil language (#5500)
-- _(lang)_ Add Indonesian language translations (#5513)
-- _(api)_ Update OpenAPI spec for services (#5448)
-- _(proxy)_ Enhance proxy handling and port conflict detection
-- _(Deploy)_ Add info dispatch for proxy check initiation
-- _(EnvironmentVariable)_ Add handling for Redis credentials in the environment variable component
-- _(EnvironmentVariable)_ Implement protection for critical environment variables and enhance deletion logic
-- _(Application)_ Add networkAliases attribute for handling network aliases as JSON or comma-separated values
-- _(GithubApp)_ Update default events to include 'pull_request' and streamline event handling
-- _(CleanupDocker)_ Add support for realtime image management in Docker cleanup process
-- _(Deployment)_ Enhance queue_application_deployment to handle existing deployments and return appropriate status messages
-- _(SourceManagement)_ Add functionality to change Git source and display current source in the application settings
-- _(OpenApi)_ Enhance OpenAPI specifications by adding UUID parameters for application, project, and service updates; improve deployment listing with pagination parameters; update command signature for OpenApi generation
-- _(subscription)_ Enhance subscription management with loading states and Stripe status checks
+- *(github-source)* Enhance GitHub App configuration with manual and private key support
+- *(ui)* Improve GitHub repository selection and styling
+- *(database)* Implement two-step confirmation for database deletion
+- *(assets)* Add new SVG logo for Coolify
+- *(install)* Enhance Docker address pool configuration and validation
+- *(install)* Improve Docker address pool management and service restart logic
+- *(install)* Add missing env variable to install script
+- *(LocalFileVolume)* Add binary file detection and update UI logic
+- *(templates)* Change glance for v0.7
+- *(templates)* Add Freescout service template
+- *(service)* Add Evolution API template
+- *(service)* Add evolution-api and neon-ws-proxy templates
+- *(svg)* Add coolify and evolution-api SVG logos
+- *(api)* Add api to create custom services
+- *(api)* Separate create and one-click routes
+- *(api)* Update Services api routes and handlers
+- *(api)* Unify service creation endpoint and enhance validation
+- *(notifications)* Add discord ping functionality and settings
+- *(user)* Implement session deletion on password reset
+- *(github)* Enhance repository loading and validation in applications
+- *(database)* Disable MongoDB SSL by default in migration
+- *(database)* Add CA certificate generation for database servers
+- *(application)* Add SPA configuration and update Nginx generation logic
+- *(deployments)* Add list application deployments api route
+- *(deploy)* Add pull request ID parameter to deploy endpoint
+- *(api)* Add pull request ID parameter to applications endpoint
+- *(api)* Add endpoints for retrieving application logs and deployments
+- *(lang)* Added Norwegian language (#5280)
+- *(dep)* Bump all dependencies
+- *(lang)* Added Azerbaijani language updated turkish language. (#5497)
+- *(lang)* Added Portuguese from Brazil language (#5500)
+- *(lang)* Add Indonesian language translations (#5513)
+- *(api)* Update OpenAPI spec for services (#5448)
+- *(proxy)* Enhance proxy handling and port conflict detection
+- *(Deploy)* Add info dispatch for proxy check initiation
+- *(EnvironmentVariable)* Add handling for Redis credentials in the environment variable component
+- *(EnvironmentVariable)* Implement protection for critical environment variables and enhance deletion logic
+- *(Application)* Add networkAliases attribute for handling network aliases as JSON or comma-separated values
+- *(GithubApp)* Update default events to include 'pull_request' and streamline event handling
+- *(CleanupDocker)* Add support for realtime image management in Docker cleanup process
+- *(Deployment)* Enhance queue_application_deployment to handle existing deployments and return appropriate status messages
+- *(SourceManagement)* Add functionality to change Git source and display current source in the application settings
+- *(OpenApi)* Enhance OpenAPI specifications by adding UUID parameters for application, project, and service updates; improve deployment listing with pagination parameters; update command signature for OpenApi generation
+- *(subscription)* Enhance subscription management with loading states and Stripe status checks
 - Add HTTP Basic Authentication
-- _(readme)_ Add new sponsors Supadata AI and WZ-IT to the README
-- _(core)_ Enable magic env variables for compose based applications
-- _(deployment)_ Add repository_project_id handling for private GitHub apps and clean up unused Caddy label logic
-- _(api)_ Enhance OpenAPI specifications with token variable and additional key attributes
-- _(docker)_ Add HTTP Basic Authentication support and enhance hostname parsing in Docker run conversion
-- _(api)_ Add HTTP Basic Authentication fields to OpenAPI specifications and enhance PrivateKey model descriptions
-- _(README)_ Add InterviewPal sponsorship link and corresponding SVG icon
-- _(migration)_ Add 'is_migrated' and 'custom_type' columns to service_applications and service_databases tables
-- _(backup)_ Implement custom database type selection and enhance scheduled backups management
-- _(README)_ Add Gozunga and Macarne to sponsors list
-- _(redis)_ Add scheduled cleanup command for Redis keys and enhance cleanup logic
-- _(core)_ Add 'postmarketos' to supported OS list
-- _(service)_ Add memos service template (#5032)
-- _(ui)_ Upgrade to Tailwind v4 (#5710)
-- _(service)_ Add Navidrome service template (#5022)
-- _(service)_ Add Passbolt service (#5769)
-- _(service)_ Add Vert service (#5663)
-- _(service)_ Add Ryot service (#5232)
-- _(service)_ Add Marimo service (#5559)
-- _(service)_ Add Diun service (#5113)
-- _(service)_ Add Observium service (#5613)
-- _(service)_ Add Leantime service (#5792)
-- _(service)_ Add Limesurvey service (#5751)
-- _(service)_ Add Paymenter service (#5809)
-- _(service)_ Add CodiMD service (#4867)
-- _(modal)_ Add dispatchAction property to confirmation modal
-- _(security)_ Implement server patching functionality
-- _(service)_ Add Typesense service (#5643)
-- _(service)_ Add Yamtrack service (#5845)
-- _(service)_ Add PG Back Web service (#5079)
-- _(service)_ Update Maybe service and adjust it for the new release (#5795)
-- _(oauth)_ Set redirect uri as optional and add default value (#5760)
-- _(service)_ Add apache superset service (#4891)
-- _(service)_ Add One Time Secret service (#5650)
-- _(service)_ Add Seafile service (#5817)
-- _(service)_ Add Netbird-Client service (#5873)
-- _(service)_ Add OrangeHRM and Grist services (#5212)
-- _(rules)_ Add comprehensive documentation for Coolify architecture and development practices for AI tools, especially for cursor
-- _(server)_ Implement server patch check notifications
-- _(api)_ Add latest query param to Service restart API (#5881)
-- _(api)_ Add connect_to_docker_network setting to App creation API (#5691)
-- _(routes)_ Restrict backup download access to team admins and owners
-- _(destination)_ Update confirmation modal text and add persistent storage warning for server deployment
-- _(terminal-access)_ Implement terminal access control for servers and containers, including UI updates and backend logic
-- _(ca-certificate)_ Add CA certificate management functionality with UI integration and routing
-- _(security-patches)_ Add update check initialization and enhance notification messaging in UI
-- _(previews)_ Add force deploy without cache functionality and update deploy method to accept force rebuild parameter
-- _(security-patterns)_ Expand sensitive patterns list to include additional security-related variables
-- _(database-backup)_ Add MongoDB credential extraction and backup handling to DatabaseBackupJob
-- _(activity-monitor)_ Implement auto-scrolling functionality and dynamic content observation for improved user experience
-- _(utf8-handling)_ Implement UTF-8 sanitization for command outputs and enhance error handling in logs processing
-- _(navbar)_ Add Traefik dashboard availability check and server IP handling; refactor dynamic configurations loading
-- _(proxy-dashboard)_ Implement ProxyDashboardCacheService to manage Traefik dashboard cache; clear cache on configuration changes and proxy actions
-- _(terminal-connection)_ Enhance terminal connection handling with auto-connect feature and improved status messaging
-- _(terminal)_ Implement resize handling with ResizeObserver for improved terminal responsiveness
-- _(migration)_ Add is_sentinel_enabled column to server_settings with default true
-- _(seeder)_ Dispatch StartProxy action for each server in ProductionSeeder
-- _(seeder)_ Add CheckAndStartSentinelJob dispatch for each server in ProductionSeeder
-- _(seeder)_ Conditionally dispatch StartProxy action based on proxy check result
-- _(service)_ Update Changedetection template (#5937)
-- _(service)_ Add Miniflux service (#5843)
-- _(service)_ Add Pingvin Share service (#5969)
-- _(auth)_ Add Discord OAuth Provider (#5552)
-- _(auth)_ Add Clerk OAuth Provider (#5553)
-- _(auth)_ Add Zitadel OAuth Provider (#5490)
-- _(core)_ Set custom API rate limit (#5984)
-- _(service)_ Enhance service status handling and UI updates
-- _(cleanup)_ Add functionality to delete teams with no members or servers in CleanupStuckedResources command
-- _(ui)_ Add heart icon and enhance popup messaging for sponsorship support
-- _(settings)_ Add sponsorship popup toggle and corresponding database migration
-- _(migrations)_ Add optimized indexes to activity_log for improved query performance
-- _(template)_ Added excalidraw (#6095)
-- _(template)_ Add excalidraw service configuration with documentation and tags
-- _(scheduling)_ Add command to manually run scheduled database backups and tasks with options for chunking, delays, and dry runs
-- _(scheduling)_ Add frequency filter option for manual execution of scheduled jobs
-- _(logging)_ Implement scheduled logs command and enhance backup/task scheduling with cron checks
-- _(logging)_ Add frequency filters for scheduled logs command to support hourly, daily, weekly, and monthly job views
-- _(scheduling)_ Introduce ScheduledJobManager and ServerResourceManager for enhanced job scheduling and resource management
-- _(previews)_ Implement soft delete and cleanup for ApplicationPreview, enhancing resource management in DeleteResourceJob
-- _(service)_ Enable password protection for the Wireguard Ul
-- _(queues)_ Improve Horizon config to reduce CPU and RAM usage (#6212)
-- _(service)_ Add Gowa service (#6164)
-- _(container)_ Add updatedSelectedContainer method to connect to non-default containers and update wire:model for improved reactivity
-- _(application)_ Implement environment variable updates for Docker Compose applications, including creation, updating, and deletion of SERVICE_FQDN and SERVICE_URL variables
-- _(service)_ Add TriliumNext service (#5970)
-- _(service)_ Add Matrix service (#6029)
-- _(service)_ Add GitHub Action runner service (#6209)
-- _(terminal)_ Dispatch focus event for terminal after connection and enhance focus handling in JavaScript
-- _(lang)_ Add Polish language & improve forgot_password translation (#6306)
-- _(service)_ Update Authentik template (#6264)
-- _(service)_ Add sequin template (#6105)
-- _(service)_ Add pi-hole template (#6020)
-- _(services)_ Add Chroma service (#6201)
-- _(service)_ Add OpenPanel template (#5310)
-- _(service)_ Add librechat template (#5654)
-- _(service)_ Add Homebox service (#6116)
-- _(service)_ Add pterodactyl & wings services (#5537)
-- _(service)_ Add Bluesky PDS template (#6302)
-- _(input)_ Add autofocus attribute to input component for improved accessibility
-- _(core)_ Finally fqdn is fqdn and url is url. haha
-- _(user)_ Add changelog read tracking and unread count method
-- _(templates)_ Add new service templates and update existing compose files for various applications
-- _(changelog)_ Implement automated changelog fetching from GitHub and enhance changelog read tracking
-- _(drizzle-gateway)_ Add new drizzle-gateway service with configuration and logo
-- _(drizzle-gateway)_ Enhance service configuration by adding Master Password field and updating compose file path
-- _(templates)_ Add new service templates for Homebox, LibreChat, Pterodactyl, and Wings with corresponding configurations and logos
-- _(templates)_ Add Bluesky PDS service template and update compose file with new environment variable
-- _(readme)_ Add CubePath as a big sponsor and include new small sponsors with logos
-- _(api)_ Add create_environment endpoint to ProjectController for environment creation in projects
-- _(api)_ Add endpoints for managing environments in projects, including listing, creating, and deleting environments
-- _(backup)_ Add disable local backup option and related logic for S3 uploads
-- _(dev patches)_ Add functionality to send test email with patch data in development mode
-- _(templates)_ Added category per service
-- _(email)_ Implement email change request and verification process
+- *(readme)* Add new sponsors Supadata AI and WZ-IT to the README
+- *(core)* Enable magic env variables for compose based applications
+- *(deployment)* Add repository_project_id handling for private GitHub apps and clean up unused Caddy label logic
+- *(api)* Enhance OpenAPI specifications with token variable and additional key attributes
+- *(docker)* Add HTTP Basic Authentication support and enhance hostname parsing in Docker run conversion
+- *(api)* Add HTTP Basic Authentication fields to OpenAPI specifications and enhance PrivateKey model descriptions
+- *(README)* Add InterviewPal sponsorship link and corresponding SVG icon
+- *(migration)* Add 'is_migrated' and 'custom_type' columns to service_applications and service_databases tables
+- *(backup)* Implement custom database type selection and enhance scheduled backups management
+- *(README)* Add Gozunga and Macarne to sponsors list
+- *(redis)* Add scheduled cleanup command for Redis keys and enhance cleanup logic
+- *(core)* Add 'postmarketos' to supported OS list
+- *(service)* Add memos service template (#5032)
+- *(ui)* Upgrade to Tailwind v4 (#5710)
+- *(service)* Add Navidrome service template (#5022)
+- *(service)* Add Passbolt service (#5769)
+- *(service)* Add Vert service (#5663)
+- *(service)* Add Ryot service (#5232)
+- *(service)* Add Marimo service (#5559)
+- *(service)* Add Diun service (#5113)
+- *(service)* Add Observium service (#5613)
+- *(service)* Add Leantime service (#5792)
+- *(service)* Add Limesurvey service (#5751)
+- *(service)* Add Paymenter service (#5809)
+- *(service)* Add CodiMD service (#4867)
+- *(modal)* Add dispatchAction property to confirmation modal
+- *(security)* Implement server patching functionality
+- *(service)* Add Typesense service (#5643)
+- *(service)* Add Yamtrack service (#5845)
+- *(service)* Add PG Back Web service (#5079)
+- *(service)* Update Maybe service and adjust it for the new release (#5795)
+- *(oauth)* Set redirect uri as optional and add default value (#5760)
+- *(service)* Add apache superset service (#4891)
+- *(service)* Add One Time Secret service (#5650)
+- *(service)* Add Seafile service (#5817)
+- *(service)* Add Netbird-Client service (#5873)
+- *(service)* Add OrangeHRM and Grist services (#5212)
+- *(rules)* Add comprehensive documentation for Coolify architecture and development practices for AI tools, especially for cursor
+- *(server)* Implement server patch check notifications
+- *(api)* Add latest query param to Service restart API (#5881)
+- *(api)* Add connect_to_docker_network setting to App creation API (#5691)
+- *(routes)* Restrict backup download access to team admins and owners
+- *(destination)* Update confirmation modal text and add persistent storage warning for server deployment
+- *(terminal-access)* Implement terminal access control for servers and containers, including UI updates and backend logic
+- *(ca-certificate)* Add CA certificate management functionality with UI integration and routing
+- *(security-patches)* Add update check initialization and enhance notification messaging in UI
+- *(previews)* Add force deploy without cache functionality and update deploy method to accept force rebuild parameter
+- *(security-patterns)* Expand sensitive patterns list to include additional security-related variables
+- *(database-backup)* Add MongoDB credential extraction and backup handling to DatabaseBackupJob
+- *(activity-monitor)* Implement auto-scrolling functionality and dynamic content observation for improved user experience
+- *(utf8-handling)* Implement UTF-8 sanitization for command outputs and enhance error handling in logs processing
+- *(navbar)* Add Traefik dashboard availability check and server IP handling; refactor dynamic configurations loading
+- *(proxy-dashboard)* Implement ProxyDashboardCacheService to manage Traefik dashboard cache; clear cache on configuration changes and proxy actions
+- *(terminal-connection)* Enhance terminal connection handling with auto-connect feature and improved status messaging
+- *(terminal)* Implement resize handling with ResizeObserver for improved terminal responsiveness
+- *(migration)* Add is_sentinel_enabled column to server_settings with default true
+- *(seeder)* Dispatch StartProxy action for each server in ProductionSeeder
+- *(seeder)* Add CheckAndStartSentinelJob dispatch for each server in ProductionSeeder
+- *(seeder)* Conditionally dispatch StartProxy action based on proxy check result
+- *(service)* Update Changedetection template (#5937)
+- *(service)* Add Miniflux service (#5843)
+- *(service)* Add Pingvin Share service (#5969)
+- *(auth)* Add Discord OAuth Provider (#5552)
+- *(auth)* Add Clerk OAuth Provider (#5553)
+- *(auth)* Add Zitadel OAuth Provider (#5490)
+- *(core)* Set custom API rate limit (#5984)
+- *(service)* Enhance service status handling and UI updates
+- *(cleanup)* Add functionality to delete teams with no members or servers in CleanupStuckedResources command
+- *(ui)* Add heart icon and enhance popup messaging for sponsorship support
+- *(settings)* Add sponsorship popup toggle and corresponding database migration
+- *(migrations)* Add optimized indexes to activity_log for improved query performance
+- *(template)* Added excalidraw (#6095)
+- *(template)* Add excalidraw service configuration with documentation and tags
+- *(scheduling)* Add command to manually run scheduled database backups and tasks with options for chunking, delays, and dry runs
+- *(scheduling)* Add frequency filter option for manual execution of scheduled jobs
+- *(logging)* Implement scheduled logs command and enhance backup/task scheduling with cron checks
+- *(logging)* Add frequency filters for scheduled logs command to support hourly, daily, weekly, and monthly job views
+- *(scheduling)* Introduce ScheduledJobManager and ServerResourceManager for enhanced job scheduling and resource management
+- *(previews)* Implement soft delete and cleanup for ApplicationPreview, enhancing resource management in DeleteResourceJob
+- *(service)* Enable password protection for the Wireguard Ul
+- *(queues)* Improve Horizon config to reduce CPU and RAM usage (#6212)
+- *(service)* Add Gowa service (#6164)
+- *(container)* Add updatedSelectedContainer method to connect to non-default containers and update wire:model for improved reactivity
+- *(application)* Implement environment variable updates for Docker Compose applications, including creation, updating, and deletion of SERVICE_FQDN and SERVICE_URL variables
+- *(service)* Add TriliumNext service (#5970)
+- *(service)* Add Matrix service (#6029)
+- *(service)* Add GitHub Action runner service (#6209)
+- *(terminal)* Dispatch focus event for terminal after connection and enhance focus handling in JavaScript
+- *(lang)* Add Polish language & improve forgot_password translation (#6306)
+- *(service)* Update Authentik template (#6264)
+- *(service)* Add sequin template (#6105)
+- *(service)* Add pi-hole template (#6020)
+- *(services)* Add Chroma service (#6201)
+- *(service)* Add OpenPanel template (#5310)
+- *(service)* Add librechat template (#5654)
+- *(service)* Add Homebox service (#6116)
+- *(service)* Add pterodactyl & wings services (#5537)
+- *(service)* Add Bluesky PDS template (#6302)
+- *(input)* Add autofocus attribute to input component for improved accessibility
+- *(core)* Finally fqdn is fqdn and url is url. haha
+- *(user)* Add changelog read tracking and unread count method
+- *(templates)* Add new service templates and update existing compose files for various applications
+- *(changelog)* Implement automated changelog fetching from GitHub and enhance changelog read tracking
+- *(drizzle-gateway)* Add new drizzle-gateway service with configuration and logo
+- *(drizzle-gateway)* Enhance service configuration by adding Master Password field and updating compose file path
+- *(templates)* Add new service templates for Homebox, LibreChat, Pterodactyl, and Wings with corresponding configurations and logos
+- *(templates)* Add Bluesky PDS service template and update compose file with new environment variable
+- *(readme)* Add CubePath as a big sponsor and include new small sponsors with logos
+- *(api)* Add create_environment endpoint to ProjectController for environment creation in projects
+- *(api)* Add endpoints for managing environments in projects, including listing, creating, and deleting environments
+- *(backup)* Add disable local backup option and related logic for S3 uploads
+- *(dev patches)* Add functionality to send test email with patch data in development mode
+- *(templates)* Added category per service
+- *(email)* Implement email change request and verification process
 - Generate category for services
-- _(service)_ Add elasticsearch template (#6300)
-- _(sanitization)_ Integrate DOMPurify for HTML sanitization across components
-- _(cleanup)_ Add command for sanitizing name fields across models
-- _(sanitization)_ Enhance HTML sanitization with improved DOMPurify configuration
-- _(validation)_ Centralize validation patterns for names and descriptions
-- _(git-settings)_ Add support for shallow cloning in application settings
-- _(auth)_ Implement authorization checks for server updates across multiple components
-- _(auth)_ Implement authorization for PrivateKey management
-- _(auth)_ Implement authorization for Docker and server management
-- _(validation)_ Add custom validation rules for Git repository URLs and branches
-- _(security)_ Add authorization checks for package updates in Livewire components
-- _(auth)_ Implement authorization checks for application management
-- _(auth)_ Enhance API error handling for authorization exceptions
-- _(auth)_ Add comprehensive authorization checks for all kind of resource creations
-- _(auth)_ Implement authorization checks for database management
-- _(auth)_ Refine authorization checks for S3 storage and service management
-- _(auth)_ Implement comprehensive authorization checks across API controllers
-- _(auth)_ Introduce resource creation authorization middleware and policies for enhanced access control
-- _(auth)_ Add middleware for resource creation authorization
-- _(auth)_ Enhance authorization checks in Livewire components for resource management
-- _(validation)_ Add ValidIpOrCidr rule for validating IP addresses and CIDR notations; update API access settings UI and add comprehensive tests
-- _(docs)_ Update architecture and development guidelines; enhance form components with built-in authorization system and improve routing documentation
-- _(docs)_ Expand authorization documentation for custom Alpine.js components; include manual protection patterns and implementation guidelines
-- _(sentinel)_ Implement SentinelRestarted event and update Livewire components to handle server restart notifications
-- _(api)_ Enhance IP access control in middleware and settings; support CIDR notation and special case for 0.0.0.0 to allow all IPs
-- _(acl)_ Change views/backend code to able to use proper ACL's later on. Currently it is not enabled.
-- _(docs)_ Add Backlog.md guidelines and project manager backlog agent; enhance CLAUDE.md with new links for task management
-- _(docs)_ Add tasks for implementing Docker build caching and optimizing staging builds; include detailed acceptance criteria and implementation plans
-- _(docker)_ Implement Docker cleanup processing in ScheduledJobManager; refactor server task scheduling to streamline cleanup job dispatching
-- _(docs)_ Expand Backlog.md guidelines with comprehensive usage instructions, CLI commands, and best practices for task management to enhance project organization and collaboration
-- _(policies)_ Add EnvironmentVariablePolicy for managing environment variables ( it was missing )
-- _(domains)_ Implement domain conflict detection and user confirmation modal across application components
-- _(domains)_ Add force_domain_override option and enhance domain conflict detection responses
+- *(service)* Add elasticsearch template (#6300)
+- *(sanitization)* Integrate DOMPurify for HTML sanitization across components
+- *(cleanup)* Add command for sanitizing name fields across models
+- *(sanitization)* Enhance HTML sanitization with improved DOMPurify configuration
+- *(validation)* Centralize validation patterns for names and descriptions
+- *(git-settings)* Add support for shallow cloning in application settings
+- *(auth)* Implement authorization checks for server updates across multiple components
+- *(auth)* Implement authorization for PrivateKey management
+- *(auth)* Implement authorization for Docker and server management
+- *(validation)* Add custom validation rules for Git repository URLs and branches
+- *(security)* Add authorization checks for package updates in Livewire components
+- *(auth)* Implement authorization checks for application management
+- *(auth)* Enhance API error handling for authorization exceptions
+- *(auth)* Add comprehensive authorization checks for all kind of resource creations
+- *(auth)* Implement authorization checks for database management
+- *(auth)* Refine authorization checks for S3 storage and service management
+- *(auth)* Implement comprehensive authorization checks across API controllers
+- *(auth)* Introduce resource creation authorization middleware and policies for enhanced access control
+- *(auth)* Add middleware for resource creation authorization
+- *(auth)* Enhance authorization checks in Livewire components for resource management
+- *(validation)* Add ValidIpOrCidr rule for validating IP addresses and CIDR notations; update API access settings UI and add comprehensive tests
+- *(docs)* Update architecture and development guidelines; enhance form components with built-in authorization system and improve routing documentation
+- *(docs)* Expand authorization documentation for custom Alpine.js components; include manual protection patterns and implementation guidelines
+- *(sentinel)* Implement SentinelRestarted event and update Livewire components to handle server restart notifications
+- *(api)* Enhance IP access control in middleware and settings; support CIDR notation and special case for 0.0.0.0 to allow all IPs
+- *(acl)* Change views/backend code to able to use proper ACL's later on. Currently it is not enabled.
+- *(docs)* Add Backlog.md guidelines and project manager backlog agent; enhance CLAUDE.md with new links for task management
+- *(docs)* Add tasks for implementing Docker build caching and optimizing staging builds; include detailed acceptance criteria and implementation plans
+- *(docker)* Implement Docker cleanup processing in ScheduledJobManager; refactor server task scheduling to streamline cleanup job dispatching
+- *(docs)* Expand Backlog.md guidelines with comprehensive usage instructions, CLI commands, and best practices for task management to enhance project organization and collaboration
+- *(policies)* Add EnvironmentVariablePolicy for managing environment variables ( it was missing )
+- *(domains)* Implement domain conflict detection and user confirmation modal across application components
+- *(domains)* Add force_domain_override option and enhance domain conflict detection responses
 - Add Ente Photos service template
-- _(command)_ Add option to sync GitHub releases to BunnyCDN and refactor sync logic
-- _(ui)_ Display current version in settings dropdown and update UI accordingly
-- _(settings)_ Add option to restrict PR deployments to repository members and contributors
-- _(command)_ Implement SSH command retry logic with exponential backoff and logging for better error handling
-- _(ssh)_ Add Sentry tracking for SSH retry events to enhance error monitoring
-- _(exceptions)_ Introduce NonReportableException to handle known errors and update Handler for selective reporting
-- _(sudo-helper)_ Add helper functions for command parsing and ownership management with sudo
-- _(dev-command)_ Dispatch CheckHelperImageJob during instance initialization to enhance setup process
-- _(ssh-multiplexing)_ Enhance multiplexed connection management with health checks and metadata caching
-- _(ssh-multiplexing)_ Add connection age metadata handling to improve multiplexed connection management
-- _(database-backup)_ Enhance error handling and output management in DatabaseBackupJob
-- _(application)_ Display parsing version in development mode and clean up domain conflict modal markup
-- _(deployment)_ Add SERVICE_NAME variables for service discovery
-- _(storages)_ Add method to retrieve the first storage ID for improved stability in storage display
-- _(environment)_ Add 'is_literal' attribute to environment variable for enhanced configuration options
-- _(pre-commit)_ Automate generation of service templates and OpenAPI documentation during pre-commit hook
-- _(execute-container)_ Enhance container command form with auto-connect feature for single container scenarios
-- _(environment)_ Introduce 'is_buildtime_only' attribute to environment variables for improved build-time configuration
-- _(templates)_ Add n8n service with PostgreSQL and worker support for enhanced workflow automation
-- _(user-management)_ Implement user deletion command with phased resource and subscription cancellation, including dry run option
-- _(sentinel)_ Add support for custom Docker images in StartSentinel and related methods
-- _(sentinel)_ Add slide-over for viewing Sentinel logs and custom Docker image input for development
-- _(executions)_ Add 'Load All' button to view all logs and implement loadAllLogs method for complete log retrieval
-- _(auth)_ Enhance user login flow to handle team invitations, attaching users to invited teams upon first login and maintaining personal team logic for regular logins
-- _(laravel-boost)_ Add Laravel Boost guidelines and MCP server configuration to enhance development experience
-- _(deployment)_ Enhance deployment status reporting with detailed information on active deployments and team members
-- _(deployment)_ Implement cancellation checks during deployment process to enhance user control and prevent unnecessary execution
-- _(deployment)_ Introduce 'use_build_secrets' setting for enhanced security during Docker builds and update related logic in deployment process
-- _(environment)_ Replace is_buildtime_only with is_runtime and is_buildtime flags for environment variables, updating related logic and views
-- _(deployment)_ Handle buildtime and runtime variables during deployment
-- _(search)_ Implement global search functionality with caching and modal interface
-- _(search)_ Enable query logging for global search caching
-- _(environment)_ Add dynamic checkbox options for environment variable settings based on user permissions and variable types
-- _(redaction)_ Implement sensitive information redaction in logs and commands
+- *(command)* Add option to sync GitHub releases to BunnyCDN and refactor sync logic
+- *(ui)* Display current version in settings dropdown and update UI accordingly
+- *(settings)* Add option to restrict PR deployments to repository members and contributors
+- *(command)* Implement SSH command retry logic with exponential backoff and logging for better error handling
+- *(ssh)* Add Sentry tracking for SSH retry events to enhance error monitoring
+- *(exceptions)* Introduce NonReportableException to handle known errors and update Handler for selective reporting
+- *(sudo-helper)* Add helper functions for command parsing and ownership management with sudo
+- *(dev-command)* Dispatch CheckHelperImageJob during instance initialization to enhance setup process
+- *(ssh-multiplexing)* Enhance multiplexed connection management with health checks and metadata caching
+- *(ssh-multiplexing)* Add connection age metadata handling to improve multiplexed connection management
+- *(database-backup)* Enhance error handling and output management in DatabaseBackupJob
+- *(application)* Display parsing version in development mode and clean up domain conflict modal markup
+- *(deployment)* Add SERVICE_NAME variables for service discovery
+- *(storages)* Add method to retrieve the first storage ID for improved stability in storage display
+- *(environment)* Add 'is_literal' attribute to environment variable for enhanced configuration options
+- *(pre-commit)* Automate generation of service templates and OpenAPI documentation during pre-commit hook
+- *(execute-container)* Enhance container command form with auto-connect feature for single container scenarios
+- *(environment)* Introduce 'is_buildtime_only' attribute to environment variables for improved build-time configuration
+- *(templates)* Add n8n service with PostgreSQL and worker support for enhanced workflow automation
+- *(user-management)* Implement user deletion command with phased resource and subscription cancellation, including dry run option
+- *(sentinel)* Add support for custom Docker images in StartSentinel and related methods
+- *(sentinel)* Add slide-over for viewing Sentinel logs and custom Docker image input for development
+- *(executions)* Add 'Load All' button to view all logs and implement loadAllLogs method for complete log retrieval
+- *(auth)* Enhance user login flow to handle team invitations, attaching users to invited teams upon first login and maintaining personal team logic for regular logins
+- *(laravel-boost)* Add Laravel Boost guidelines and MCP server configuration to enhance development experience
+- *(deployment)* Enhance deployment status reporting with detailed information on active deployments and team members
+- *(deployment)* Implement cancellation checks during deployment process to enhance user control and prevent unnecessary execution
+- *(deployment)* Introduce 'use_build_secrets' setting for enhanced security during Docker builds and update related logic in deployment process
+- *(environment)* Replace is_buildtime_only with is_runtime and is_buildtime flags for environment variables, updating related logic and views
+- *(deployment)* Handle buildtime and runtime variables during deployment
+- *(search)* Implement global search functionality with caching and modal interface
+- *(search)* Enable query logging for global search caching
+- *(environment)* Add dynamic checkbox options for environment variable settings based on user permissions and variable types
+- *(redaction)* Implement sensitive information redaction in logs and commands
 - Improve detection of special network modes
-- _(api)_ Add endpoint to update backup configuration by UUID and backup ID; modify response to include backup id
-- _(databases)_ Enhance backup management API with new endpoints and improved data handling
-- _(github)_ Add GitHub app management endpoints
-- _(github)_ Add update and delete endpoints for GitHub apps
-- _(databases)_ Enhance backup update and deletion logic with validation
-- _(environment-variables)_ Implement environment variable analysis for build-time issues
-- _(databases)_ Implement unique UUID generation for backup execution
-- _(cloud-check)_ Enhance subscription reporting in CloudCheckSubscription command
-- _(cloud-check)_ Enhance CloudCheckSubscription command with fix options
-- _(stripe)_ Enhance subscription handling and verification process
-- _(private-key-refresh)_ Add refresh dispatch on private key update and connection check
-- _(comments)_ Add automated comments for labeled pull requests to guide documentation updates
-- _(comments)_ Ping PR author
-- _(add-watch-paths-for-services)_ Show watch paths field for docker compose applications
-- _(application)_ Implement order-based pattern matching for watch paths with negation support
-- _(github)_ Enhance Docker Compose input fields for better user experience
-- _(dev-seeders)_ Add PersonalAccessTokenSeeder to create development API tokens
-- _(application)_ Add conditional .env file creation for Symfony apps during PHP deployment
-- _(application)_ Enhance watch path parsing to support negation syntax
-- _(application)_ Add normalizeWatchPaths method to improve watch path handling
-- _(validation)_ Enhance ValidGitRepositoryUrl to support additional safe characters and add comprehensive unit tests for various Git repository URL formats
-- _(deployment)_ Implement detection for Laravel/Symfony frameworks and configure NIXPACKS PHP environment variables accordingly
-- _(user-deletion)_ Implement file locking to prevent concurrent user deletions and enhance error handling
-- _(ui)_ Enhance resource operations interface with dynamic selection for cloning and moving resources
-- _(global-search)_ Integrate projects and environments into global search functionality
-- _(storage)_ Consolidate storage management into a single component with enhanced UI
-- _(deployments)_ Add support for Coolify variables in Dockerfile
-- _(deployments)_ Enhance Docker build argument handling for multiline variables
-- _(deployments)_ Add log copying functionality to clipboard in dev
-- _(deployments)_ Generate SERVICE_NAME environment variables from Docker Compose services
-- _(docker)_ Enhance Docker image handling with new validation and parsing logic
-- _(docker)_ Improve Docker image submission logic with enhanced parsing
-- _(docker)_ Refine Docker image processing in application creation
+- *(api)* Add endpoint to update backup configuration by UUID and backup ID; modify response to include backup id
+- *(databases)* Enhance backup management API with new endpoints and improved data handling
+- *(github)* Add GitHub app management endpoints
+- *(github)* Add update and delete endpoints for GitHub apps
+- *(databases)* Enhance backup update and deletion logic with validation
+- *(environment-variables)* Implement environment variable analysis for build-time issues
+- *(databases)* Implement unique UUID generation for backup execution
+- *(cloud-check)* Enhance subscription reporting in CloudCheckSubscription command
+- *(cloud-check)* Enhance CloudCheckSubscription command with fix options
+- *(stripe)* Enhance subscription handling and verification process
+- *(private-key-refresh)* Add refresh dispatch on private key update and connection check
+- *(comments)* Add automated comments for labeled pull requests to guide documentation updates
+- *(comments)* Ping PR author
+- *(add-watch-paths-for-services)* Show watch paths field for docker compose applications
+- *(application)* Implement order-based pattern matching for watch paths with negation support
+- *(github)* Enhance Docker Compose input fields for better user experience
+- *(dev-seeders)* Add PersonalAccessTokenSeeder to create development API tokens
+- *(application)* Add conditional .env file creation for Symfony apps during PHP deployment
+- *(application)* Enhance watch path parsing to support negation syntax
+- *(application)* Add normalizeWatchPaths method to improve watch path handling
+- *(validation)* Enhance ValidGitRepositoryUrl to support additional safe characters and add comprehensive unit tests for various Git repository URL formats
+- *(deployment)* Implement detection for Laravel/Symfony frameworks and configure NIXPACKS PHP environment variables accordingly
+- *(user-deletion)* Implement file locking to prevent concurrent user deletions and enhance error handling
+- *(ui)* Enhance resource operations interface with dynamic selection for cloning and moving resources
+- *(global-search)* Integrate projects and environments into global search functionality
+- *(storage)* Consolidate storage management into a single component with enhanced UI
+- *(deployments)* Add support for Coolify variables in Dockerfile
+- *(deployments)* Enhance Docker build argument handling for multiline variables
+- *(deployments)* Add log copying functionality to clipboard in dev
+- *(deployments)* Generate SERVICE_NAME environment variables from Docker Compose services
+- *(docker)* Enhance Docker image handling with new validation and parsing logic
+- *(docker)* Improve Docker image submission logic with enhanced parsing
+- *(docker)* Refine Docker image processing in application creation
 - Add Ente Photos service template
-- _(storage)_ Add read-only volume handling and UI notifications
-- _(service)_ Add Elasticsearch password handling in extraFields method
-- _(application)_ Add default NIXPACKS_NODE_VERSION environment variable for Nixpacks applications
-- _(proxy)_ Enhance proxy configuration regeneration by extracting custom commands
-- _(backup)_ Enhance backup job with S3 upload handling and notifications
-- _(storage)_ Implement transaction handling in storage settings submission
-- _(project)_ Enhance project index with resource creation capabilities
-- _(dashboard)_ Enhance project and server sections with modal input for resource creation
-- _(global-search)_ Enhance resource creation functionality in search modal
-- _(global-search)_ Add navigation routes and enhance search functionality
-- _(conductor)_ Add setup script and configuration file
-- _(conductor)_ Add run script and update runScriptMode configuration
-- _(docker-compose)_ Add image specifications for coolify, soketi, and testing-host services
-- _(cleanup)_ Add force deletion of stuck servers and orphaned SSL certificates
-- _(deployment)_ Save build-time .env file before build and enhance logging for Dockerfile
+- *(storage)* Add read-only volume handling and UI notifications
+- *(service)* Add Elasticsearch password handling in extraFields method
+- *(application)* Add default NIXPACKS_NODE_VERSION environment variable for Nixpacks applications
+- *(proxy)* Enhance proxy configuration regeneration by extracting custom commands
+- *(backup)* Enhance backup job with S3 upload handling and notifications
+- *(storage)* Implement transaction handling in storage settings submission
+- *(project)* Enhance project index with resource creation capabilities
+- *(dashboard)* Enhance project and server sections with modal input for resource creation
+- *(global-search)* Enhance resource creation functionality in search modal
+- *(global-search)* Add navigation routes and enhance search functionality
+- *(conductor)* Add setup script and configuration file
+- *(conductor)* Add run script and update runScriptMode configuration
+- *(docker-compose)* Add image specifications for coolify, soketi, and testing-host services
+- *(cleanup)* Add force deletion of stuck servers and orphaned SSL certificates
+- *(deployment)* Save build-time .env file before build and enhance logging for Dockerfile
 - Implement Hetzner deletion failure notification system with email and messaging support
 - Enhance proxy status notifications with detailed messages for various states
 - Add retry functionality for server validation process
@@ -976,21 +976,21 @@ All notable changes to this project will be documented in this file.
 - Implement actual webhook delivery with Ray debugging
 - Improve webhook URL field UI
 - Add UUIDs and URLs to webhook notifications
-- _(onboarding)_ Redesign user onboarding flow with modern UI/UX
+- *(onboarding)* Redesign user onboarding flow with modern UI/UX
 - Replace terminal dropdown with searchable datalist component
-- _(onboarding)_ Add Hetzner integration and fix navigation issues
+- *(onboarding)* Add Hetzner integration and fix navigation issues
 - Use new homarr image
-- _(templates)_ Actually use the new image now
-- _(templates)_ Pin homarr image version to v1.40.0
-- _(template)_ Added newapi
+- *(templates)* Actually use the new image now
+- *(templates)* Pin homarr image version to v1.40.0
+- *(template)* Added newapi
 - Add mail environment variables to docmost.yaml
 - Add Email Envs, Install more required packages by pdsadmin
 - Make an empty pds.env file to trick pdsadmin into working correctly
 - Not many know how to setup this without reading pds docs
 - Make the other email env also required
-- _(templates)_ Added Lobe Chat service
-- _(service)_ Add Gramps Web template
-- _(campfire)_ Add Docker Compose configuration for Once Campfire service
+- *(templates)* Added Lobe Chat service
+- *(service)* Add Gramps Web template
+- *(campfire)* Add Docker Compose configuration for Once Campfire service
 - Add Hetzner affiliate link to token form
 - Update Hetzner affiliate link text and URL
 - Add CPU vendor information to server types in Hetzner integration
@@ -998,33 +998,33 @@ All notable changes to this project will be documented in this file.
 - Implement TrustHosts middleware to handle FQDN and IP address trust logic
 - Allow safe environment variable defaults in array-format volumes
 - Add signoz template
-- _(signoz)_ Replace png icon by svg icon
-- _(signoz)_ Remove explicit 'networks' setting
-- _(signoz)_ Add predefined environment variables to configure Telemetry, SMTP and email sending for Alert Manager
-- _(signoz)_ Generate URLs for `otel-collector` service
-- _(signoz)_ Update documentation link
-- _(signoz)_ Add healthcheck to otel-collector service
-- _(signoz)_ Use latest tag instead of hardcoded versions
-- _(signoz)_ Remove redundant users.xml volume from clickhouse container
-- _(signoz)_ Replace clickhouse' config.xml volume with simpler configuration
-- _(signoz)_ Remove deprecated parameters of signoz container
-- _(signoz)_ Remove volumes from signoz.yaml
-- _(signoz)_ Assume there is a single zookeeper container
-- _(signoz)_ Update Clickhouse config to include all settings required by Signoz
-- _(signoz)_ Update config.xml and users.xml to ensure clickhouse boots correctly
-- _(signoz)_ Update otel-collector configuration to match upstream
-- _(signoz)_ Fix otel-collector config for version v0.128.0
-- _(signoz)_ Remove unecessary port mapping for otel-collector
-- _(signoz)_ Add SIGNOZ_JWT_SECRET env var generation
-- _(signoz)_ Upgrade clickhouse image to 25.5.6
-- _(signoz)_ Use latest tag for signoz/zookeeper
-- _(signoz)_ Update variables for SMTP configuration
-- _(signoz)_ Replace deprecated `TELEMETRY_ENABLED` by `SIGNOZ_STATSREPORTER_ENABLED`
-- _(signoz)_ Pin service image tags and `exclude_from_hc` flag to services excluded from health checks
-- _(templates)_ Add SMTP configuration to ente-photos compose templates
-- _(templates)_ Add SMTP encryption configuration to ente-photos compose templates
-- _(templates)_ Add sparkyfitness compose template and logo
-- _(servide)_ Add siyuan template
+- *(signoz)* Replace png icon by svg icon
+- *(signoz)* Remove explicit 'networks' setting
+- *(signoz)* Add predefined environment variables to configure Telemetry, SMTP and email sending for Alert Manager
+- *(signoz)* Generate URLs for `otel-collector` service
+- *(signoz)* Update documentation link
+- *(signoz)* Add healthcheck to otel-collector service
+- *(signoz)* Use latest tag instead of hardcoded versions
+- *(signoz)* Remove redundant users.xml volume from clickhouse container
+- *(signoz)* Replace clickhouse' config.xml volume with simpler configuration
+- *(signoz)* Remove deprecated parameters of signoz container
+- *(signoz)* Remove volumes from signoz.yaml
+- *(signoz)* Assume there is a single zookeeper container
+- *(signoz)* Update Clickhouse config to include all settings required by Signoz
+- *(signoz)* Update config.xml and users.xml to ensure clickhouse boots correctly
+- *(signoz)* Update otel-collector configuration to match upstream
+- *(signoz)* Fix otel-collector config for version v0.128.0
+- *(signoz)* Remove unecessary port mapping for otel-collector
+- *(signoz)* Add SIGNOZ_JWT_SECRET env var generation
+- *(signoz)* Upgrade clickhouse image to 25.5.6
+- *(signoz)* Use latest tag for signoz/zookeeper
+- *(signoz)* Update variables for SMTP configuration
+- *(signoz)* Replace deprecated `TELEMETRY_ENABLED` by `SIGNOZ_STATSREPORTER_ENABLED`
+- *(signoz)* Pin service image tags and `exclude_from_hc` flag to services excluded from health checks
+- *(templates)* Add SMTP configuration to ente-photos compose templates
+- *(templates)* Add SMTP encryption configuration to ente-photos compose templates
+- *(templates)* Add sparkyfitness compose template and logo
+- *(servide)* Add siyuan template
 - Add onboarding guide link to global search no results state
 - Add category filter dropdown to service selection
 - Display service logos in original colors with consistent sizing
@@ -1033,7 +1033,7 @@ All notable changes to this project will be documented in this file.
 - Add dynamic viewport-based height for compose editor
 - Add funding information for Coollabs including sponsorship plans and channels
 - Update Evolution API slogan to better reflect its capabilities
-- _(templates)_ Update plane compose to v1.0.0
+- *(templates)* Update plane compose to v1.0.0
 - Add token validation functionality for Hetzner and DigitalOcean providers
 - Add dev_helper_version to instance settings and update related functionality
 - Add RestoreDatabase command for PostgreSQL dump restoration
@@ -1041,32 +1041,32 @@ All notable changes to this project will be documented in this file.
 - Enhance General component with additional properties and validation rules
 - Update version numbers to 4.0.0-beta.440 and 4.0.0-beta.441
 - Implement required port validation for service applications
-- _(jobs)_ Improve scheduled tasks with retry logic and queue cleanup
+- *(jobs)* Improve scheduled tasks with retry logic and queue cleanup
 - Ensure .env file exists for docker compose and auto-inject in payloads
-- _(service)_ Add postgresus service template. (#7055)
+- *(service)* Add postgresus service template. (#7055)
 - Add automated PORT environment variable detection and UI warnings
 - Add container restart tracking and crash loop detection
 - Implement service environment variable parsing and add unit tests for port detection logic
-- _(DatabaseBackupJob, ScheduledTaskJob)_ Enforce minimum timeout and add execution ID for timeout handling
-- _(Cleanup)_ Implement failure marking for stuck scheduled tasks and database backups during startup
-- _(EmailChannel)_ Enhance error handling with user-friendly messages for Resend API errors
-- _(DeploymentException)_ Add custom exception for deployment errors and update handler to exclude from reporting
-- _(CleanupRedis)_ Improve stuck job cleanup logic by prioritizing reserved_at timestamp
-- _(BackupNotification)_ Include database name in BackupFailed notification for better context
-- _(CleanupRedis)_ Add error handling for JSON decode failures in cleanupStuckJobs method
-- _(CleanupRedis)_ Add error handling for JSON decode failures in cleanupStuckJobs method
-- _(ServiceDatabase)_ Add support for TimescaleDB detection and database type identification
-- _(proxy)_ Upgrade Traefik image to v3.6
-- _(proxy)_ Upgrade Traefik image to v3.6 (#7225)
-- _(proxy)_ Add Traefik version tracking with notifications and dismissible UI warnings
-- _(proxy)_ Enhance Traefik version notifications to show patch and minor upgrades
-- _(proxy)_ Trigger version check after restart from UI
-- _(proxy)_ Include Traefik versions in version check after restart
-- _(proxy)_ Enhance Traefik version notifications (#7247)
+- *(DatabaseBackupJob, ScheduledTaskJob)* Enforce minimum timeout and add execution ID for timeout handling
+- *(Cleanup)* Implement failure marking for stuck scheduled tasks and database backups during startup
+- *(EmailChannel)* Enhance error handling with user-friendly messages for Resend API errors
+- *(DeploymentException)* Add custom exception for deployment errors and update handler to exclude from reporting
+- *(CleanupRedis)* Improve stuck job cleanup logic by prioritizing reserved_at timestamp
+- *(BackupNotification)* Include database name in BackupFailed notification for better context
+- *(CleanupRedis)* Add error handling for JSON decode failures in cleanupStuckJobs method
+- *(CleanupRedis)* Add error handling for JSON decode failures in cleanupStuckJobs method
+- *(ServiceDatabase)* Add support for TimescaleDB detection and database type identification
+- *(proxy)* Upgrade Traefik image to v3.6
+- *(proxy)* Upgrade Traefik image to v3.6 (#7225)
+- *(proxy)* Add Traefik version tracking with notifications and dismissible UI warnings
+- *(proxy)* Enhance Traefik version notifications to show patch and minor upgrades
+- *(proxy)* Trigger version check after restart from UI
+- *(proxy)* Include Traefik versions in version check after restart
+- *(proxy)* Enhance Traefik version notifications (#7247)
 - Auto-create MinIO bucket and validate storage in development
 - Add docker-compose health check examples and github runner migration
 - Improve health status warning messages for unknown and unhealthy states
-- _(tests)_ Add comprehensive tests for ContainerStatusAggregator and serverStatus accessor
+- *(tests)* Add comprehensive tests for ContainerStatusAggregator and serverStatus accessor
 - Add validation for YAML parsing, integer parameters, and Docker Compose custom fields
 - Add helper messages for unknown and unhealthy states in running status component
 - Implement formatContainerStatus helper for human-readable status formatting and add unit tests
@@ -1077,18 +1077,18 @@ All notable changes to this project will be documented in this file.
 - Add async prerequisite installation with retry logic and visual feedback
 - Implement prerequisite validation and installation for server setup (#7297)
 - Add palworld service (#7206)
-- _(service)_ Add newt-pangolin template (#6259)
-- _(opnform)_ Add SERVICE_URL_NGINX environment variable to nginx service
-- _(service)_ Add Opnform template (#5875)
+- *(service)* Add newt-pangolin template (#6259)
+- *(opnform)* Add SERVICE_URL_NGINX environment variable to nginx service
+- *(service)* Add Opnform template (#5875)
 - Add environment variable autocomplete component
 - Add S3 storage integration for file import
 - Streamline S3 restore with single-step flow and improved UI consistency
-- _(proxy)_ Add Traefik version tracking with notifications and dismissible UI warnings
-- _(proxy)_ Enhance Traefik version notifications to show patch and minor upgrades
-- _(proxy)_ Trigger version check after restart from UI
-- _(proxy)_ Include Traefik versions in version check after restart
+- *(proxy)* Add Traefik version tracking with notifications and dismissible UI warnings
+- *(proxy)* Enhance Traefik version notifications to show patch and minor upgrades
+- *(proxy)* Trigger version check after restart from UI
+- *(proxy)* Include Traefik versions in version check after restart
 - Improve S3 restore path handling and validation state
-- S3 restore (#7085)
+- S3 restore  (#7085)
 - Add environment variable autocomplete component (#7282)
 - Add validation methods for S3 bucket names, paths, and server paths; update import logic to prevent command injection
 - Create migration for webhook notification settings and cloud init scripts tables
@@ -1106,10 +1106,10 @@ All notable changes to this project will be documented in this file.
 - Add availableSharedVariables method and enhance env-var-input component for better password handling
 - Add predefined network connection for pgAdmin and postgresus services
 - Logs color highlight based on log level - visual improvement
-- _(ui)_ Logs color highlight based on log level (#7288)
+- *(ui)* Logs color highlight based on log level (#7288)
 - Improve new resource selection UI layout and styling
 - Improve trademark policy on new resource page using proper callout component instead of plain text
-- _(ui)_ Improve new resource page UI layout and styling (#7291)
+- *(ui)* Improve new resource page UI layout and styling (#7291)
 - Add migration for performance indexes on multiple tables
 - Add scheduled job to cleanup orphaned PR containers
 - Add Hetzner server provisioning API endpoints
@@ -1117,7 +1117,7 @@ All notable changes to this project will be documented in this file.
 - Add Hetzner server provisioning API endpoints (#7562)
 - Add deterministic UUIDs to development seeders
 - Add deterministic UUIDs to dev seeders (#7584)
-- _(api)_ Improve OpenAPI spec and add rate limit handling for Hetzner
+- *(api)* Improve OpenAPI spec and add rate limit handling for Hetzner
 - Add Escape key support to exit fullscreen logs view
 - Add Hetzner Cloud server linking for manually-added servers
 - Add Hetzner Cloud server linking for manually-added servers (#7592)
@@ -1136,61 +1136,70 @@ All notable changes to this project will be documented in this file.
 - Copy resource logs with PII/secret sanitization (#7648)
 - Add copy logs button to deployment and runtime logs
 - Add copy logs button to deployment and runtime logs (#7676)
-- _(stripe)_ Add manual subscription sync command with dry-run support
+- *(stripe)* Add manual subscription sync command with dry-run support
 - Add manual Stripe subscription sync command (#7706)
-- _(redirect)_ Add redirectRoute helper for SPA navigation support
-- _(logs)_ Add dropdown to download displayed or all logs
-- _(logs)_ Add loading indicator to download all logs buttons
-- _(logs)_ Add loading indicator to download all logs buttons (#7847)
+- *(redirect)* Add redirectRoute helper for SPA navigation support
+- *(logs)* Add dropdown to download displayed or all logs
+- *(logs)* Add loading indicator to download all logs buttons
+- *(logs)* Add loading indicator to download all logs buttons (#7847)
 - Add Sessy as one-click service
 - Add Sessy as one-click service (#7851)
 - Add ServiceDatabase restore/import support
 - Add import backup UI for ServiceDatabase
 - Refactor service database management and backup functionalities
 - Add ServiceDatabase restore/import support (#7540)
-- _(template)_ Add mage-ai
-- _(template)_ Mage-ai (#7705)
-- _(templates)_ Update Postgresus to Databasus and bump Docker Image version
-- _(template)_ Add databasus logo
-- _(templates)_ Update Postgresus to Databasus and bump Docker Image (#7799)
-- _(lang)_ Add missing chinese translation keys (#7477)
-- _(services)_ Update authentik (#7380)
-- _(ui)_ Show server name on resource card (#7417)
-- _(lang)_ Update portuguese language keys (#7020)
-- _(magic)_ Add LOWERCASEUSER as magic variable (#6942)
-- _(install)_ Add postmarketos to the supported distributions (#6909)
-- _(ui)_ Make git repository dropdown searchable (#7064)
-- _(service)_ Add healthchecks to evolution-api service (#6607)
-- _(github)_ Implement processing for GitHub pull request webhooks and add helper functions for commit and PR file retrieval
-- _(service)_ Update n8n worker to v2
-- _(service)_ Improve n8n and update n8n worker to v2 (#7874)
+- *(template)* Add mage-ai
+- *(template)* Mage-ai (#7705)
+- *(templates)* Update Postgresus to Databasus and bump Docker Image version
+- *(template)* Add databasus logo
+- *(templates)* Update Postgresus to Databasus and bump Docker Image (#7799)
+- *(lang)* Add missing chinese translation keys (#7477)
+- *(services)* Update authentik (#7380)
+- *(ui)* Show server name on resource card (#7417)
+- *(lang)* Update portuguese language keys (#7020)
+- *(magic)* Add LOWERCASEUSER as magic variable (#6942)
+- *(install)* Add postmarketos to the supported distributions (#6909)
+- *(ui)* Make git repository dropdown searchable (#7064)
+- *(service)* Add healthchecks to evolution-api service (#6607)
+- *(github)* Implement processing for GitHub pull request webhooks and add helper functions for commit and PR file retrieval
+- *(service)* Update n8n worker to v2
+- *(service)* Improve n8n and update n8n worker to v2 (#7874)
 - Allow more characters when validating
 - Improve validation patterns (#7875)
-- _(service)_ Add trailbase template (#6934)
-- _(service)_ Upgrade docker registry template (#7034)
-- _(service)_ Add esphome template (#6532)
-- _(service)_ Add hatchet template (#6711)
-- _(service)_ Add sftpgo template (#6415)
-- _(service)_ Add cloudreve template (#6774)
-- _(service)_ Add silverbullet template (#6425)
-- _(ui)_ Add port mapping format to helper and fix typo
-- _(service)_ Add nocobase template (#7347)
-- _(api)_ Allow to escape special characters in labels (#7886)
-- _(service)_ Upgrade trigger template to v4 (#7808)
-- _(service)_ Add redmine template (#6429)
-- _(service)_ Add autobase template (#6299)
-- _(service)_ Add uptime kuma v2 with mysql
-- _(service)_ Add uptime kuma with mariadb template (#7256)
-- _(service)_ Add calibre web automated with downloader template (#6419)
-- _(service)_ Improve matrix templates (#7560)
-- _(service)_ Add booklore template (#7838)
-- _(service)_ Add seaweedfs template (#7617)
+- *(service)* Add trailbase template (#6934)
+- *(service)* Upgrade docker registry template (#7034)
+- *(service)* Add esphome template (#6532)
+- *(service)* Add hatchet template (#6711)
+- *(service)* Add sftpgo template (#6415)
+- *(service)* Add cloudreve template (#6774)
+- *(service)* Add silverbullet template (#6425)
+- *(ui)* Add port mapping format to helper and fix typo
+- *(service)* Add nocobase template (#7347)
+- *(api)* Allow to escape special characters in labels (#7886)
+- *(service)* Upgrade trigger template to v4 (#7808)
+- *(service)* Add redmine template (#6429)
+- *(service)* Add autobase template (#6299)
+- *(service)* Add uptime kuma v2 with mysql
+- *(service)* Add uptime kuma with mariadb template (#7256)
+- *(service)* Add calibre web automated with downloader template (#6419)
+- *(service)* Improve matrix templates (#7560)
+- *(service)* Add booklore template (#7838)
+- *(service)* Add seaweedfs template (#7617)
 - Add application logs link to preview deployments PR comment (#7906)
-- _(api)_ Add tag filtering on the applications list endpoint (#7360)
-- _(service)_ Update autobase to version 2.5 (#7923)
-- _(service)_ Add chibisafe template (#5808)
-- _(ui)_ Improve sidebar menu items styling (#7928)
-- _(service)_ Improve open-archiver
+- *(api)* Add tag filtering on the applications list endpoint (#7360)
+- *(service)* Update autobase to version 2.5 (#7923)
+- *(service)* Add chibisafe template (#5808)
+- *(ui)* Improve sidebar menu items styling (#7928)
+- *(template)* Add open archiver template (#6593)
+- *(service)* Add linkding template (#6651)
+- *(service)* Add glip template (#7937)
+- *(templates)* Add Sessy docker compose template (#7951)
+- *(api)* Add update urls support to services api
+- *(api)* Improve service urls update
+- *(api)* Add url update support to services api (#7929)
+- *(api)* Improve docker_compose_domains
+- *(api)* Add more allowed fields
+- *(notifications)* Add mattermost notifications (#7963)
 
 ### 🐛 Bug Fixes
 
@@ -1332,7 +1341,7 @@ All notable changes to this project will be documented in this file.
 - Gitlab & Github urls
 - Secrets build/runtime coudl be changed after save
 - Default configuration
-- _(php)_ If .htaccess file found use apache
+- *(php)* If .htaccess file found use apache
 - Add default webhook domain for n8n
 - Add git lfs while deploying
 - Try to update build status several times
@@ -1606,7 +1615,7 @@ All notable changes to this project will be documented in this file.
 - Empty buildpack icons
 - Debounce dashboard status requests
 - Decryption errors
-- Postgresql on ARM
+- Postgresql  on ARM
 - Make it public button
 - Loading indicator
 - Replace docker compose with docker-compose on CSB
@@ -1745,28 +1754,28 @@ All notable changes to this project will be documented in this file.
 - Update PR building status
 - Appwrite default version 1.0
 - Undead endpoint does not require JWT
-- _(routes)_ Improve design of application page
-- _(routes)_ Improve design of git sources page
-- _(routes)_ Ui from destinations page
-- _(routes)_ Ui from databases page
-- _(routes)_ Ui from databases page
-- _(routes)_ Ui from databases page
-- _(routes)_ Ui from services page
-- _(routes)_ More ui tweaks
-- _(routes)_ More ui tweaks
-- _(routes)_ More ui tweaks
-- _(routes)_ More ui tweaks
-- _(routes)_ Ui from settings page
-- _(routes)_ Duplicates classes in services page
-- _(routes)_ Searchbar ui
+- *(routes)* Improve design of application page
+- *(routes)* Improve design of git sources page
+- *(routes)* Ui from destinations page
+- *(routes)* Ui from databases page
+- *(routes)* Ui from databases page
+- *(routes)* Ui from databases page
+- *(routes)* Ui from services page
+- *(routes)* More ui tweaks
+- *(routes)* More ui tweaks
+- *(routes)* More ui tweaks
+- *(routes)* More ui tweaks
+- *(routes)* Ui from settings page
+- *(routes)* Duplicates classes in services page
+- *(routes)* Searchbar ui
 - Github conflicts
-- _(routes)_ More ui tweaks
-- _(routes)_ More ui tweaks
-- _(routes)_ More ui tweaks
-- _(routes)_ More ui tweaks
+- *(routes)* More ui tweaks
+- *(routes)* More ui tweaks
+- *(routes)* More ui tweaks
+- *(routes)* More ui tweaks
 - Ui with headers
-- _(routes)_ Header of settings page in databases
-- _(routes)_ Ui from secrets table
+- *(routes)* Header of settings page in databases
+- *(routes)* Ui from secrets table
 - Ui
 - Tooltip
 - Dropdown
@@ -2236,19 +2245,19 @@ All notable changes to this project will be documented in this file.
 - Show real volume names
 - Only parse expose in dockerfiles if ports_exposes is empty
 - Add uuid to volume names
-- New volumes for services should have - instead of \_
+- New volumes for services should have - instead of _
 - Always pull helper image in dev
 - Only show last 1000 lines
 - Service status
 - If waitlist is disabled, redirect to register
 - Add destination to new services
 - Predefined content for files
-- Move /data to ./\_data in dev
+- Move /data to ./_data in dev
 - UI
 - Show all storages in one place for services
 - Ui
-- Add \_data to vite ignore
-- Only use \_ in volume names for services
+- Add _data to vite ignore
+- Only use _ in volume names for services
 - Volume names in services
 - Volume names
 - Service logs visible if the whole service stack is not running
@@ -2258,7 +2267,7 @@ All notable changes to this project will be documented in this file.
 - Dev compose files
 - Traefik labels for multiport deployments
 - Visible version number
-- Remove SERVICE\_ from deployable compose
+- Remove SERVICE_ from deployable compose
 - Delete event to deleting
 - Move dev data to volumes to prevent permission issues
 - Traefik labelling in case of several http and https domain added
@@ -2273,7 +2282,7 @@ All notable changes to this project will be documented in this file.
 - Private repository
 - Contribution guide
 - Public repository names
-- _(create)_ Flex wrap on server & network selection
+- *(create)* Flex wrap on server & network selection
 - Better unreachable/revived server statuses
 - Able to set base dir for Dockerfile build pack
 - Server validation process
@@ -2401,7 +2410,7 @@ All notable changes to this project will be documented in this file.
 - Revert workdir to basedir
 - Container status jobs for old pr deployments
 - Service updates
-- _(fider template)_ Use the correct docs url
+- *(fider template)* Use the correct docs url
 - Fqdn for minio
 - Generate service fields
 - Mariadb backups
@@ -2438,7 +2447,7 @@ All notable changes to this project will be documented in this file.
 - Service deletion job
 - Double ws connection
 - Boarding view
-- Do not send telegram noti on intent payment failed
+- Do not send telegram noti  on intent payment failed
 - Database ui is realtime based
 - Live mode for github webhooks
 - Ui
@@ -2590,7 +2599,7 @@ All notable changes to this project will be documented in this file.
 - Add openbsd ssh server check
 - Resources
 - Empty build variables
-- _(server)_ Revalidate server button not showing in server's page
+- *(server)* Revalidate server button not showing in server's page
 - Fluent bit ident level
 - Submodule cloning
 - Database status
@@ -2843,8 +2852,8 @@ All notable changes to this project will be documented in this file.
 - Service status changed event
 - Disable sentinel until a few bugs are fixed
 - Service domains and envs are properly updated
-- _(reactive-resume)_ New healthcheck command for MinIO
-- _(MinIO)_ New command healthcheck
+- *(reactive-resume)* New healthcheck command for MinIO
+- *(MinIO)* New command healthcheck
 - Update minio hc in services
 - Add validation for missing docker compose file
 - Typo in is_literal helper
@@ -2989,7 +2998,7 @@ All notable changes to this project will be documented in this file.
 - Deploy key based deployments
 - Proxy fixes
 - Proxy
-- _(templates)_ Filebrowser FQDN env variable
+- *(templates)* Filebrowser FQDN env variable
 - Handle edge case when build variables and env variables are in different format
 - Compose based terminal
 - Filebrowser template
@@ -3031,7 +3040,7 @@ All notable changes to this project will be documented in this file.
 - Remove env, change timezone
 - Postgres healthcheck
 - Azimutt template - still not working haha
-- New parser with SERVICE*URL* envs
+- New parser with SERVICE_URL_ envs
 - Improve service template readability
 - Update password variables in Service model
 - Scheduled database server
@@ -3127,15 +3136,15 @@ All notable changes to this project will be documented in this file.
 - Seeder should not start sentinel
 - Start sentinel on seeder
 - Notifications ui
-- Disable wire:navigate
 - Confirmation Settings css for light mode
+- Disable wire:navigate
 - Server wildcard
 - Saving resend api key
 - Wildcard domain save
 - Disable cloudflare tunnel on "localhost"
-- Define separate volumes for mattermost service template
 - Github app name is too long
 - ServerTimezone update
+- Define separate volumes for mattermost service template
 - Trigger.dev db host & sslmode=disable
 - Manual update should be executed only once + better UX
 - Upgrade.sh
@@ -3282,6 +3291,14 @@ All notable changes to this project will be documented in this file.
 - Service status indicator + oauth saving
 - Socialite for azure and authentik
 - Saving oauth
+- Smtp encryption
+- Bind() to 0.0.0.0:80 failed
+- Oauth seeder
+- Unreachable notifications
+- Instance settings migration
+- Only encrypt instance email settings if there are any
+- Error message
+- Update healthcheck and port configurations to use port 8080
 - Fallback for copy button
 - Copy the right text
 - Maybe fallback is now working
@@ -3311,14 +3328,6 @@ All notable changes to this project will be documented in this file.
 - Use nixpacks predefined build variables, but still could update the default values from Coolify
 - Use local monaco-editor instead of Cloudflare
 - N8n timezone
-- Smtp encryption
-- Bind() to 0.0.0.0:80 failed
-- Oauth seeder
-- Unreachable notifications
-- Instance settings migration
-- Only encrypt instance email settings if there are any
-- Error message
-- Update healthcheck and port configurations to use port 8080
 - Compose envs
 - Scheduled tasks and backups are executed by server timezone.
 - Show backup timezone on the UI
@@ -3378,7 +3387,7 @@ All notable changes to this project will be documented in this file.
 - Removed container_name
 - Added healthcheck for gotenberg template
 - Gotenberg
-- _(template)_ Gotenberg healthcheck, use /health instead of /version
+- *(template)* Gotenberg healthcheck, use /health instead of /version
 - Use wire:navigate on sidebar
 - Use wire:navigate on dashboard
 - Use wire:navigate on projects page
@@ -3411,557 +3420,559 @@ All notable changes to this project will be documented in this file.
 - Silent return if envs are empty or not set.
 - Create the private key before the server in the prod seeder
 - Update ProductionSeeder to check for private key instead of server's private key
-- _(ui)_ Missing underline for docs link in the Swarm section (#4860)
-- _(service)_ Change chatwoot service postgres image from `postgres:12` to `pgvector/pgvector:pg12`
+- *(ui)* Missing underline for docs link in the Swarm section (#4860)
+- *(service)* Change chatwoot service postgres image from `postgres:12` to `pgvector/pgvector:pg12`
 - Docker image parser
 - Add public key attribute to privatekey model
 - Correct service update logic in Docker Compose parser
 - Update CDN URL in install script to point to nightly version
-- _(service)_ Add healthcheck to Cloudflared service (#4859)
+- *(service)* Add healthcheck to Cloudflared service (#4859)
 - Remove wire:navigate from import backups
-- _(ui)_ Backups link should not redirected to general
+- *(ui)* Backups link should not redirected to general
 - Envs with special chars during build
-- _(db)_ `finished_at` timestamps are not set for existing deployments
+- *(db)* `finished_at` timestamps are not set for existing deployments
 - Load service templates on cloud
-- _(email)_ Transactional email sending
-- _(ui)_ Add missing save button for new Docker Cleanup page
-- _(ui)_ Show preview deployment environment variables
-- _(ui)_ Show error on terminal if container has no shell (bash/sh)
-- _(parser)_ Resource URL should only be parsed if there is one
-- _(core)_ Compose parsing for apps
-- _(redis)_ Update environment variable keys from standalone_redis_id to resourceable_id
-- _(routes)_ Local API docs not available on domain or IP
-- _(routes)_ Local API docs not available on domain or IP
-- _(core)_ Update application_id references to resourable_id and resourable_type for Nixpacks configuration
-- _(core)_ Correct spelling of 'resourable' to 'resourceable' in Nixpacks configuration for ApplicationDeploymentJob
-- _(ui)_ Traefik dashboard url not working
-- _(ui)_ Proxy status badge flashing during navigation
-- _(core)_ Update environment variable generation logic in ApplicationDeploymentJob to handle different build packs
-- _(env)_ Shared variables can not be updated
-- _(ui)_ Metrics stuck in loading state
-- _(ui)_ Use `wire:navigate` to navigate to the server settings page
-- _(service)_ Plunk API & health check endpoint (#4925)
-- _(service)_ Infinite loading and lag with invoiceninja service (#4876)
-- _(service)_ Invoiceninja service
-- _(workflows)_ `Waiting for changes` label should also be considered and improved messages
-- _(workflows)_ Remove tags only if the PR has been merged into the main branch
-- _(terminal)_ Terminal shows that it is not available, even though it is
-- _(labels)_ Docker labels do not generated correctly
-- _(helper)_ Downgrade Nixpacks to v1.29.0
-- _(labels)_ Generate labels when they are empty not when they are already generated
-- _(storage)_ Hetzner storage buckets not working
-- _(ui)_ Update database control UI to check server functionality before displaying actions
-- _(ui)_ Typo in upgrade message
-- _(ui)_ Cloudflare tunnel configuration should be an info, not a warning
-- _(s3)_ DigitalOcean storage buckets do not work
-- _(ui)_ Correct typo in container label helper text
+- *(email)* Transactional email sending
+- *(ui)* Add missing save button for new Docker Cleanup page
+- *(ui)* Show preview deployment environment variables
+- *(ui)* Show error on terminal if container has no shell (bash/sh)
+- *(parser)* Resource URL should only be parsed if there is one
+- *(core)* Compose parsing for apps
+- *(redis)* Update environment variable keys from standalone_redis_id to resourceable_id
+- *(routes)* Local API docs not available on domain or IP
+- *(routes)* Local API docs not available on domain or IP
+- *(core)* Update application_id references to resourable_id and resourable_type for Nixpacks configuration
+- *(core)* Correct spelling of 'resourable' to 'resourceable' in Nixpacks configuration for ApplicationDeploymentJob
+- *(ui)* Traefik dashboard url not working
+- *(ui)* Proxy status badge flashing during navigation
+- *(core)* Update environment variable generation logic in ApplicationDeploymentJob to handle different build packs
+- *(env)* Shared variables can not be updated
+- *(ui)* Metrics stuck in loading state
+- *(ui)* Use `wire:navigate` to navigate to the server settings page
+- *(service)* Plunk API & health check endpoint (#4925)
+- *(service)* Infinite loading and lag with invoiceninja service (#4876)
+- *(service)* Invoiceninja service
+- *(workflows)* `Waiting for changes` label should also be considered and improved messages
+- *(workflows)* Remove tags only if the PR has been merged into the main branch
+- *(terminal)* Terminal shows that it is not available, even though it is
+- *(labels)* Docker labels do not generated correctly
+- *(helper)* Downgrade Nixpacks to v1.29.0
+- *(labels)* Generate labels when they are empty not when they are already generated
+- *(storage)* Hetzner storage buckets not working
+- *(ui)* Update database control UI to check server functionality before displaying actions
+- *(ui)* Typo in upgrade message
+- *(ui)* Cloudflare tunnel configuration should be an info, not a warning
+- *(s3)* DigitalOcean storage buckets do not work
+- *(ui)* Correct typo in container label helper text
 - Disable certain parts if readonly label is turned off
 - Cleanup old scheduled_task_executions
 - Validate cron expression in Scheduled Task update
-- _(core)_ Check cron expression on save
-- _(database)_ Detect more postgres database image types
-- _(templates)_ Update service templates
+- *(core)* Check cron expression on save
+- *(database)* Detect more postgres database image types
+- *(templates)* Update service templates
 - Remove quotes in COOLIFY_CONTAINER_NAME
-- _(templates)_ Update Trigger.dev service templates with v3 configuration
-- _(database)_ Adjust MongoDB restore command and import view styling
-- _(core)_ Improve public repository URL parsing for branch and base directory
-- _(core)_ Increase HTTP/2 max concurrent streams to 250 (default)
-- _(ui)_ Update docker compose file helper text to clarify repository modification
-- _(ui)_ Skip SERVICE_FQDN and SERVICE_URL variables during update
-- _(core)_ Stopping database is not disabling db proxy
-- _(core)_ Remove --remove-orphans flag from proxy startup command to prevent other proxy deletions (db)
-- _(api)_ Domain check when updating domain
-- _(ui)_ Always redirect to dashboard after team switch
-- _(backup)_ Escape special characters in database backup commands
-- _(core)_ Improve deployment failure Slack notification formatting
-- _(core)_ Update Slack notification formatting to use bold correctly
-- _(core)_ Enhance Slack deployment success notification formatting
-- _(ui)_ Simplify service templates loading logic
-- _(ui)_ Align title and add button vertically in various views
+- *(templates)* Update Trigger.dev service templates with v3 configuration
+- *(database)* Adjust MongoDB restore command and import view styling
+- *(core)* Improve public repository URL parsing for branch and base directory
+- *(core)* Increase HTTP/2 max concurrent streams to 250 (default)
+- *(ui)* Update docker compose file helper text to clarify repository modification
+- *(ui)* Skip SERVICE_FQDN and SERVICE_URL variables during update
+- *(core)* Stopping database is not disabling db proxy
+- *(core)* Remove --remove-orphans flag from proxy startup command to prevent other proxy deletions (db)
+- *(api)* Domain check when updating domain
+- *(ui)* Always redirect to dashboard after team switch
+- *(backup)* Escape special characters in database backup commands
+- *(core)* Improve deployment failure Slack notification formatting
+- *(core)* Update Slack notification formatting to use bold correctly
+- *(core)* Enhance Slack deployment success notification formatting
+- *(ui)* Simplify service templates loading logic
+- *(ui)* Align title and add button vertically in various views
 - Handle pullrequest:updated for reliable preview deployments
-- _(ui)_ Fix typo on team page (#5105)
+- *(ui)* Fix typo on team page (#5105)
 - Cal.com documentation link give 404 (#5070)
-- _(slack)_ Notification settings URL in `HighDiskUsage` message (#5071)
-- _(ui)_ Correct typo in Storage delete dialog (#5061)
-- _(lang)_ Add missing italian translations (#5057)
-- _(service)_ Improve duplicati.yaml (#4971)
-- _(service)_ Links in homepage service (#5002)
-- _(service)_ Added SMTP credentials to getoutline yaml template file (#5011)
-- _(service)_ Added `KEY` Variable to Beszel Template (#5021)
-- _(cloudflare-tunnels)_ Dead links to docs (#5104)
+- *(slack)* Notification settings URL in `HighDiskUsage` message (#5071)
+- *(ui)* Correct typo in Storage delete dialog (#5061)
+- *(lang)* Add missing italian translations (#5057)
+- *(service)* Improve duplicati.yaml (#4971)
+- *(service)* Links in homepage service (#5002)
+- *(service)* Added SMTP credentials to getoutline yaml template file (#5011)
+- *(service)* Added `KEY` Variable to Beszel Template (#5021)
+- *(cloudflare-tunnels)* Dead links to docs (#5104)
 - System-wide GitHub apps (#5114)
 - Pull latest image from registry when using build server
-- _(deployment)_ Improve server selection for deployment cancellation
-- _(deployment)_ Improve log line rendering and formatting
-- _(s3-storage)_ Optimize team admin notification query
-- _(core)_ Improve connection testing with dynamic disk configuration for s3 backups
-- _(core)_ Update service status refresh event handling
-- _(ui)_ Adjust polling intervals for database and service status checks
-- _(service)_ Update Fider service template healthcheck command
-- _(core)_ Improve server selection error handling in Docker component
-- _(core)_ Add server functionality check before dispatching container status
-- _(ui)_ Disable sticky scroll in Monaco editor
-- _(ui)_ Add literal and multiline env support to services.
-- _(services)_ Owncloud docs link
-- _(template)_ Remove db-migration step from `infisical.yaml` (#5209)
-- _(service)_ Penpot (#5047)
-- _(core)_ Production dockerfile
-- _(ui)_ Update storage configuration guidance link
-- _(ui)_ Set default SMTP encryption to starttls
-- _(notifications)_ Correct environment URL path in application notifications
-- _(config)_ Update default PostgreSQL host to coolify-db instead of postgres
-- _(docker)_ Improve Docker compose file validation process
-- _(ui)_ Restrict service retrieval to current team
-- _(core)_ Only validate custom compose files
-- _(mail)_ Set default mailer to array when not specified
-- _(ui)_ Correct redirect routes after task deletion
-- _(core)_ Adding a new server should not try to make the default docker network
-- _(core)_ Clean up unnecessary files during application image build
-- _(core)_ Improve label generation and merging for applications and services
-- _(billing)_ Handle 'past_due' subscription status in Stripe processing
-- _(revert)_ Label parsing
-- _(helpers)_ Initialize command variable in parseCommandFromMagicEnvVariable
-- _(billing)_ Restrict Stripe subscription status update to 'active' only
-- _(api)_ Docker compose based apps creationg through api
-- _(database)_ Improve database type detection for Supabase Postgres images
-- _(ssl)_ Permission of ssl crt and key inside the container
-- _(ui)_ Make sure file mounts do not showing the encrypted values
-- _(ssl)_ Make default ssl mode require not verify-full as it does not need a ca cert
-- _(ui)_ Select component should not always uses title case
-- _(db)_ SSL certificates table and model
-- _(migration)_ Ssl certificates table
-- _(databases)_ Fix database name users new `uuid` instead of DB one
-- _(database)_ Fix volume and file mounts and naming
-- _(migration)_ Store subjectAlternativeNames as a json array in the db
-- _(ssl)_ Make sure the subjectAlternativeNames are unique and stored correctly
-- _(ui)_ Certificate expiration data is null before starting the DB
-- _(deletion)_ Fix DB deletion
-- _(ssl)_ Improve SSL cert file mounts
-- _(ssl)_ Always create ca crt on disk even if it is already there
-- _(ssl)_ Use mountPath parameter not a hardcoded path
-- _(ssl)_ Use 1 instead of on for mysql
-- _(ssl)_ Do not remove SSL directory
-- _(ssl)_ Wrong ssl cert is loaded to the server and UI error when regenerating SSL
-- _(ssl)_ Make sure when regenerating the CA cert it is not overwritten with a server cert
-- _(ssl)_ Regenerating certs for a specific DB
-- _(ssl)_ Fix MariaDB and MySQL need CA cert
-- _(ssl)_ Add mount path to DB to fix regeneration of certs
-- _(ssl)_ Fix SSL regeneration to sign with CA cert and use mount path
-- _(ssl)_ Get caCert correctly
-- _(ssl)_ Remove caCert even if it is a folder by accident
-- _(ssl)_ Ger caCert and `mountPath` correctly
-- _(ui)_ Only show Regenerate SSL Certificates button when there is a cert
-- _(ssl)_ Server id
-- _(ssl)_ When regenerating SSL certs the cert is not singed with the new CN
-- _(ssl)_ Adjust ca paths for MySQL
-- _(ssl)_ Remove mode selection for MariaDB as it is not supported
-- _(ssl)_ Permission issue with MariDB cert and key and paths
-- _(ssl)_ Rename Redis mode to verify-ca as it is not verify-full
-- _(ui)_ Remove unused mode for MongoDB
-- _(ssl)_ KeyDB port and caCert args are missing
-- _(ui)_ Enable SSL is not working correctly for KeyDB
-- _(ssl)_ Add `--tls` arg to DrangflyDB
-- _(notification)_ Always send SSL notifications
-- _(database)_ Change default value of enable_ssl to false for multiple tables
-- _(ui)_ Correct grammatical error in 404 page
-- _(seeder)_ Update GitHub app name in GithubAppSeeder
-- _(plane)_ Update APP_RELEASE to v0.25.2 in environment configuration
-- _(domain)_ Dispatch refreshStatus event after successful domain update
-- _(database)_ Correct container name generation for service databases
-- _(database)_ Limit container name length for database proxy
-- _(database)_ Handle unsupported database types in StartDatabaseProxy
-- _(database)_ Simplify container name generation in StartDatabaseProxy
-- _(install)_ Handle potential errors in Docker address pool configuration
-- _(backups)_ Retention settings
-- _(redis)_ Set default redis_username for new instances
-- _(core)_ Improve instantSave logic and error handling
-- _(general)_ Correct link to framework specific documentation
-- _(core)_ Redirect healthcheck route for dockercompose applications
-- _(api)_ Use name from request payload
-- _(issue#4746)_ Do not use setGitImportSettings inside of generateGitLsRemoteCommands
+- *(deployment)* Improve server selection for deployment cancellation
+- *(deployment)* Improve log line rendering and formatting
+- *(s3-storage)* Optimize team admin notification query
+- *(core)* Improve connection testing with dynamic disk configuration for s3 backups
+- *(core)* Update service status refresh event handling
+- *(ui)* Adjust polling intervals for database and service status checks
+- *(service)* Update Fider service template healthcheck command
+- *(core)* Improve server selection error handling in Docker component
+- *(core)* Add server functionality check before dispatching container status
+- *(ui)* Disable sticky scroll in Monaco editor
+- *(ui)* Add literal and multiline env support to services.
+- *(services)* Owncloud docs link
+- *(template)* Remove db-migration step from `infisical.yaml` (#5209)
+- *(service)* Penpot (#5047)
+- *(core)* Production dockerfile
+- *(ui)* Update storage configuration guidance link
+- *(ui)* Set default SMTP encryption to starttls
+- *(notifications)* Correct environment URL path in application notifications
+- *(config)* Update default PostgreSQL host to coolify-db instead of postgres
+- *(docker)* Improve Docker compose file validation process
+- *(ui)* Restrict service retrieval to current team
+- *(core)* Only validate custom compose files
+- *(mail)* Set default mailer to array when not specified
+- *(ui)* Correct redirect routes after task deletion
+- *(core)* Adding a new server should not try to make the default docker network
+- *(core)* Clean up unnecessary files during application image build
+- *(core)* Improve label generation and merging for applications and services
+- *(billing)* Handle 'past_due' subscription status in Stripe processing
+- *(revert)* Label parsing
+- *(helpers)* Initialize command variable in parseCommandFromMagicEnvVariable
+- *(billing)* Restrict Stripe subscription status update to 'active' only
+- *(api)* Docker compose based apps creationg through api
+- *(database)* Improve database type detection for Supabase Postgres images
+- *(ssl)* Permission of ssl crt and key inside the container
+- *(ui)* Make sure file mounts do not showing the encrypted values
+- *(ssl)* Make default ssl mode require not verify-full as it does not need a ca cert
+- *(ui)* Select component should not always uses title case
+- *(db)* SSL certificates table and model
+- *(migration)* Ssl certificates table
+- *(databases)* Fix database name users new `uuid` instead of DB one
+- *(database)* Fix volume and file mounts and naming
+- *(migration)* Store subjectAlternativeNames as a json array in the db
+- *(ssl)* Make sure the subjectAlternativeNames are unique and stored correctly
+- *(ui)* Certificate expiration data is null before starting the DB
+- *(deletion)* Fix DB deletion
+- *(ssl)* Improve SSL cert file mounts
+- *(ssl)* Always create ca crt on disk even if it is already there
+- *(ssl)* Use mountPath parameter not a hardcoded path
+- *(ssl)* Use 1 instead of on for mysql
+- *(ssl)* Do not remove SSL directory
+- *(ssl)* Wrong ssl cert is loaded to the server and UI error when regenerating SSL
+- *(ssl)* Make sure when regenerating the CA cert it is not overwritten with a server cert
+- *(ssl)* Regenerating certs for a specific DB
+- *(ssl)* Fix MariaDB and MySQL need CA cert
+- *(ssl)* Add mount path to DB to fix regeneration of certs
+- *(ssl)* Fix SSL regeneration to sign with CA cert and use mount path
+- *(ssl)* Get caCert correctly
+- *(ssl)* Remove caCert even if it is a folder by accident
+- *(ssl)* Ger caCert and `mountPath` correctly
+- *(ui)* Only show Regenerate SSL Certificates button when there is a cert
+- *(ssl)* Server id
+- *(ssl)* When regenerating SSL certs the cert is not singed with the new CN
+- *(ssl)* Adjust ca paths for MySQL
+- *(ssl)* Remove mode selection for MariaDB as it is not supported
+- *(ssl)* Permission issue with MariDB cert and key and paths
+- *(ssl)* Rename Redis mode to verify-ca as it is not verify-full
+- *(ui)* Remove unused mode for MongoDB
+- *(ssl)* KeyDB port and caCert args are missing
+- *(ui)* Enable SSL is not working correctly for KeyDB
+- *(ssl)* Add `--tls` arg to DrangflyDB
+- *(notification)* Always send SSL notifications
+- *(database)* Change default value of enable_ssl to false for multiple tables
+- *(ui)* Correct grammatical error in 404 page
+- *(seeder)* Update GitHub app name in GithubAppSeeder
+- *(plane)* Update APP_RELEASE to v0.25.2 in environment configuration
+- *(domain)* Dispatch refreshStatus event after successful domain update
+- *(database)* Correct container name generation for service databases
+- *(database)* Limit container name length for database proxy
+- *(database)* Handle unsupported database types in StartDatabaseProxy
+- *(database)* Simplify container name generation in StartDatabaseProxy
+- *(install)* Handle potential errors in Docker address pool configuration
+- *(backups)* Retention settings
+- *(redis)* Set default redis_username for new instances
+- *(core)* Improve instantSave logic and error handling
+- *(general)* Correct link to framework specific documentation
+- *(core)* Redirect healthcheck route for dockercompose applications
+- *(api)* Use name from request payload
+- *(issue#4746)* Do not use setGitImportSettings inside of generateGitLsRemoteCommands
 - Correct some spellings
-- _(service)_ Replace deprecated credentials env variables on keycloak service
-- _(keycloak)_ Update keycloak image version to 26.1
-- _(console)_ Handle missing root user in password reset command
-- _(ssl)_ Handle missing CA certificate in SSL regeneration job
-- _(copy-button)_ Ensure text is safely passed to clipboard
-- _(file-storage)_ Double save on compose volumes
-- _(parser)_ Add logging support for applications in services
+- *(service)* Replace deprecated credentials env variables on keycloak service
+- *(keycloak)* Update keycloak image version to 26.1
+- *(console)* Handle missing root user in password reset command
+- *(ssl)* Handle missing CA certificate in SSL regeneration job
+- *(copy-button)* Ensure text is safely passed to clipboard
+- *(file-storage)* Double save on compose volumes
+- *(parser)* Add logging support for applications in services
 - Only get apps for the current team
-- _(DeployController)_ Cast 'pr' query parameter to integer
-- _(deploy)_ Validate team ID before deployment
-- _(wakapi)_ Typo in env variables and add some useful variables to wakapi.yaml (#5424)
-- _(ui)_ Instance Backup settings
-- _(docs)_ Comment out execute for now
-- _(installation)_ Mount the docker config
-- _(installation)_ Path to config file for docker login
-- _(service)_ Add health check to Bugsink service (#5512)
-- _(email)_ Emails are not sent in multiple cases
-- _(deployments)_ Use graceful shutdown instead of `rm`
-- _(docs)_ Contribute service url (#5517)
-- _(proxy)_ Proxy restart does not work on domain
-- _(ui)_ Only show copy button on https
-- _(database)_ Custom config for MongoDB (#5471)
-- _(api)_ Used ssh keys can be deleted
-- _(email)_ Transactional emails not sending
-- _(CheckProxy)_ Update port conflict check to ensure accurate grep matching
-- _(CheckProxy)_ Refine port conflict detection with improved grep patterns
-- _(CheckProxy)_ Enhance port conflict detection by adjusting ss command for better output
-- _(api)_ Add back validateDataApplications (#5539)
-- _(CheckProxy, Status)_ Prevent proxy checks when force_stop is active; remove debug statement in General
-- _(Status)_ Conditionally check proxy status and refresh button based on force_stop state
-- _(General)_ Change redis_password property to nullable string
-- _(DeployController)_ Update request handling to use input method and enhance OpenAPI description for deployment endpoint
-- _(pre-commit)_ Correct input redirection for /dev/tty and add OpenAPI generation command
-- _(pricing-plans)_ Adjust grid class for improved layout consistency in subscription pricing plans
-- _(migrations)_ Make stripe_comment field nullable in subscriptions table
-- _(mongodb)_ Also apply custom config when SSL is enabled
-- _(templates)_ Correct casing of denoKV references in service templates and YAML files
-- _(deployment)_ Handle missing destination in deployment process to prevent errors
-- _(parser)_ Transform associative array labels into key=value format for better compatibility
-- _(redis)_ Update username and password input handling to clarify database sync requirements
-- _(source)_ Update connected source display to handle cases with no source connected
-- _(application)_ Append base directory to git branch URLs for improved path handling
-- _(templates)_ Correct casing of "denokv" to "denoKV" in service templates JSON
-- _(navbar)_ Update error message link to use route for environment variables navigation
+- *(DeployController)* Cast 'pr' query parameter to integer
+- *(deploy)* Validate team ID before deployment
+- *(wakapi)* Typo in env variables and add some useful variables to wakapi.yaml (#5424)
+- *(ui)* Instance Backup settings
+- *(docs)* Comment out execute for now
+- *(installation)* Mount the docker config
+- *(installation)* Path to config file for docker login
+- *(service)* Add health check to Bugsink service (#5512)
+- *(email)* Emails are not sent in multiple cases
+- *(deployments)* Use graceful shutdown instead of `rm`
+- *(docs)* Contribute service url (#5517)
+- *(proxy)* Proxy restart does not work on domain
+- *(ui)* Only show copy button on https
+- *(database)* Custom config for MongoDB (#5471)
+- *(api)* Used ssh keys can be deleted
+- *(email)* Transactional emails not sending
+- *(CheckProxy)* Update port conflict check to ensure accurate grep matching
+- *(CheckProxy)* Refine port conflict detection with improved grep patterns
+- *(CheckProxy)* Enhance port conflict detection by adjusting ss command for better output
+- *(api)* Add back validateDataApplications (#5539)
+- *(CheckProxy, Status)* Prevent proxy checks when force_stop is active; remove debug statement in General
+- *(Status)* Conditionally check proxy status and refresh button based on force_stop state
+- *(General)* Change redis_password property to nullable string
+- *(DeployController)* Update request handling to use input method and enhance OpenAPI description for deployment endpoint
+- *(pre-commit)* Correct input redirection for /dev/tty and add OpenAPI generation command
+- *(pricing-plans)* Adjust grid class for improved layout consistency in subscription pricing plans
+- *(migrations)* Make stripe_comment field nullable in subscriptions table
+- *(mongodb)* Also apply custom config when SSL is enabled
+- *(templates)* Correct casing of denoKV references in service templates and YAML files
+- *(deployment)* Handle missing destination in deployment process to prevent errors
+- *(parser)* Transform associative array labels into key=value format for better compatibility
+- *(redis)* Update username and password input handling to clarify database sync requirements
+- *(source)* Update connected source display to handle cases with no source connected
+- *(application)* Append base directory to git branch URLs for improved path handling
+- *(templates)* Correct casing of "denokv" to "denoKV" in service templates JSON
+- *(navbar)* Update error message link to use route for environment variables navigation
 - Unsend template
 - Replace ports with expose
-- _(templates)_ Update Unsend compose configuration for improved service integration
-- _(backup-edit)_ Conditionally enable S3 checkbox based on available validated S3 storage
-- _(source)_ Update no sources found message for clarity
-- _(api)_ Correct middleware for service update route to ensure proper permissions
-- _(api)_ Handle JSON response in service creation and update methods for improved error handling
+- *(templates)* Update Unsend compose configuration for improved service integration
+- *(backup-edit)* Conditionally enable S3 checkbox based on available validated S3 storage
+- *(source)* Update no sources found message for clarity
+- *(api)* Correct middleware for service update route to ensure proper permissions
+- *(api)* Handle JSON response in service creation and update methods for improved error handling
 - Add 201 json code to servers validate api response
-- _(docker)_ Ensure password hashing only occurs when HTTP Basic Authentication is enabled
-- _(docker)_ Enhance hostname and GPU option validation in Docker run to compose conversion
-- _(terminal)_ Enhance WebSocket client verification with authorized IPs in terminal server
-- _(ApplicationDeploymentJob)_ Ensure source is an object before checking GitHub app properties
-- _(ui)_ Disable livewire navigate feature (causing spam of setInterval())
-- _(ui)_ Remove required attribute from image input in service application view
-- _(ui)_ Change application image validation to be nullable in service application view
-- _(Server)_ Correct proxy path formatting for Traefik proxy type
-- _(service)_ Graceful shutdown of old container (#5731)
-- _(ServerCheck)_ Enhance proxy container check to ensure it is running before proceeding
-- _(applications)_ Include pull_request_id in deployment queue check to prevent duplicate deployments
-- _(database)_ Update label for image input field to improve clarity
-- _(ServerCheck)_ Set default proxy status to 'exited' to handle missing container state
-- _(database)_ Reduce container stop timeout from 300 to 30 seconds for improved responsiveness
-- _(ui)_ System theming for charts (#5740)
-- _(dev)_ Mount points?!
-- _(dev)_ Proxy mount point
-- _(ui)_ Allow adding scheduled backups for non-migrated databases
-- _(DatabaseBackupJob)_ Escape PostgreSQL password in backup command (#5759)
-- _(ui)_ Correct closing div tag in service index view
-- _(select)_ Update fallback logo path to use absolute URL for improved reliability
-- _(constants)_ Adding 'fedora-asahi-remix' as a supported OS (#5646)
-- _(authentik)_ Update docker-compose configuration for authentik service
-- _(api)_ Allow nullable destination_uuid (#5683)
-- _(service)_ Fix documenso startup and mail (#5737)
-- _(docker)_ Fix production dockerfile
-- _(service)_ Navidrome service
-- _(service)_ Passbolt
-- _(service)_ Add missing ENVs to NTFY service (#5629)
-- _(service)_ NTFY is behind a proxy
-- _(service)_ Vert logo and ENVs
-- _(service)_ Add platform to Observium service
-- _(ActivityMonitor)_ Prevent multiple event dispatches during polling
-- _(service)_ Convex ENVs and update image versions (#5827)
-- _(service)_ Paymenter
-- _(ApplicationDeploymentJob)_ Ensure correct COOLIFY_FQDN/COOLIFY_URL values (#4719)
-- _(service)_ Snapdrop no matching manifest error (#5849)
-- _(service)_ Use the same volume between chatwoot and sidekiq (#5851)
-- _(api)_ Validate docker_compose_raw input in ApplicationsController
-- _(api)_ Enhance validation for docker_compose_raw in ApplicationsController
-- _(select)_ Update PostgreSQL versions and titles in resource selection
-- _(database)_ Include DatabaseStatusChanged event in activityMonitor dispatch
-- _(css)_ Tailwind v5 things
-- _(service)_ Diun ENV for consistency
-- _(service)_ Memos service name
-- _(css)_ 8+ issue with new tailwind v4
-- _(css)_ `bg-coollabs-gradient` not working anymore
-- _(ui)_ Add back missing service navbar components
-- _(deploy)_ Update resource timestamp handling in deploy_resource method
-- _(patches)_ DNF reboot logic is flipped
-- _(deployment)_ Correct syntax for else statement in docker compose build command
-- _(shared)_ Remove unused relation from queryDatabaseByUuidWithinTeam function
-- _(deployment)_ Correct COOLIFY_URL and COOLIFY_FQDN assignments based on parsing version in preview deployments
-- _(docker)_ Ensure correct parsing of environment variables by limiting explode to 2 parts
-- _(project)_ Update selected environment handling to use environment name instead of UUID
-- _(ui)_ Update server status display and improve server addition layout
-- _(service)_ Neon WS Proxy service not working on ARM64 (#5887)
-- _(server)_ Enhance error handling in server patch check notifications
-- _(PushServerUpdateJob)_ Add null checks before updating application and database statuses
-- _(environment-variables)_ Update label text for build variable checkboxes to improve clarity
-- _(service-management)_ Update service stop and restart messages for improved clarity and formatting
-- _(preview-form)_ Update helper text formatting in preview URL template input for better readability
-- _(application-management)_ Improve stop messages for application, database, and service to enhance clarity and formatting
-- _(application-configuration)_ Prevent access to preview deployments for deploy_key applications and update menu visibility accordingly
-- _(select-component)_ Handle exceptions during parameter retrieval and environment selection in the mount method
-- _(previews)_ Escape container names in stopContainers method to prevent shell injection vulnerabilities
-- _(docker)_ Add protection against empty container queries in GetContainersStatus to prevent unnecessary updates
-- _(modal-confirmation)_ Decode HTML entities in confirmation text to ensure proper display
-- _(select-component)_ Enhance user interaction by adding cursor styles and disabling selection during processing
-- _(deployment-show)_ Remove unnecessary fixed positioning for button container to improve layout responsiveness
-- _(email-notifications)_ Change notify method to notifyNow for immediate test email delivery
-- _(service-templates)_ Update Convex service configuration to use FQDN variables
-- _(database-heading)_ Simplify stop database message for clarity
-- _(navbar)_ Remove unnecessary x-init directive for loading proxy configuration
-- _(patches)_ Add padding to loading message for better visibility during update checks
-- _(terminal-connection)_ Improve error handling and stability for auto-connection; enhance component readiness checks and retry logic
-- _(terminal)_ Add unique wire:key to terminal component for improved reactivity and state management
-- _(css)_ Adjust utility classes in utilities.css for consistent application of Tailwind directives
-- _(css)_ Refine utility classes in utilities.css for proper Tailwind directive application
-- _(install)_ Update Docker installation script to use dynamic OS_TYPE and correct installation URL
-- _(cloudflare)_ Add error handling to automated Cloudflare configuration script
-- _(navbar)_ Add error handling for proxy status check to improve user feedback
-- _(web)_ Update user team retrieval method for consistent authentication handling
-- _(cloudflare)_ Update refresh method to correctly set Cloudflare tunnel status and improve user notification on IP address update
-- _(service)_ Update service template for affine and add migration service for improved deployment process
-- _(supabase)_ Update Supabase service images and healthcheck methods for improved reliability
-- _(terminal)_ Now it should work
-- _(degraded-status)_ Remove unnecessary whitespace in badge element for cleaner HTML
-- _(routes)_ Add name to security route for improved route management
-- _(migration)_ Update default value handling for is_sentinel_enabled column in server_settings
-- _(seeder)_ Conditionally dispatch CheckAndStartSentinelJob based on server's sentinel status
-- _(service)_ Disable healthcheck logging for Gotenberg (#6005)
-- _(service)_ Joplin volume name (#5930)
-- _(server)_ Update sentinelUpdatedAt assignment to use server's sentinel_updated_at property
-- _(service)_ Audiobookshelf healthcheck command (#5993)
-- _(service)_ Downgrade Evolution API phone version (#5977)
-- _(service)_ Pingvinshare-with-clamav
-- _(ssh)_ Scp requires square brackets for ipv6 (#6001)
-- _(github)_ Changing github app breaks the webhook. it does not anymore
-- _(parser)_ Improve FQDN generation and update environment variable handling
-- _(ui)_ Enhance status refresh buttons with loading indicators
-- _(ui)_ Update confirmation button text for stopping database and service
-- _(routes)_ Update middleware for deploy route to use 'api.ability:deploy'
-- _(ui)_ Refine API token creation form and update helper text for clarity
-- _(ui)_ Adjust layout of deployments section for improved alignment
-- _(ui)_ Adjust project grid layout and refine server border styling for better visibility
-- _(ui)_ Update border styling for consistency across components and enhance loading indicators
-- _(ui)_ Add padding to section headers in settings views for improved spacing
-- _(ui)_ Reduce gap between input fields in email settings for better alignment
-- _(docker)_ Conditionally enable gzip compression in Traefik labels based on configuration
-- _(parser)_ Enable gzip compression conditionally for Pocketbase images and streamline service creation logic
-- _(ui)_ Update padding for trademarks policy and enhance spacing in advanced settings section
-- _(ui)_ Correct closing tag for sponsorship link in layout popups
-- _(ui)_ Refine wording in sponsorship donation prompt in layout popups
-- _(ui)_ Update navbar icon color and enhance popup layout for sponsorship support
-- _(ui)_ Add target="\_blank" to sponsorship links in layout popups for improved user experience
-- _(models)_ Refine comment wording in User model for clarity on user deletion criteria
-- _(models)_ Improve user deletion logic in User model to handle team member roles and prevent deletion if user is alone in root team
-- _(ui)_ Update wording in sponsorship prompt for clarity and engagement
-- _(shared)_ Refactor gzip handling for Pocketbase in newParser function for improved clarity
-- _(server)_ Prepend 'mux\_' to UUID in muxFilename method for consistent naming
-- _(ui)_ Enhance terminal access messaging to clarify server functionality and terminal status
-- _(database)_ Proxy ssl port if ssl is enabled
-- _(terminal)_ Ensure shell execution only uses valid shell if available in terminal command
-- _(ui)_ Improve destination selection description for clarity in resource segregation
-- _(jobs)_ Update middleware to use expireAfter for WithoutOverlapping in multiple job classes
+- *(docker)* Ensure password hashing only occurs when HTTP Basic Authentication is enabled
+- *(docker)* Enhance hostname and GPU option validation in Docker run to compose conversion
+- Wrong registry url
+- *(terminal)* Enhance WebSocket client verification with authorized IPs in terminal server
+- *(ApplicationDeploymentJob)* Ensure source is an object before checking GitHub app properties
+- *(ui)* Disable livewire navigate feature (causing spam of setInterval())
+- *(ui)* Remove required attribute from image input in service application view
+- *(ui)* Change application image validation to be nullable in service application view
+- *(Server)* Correct proxy path formatting for Traefik proxy type
+- *(service)* Graceful shutdown of old container (#5731)
+- *(ServerCheck)* Enhance proxy container check to ensure it is running before proceeding
+- *(applications)* Include pull_request_id in deployment queue check to prevent duplicate deployments
+- *(database)* Update label for image input field to improve clarity
+- *(ServerCheck)* Set default proxy status to 'exited' to handle missing container state
+- *(database)* Reduce container stop timeout from 300 to 30 seconds for improved responsiveness
+- *(ui)* System theming for charts (#5740)
+- *(dev)* Mount points?!
+- *(dev)* Proxy mount point
+- *(ui)* Allow adding scheduled backups for non-migrated databases
+- *(DatabaseBackupJob)* Escape PostgreSQL password in backup command (#5759)
+- *(ui)* Correct closing div tag in service index view
+- *(select)* Update fallback logo path to use absolute URL for improved reliability
+- *(constants)* Adding 'fedora-asahi-remix' as a supported OS (#5646)
+- *(authentik)* Update docker-compose configuration for authentik service
+- *(api)* Allow nullable destination_uuid (#5683)
+- *(service)* Fix documenso startup and mail (#5737)
+- *(docker)* Fix production dockerfile
+- *(service)* Navidrome service
+- *(service)* Passbolt
+- *(service)* Add missing ENVs to NTFY service (#5629)
+- *(service)* NTFY is behind a proxy
+- *(service)* Vert logo and ENVs
+- *(service)* Add platform to Observium service
+- *(ActivityMonitor)* Prevent multiple event dispatches during polling
+- *(service)* Convex ENVs and update image versions (#5827)
+- *(service)* Paymenter
+- *(ApplicationDeploymentJob)* Ensure correct COOLIFY_FQDN/COOLIFY_URL values (#4719)
+- *(service)* Snapdrop no matching manifest error (#5849)
+- *(service)* Use the same volume between chatwoot and sidekiq (#5851)
+- *(api)* Validate docker_compose_raw input in ApplicationsController
+- *(api)* Enhance validation for docker_compose_raw in ApplicationsController
+- *(select)* Update PostgreSQL versions and titles in resource selection
+- *(database)* Include DatabaseStatusChanged event in activityMonitor dispatch
+- *(css)* Tailwind v5 things
+- *(service)* Diun ENV for consistency
+- *(service)* Memos service name
+- *(css)* 8+ issue with new tailwind v4
+- *(css)* `bg-coollabs-gradient` not working anymore
+- *(ui)* Add back missing service navbar components
+- *(deploy)* Update resource timestamp handling in deploy_resource method
+- *(patches)* DNF reboot logic is flipped
+- *(deployment)* Correct syntax for else statement in docker compose build command
+- *(shared)* Remove unused relation from queryDatabaseByUuidWithinTeam function
+- *(deployment)* Correct COOLIFY_URL and COOLIFY_FQDN assignments based on parsing version in preview deployments
+- *(docker)* Ensure correct parsing of environment variables by limiting explode to 2 parts
+- *(project)* Update selected environment handling to use environment name instead of UUID
+- *(ui)* Update server status display and improve server addition layout
+- *(service)* Neon WS Proxy service not working on ARM64 (#5887)
+- *(server)* Enhance error handling in server patch check notifications
+- *(PushServerUpdateJob)* Add null checks before updating application and database statuses
+- *(environment-variables)* Update label text for build variable checkboxes to improve clarity
+- *(service-management)* Update service stop and restart messages for improved clarity and formatting
+- *(preview-form)* Update helper text formatting in preview URL template input for better readability
+- *(application-management)* Improve stop messages for application, database, and service to enhance clarity and formatting
+- *(application-configuration)* Prevent access to preview deployments for deploy_key applications and update menu visibility accordingly
+- *(select-component)* Handle exceptions during parameter retrieval and environment selection in the mount method
+- *(previews)* Escape container names in stopContainers method to prevent shell injection vulnerabilities
+- *(docker)* Add protection against empty container queries in GetContainersStatus to prevent unnecessary updates
+- *(modal-confirmation)* Decode HTML entities in confirmation text to ensure proper display
+- *(select-component)* Enhance user interaction by adding cursor styles and disabling selection during processing
+- *(deployment-show)* Remove unnecessary fixed positioning for button container to improve layout responsiveness
+- *(email-notifications)* Change notify method to notifyNow for immediate test email delivery
+- *(service-templates)* Update Convex service configuration to use FQDN variables
+- *(database-heading)* Simplify stop database message for clarity
+- *(navbar)* Remove unnecessary x-init directive for loading proxy configuration
+- *(patches)* Add padding to loading message for better visibility during update checks
+- *(terminal-connection)* Improve error handling and stability for auto-connection; enhance component readiness checks and retry logic
+- *(terminal)* Add unique wire:key to terminal component for improved reactivity and state management
+- *(css)* Adjust utility classes in utilities.css for consistent application of Tailwind directives
+- *(css)* Refine utility classes in utilities.css for proper Tailwind directive application
+- *(install)* Update Docker installation script to use dynamic OS_TYPE and correct installation URL
+- *(cloudflare)* Add error handling to automated Cloudflare configuration script
+- *(navbar)* Add error handling for proxy status check to improve user feedback
+- *(web)* Update user team retrieval method for consistent authentication handling
+- *(cloudflare)* Update refresh method to correctly set Cloudflare tunnel status and improve user notification on IP address update
+- *(service)* Update service template for affine and add migration service for improved deployment process
+- *(supabase)* Update Supabase service images and healthcheck methods for improved reliability
+- *(terminal)* Now it should work
+- *(degraded-status)* Remove unnecessary whitespace in badge element for cleaner HTML
+- *(routes)* Add name to security route for improved route management
+- *(migration)* Update default value handling for is_sentinel_enabled column in server_settings
+- *(seeder)* Conditionally dispatch CheckAndStartSentinelJob based on server's sentinel status
+- *(service)* Disable healthcheck logging for Gotenberg (#6005)
+- *(service)* Joplin volume name (#5930)
+- *(server)* Update sentinelUpdatedAt assignment to use server's sentinel_updated_at property
+- *(service)* Audiobookshelf healthcheck command (#5993)
+- *(service)* Downgrade Evolution API phone version (#5977)
+- *(service)* Pingvinshare-with-clamav
+- *(ssh)* Scp requires square brackets for ipv6 (#6001)
+- *(github)* Changing github app breaks the webhook. it does not anymore
+- *(parser)* Improve FQDN generation and update environment variable handling
+- *(ui)* Enhance status refresh buttons with loading indicators
+- *(ui)* Update confirmation button text for stopping database and service
+- *(routes)* Update middleware for deploy route to use 'api.ability:deploy'
+- *(ui)* Refine API token creation form and update helper text for clarity
+- *(ui)* Adjust layout of deployments section for improved alignment
+- *(ui)* Adjust project grid layout and refine server border styling for better visibility
+- *(ui)* Update border styling for consistency across components and enhance loading indicators
+- *(ui)* Add padding to section headers in settings views for improved spacing
+- *(ui)* Reduce gap between input fields in email settings for better alignment
+- *(docker)* Conditionally enable gzip compression in Traefik labels based on configuration
+- *(parser)* Enable gzip compression conditionally for Pocketbase images and streamline service creation logic
+- *(ui)* Update padding for trademarks policy and enhance spacing in advanced settings section
+- *(ui)* Correct closing tag for sponsorship link in layout popups
+- *(ui)* Refine wording in sponsorship donation prompt in layout popups
+- *(ui)* Update navbar icon color and enhance popup layout for sponsorship support
+- *(ui)* Add target="_blank" to sponsorship links in layout popups for improved user experience
+- *(models)* Refine comment wording in User model for clarity on user deletion criteria
+- *(models)* Improve user deletion logic in User model to handle team member roles and prevent deletion if user is alone in root team
+- *(ui)* Update wording in sponsorship prompt for clarity and engagement
+- *(shared)* Refactor gzip handling for Pocketbase in newParser function for improved clarity
+- *(server)* Prepend 'mux_' to UUID in muxFilename method for consistent naming
+- *(ui)* Enhance terminal access messaging to clarify server functionality and terminal status
+- *(database)* Proxy ssl port if ssl is enabled
+- *(terminal)* Ensure shell execution only uses valid shell if available in terminal command
+- *(ui)* Improve destination selection description for clarity in resource segregation
+- *(jobs)* Update middleware to use expireAfter for WithoutOverlapping in multiple job classes
 - Removing eager loading (#6071)
-- _(template)_ Adjust health check interval and retries for excalidraw service
-- _(ui)_ Env variable settings wrong order
-- _(service)_ Ensure configuration changes are properly tracked and dispatched
-- _(service)_ Update Postiz compose configuration for improved server availability
-- _(install.sh)_ Use IPV4_PUBLIC_IP variable in output instead of repeated curl
-- _(env)_ Generate literal env variables better
-- _(deployment)_ Update x-data initialization in deployment view for improved functionality
-- _(deployment)_ Enhance COOLIFY_URL and COOLIFY_FQDN variable generation for better compatibility
-- _(deployment)_ Improve docker-compose domain handling and environment variable generation
-- _(deployment)_ Refactor domain parsing and environment variable generation using Spatie URL library
-- _(deployment)_ Update COOLIFY_URL and COOLIFY_FQDN generation to use Spatie URL library for improved accuracy
-- _(scheduling)_ Change redis cleanup command frequency from hourly to weekly for better resource management
-- _(versions)_ Update coolify version numbers in versions.json and constants.php to 4.0.0-beta.420.5 and 4.0.0-beta.420.6
-- _(database)_ Ensure internal port defaults correctly for unsupported database types in StartDatabaseProxy
-- _(versions)_ Update coolify version numbers in versions.json and constants.php to 4.0.0-beta.420.6 and 4.0.0-beta.420.7
-- _(scheduling)_ Remove unnecessary padding from scheduled task form layout for improved UI consistency
-- _(horizon)_ Update queue configuration to use environment variable for dynamic queue management
-- _(horizon)_ Add silenced jobs
-- _(application)_ Sanitize service names for HTML form binding and ensure original names are stored in docker compose domains
-- _(previews)_ Adjust padding for rate limit message in application previews
-- _(previews)_ Order application previews by pull request ID in descending order
-- _(previews)_ Add unique wire keys for preview containers and services based on pull request ID
-- _(previews)_ Enhance domain generation logic for application previews, ensuring unique domains are created when none are set
-- _(previews)_ Refine preview domain generation for Docker Compose applications, ensuring correct method usage based on build pack type
-- _(ui)_ Typo on proxy request handler tooltip (#6192)
-- _(backups)_ Large database backups are not working (#6217)
-- _(backups)_ Error message if there is no exception
-- _(installer)_ Public IPv4 link does not work
-- _(composer)_ Version constraint of prompts
-- _(service)_ Budibase secret keys (#6205)
-- _(service)_ Wg-easy host should be just the FQDN
-- _(ui)_ Search box overlaps the sidebar navigation (#6176)
-- _(webhooks)_ Exclude webhook routes from CSRF protection (#6200)
-- _(services)_ Update environment variable naming convention to use underscores instead of dashes for SERVICE_FQDN and SERVICE_URL
-- _(service)_ Triliumnext platform and link
-- _(application)_ Update service environment variables when generating domain for Docker Compose
-- _(application)_ Add option to suppress toast notifications when loading compose file
-- _(git)_ Tracking issue due to case sensitivity
-- _(git)_ Tracking issue due to case sensitivity
-- _(git)_ Tracking issue due to case sensitivity
-- _(ui)_ Delete button width on small screens (#6308)
-- _(service)_ Matrix entrypoint
-- _(ui)_ Add flex-wrap to prevent overflow on small screens (#6307)
-- _(docker)_ Volumes get delete when stopping a service if `Delete Unused Volumes` is activated (#6317)
-- _(docker)_ Cleanup always running on deletion
-- _(proxy)_ Remove hardcoded port 80/443 checks (#6275)
-- _(service)_ Update healthcheck of penpot backend container (#6272)
-- _(api)_ Duplicated logs in application endpoint (#6292)
-- _(service)_ Documenso signees always pending (#6334)
-- _(api)_ Update service upsert to retain name and description values if not set
-- _(database)_ Custom postgres configs with SSL (#6352)
-- _(policy)_ Update delete method to check for admin status in S3StoragePolicy
-- _(container)_ Sort containers alphabetically by name in ExecuteContainerCommand and update filtering in Terminal Index
-- _(application)_ Streamline environment variable updates for Docker Compose services and enhance FQDN generation logic
-- _(constants)_ Update 'Change Log' to 'Changelog' in settings dropdown
-- _(constants)_ Update coolify version to 4.0.0-beta.420.7
-- _(parsers)_ Clarify comments and update variable checks for FQDN and URL handling
-- _(terminal)_ Update text color for terminal availability message and improve readability
-- _(drizzle-gateway)_ Remove healthcheck from drizzle-gateway compose file and update service template
-- _(templates)_ Should generate old SERVICE_FQDN service templates as well
-- _(constants)_ Update official service template URL to point to the v4.x branch for accuracy
-- _(git)_ Use exact refspec in ls-remote to avoid matching similarly named branches (e.g., changeset-release/main). Use refs/heads/<branch> or provider-specific PR refs.
-- _(ApplicationPreview)_ Change null check to empty check for fqdn in generate_preview_fqdn method
-- _(email notifications)_ Enhance EmailChannel to validate team membership for recipients and handle errors gracefully
-- _(service api)_ Separate create and update service functionalities
-- _(templates)_ Added a category tag for the docs service filter
-- _(application)_ Clear Docker Compose specific data when switching away from dockercompose
-- _(database)_ Conditionally set started_at only if the database is running
-- _(ui)_ Handle null values in postgres metrics (#6388)
+- *(template)* Adjust health check interval and retries for excalidraw service
+- *(ui)* Env variable settings wrong order
+- *(service)* Ensure configuration changes are properly tracked and dispatched
+- *(service)* Update Postiz compose configuration for improved server availability
+- *(install.sh)* Use IPV4_PUBLIC_IP variable in output instead of repeated curl
+- *(env)* Generate literal env variables better
+- *(deployment)* Update x-data initialization in deployment view for improved functionality
+- *(deployment)* Enhance COOLIFY_URL and COOLIFY_FQDN variable generation for better compatibility
+- *(deployment)* Improve docker-compose domain handling and environment variable generation
+- *(deployment)* Refactor domain parsing and environment variable generation using Spatie URL library
+- *(deployment)* Update COOLIFY_URL and COOLIFY_FQDN generation to use Spatie URL library for improved accuracy
+- *(scheduling)* Change redis cleanup command frequency from hourly to weekly for better resource management
+- *(versions)* Update coolify version numbers in versions.json and constants.php to 4.0.0-beta.420.5 and 4.0.0-beta.420.6
+- *(database)* Ensure internal port defaults correctly for unsupported database types in StartDatabaseProxy
+- Error sentinel
+- *(versions)* Update coolify version numbers in versions.json and constants.php to 4.0.0-beta.420.6 and 4.0.0-beta.420.7
+- *(scheduling)* Remove unnecessary padding from scheduled task form layout for improved UI consistency
+- *(horizon)* Update queue configuration to use environment variable for dynamic queue management
+- *(horizon)* Add silenced jobs
+- *(application)* Sanitize service names for HTML form binding and ensure original names are stored in docker compose domains
+- *(previews)* Adjust padding for rate limit message in application previews
+- *(previews)* Order application previews by pull request ID in descending order
+- *(previews)* Add unique wire keys for preview containers and services based on pull request ID
+- *(previews)* Enhance domain generation logic for application previews, ensuring unique domains are created when none are set
+- *(previews)* Refine preview domain generation for Docker Compose applications, ensuring correct method usage based on build pack type
+- *(ui)* Typo on proxy request handler tooltip (#6192)
+- *(backups)* Large database backups are not working (#6217)
+- *(backups)* Error message if there is no exception
+- *(installer)* Public IPv4 link does not work
+- *(composer)* Version constraint of prompts
+- *(service)* Budibase secret keys (#6205)
+- *(service)* Wg-easy host should be just the FQDN
+- *(ui)* Search box overlaps the sidebar navigation (#6176)
+- *(webhooks)* Exclude webhook routes from CSRF protection (#6200)
+- *(services)* Update environment variable naming convention to use underscores instead of dashes for SERVICE_FQDN and SERVICE_URL
+- *(service)* Triliumnext platform and link
+- *(application)* Update service environment variables when generating domain for Docker Compose
+- *(application)* Add option to suppress toast notifications when loading compose file
+- *(git)* Tracking issue due to case sensitivity
+- *(git)* Tracking issue due to case sensitivity
+- *(git)* Tracking issue due to case sensitivity
+- *(ui)* Delete button width on small screens (#6308)
+- *(service)* Matrix entrypoint
+- *(ui)* Add flex-wrap to prevent overflow on small screens (#6307)
+- *(docker)* Volumes get delete when stopping a service if `Delete Unused Volumes` is activated (#6317)
+- *(docker)* Cleanup always running on deletion
+- *(proxy)* Remove hardcoded port 80/443 checks (#6275)
+- *(service)* Update healthcheck of penpot backend container (#6272)
+- *(api)* Duplicated logs in application endpoint (#6292)
+- *(service)* Documenso signees always pending (#6334)
+- *(api)* Update service upsert to retain name and description values if not set
+- *(database)* Custom postgres configs with SSL (#6352)
+- *(policy)* Update delete method to check for admin status in S3StoragePolicy
+- *(container)* Sort containers alphabetically by name in ExecuteContainerCommand and update filtering in Terminal Index
+- *(application)* Streamline environment variable updates for Docker Compose services and enhance FQDN generation logic
+- *(constants)* Update 'Change Log' to 'Changelog' in settings dropdown
+- *(constants)* Update coolify version to 4.0.0-beta.420.7
+- *(parsers)* Clarify comments and update variable checks for FQDN and URL handling
+- *(terminal)* Update text color for terminal availability message and improve readability
+- *(drizzle-gateway)* Remove healthcheck from drizzle-gateway compose file and update service template
+- *(templates)* Should generate old SERVICE_FQDN service templates as well
+- *(constants)* Update official service template URL to point to the v4.x branch for accuracy
+- *(git)* Use exact refspec in ls-remote to avoid matching similarly named branches (e.g., changeset-release/main). Use refs/heads/<branch> or provider-specific PR refs.
+- *(ApplicationPreview)* Change null check to empty check for fqdn in generate_preview_fqdn method
+- *(email notifications)* Enhance EmailChannel to validate team membership for recipients and handle errors gracefully
+- *(service api)* Separate create and update service functionalities
+- *(templates)* Added a category tag for the docs service filter
+- *(application)* Clear Docker Compose specific data when switching away from dockercompose
+- *(database)* Conditionally set started_at only if the database is running
+- *(ui)* Handle null values in postgres metrics (#6388)
 - Disable env sorting by default
-- _(proxy)_ Filter host network from default proxy (#6383)
-- _(modal)_ Enhance confirmation text handling
-- _(notification)_ Update unread count display and improve HTML rendering
-- _(select)_ Remove unnecessary sanitization for logo rendering
-- _(tags)_ Update tag display to limit name length and adjust styling
-- _(init)_ Improve error handling for deployment and template pulling processes
-- _(settings-dropdown)_ Adjust unread count badge size and display logic for better consistency
-- _(sanitization)_ Enhance DOMPurify hook to remove Alpine.js directives for improved XSS protection
-- _(servercheck)_ Properly check server statuses with and without Sentinel
-- _(errors)_ Update error pages to provide navigation options
-- _(github-deploy-key)_ Update background color for selected private keys in deployment key selection UI
-- _(auth)_ Enhance authorization checks in application management
-- _(backups)_ S3 backup upload is failing
-- _(backups)_ Rollback helper update for now
-- _(parsers)_ Replace hyphens with underscores in service names for consistency. this allows to properly parse custom domains in docker compose based applications
-- _(parsers)_ Implement parseDockerVolumeString function to handle various Docker volume formats and modes, including environment variables and Windows paths. Add unit tests for comprehensive coverage.
-- _(git)_ Submodule update command uses an unsupported option (#6454)
-- _(service)_ Swap URL for FQDN on matrix template (#6466)
-- _(parsers)_ Enhance volume string handling by preserving mode in application and service parsers. Update related unit tests for validation.
-- _(docker)_ Update parser version in FQDN generation for service-specific URLs
-- _(parsers)_ Do not modify service names, only for getting fqdns and related envs
-- _(compose)_ Temporary allow to edit volumes in apps (compose based) and services
-- _(previews)_ Simplify FQDN generation logic by removing unnecessary empty check
-- _(templates)_ Update Matrix service compose configuration for improved compatibility and clarity
-- _(ui)_ Transactional email settings link on members page (#6491)
-- _(api)_ Add custom labels generation for applications with readonly container label setting enabled
-- _(ui)_ Add cursor pointer to upgrade button for better user interaction
-- _(templates)_ Update SECRET_KEY environment variable in getoutline.yaml to use SERVICE_HEX_32_OUTLINE
-- _(command)_ Enhance database deletion command to support multiple database types
-- _(command)_ Enhance cleanup process for stuck application previews by adding force delete for trashed records
-- _(user)_ Ensure email attributes are stored in lowercase for consistency and prevent case-related issues
-- _(webhook)_ Replace delete with forceDelete for application previews to ensure immediate removal
-- _(ssh)_ Introduce SshRetryHandler and SshRetryable trait for enhanced SSH command retry logic with exponential backoff and error handling
+- *(proxy)* Filter host network from default proxy (#6383)
+- *(modal)* Enhance confirmation text handling
+- *(notification)* Update unread count display and improve HTML rendering
+- *(select)* Remove unnecessary sanitization for logo rendering
+- *(tags)* Update tag display to limit name length and adjust styling
+- *(init)* Improve error handling for deployment and template pulling processes
+- *(settings-dropdown)* Adjust unread count badge size and display logic for better consistency
+- *(sanitization)* Enhance DOMPurify hook to remove Alpine.js directives for improved XSS protection
+- *(servercheck)* Properly check server statuses with and without Sentinel
+- *(errors)* Update error pages to provide navigation options
+- *(github-deploy-key)* Update background color for selected private keys in deployment key selection UI
+- *(auth)* Enhance authorization checks in application management
+- *(backups)* S3 backup upload is failing
+- *(backups)* Rollback helper update for now
+- *(parsers)* Replace hyphens with underscores in service names for consistency. this allows to properly parse custom domains in docker compose based applications
+- *(parsers)* Implement parseDockerVolumeString function to handle various Docker volume formats and modes, including environment variables and Windows paths. Add unit tests for comprehensive coverage.
+- *(git)* Submodule update command uses an unsupported option (#6454)
+- *(service)* Swap URL for FQDN on matrix template (#6466)
+- *(parsers)* Enhance volume string handling by preserving mode in application and service parsers. Update related unit tests for validation.
+- *(docker)* Update parser version in FQDN generation for service-specific URLs
+- *(parsers)* Do not modify service names, only for getting fqdns and related envs
+- *(compose)* Temporary allow to edit volumes in apps (compose based) and services
+- *(previews)* Simplify FQDN generation logic by removing unnecessary empty check
+- *(templates)* Update Matrix service compose configuration for improved compatibility and clarity
+- *(ui)* Transactional email settings link on members page (#6491)
+- *(api)* Add custom labels generation for applications with readonly container label setting enabled
+- *(ui)* Add cursor pointer to upgrade button for better user interaction
+- *(templates)* Update SECRET_KEY environment variable in getoutline.yaml to use SERVICE_HEX_32_OUTLINE
+- *(command)* Enhance database deletion command to support multiple database types
+- *(command)* Enhance cleanup process for stuck application previews by adding force delete for trashed records
+- *(user)* Ensure email attributes are stored in lowercase for consistency and prevent case-related issues
+- *(webhook)* Replace delete with forceDelete for application previews to ensure immediate removal
+- *(ssh)* Introduce SshRetryHandler and SshRetryable trait for enhanced SSH command retry logic with exponential backoff and error handling
 - Appwrite template - 500 errors, missing env vars etc.
-- _(LocalFileVolume)_ Add missing directory creation command for workdir in saveStorageOnServer method
-- _(ScheduledTaskJob)_ Replace generic Exception with NonReportableException for better error handling
-- _(web-routes)_ Enhance backup response messages to clarify local and S3 availability
-- _(proxy)_ Replace CheckConfiguration with GetProxyConfiguration and SaveConfiguration with SaveProxyConfiguration for improved clarity and consistency in proxy management
-- _(private-key)_ Implement transaction handling and error verification for private key storage operations
-- _(deployment)_ Add COOLIFY\_\* environment variables to Nixpacks build context for enhanced deployment configuration
-- _(application)_ Add functionality to stop and remove Docker containers on server
-- _(templates)_ Update 'compose' configuration for Appwrite service to enhance compatibility and streamline deployment
-- _(security)_ Update contact email for reporting vulnerabilities to enhance privacy
-- _(feedback)_ Update feedback email address to improve communication with users
-- _(security)_ Update contact email for vulnerability reports to improve security communication
-- _(navbar)_ Restrict subscription link visibility to admin users in cloud environment
-- _(docker)_ Enhance container status aggregation for multi-container applications, including exclusion handling based on docker-compose configuration
-- _(application)_ Improve watch paths handling by trimming and filtering empty paths to prevent unnecessary triggers
-- _(server)_ Update server usability check to reflect actual Docker availability status
-- _(server)_ Add build server check to disable Sentinel and update related logic
-- _(server)_ Implement refreshServer method and update navbar event listener for improved server state management
-- _(deployment)_ Prevent removal of running containers for pull request deployments in case of failure
-- _(docker)_ Redirect stderr to stdout for container log retrieval to capture error messages
-- _(clone)_ Update destinations method call to ensure correct retrieval of selected destination
-- _(docker)_ Enhance container status aggregation to include restarting and exited states
-- _(environment)_ Correct grammatical errors in helper text for environment variable sorting checkbox
-- _(ui)_ Change order and fix ui on small screens
+- *(LocalFileVolume)* Add missing directory creation command for workdir in saveStorageOnServer method
+- *(ScheduledTaskJob)* Replace generic Exception with NonReportableException for better error handling
+- *(web-routes)* Enhance backup response messages to clarify local and S3 availability
+- *(proxy)* Replace CheckConfiguration with GetProxyConfiguration and SaveConfiguration with SaveProxyConfiguration for improved clarity and consistency in proxy management
+- *(private-key)* Implement transaction handling and error verification for private key storage operations
+- *(deployment)* Add COOLIFY_* environment variables to Nixpacks build context for enhanced deployment configuration
+- *(application)* Add functionality to stop and remove Docker containers on server
+- *(templates)* Update 'compose' configuration for Appwrite service to enhance compatibility and streamline deployment
+- *(security)* Update contact email for reporting vulnerabilities to enhance privacy
+- *(feedback)* Update feedback email address to improve communication with users
+- *(security)* Update contact email for vulnerability reports to improve security communication
+- *(navbar)* Restrict subscription link visibility to admin users in cloud environment
+- *(docker)* Enhance container status aggregation for multi-container applications, including exclusion handling based on docker-compose configuration
+- *(application)* Improve watch paths handling by trimming and filtering empty paths to prevent unnecessary triggers
+- *(server)* Update server usability check to reflect actual Docker availability status
+- *(server)* Add build server check to disable Sentinel and update related logic
+- *(server)* Implement refreshServer method and update navbar event listener for improved server state management
+- *(deployment)* Prevent removal of running containers for pull request deployments in case of failure
+- *(docker)* Redirect stderr to stdout for container log retrieval to capture error messages
+- *(clone)* Update destinations method call to ensure correct retrieval of selected destination
+- *(docker)* Enhance container status aggregation to include restarting and exited states
+- *(environment)* Correct grammatical errors in helper text for environment variable sorting checkbox
+- *(ui)* Change order and fix ui on small screens
 - Order for git deploy types
-- _(deployment)_ Enhance Dockerfile modification for build-time variables and secrets during deployment in case of docker compose buildpack
+- *(deployment)* Enhance Dockerfile modification for build-time variables and secrets during deployment in case of docker compose buildpack
 - Hide sensitive email change fields in team member responses
-- _(domains)_ Trim whitespace from domains before validation
-- _(databases)_ Update backup retrieval logic to include team context
-- _(environment-variables)_ Update affected services in environment variable analysis
-- _(team)_ Clear stripe_subscription_id on subscription end
-- _(github)_ Update authentication method for GitHub app operations
-- _(databases)_ Restrict database updates to allowed fields only
-- _(cache)_ Add Model import to ClearsGlobalSearchCache trait for improved functionality
-- _(environment-variables)_ Correct method call syntax in analyzeBuildVariable function
-- _(clears-global-search-cache)_ Refine team retrieval logic in getTeamIdForCache method
-- _(subscription-job)_ Enhance retry logic for VerifyStripeSubscriptionStatusJob
-- _(environment-variable)_ Update checkbox visibility and helper text for build and runtime options
-- _(deployment-job)_ Escape single quotes in build arguments for Docker Compose command
-- _(PreviewCompose)_ Adds port to preview urls
-- _(deployment-job)_ Enhance build time variable analysis
-- _(docker)_ Adjust openssh-client installation in Dockerfile to avoid version bug
-- _(docker)_ Streamline openssh-client installation in Dockerfile
-- _(team)_ Normalize email case in invite link generation
-- _(README)_ Update Juxtdigital description to reflect current services
-- _(environment-variable-warning)_ Enhance warning logic to check for problematic variable values
-- _(install)_ Ensure proper quoting of environment file paths to prevent issues with spaces
-- _(security)_ Implement authorization checks for terminal access management
-- _(ui)_ Improve mobile sidebar close behavior
-- _(application)_ Restrict GitHub-based application settings to non-public repositories
-- _(traits)_ Update saved_outputs handling in ExecuteRemoteCommand to use collection methods for better performance
-- _(application)_ Enhance domain handling by replacing both dots and dashes with underscores for HTML form binding
-- _(constants)_ Reduce command timeout from 7200 to 3600 seconds for improved performance
-- _(github)_ Update repository URL to point to the v4.x branch for development
-- _(models)_ Update sorting of scheduled database backups to order by creation date instead of name
-- _(socialite)_ Add custom base URL support for GitLab provider in OAuth settings
-- _(configuration-checker)_ Update message to clarify redeployment requirement for configuration changes
-- _(application)_ Reduce docker stop timeout from 30 to 10 seconds for improved application shutdown efficiency
-- _(application)_ Increase docker stop timeout from 10 to 30 seconds for better application shutdown handling
-- _(validation)_ Update git:// URL validation to support port numbers and tilde characters in paths
+- *(domains)* Trim whitespace from domains before validation
+- *(databases)* Update backup retrieval logic to include team context
+- *(environment-variables)* Update affected services in environment variable analysis
+- *(team)* Clear stripe_subscription_id on subscription end
+- *(github)* Update authentication method for GitHub app operations
+- *(databases)* Restrict database updates to allowed fields only
+- *(cache)* Add Model import to ClearsGlobalSearchCache trait for improved functionality
+- *(environment-variables)* Correct method call syntax in analyzeBuildVariable function
+- *(clears-global-search-cache)* Refine team retrieval logic in getTeamIdForCache method
+- *(subscription-job)* Enhance retry logic for VerifyStripeSubscriptionStatusJob
+- *(environment-variable)* Update checkbox visibility and helper text for build and runtime options
+- *(deployment-job)* Escape single quotes in build arguments for Docker Compose command
+- *(PreviewCompose)* Adds port to preview urls
+- *(deployment-job)* Enhance build time variable analysis
+- *(docker)* Adjust openssh-client installation in Dockerfile to avoid version bug
+- *(docker)* Streamline openssh-client installation in Dockerfile
+- *(team)* Normalize email case in invite link generation
+- *(README)* Update Juxtdigital description to reflect current services
+- *(environment-variable-warning)* Enhance warning logic to check for problematic variable values
+- *(install)* Ensure proper quoting of environment file paths to prevent issues with spaces
+- *(security)* Implement authorization checks for terminal access management
+- *(ui)* Improve mobile sidebar close behavior
+- *(application)* Restrict GitHub-based application settings to non-public repositories
+- *(traits)* Update saved_outputs handling in ExecuteRemoteCommand to use collection methods for better performance
+- *(application)* Enhance domain handling by replacing both dots and dashes with underscores for HTML form binding
+- *(constants)* Reduce command timeout from 7200 to 3600 seconds for improved performance
+- *(github)* Update repository URL to point to the v4.x branch for development
+- *(models)* Update sorting of scheduled database backups to order by creation date instead of name
+- *(socialite)* Add custom base URL support for GitLab provider in OAuth settings
+- *(configuration-checker)* Update message to clarify redeployment requirement for configuration changes
+- *(application)* Reduce docker stop timeout from 30 to 10 seconds for improved application shutdown efficiency
+- *(application)* Increase docker stop timeout from 10 to 30 seconds for better application shutdown handling
+- *(validation)* Update git:// URL validation to support port numbers and tilde characters in paths
 - Resolve scroll lock issue after closing quick search modal with escape key
 - Prevent quick search modal duplication from keyboard shortcuts
-- _(workflows)_ Update CLAUDE API key reference in GitHub Actions workflow
-- _(ui)_ Update docker registry image helper text for clarity
-- _(ui)_ Correct HTML structure and improve clarity in Docker cleanup options
-- _(workflows)_ Update CLAUDE API key reference in GitHub Actions workflow
-- _(api)_ Correct OpenAPI schema annotations for array items
-- _(ui)_ Improve queued deployment status readability in dark mode
-- _(git)_ Handle additional repository URL cases for 'tangled' and improve branch assignment logic
-- _(git)_ Enhance error handling for missing branch information during deployment
-- _(git)_ Trim whitespace from repository, branch, and commit SHA fields
-- _(deployments)_ Order deployments by ID for consistent retrieval
-- _(deployments)_ Enhance builder container management and environment variable handling
+- *(workflows)* Update CLAUDE API key reference in GitHub Actions workflow
+- *(ui)* Update docker registry image helper text for clarity
+- *(ui)* Correct HTML structure and improve clarity in Docker cleanup options
+- *(workflows)* Update CLAUDE API key reference in GitHub Actions workflow
+- *(api)* Correct OpenAPI schema annotations for array items
+- *(ui)* Improve queued deployment status readability in dark mode
+- *(git)* Handle additional repository URL cases for 'tangled' and improve branch assignment logic
+- *(git)* Enhance error handling for missing branch information during deployment
+- *(git)* Trim whitespace from repository, branch, and commit SHA fields
+- *(deployments)* Order deployments by ID for consistent retrieval
+- *(deployments)* Enhance builder container management and environment variable handling
 - Region env variable
 - Ente photos
-- _(elasticsearch)_ Update Elasticsearch and Kibana configuration for enhanced security and setup
-- _(ui)_ Make the deployments indicator toast in the bottom-left above the sidebar
-- _(environment)_ Clear computed property cache after adding environment variables
-- _(backup)_ Update backup job to use backup_log_uuid for container naming
-- _(core)_ Set default base_directory and include in submit method
-- _(deployment)_ Add warning for NIXPACKS_NODE_VERSION in node configurations
-- _(deployment)_ Save runtime environment variables when skipping build
-- _(job)_ Correct build logs URL structure in ApplicationPullRequestUpdateJob
-- _(tests)_ Update Docker command for running feature tests without `-it` flag
+- *(elasticsearch)* Update Elasticsearch and Kibana configuration for enhanced security and setup
+- *(ui)* Make the deployments indicator toast in the bottom-left above the sidebar
+- *(environment)* Clear computed property cache after adding environment variables
+- *(backup)* Update backup job to use backup_log_uuid for container naming
+- *(core)* Set default base_directory and include in submit method
+- *(deployment)* Add warning for NIXPACKS_NODE_VERSION in node configurations
+- *(deployment)* Save runtime environment variables when skipping build
+- *(job)* Correct build logs URL structure in ApplicationPullRequestUpdateJob
+- *(tests)* Update Docker command for running feature tests without `-it` flag
 - On team creation, redirect to the new team instantly
-- _(project)_ Update redirect logic after resource creation to include environment UUID
-- _(dashboard)_ Add cursor pointer to modal input buttons for better UX
-- _(modal-confirmation)_ Refine escape key handling to ensure modal closes only when open
-- _(conductor-setup)_ Update script permissions for execution
-- _(conductor)_ Update run script command to 'spin up'
-- _(conductor)_ Update run script to include 'spin down' command
-- _(docker-compose)_ Set pull_policy to 'never' for coolify, soketi, and testing-host services
-- _(migration)_ Disable transaction for concurrent index creation
+- *(project)* Update redirect logic after resource creation to include environment UUID
+- *(dashboard)* Add cursor pointer to modal input buttons for better UX
+- *(modal-confirmation)* Refine escape key handling to ensure modal closes only when open
+- *(conductor-setup)* Update script permissions for execution
+- *(conductor)* Update run script command to 'spin up'
+- *(conductor)* Update run script to include 'spin down' command
+- *(docker-compose)* Set pull_policy to 'never' for coolify, soketi, and testing-host services
+- *(migration)* Disable transaction for concurrent index creation
 - Properly handle transaction for concurrent index operations
 - Use correct property declaration for withinTransaction
-- _(api-tokens)_ Update settings link for API enablement message
-- _(css)_ Update success color to match design specifications
-- _(css)_ Update focus styles for input and button utilities to improve accessibility
-- _(css)_ Remove unnecessary tracking classes from status components for consistency
-- _(css)_ Update focus styles for Checkbox and modal input components to enhance accessibility
+- *(api-tokens)* Update settings link for API enablement message
+- *(css)* Update success color to match design specifications
+- *(css)* Update focus styles for input and button utilities to improve accessibility
+- *(css)* Remove unnecessary tracking classes from status components for consistency
+- *(css)* Update focus styles for Checkbox and modal input components to enhance accessibility
 - Refresh server data before showing notification to ensure accurate proxy status
 - Update Hetzner server status handling to prevent unnecessary database updates and improve UI responsiveness
 - Improve error logging and handling in ServerConnectionCheckJob for Hetzner server status
@@ -3969,7 +3980,7 @@ All notable changes to this project will be documented in this file.
 - Streamline proxy status handling in StartProxy and Navbar components
 - Improve placeholder text for token name input in cloud provider token form
 - Update cloud provider token form with improved placeholder and guidance for API token creation
-- _(ci)_ Sanitize branch names for Docker tag compatibility
+- *(ci)* Sanitize branch names for Docker tag compatibility
 - Set cloud-init script dropdown to empty by default
 - Reset cloud-init fields when closing server creation modal
 - Improve cloud-init scripts UI styling and behavior
@@ -3980,7 +3991,7 @@ All notable changes to this project will be documented in this file.
 - Add missing server_patch_webhook_notifications field
 - Move POST badge before input field
 - Use btn-primary for POST badge background
-- _(onboarding)_ Auto-select first SSH key for better UX
+- *(onboarding)* Auto-select first SSH key for better UX
 - Prevent container name conflict when updating database port mappings
 - Missing 422 error code in openapi spec
 - Allow all environment variable fields in API endpoints
@@ -3997,22 +4008,22 @@ All notable changes to this project will be documented in this file.
 - Healthcheck doesn’t need to be 5s
 - Make email envs not required
 - Domain on coolify
-- _(templates)_ Update Lobe-chat openai base_url env + required envs
-- _(templates)_ Lobechat environnement variable
-- _(lobe-chat)_ Update Docker image tag to a specific version 1.135.5
+- *(templates)* Update Lobe-chat openai base_url env + required envs
+- *(templates)* Lobechat environnement variable
+- *(lobe-chat)* Update Docker image tag to a specific version 1.135.5
 - Enable docker network connection for pgadmin service
-- _(template/filebrowser)_ Correct routing and healthcheck for Filebrowser
-- _(template/filebrowser)_ Correct healthcheck for Filebrowser
-- _(campfire)_ Update port configuration from 80 to 3000 in Docker Compose file
-- _(campfire)_ Correct port comment from 3000 to 80 in Docker Compose file
-- _(campfire)_ Update service definition to use image instead of build in Docker Compose file
-- _(templates)_ Remove mattermost healthcheck command according to lack of shell in new version
+- *(template/filebrowser)* Correct routing and healthcheck for Filebrowser
+- *(template/filebrowser)* Correct healthcheck for Filebrowser
+- *(campfire)* Update port configuration from 80 to 3000 in Docker Compose file
+- *(campfire)* Correct port comment from 3000 to 80 in Docker Compose file
+- *(campfire)* Update service definition to use image instead of build in Docker Compose file
+- *(templates)* Remove mattermost healthcheck command according to lack of shell in new version
 - Prevent duplicate services on image change and enable real-time UI refresh
 - Enhance run script to remove existing containers before starting
 - Prevent TypeError in database General components with null server
 - Add authorization checks to database Livewire components
 - Add missing save_runtime_environment_variables() in deploy_simple_dockerfile
-- _(git)_ Handle Git redirects and improve URL parsing for tangled.sh and other Git hosts
+- *(git)* Handle Git redirects and improve URL parsing for tangled.sh and other Git hosts
 - Improve logging and add shell escaping for git ls-remote
 - Update run script to use bun for development
 - Restore original run script functionality in conductor.json
@@ -4032,13 +4043,13 @@ All notable changes to this project will be documented in this file.
 - Update version numbers to 4.0.0-beta.436 and 4.0.0-beta.437
 - Ensure authorization checks are in place for viewing and updating the application
 - Ensure authorization check is performed during component mount
-- _(signoz)_ Remove example secrets to avoid triggering GitGuardian
-- _(signoz)_ Remove hardcoded container names
-- _(signoz)_ Remove HTTP collector FQDN in otel-collector
-- _(n8n)_ Add DB_SQLITE_POOL_SIZE environment variable for configuration
-- _(template)_ Remove default values for environment variables
+- *(signoz)* Remove example secrets to avoid triggering GitGuardian
+- *(signoz)* Remove hardcoded container names
+- *(signoz)* Remove HTTP collector FQDN in otel-collector
+- *(n8n)* Add DB_SQLITE_POOL_SIZE environment variable for configuration
+- *(template)* Remove default values for environment variables
 - Update metamcp image version and clean up environment variable syntax
-- _(service)_ Update image version & healthcheck start period
+- *(service)* Update image version & healthcheck start period
 - Filter deprecated server types for Hetzner
 - Eliminate dark mode white screen flicker on page transitions
 - Handle redis_password in API database creation
@@ -4063,16 +4074,16 @@ All notable changes to this project will be documented in this file.
 - Server URL generation in ServerPatchCheck notification
 - Monaco editor empty for docker compose applications
 - Update sponsor link from Darweb to Dade2 in README
-- _(database)_ Prevent malformed URLs when server IP is empty
+- *(database)* Prevent malformed URLs when server IP is empty
 - Optimize caching in Dockerfile and GitHub Actions workflow
 - Remove wire:ignore from modal and add wire:key to EditCompose component
 - Add wire:ignore directive to modal component for improved functionality
 - Clean up formatting and remove unnecessary key binding in stack form component
 - Add null checks and validation to OAuth bulk update method
-- _(docs)_ Update documentation URL to version 2 in evolution-api.yaml
-- _(templates)_ Remove volumes from Plane's compose
-- _(templates)_ Add redis env to live service in Plane
-- _(templates)_ Update minio image to use coollabsio fork in Plane
+- *(docs)* Update documentation URL to version 2 in evolution-api.yaml
+- *(templates)* Remove volumes from Plane's compose
+- *(templates)* Add redis env to live service in Plane
+- *(templates)* Update minio image to use coollabsio fork in Plane
 - Prevent login rate limit bypass via spoofed headers
 - Correct login rate limiter key format to include IP address
 - Change SMTP port input type to number for better validation
@@ -4102,8 +4113,8 @@ All notable changes to this project will be documented in this file.
 - Remove Gozunga from the list of sponsors in README
 - Update version numbers to 4.0.0-beta.443 and 4.0.0-beta.444
 - Guard against null or empty docker compose in saveComposeConfigs method
-- _(deployment)_ Prevent base deployments from being killed when PRs close (#7113)
-- _(docker)_ Improve pull request ID check in container status function
+- *(deployment)* Prevent base deployments from being killed when PRs close (#7113)
+- *(docker)* Improve pull request ID check in container status function
 - Remove unnecessary peer dependencies from package-lock.json
 - Ensure unique environment files are included for applications and services
 - Ensure service state is refreshed and compose configurations are saved after submission
@@ -4113,24 +4124,24 @@ All notable changes to this project will be documented in this file.
 - Wrap database updates in a transaction for consistency in GetContainersStatus
 - Remove duplicate deployment queue call causing false error messages
 - Enhance error handling in initialization and cleanup process
-- _(service)_ Disable openpanel worker UI by default
-- _(DeleteResourceJob)_ Escape deployment UUID and stack name in Docker commands
+- *(service)* Disable openpanel worker UI by default
+- *(DeleteResourceJob)* Escape deployment UUID and stack name in Docker commands
 - Remove unnecessary peer property from multiple dependencies in package-lock.json
-- _(ScheduledTask)_ Change timeout property type to int for consistency in syncData method
-- _(ScheduledTaskJob)_ Make server property nullable and update logging to handle null values
-- _(CleanupRedis)_ Guard against scan() returning false and use lowercase option keys
-- _(CleanupRedisTest)_ Update mock return values for hgetall to reflect job processing state
-- _(ServiceParser)_ Prioritize manually migrated services over image detection for database identification
-- _(proxy)_ Update Traefik image version to v3.6 in default proxy configuration
-- _(server)_ Wrap complex piped commands in bash -c for sudo execution
-- _(proxy)_ Downgrade Traefik image version from v3.6 to v3.5 in default proxy configuration
-- _(versions)_ Update coolify version to 4.0.0-beta.444 and nightly to 4.0.0-beta.445
-- _(versions)_ Update helper version to 1.0.12
+- *(ScheduledTask)* Change timeout property type to int for consistency in syncData method
+- *(ScheduledTaskJob)* Make server property nullable and update logging to handle null values
+- *(CleanupRedis)* Guard against scan() returning false and use lowercase option keys
+- *(CleanupRedisTest)* Update mock return values for hgetall to reflect job processing state
+- *(ServiceParser)* Prioritize manually migrated services over image detection for database identification
+- *(proxy)* Update Traefik image version to v3.6 in default proxy configuration
+- *(server)* Wrap complex piped commands in bash -c for sudo execution
+- *(proxy)* Downgrade Traefik image version from v3.6 to v3.5 in default proxy configuration
+- *(versions)* Update coolify version to 4.0.0-beta.444 and nightly to 4.0.0-beta.445
+- *(versions)* Update helper version to 1.0.12
 - Remove PullHelperImageJob and mass server scheduling
 - Remove PullHelperImageJob mass scheduling (#7229)
-- _(deployment)_ Eliminate duplicate error logging in deployment methods
-- _(deployment)_ Improve error logging with exception types and hidden technical details
-- _(versions)_ Update coolify version to 4.0.0-beta.445 and nightly to 4.0.0-beta.446
+- *(deployment)* Eliminate duplicate error logging in deployment methods
+- *(deployment)* Improve error logging with exception types and hidden technical details
+- *(versions)* Update coolify version to 4.0.0-beta.445 and nightly to 4.0.0-beta.446
 - Resolve duplicate migration timestamps and add idempotency guards
 - Remove unnecessary table existence checks in migration files
 - Resolve duplicate migration timestamps (#7254)
@@ -4138,9 +4149,9 @@ All notable changes to this project will be documented in this file.
 - Replace inline styles with Tailwind classes in modal-input component
 - Replace inline styles with Tailwind classes in modal-input (#7267)
 - Remove unused variable in updatedBuildPack method
-- _(performance)_ Eliminate N+1 query in CheckTraefikVersionJob
-- _(proxy)_ Prevent "container name already in use" error during proxy restart
-- _(proxy)_ Remove debugging ray call from Traefik version retrieval
+- *(performance)* Eliminate N+1 query in CheckTraefikVersionJob
+- *(proxy)* Prevent "container name already in use" error during proxy restart
+- *(proxy)* Remove debugging ray call from Traefik version retrieval
 - Replace inline styles with Tailwind classes in modal-input component
 - Remove unused variable in updatedBuildPack method
 - Inject environment variables into custom Docker Compose build commands
@@ -4169,11 +4180,11 @@ All notable changes to this project will be documented in this file.
 - Remove dead conditional and unused variables in parsers.php
 - Convert Stringable to plain strings in applicationParser for strict comparisons and collection lookups
 - Comprehensive SERVICE_URL/SERVICE_FQDN handling improvements and queue reliability fixes (#7275)
-- _(service)_ Plausible compose parsing error
-- _(service)_ Plausible compose parsing error (#7244)
-- _(service)_ Netbird client showing wrong host details (#7237)
-- _(service)_ Ghost using invalid base url
-- _(service)_ Ghost using invalid base url (#7233)
+- *(service)* Plausible compose parsing error
+- *(service)* Plausible compose parsing error (#7244)
+- *(service)* Netbird client showing wrong host details  (#7237)
+- *(service)* Ghost using invalid base url
+- *(service)* Ghost using invalid base url (#7233)
 - Default template of Redis Insight (#7176)
 - Updated passout key
 - Updated envs
@@ -4182,7 +4193,7 @@ All notable changes to this project will be documented in this file.
 - Secure deploy
 - Updated postgres
 - Codimd docker-compose domain
-- _(opnform)_ Update APP_URL environment variable and remove unused nginx environment variable
+- *(opnform)* Update APP_URL environment variable and remove unused nginx environment variable
 - Update sentinel version to 0.0.18
 - Update coolify version to 4.0.0-beta.446 and nightly version to 4.0.0-beta.447
 - Handle existing cloud_init_scripts table in migration
@@ -4208,13 +4219,13 @@ All notable changes to this project will be documented in this file.
 - Use server-side @if instead of client-side x-show for activity monitor
 - Streamline helper version retrieval and improve migration clarity
 - Improve robustness and security in database restore flows
-- _(security)_ Mitigate path traversal vulnerability in S3RestoreJobFinished
+- *(security)* Mitigate path traversal vulnerability in S3RestoreJobFinished
 - Replace inline styles with Tailwind classes in modal-input component
 - Remove unused variable in updatedBuildPack method
 - Remove unused variable in updatedBuildPack method
-- _(performance)_ Eliminate N+1 query in CheckTraefikVersionJob
-- _(proxy)_ Prevent "container name already in use" error during proxy restart
-- _(proxy)_ Remove debugging ray call from Traefik version retrieval
+- *(performance)* Eliminate N+1 query in CheckTraefikVersionJob
+- *(proxy)* Prevent "container name already in use" error during proxy restart
+- *(proxy)* Remove debugging ray call from Traefik version retrieval
 - Remove unused variable in updatedBuildPack method
 - Inject environment variables into custom Docker Compose build commands
 - Auto-inject environment variables into custom Docker Compose commands
@@ -4258,19 +4269,19 @@ All notable changes to this project will be documented in this file.
 - Enhance security by validating and escaping database names, file paths, and proxy configuration filenames to prevent command injection
 - Enhance validation for database names and filenames to prevent command injection
 - Enhance security by validating and escaping database names, file paths, and proxy configuration filenames (#7375)
-- _(docker)_ Migrate database start actions from --time to -t flag
-- _(docker)_ Migrate database start actions from --time to -t flag (#7388)
-- _(docker)_ Migrate database start actions from --time to -t flag
+- *(docker)* Migrate database start actions from --time to -t flag
+- *(docker)* Migrate database start actions from --time to -t flag (#7388)
+- *(docker)* Migrate database start actions from --time to -t flag
 - Prevent Livewire snapshot error in database restore modal
 - Prevent Livewire snapshot error in database restore (#7385)
 - Update service creation logic to only connect pgAdmin to Docker network
-- _(ui)_ Incorrect caddy proxy config file path on proxy page (#6722)
+- *(ui)* Incorrect caddy proxy config file path on proxy page (#6722)
 - Add support for nixpacks plan variables in buildtime environment
 - Prevent duplicate environment variables in buildtime.env
 - Prevent duplicate environment variables in buildtime.env and support nixpacks plan variable overrides (#7373)
-- _(docker)_ Replace deprecated --time flag with -t for full compatibility across Docker versions (#6807)
+- *(docker)* Replace deprecated --time flag with -t for full compatibility across Docker versions (#6807)
 - Improved regex to support timestamps with either "T" or space separators on logs to differentiate timestamps from actual log content
-- _(docker)_ Migrate database start actions from --time to -t flag (#7390)
+- *(docker)* Migrate database start actions from --time to -t flag (#7390)
 - Search bar floating on new resource page
 - Add missing yellow border for search box focus in dark mode for new resource page
 - Remove redundant condition for displaying databases in resource selection
@@ -4308,120 +4319,138 @@ All notable changes to this project will be documented in this file.
 - Skip password confirmation for OAuth users
 - Add idempotency guards to 18 migrations to prevent upgrade failures
 - Add idempotency guards to 18 migrations (#7637)
-- _(service)_ Postiz showing no available server (#7595)
+- *(service)* Postiz showing no available server (#7595)
 - (service) Remov depreciated env and services on Penpot (#7415)
 - Update soju config path and add WebSocket support
 - Correct soju config path and simplify template
 - Add soju-run volume for admin socket
 - Update cors and versions
-- _(templates)_ Update URL environment variable in getoutline.yaml
-- _(templates)_ Update URL environment variable in getoutline.yaml (#7650)
-- _(service)_ Umami -> patch Nextjs CVE-2025-55183 & CVE-2025-55184 (#7671)
-- _(deployment)_ Remove redundant docker rm when using --rm flag
-- _(deployment)_ Remove redundant docker rm when using --rm flag (#7688)
-- _(deployment)_ Skip docker rm -f for builder containers with --rm flag
-- _(deployment)_ Skip docker rm -f for builder containers with --rm flag (#7698)
+- *(templates)* Update URL environment variable in getoutline.yaml
+- *(templates)* Update URL environment variable in getoutline.yaml (#7650)
+- *(service)* Umami -> patch Nextjs CVE-2025-55183 & CVE-2025-55184 (#7671)
+- *(deployment)* Remove redundant docker rm when using --rm flag
+- *(deployment)* Remove redundant docker rm when using --rm flag (#7688)
+- *(deployment)* Skip docker rm -f for builder containers with --rm flag
+- *(deployment)* Skip docker rm -f for builder containers with --rm flag (#7698)
 - Update version numbers to 4.0.0-beta.459 and 4.0.0-beta.460
 - Add persistent storage for Dolibarr documents and custom modules
 - Add persistent storage for Dolibarr documents and custom modules (#7684)
-- _(template)_ Superset version and postgres volume mount
-- _(template)_ Superset version and postgres volume mount (#7662)
-- _(sentinel)_ Add missing instantSave method and prevent duplicate notifications
-- _(sentinel)_ Add missing instantSave method and prevent duplicate notifications (#7749)
-- _(ui)_ Broken hyperlink to sentinel page on server metrics page
-- _(ui)_ Broken hyperlink to sentinel page on application metrics page
-- _(ui)_ Broken hyperlink to sentinel page on server and application metrics page (#7752)
-- _(database)_ Replace temporary file handling with base64 encoding for Keydb and Redis configuration
-- _(terminal)_ Add sudo for non-root users to access Docker socket in terminal command
-- _(ui)_ Improve upgrade modal loading indicators visibility in light mode
-- _(ui)_ Improve upgrade modal loading indicators visibility in light mode (#7770)
-- _(ui)_ Make build pack UI reactivity work properly (#7780)
-- _(proxy)_ Defer UI refresh until Traefik version check completes
-- _(proxy)_ Defer UI refresh until Traefik version check completes (#7783)
-- _(restart)_ Reset restart count when resource is manually stopped
-- _(restart)_ Reset restart count when resource is manually stopped (#7784)
+- *(template)* Superset version and postgres volume mount
+- *(template)* Superset version and postgres volume mount (#7662)
+- *(sentinel)* Add missing instantSave method and prevent duplicate notifications
+- *(sentinel)* Add missing instantSave method and prevent duplicate notifications (#7749)
+- *(ui)* Broken hyperlink to sentinel page on server metrics page
+- *(ui)* Broken hyperlink to sentinel page on application metrics page
+- *(ui)* Broken hyperlink to sentinel page on server and application metrics page (#7752)
+- *(database)* Replace temporary file handling with base64 encoding for Keydb and Redis configuration
+- *(terminal)* Add sudo for non-root users to access Docker socket in terminal command
+- *(ui)* Improve upgrade modal loading indicators visibility in light mode
+- *(ui)* Improve upgrade modal loading indicators visibility in light mode (#7770)
+- *(ui)* Make build pack UI reactivity work properly (#7780)
+- *(proxy)* Defer UI refresh until Traefik version check completes
+- *(proxy)* Defer UI refresh until Traefik version check completes (#7783)
+- *(restart)* Reset restart count when resource is manually stopped
+- *(restart)* Reset restart count when resource is manually stopped (#7784)
 - Back navigation in global search resource selection
 - Back navigation in global search resource selection (#7798)
 - Update version numbers to 4.0.0-beta.460 and 4.0.0-beta.461
-- _(metrics)_ Prevent page freeze with 30-day server metrics interval using LTTB downsampling
-- _(metrics)_ Address code review feedback for LTTB downsampling
-- _(metrics)_ Prevent 30-day interval page freeze with LTTB downsampling (#7787)
-- _(workflow)_ Add 'labeled' event type for issues to trigger Claude
-- _(workflow)_ Enhance label matching for Claude trigger in issues
-- _(workflow)_ Update prompt for Claude to provide default instructions on issue labeling
-- _(workflow)_ Update prompt for Claude to include 'ultrathink' for issue analysis
-- _(workflow)_ Update Claude action to use claude_args for model configuration
-- _(workflow)_ Remove dangerously-skip-permissions from Claude args
-- _(workflow)_ Update permissions for Claude to write access
-- _(workflow)_ Remove 'labeled' event from issue triggers and clean up permissions
-- _(logs)_ Remove hardcoded 2000 line display limit
+- *(metrics)* Prevent page freeze with 30-day server metrics interval using LTTB downsampling
+- *(metrics)* Address code review feedback for LTTB downsampling
+- *(metrics)* Prevent 30-day interval page freeze with LTTB downsampling (#7787)
+- *(workflow)* Add 'labeled' event type for issues to trigger Claude
+- *(workflow)* Enhance label matching for Claude trigger in issues
+- *(workflow)* Update prompt for Claude to provide default instructions on issue labeling
+- *(workflow)* Update prompt for Claude to include 'ultrathink' for issue analysis
+- *(workflow)* Update Claude action to use claude_args for model configuration
+- *(workflow)* Remove dangerously-skip-permissions from Claude args
+- *(workflow)* Update permissions for Claude to write access
+- *(workflow)* Remove 'labeled' event from issue triggers and clean up permissions
+- *(logs)* Remove hardcoded 2000 line display limit
 - Prevent metric charts from freezing when navigating with wire:navigate
 - Remove livewire:init wrapper from server charts event listeners
 - Prevent metric charts from freezing on page navigation (#7848)
-- _(settings)_ Fix 404 on /settings for root user on cloud instance
-- _(user)_ Use $this instead of Auth::user() in User model methods
-- _(user)_ Complete User model fixes for non-web contexts
-- _(user)_ Improve cache key and remove redundant route check
-- _(team)_ Improve team retrieval and session handling for users
-- _(settings)_ Fix 404 on /settings for root user on cloud (#7785)
-- _(service)_ Handle missing service database and redirect to configuration
-- _(service)_ Use database UUID for ServiceDatabase proxy container name
-- _(template)_ Make databasus connect to predefined network
-- _(template)_ Add release date of databasus image
-- _(templates)_ Use FQDN instead of URL for Weblate site domain (#7827)
-- _(service)_ Prevent public toggle from saving entire database form
+- *(settings)* Fix 404 on /settings for root user on cloud instance
+- *(user)* Use $this instead of Auth::user() in User model methods
+- *(user)* Complete User model fixes for non-web contexts
+- *(user)* Improve cache key and remove redundant route check
+- *(team)* Improve team retrieval and session handling for users
+- *(settings)* Fix 404 on /settings for root user on cloud (#7785)
+- *(service)* Handle missing service database and redirect to configuration
+- *(service)* Use database UUID for ServiceDatabase proxy container name
+- *(template)* Make databasus connect to predefined network
+- *(template)* Add release date of databasus image
+- *(templates)* Use FQDN instead of URL for Weblate site domain (#7827)
+- *(service)* Prevent public toggle from saving entire database form
 - Use original_server for log drain config in generate_compose_file
 - Use original_server for log drain config in generate_compose_file (#7619)
-- _(workflow)_ Add 'labeled' event type for issues to trigger Claude (#7830)
-- _(workflow)_ Enhance label matching for Claude trigger in issues (#7831)
-- _(workflow)_ Update prompt for Claude to provide default instructions on issue labeling (#7832)
-- _(workflow)_ Update prompt for Claude to include 'ultrathink' for issue analysis (#7833)
-- _(workflow)_ Update Claude action to use claude_args for model configuration (#7834)
-- _(workflow)_ Update permissions for Claude to write access (#7835)
-- _(workflow)_ Remove 'labeled' event from issue triggers and clean up permissions (#7836)
+- *(workflow)* Add 'labeled' event type for issues to trigger Claude (#7830)
+- *(workflow)* Enhance label matching for Claude trigger in issues (#7831)
+- *(workflow)* Update prompt for Claude to provide default instructions on issue labeling (#7832)
+- *(workflow)* Update prompt for Claude to include 'ultrathink' for issue analysis (#7833)
+- *(workflow)* Update Claude action to use claude_args for model configuration (#7834)
+- *(workflow)* Update permissions for Claude to write access (#7835)
+- *(workflow)* Remove 'labeled' event from issue triggers and clean up permissions (#7836)
 - APP_NAME in development
-- _(docs)_ Remove incorrect uuid format in openapi spec (#7419)
+- *(docs)* Remove incorrect uuid format in openapi spec (#7419)
 - Add datetime cast to finished_at column (#7418)
-- _(service)_ Correct POSTGRES_HOST in freshrss (#7759)
-- _(ui)_ Change password visibility eye icon based on state (#7729)
-- _(service)_ Remove command from unleash template (#7379)
-- _(ui)_ Images inside coolify changelog (#7357)
-- _(deployment)_ Use mainServer consistently instead of redundant original_server
-- _(deployment)_ Use mainServer consistently instead of redundant original_server (#7872)
+- *(service)* Correct POSTGRES_HOST in freshrss (#7759)
+- *(ui)* Change password visibility eye icon based on state (#7729)
+- *(service)* Remove command from unleash template (#7379)
+- *(ui)* Images inside coolify changelog (#7357)
+- *(deployment)* Use mainServer consistently instead of redundant original_server
+- *(deployment)* Use mainServer consistently instead of redundant original_server (#7872)
 - Disable prepared statements for PgBouncer compatibility
 - Make PgBouncer prepared statement disabling configurable
 - Make PgBouncer prepared statement disabling configurable (#7876)
-- _(service)_ Add instagram envs to postiz template (#6424)
-- _(service)_ Use fqdn for server host in sequin template (#6528)
-- _(service)_ Wireguard easy host to use fqdn (#7354)
-- _(log)_ Preserve leading whitespace in logs (#7879)
-- _(docs)_ Remove environments from projects endpoint
+- *(service)* Add instagram envs to postiz template (#6424)
+- *(service)* Use fqdn for server host in sequin template (#6528)
+- *(service)* Wireguard easy host to use fqdn (#7354)
+- *(log)* Preserve leading whitespace in logs (#7879)
+- *(docs)* Remove environments from projects endpoint
 - Instance public ips initialization validation (#7762)
-- _(ui)_ Instance public ips ui validation
+- *(ui)* Instance public ips ui validation
 - Cast docker version to int for proper comparison (#7760)
-- _(docs)_ Api docs for bulk env update response (#7714)
+- *(docs)* Api docs for bulk env update response (#7714)
 - Db public port instant save and simplify if condition (#7883)
-- _(ui)_ Empty network destinations when cloning a resource (#7309)
-- _(env)_ Custom environment variable sorting (#7887)
-- _(service)_ Budibase worker envs
-- _(docker)_ Add fallback for Docker Swarm container labels
+- *(ui)* Empty network destinations when cloning a resource (#7309)
+- *(env)* Custom environment variable sorting (#7887)
+- *(service)* Budibase worker envs
+- *(docker)* Add fallback for Docker Swarm container labels
 - Prevent timing attack in GitLab webhook token validation
 - GitLab webhook validation (#7899)
-- _(service)_ Supabase studio fails to load schemas
-- _(git)_ Trigger deployments when watch_paths is empty
-- _(backup)_ Database restores with custom db name
-- _(service)_ Twenty template (#6996)
-- _(docker)_ Use dynamic OS ID for Docker repository URL
-- _(docker)_ Use dynamic OS ID for Docker repository URL (#7907)
-- _(scripts)_ Add jean run
-- _(service)_ Signoz metrics env (#7927)
-- _(ui)_ Hide already registered button when there are 0 users (#7918)
-- _(api)_ Add custom_network_aliases to allowed fields
-- _(api)_ Create service validation and docs
-- _(api)_ Create service endpoint validation and docs (#7916)
-- _(api)_ Deprecate applications compose endpoint
-- _(api)_ Applications post and patch endpoints
-- _(api)_ Applications create and patch endpoints (#7917)
+- *(service)* Supabase studio fails to load schemas
+- *(git)* Trigger deployments when watch_paths is empty
+- *(backup)* Database restores with custom db name
+- *(service)* Twenty template (#6996)
+- *(docker)* Use dynamic OS ID for Docker repository URL
+- *(docker)* Use dynamic OS ID for Docker repository URL (#7907)
+- *(scripts)* Add jean run
+- *(service)* Signoz metrics env (#7927)
+- *(ui)* Hide already registered button when there are 0 users (#7918)
+- *(api)* Add custom_network_aliases to allowed fields
+- *(api)* Create service validation and docs
+- *(api)* Create service endpoint validation and docs (#7916)
+- *(api)* Deprecate applications compose endpoint
+- *(api)* Applications post and patch endpoints
+- *(api)* Applications create and patch endpoints (#7917)
+- *(service)* Sftpgo port
+- *(env)* Only cat .env file in dev
+- *(api)* Encoding checks (#7944)
+- *(env)* Only show nixpacks plan variables section in dev
+- Switch custom labels check to UTF-8
+- *(api)* One click service name and description cannot be set during creation
+- *(ui)* Improve volume mount warning for compose applications (#7947)
+- *(api)* Show an error if the same 2 urls are provided
+- *(preview)* Docker compose preview URLs (#7959)
+- *(api)* Check domain conflicts within the request
+- *(api)* Include docker_compose_domains in domain conflict check
+- *(api)* Is_static and docker network missing
+- *(api)* If domains field is empty clear the fqdn column
+- *(api)* Application endpoint issues part 2 (#7948)
+- Optimize queries and caching for projects and environments
+- *(perf)* Eliminate N+1 queries from InstanceSettings and Server lookups (#7966)
+- Update version numbers to 4.0.0-beta.462 and 4.0.0-beta.463
+- Rebranding
 
 ### 💼 Other
 
@@ -4465,7 +4494,7 @@ All notable changes to this project will be documented in this file.
 - Traefik
 - Traefik
 - Notifications and application usage
-- _(fix)_ Traefik
+- *(fix)* Traefik
 - Css
 - Error message https://github.com/coollabsio/coolify/issues/502
 - Changes
@@ -4697,9 +4726,6 @@ All notable changes to this project will be documented in this file.
 - SSH Multiplexing on docker desktop on Windows
 - Remove labels and assignees on issue close
 - Make sure this action is also triggered on PR issue close
-- Volumes on development environment
-- Clean new volume name for dev volumes
-- Persist DBs, services and so on stored in data/coolify
 - Add SSH Key fingerprint to DB
 - Add a fingerprint to every private key on save, create...
 - Make sure invalid private keys can not be added
@@ -4760,6 +4786,9 @@ All notable changes to this project will be documented in this file.
 - Made help text more clear
 - Cloudflare tunnel
 - Make helper text more clean to use a FQDN and not an URL
+- Volumes on development environment
+- Clean new volume name for dev volumes
+- Persist DBs, services and so on stored in data/coolify
 - Manual cleanup button and unused volumes and network deletion
 - Force helper image removal
 - Use the new confirmation flow
@@ -4806,22 +4835,22 @@ All notable changes to this project will be documented in this file.
 - Bump all dependencies (#5216)
 - Bump Coolify to 4.0.0-beta.398
 - Bump Coolify to 4.0.0-beta.400
-- _(migration)_ Add SSL fields to database tables
+- *(migration)* Add SSL fields to database tables
 - SSL Support for KeyDB
 - Add missing UUID to openapi spec
 - Add missing openapi items to PrivateKey
 - Adjust Workflows for v5 (#5689)
 - Add support for postmarketOS (#5608)
-- _(core)_ Simplify events for app/db/service status changes
-- _(settings-dropdown)_ Add icons to buttons for improved UI in settings dropdown
-- _(ui)_ Introduce task for simplifying resource operations UI by replacing boxes with dropdown selections to enhance user experience and streamline interactions
+- *(core)* Simplify events for app/db/service status changes
+- *(settings-dropdown)* Add icons to buttons for improved UI in settings dropdown
+- *(ui)* Introduce task for simplifying resource operations UI by replacing boxes with dropdown selections to enhance user experience and streamline interactions
 - Allow deploy from container image hash
-- _(storage)_ Enhance file storage management with new properties and UI improvements
-- _(core)_ Update projects property type and enhance UI styling
-- _(components)_ Adjust SVG icon sizes for consistency across applications and services
-- _(components)_ Auto-focus first input in modal on open
-- _(styles)_ Enhance focus styles for buttons and links
-- _(components)_ Enhance close button accessibility in modal
+- *(storage)* Enhance file storage management with new properties and UI improvements
+- *(core)* Update projects property type and enhance UI styling
+- *(components)* Adjust SVG icon sizes for consistency across applications and services
+- *(components)* Auto-focus first input in modal on open
+- *(styles)* Enhance focus styles for buttons and links
+- *(components)* Enhance close button accessibility in modal
 - Ente config
 - Cofig variables
 - Lean Config
@@ -4832,17 +4861,21 @@ All notable changes to this project will be documented in this file.
 - Add ray logging for Hetzner createServer API request/response
 - Escape all shell directory paths in Git deployment commands
 - Remove content from docker_compose_raw to prevent file overwrites
-- _(templates)_ Metamcp app
+- *(templates)* Metamcp app
 - Preserve clean docker_compose_raw without Coolify additions
-- _(deps-dev)_ Bump vite from 6.3.6 to 6.4.1
+- *(deps-dev)* Bump vite from 6.3.6 to 6.4.1
 - Change category from 'media' to 'analytics'
 - Change category from 'media' to 'analytics'
 - Merge next branch into feat-traefik-version-checker
 - Add comprehensive status change logging
 - Add detailed Sentinel container processing logging
-- _(Documenso)_ Resolve pending status issue for Documenso deployments (fixes #1767)
-- _(Documenso)_ Resolve pending status issue for Documenso deployments (fixes #1767)
+- *(Documenso)* Resolve pending status issue for Documenso deployments (fixes #1767)
+- *(Documenso)* Resolve pending status issue for Documenso deployments (fixes #1767)
 - Codimd Service docker-compose (#7096)
+- Remove /coollabsio/ path from ECR image references
+- Replace coolify-logo.svg with publify-transparent.png in service fallback
+- Set default REGISTRY_URL to Publify ECR in install scripts
+- Add missing @endif for isSubscribed() condition in navbar
 - Add ray logging to trace S3DownloadFinished event flow
 - Minimize logging in cleanup commands
 - Minimize logging in cleanup commands (#7356)
@@ -5116,322 +5149,322 @@ All notable changes to this project will be documented in this file.
 - Comment out RootUserSeeder call in ProductionSeeder for clarity
 - Streamline ProductionSeeder by removing debug logs and unnecessary checks, while ensuring essential seeding operations remain intact
 - Remove debug echo statements from Init command to clean up output and improve readability
-- _(workflows)_ Replace jq with PHP script for version retrieval in workflows
-- _(s3)_ Improve S3 bucket endpoint formatting
-- _(vite)_ Improve environment variable handling in Vite configuration
-- _(ui)_ Simplify GitHub App registration UI and layout
+- *(workflows)* Replace jq with PHP script for version retrieval in workflows
+- *(s3)* Improve S3 bucket endpoint formatting
+- *(vite)* Improve environment variable handling in Vite configuration
+- *(ui)* Simplify GitHub App registration UI and layout
 - Simplify service start and restart workflows
 - Use pull flag on docker compose up
-- _(ui)_ Simplify file storage modal confirmations
-- _(notifications)_ Improve transactional email settings handling
-- _(scheduled-tasks)_ Improve scheduled task creation and management
-- _(billing)_ Enhance Stripe subscription status handling and notifications
-- _(ui)_ Unhide log toggle in application settings
-- _(nginx)_ Streamline default Nginx configuration and improve error handling
-- _(install)_ Clean up install script and enhance Docker installation logic
-- _(ScheduledTask)_ Clean up code formatting and remove unused import
-- _(app)_ Remove unused MagicBar component and related code
-- _(database)_ Streamline SSL configuration handling across database types
-- _(application)_ Streamline healthcheck parsing from Dockerfile
-- _(notifications)_ Standardize getRecipients method signatures
-- _(configuration)_ Centralize configuration management in ConfigurationRepository
-- _(docker)_ Update image references to use centralized registry URL
-- _(env)_ Add centralized registry URL to environment configuration
-- _(storage)_ Simplify file storage iteration in Blade template
-- _(models)_ Add is_directory attribute to LocalFileVolume model
-- _(modal)_ Add ignoreWire attribute to modal-confirmation component
-- _(invite-link)_ Adjust layout for better responsiveness in form
-- _(invite-link)_ Enhance form layout for improved responsiveness
-- _(network)_ Enhance docker network creation with ipv6 fallback
-- _(network)_ Check for existing coolify network before creation
-- _(database)_ Enhance encryption process for local file volumes
-- _(proxy)_ Improve port availability checks with multiple methods
-- _(database)_ Update MongoDB SSL configuration for improved security
-- _(database)_ Enhance SSL configuration handling for various databases
-- _(notifications)_ Update Telegram button URL for staging environment
-- _(models)_ Remove unnecessary cloud check in isEnabled method
-- _(database)_ Streamline event listeners in Redis General component
-- _(database)_ Remove redundant database status display in MongoDB view
-- _(database)_ Update import statements for Auth in database components
-- _(database)_ Require PEM key file for SSL certificate regeneration
-- _(database)_ Change MySQL daemon command to MariaDB daemon
-- _(nightly)_ Update version numbers and enhance upgrade script
-- _(versions)_ Update version numbers for coolify and nightly
-- _(email)_ Validate team membership for email recipients
-- _(shared)_ Simplify deployment status check logic
-- _(shared)_ Add logging for running deployment jobs
-- _(shared)_ Enhance job status check to include 'reserved'
-- _(email)_ Improve error handling by passing context to handleError
-- _(email)_ Streamline email sending logic and improve configuration handling
-- _(email)_ Remove unnecessary whitespace in email sending logic
-- _(email)_ Allow custom email recipients in email sending logic
-- _(email)_ Enhance sender information formatting in email logic
-- _(proxy)_ Remove redundant stop call in restart method
-- _(file-storage)_ Add loadStorageOnServer method for improved error handling
-- _(docker)_ Parse and sanitize YAML compose file before encoding
-- _(file-storage)_ Improve layout and structure of input fields
-- _(email)_ Update label for test email recipient input
-- _(database-backup)_ Remove existing Docker container before backup upload
-- _(database)_ Improve decryption and deduplication of local file volumes
-- _(database)_ Remove debug output from volume update process
-- _(dev)_ Remove OpenAPI generation functionality
-- _(migration)_ Enhance local file volumes migration with logging
-- _(CheckProxy)_ Replace 'which' with 'command -v' for command availability checks
-- _(Server)_ Use data_get for safer access to settings properties in isFunctional method
-- _(Application)_ Rename network_aliases to custom_network_aliases across the application for clarity and consistency
-- _(ApplicationDeploymentJob)_ Streamline environment variable handling by introducing generate_coolify_env_variables method and consolidating logic for pull request and main branch scenarios
-- _(ApplicationDeploymentJob, ApplicationDeploymentQueue)_ Improve deployment status handling and log entry management with transaction support
-- _(SourceManagement)_ Sort sources by name and improve UI for changing Git source with better error handling
-- _(Email)_ Streamline SMTP and resend settings handling in copyFromInstanceSettings method
-- _(Email)_ Enhance error handling in SMTP and resend methods by passing context to handleError function
-- _(DynamicConfigurations)_ Improve handling of dynamic configuration content by ensuring fallback to empty string when content is null
-- _(ServicesGenerate)_ Update command signature from 'services:generate' to 'generate:services' for consistency; update Dockerfile to run service generation during build; update Odoo image version to 18 and add extra addons volume in compose configuration
-- _(Dockerfile)_ Streamline RUN commands for improved readability and maintainability by adding line continuations
-- _(Dockerfile)_ Reintroduce service generation command in the build process for consistency and ensure proper asset compilation
-- _(commands)_ Reorganize OpenAPI and Services generation commands into a new namespace for better structure; remove old command files
-- _(Dockerfile)_ Remove service generation command from the build process to streamline Dockerfile and improve build efficiency
-- _(navbar-delete-team)_ Simplify modal confirmation layout and enhance button styling for better user experience
-- _(Server)_ Remove debug logging from isReachableChanged method to clean up code and improve performance
-- _(source)_ Conditionally display connected source and change source options based on private key presence
-- _(jobs)_ Update WithoutOverlapping middleware to use expireAfter for better queue management
-- _(jobs)_ Comment out unused Caddy label handling in ApplicationDeploymentJob and simplify proxy path logic in Server model
-- _(database)_ Simplify database type checks in ServiceDatabase and enhance image validation in Docker helper
-- _(shared)_ Remove unused ray debugging statement from newParser function
-- _(applications)_ Remove redundant error response in create_env method
-- _(api)_ Restructure routes to include versioning and maintain existing feedback endpoint
-- _(api)_ Remove token variable from OpenAPI specifications for clarity
-- _(environment-variables)_ Remove protected variable checks from delete methods for cleaner logic
-- _(http-basic-auth)_ Rename 'http_basic_auth_enable' to 'http_basic_auth_enabled' across application files for consistency
-- _(docker)_ Remove debug statement and enhance hostname handling in Docker run conversion
-- _(server)_ Simplify proxy path logic and remove unnecessary conditions
-- _(Database)_ Streamline container shutdown process and reduce timeout duration
-- _(core)_ Streamline container stopping process and reduce timeout duration; update related methods for consistency
-- _(database)_ Update DB facade usage for consistency across service files
-- _(database)_ Enhance application conversion logic and add existence checks for databases and applications
-- _(actions)_ Standardize method naming for network and configuration deletion across application and service classes
-- _(logdrain)_ Consolidate log drain stopping logic to reduce redundancy
-- _(StandaloneMariadb)_ Add type hint for destination method to improve code clarity
-- _(DeleteResourceJob)_ Streamline resource deletion logic and improve conditional checks for database types
-- _(jobs)_ Update middleware to prevent job release after expiration for CleanupInstanceStuffsJob, RestartProxyJob, and ServerCheckJob
-- _(jobs)_ Unify middleware configuration to prevent job release after expiration for DockerCleanupJob and PushServerUpdateJob
-- _(service)_ Observium
-- _(service)_ Improve leantime
-- _(service)_ Imporve limesurvey
-- _(service)_ Improve CodiMD
-- _(service)_ Typsense
-- _(services)_ Improve yamtrack
-- _(service)_ Improve paymenter
-- _(service)_ Consolidate configuration change dispatch logic and remove unused navbar component
-- _(sidebar)_ Simplify server patching link by removing button element
-- _(slide-over)_ Streamline button element and improve code readability
-- _(service)_ Enhance modal confirmation component with event dispatching for service stop actions
-- _(slide-over)_ Enhance class merging for improved component styling
-- _(core)_ Use property promotion
-- _(service)_ Improve maybe
-- _(applications)_ Remove unused docker compose raw decoding
-- _(service)_ Make TYPESENSE_API_KEY required
-- _(ui)_ Show toast when server does not work and on stop
-- _(service)_ Improve superset
-- _(service)_ Improve Onetimesecret
-- _(service)_ Improve Seafile
-- _(service)_ Improve orangehrm
-- _(service)_ Improve grist
-- _(application)_ Enhance application stopping logic to support multiple servers
-- _(pricing-plans)_ Improve label class binding for payment frequency selection
-- _(error-handling)_ Replace generic Exception with RuntimeException for improved error specificity
-- _(error-handling)_ Change Exception to RuntimeException for clearer error reporting
-- _(service)_ Remove informational dispatch during service stop for cleaner execution
-- _(server-ui)_ Improve layout and messaging in advanced settings and charts views
-- _(terminal-access)_ Streamline resource retrieval and enhance terminal access messaging in UI
-- _(terminal)_ Enhance terminal connection management and error handling, including improved reconnection logic and cleanup procedures
-- _(application-deployment)_ Separate handling of FAILED and CANCELLED_BY_USER statuses for clearer logic and notification
-- _(jobs)_ Update middleware to include job-specific identifiers for WithoutOverlapping
-- _(jobs)_ Modify middleware to use job-specific identifier for WithoutOverlapping
-- _(environment-variables)_ Remove debug logging from bulk submit handling for cleaner code
-- _(environment-variables)_ Simplify application build pack check in environment variable handling
-- _(logs)_ Adjust padding in logs view for improved layout consistency
-- _(application-deployment)_ Streamline post-deployment process by always dispatching container status check
-- _(service-management)_ Enhance container stopping logic by implementing parallel processing and removing deprecated methods
-- _(activity-monitor)_ Change activity property visibility and update view references for consistency
-- _(activity-monitor)_ Enhance layout responsiveness by adjusting class bindings and structure for better display
-- _(service-management)_ Update stopContainersInParallel method to enforce Server type hint for improved type safety
-- _(service-management)_ Rearrange docker cleanup logic in StopService to improve readability
-- _(database-management)_ Simplify docker cleanup logic in StopDatabase to enhance readability
-- _(activity-monitor)_ Consolidate activity monitoring logic and remove deprecated NewActivityMonitor component
-- _(activity-monitor)_ Update dispatch method to use activityMonitor instead of deprecated newActivityMonitor
-- _(push-server-update)_ Enhance application preview handling by incorporating pull request IDs and adding status update protections
-- _(docker-compose)_ Replace hardcoded Docker Compose configuration with external YAML template for improved database detection testing
-- _(test-database-detection)_ Rename services for clarity, add new database configurations, and update application service dependencies
-- _(database-detection)_ Enhance isDatabaseImage function to utilize service configuration for improved detection accuracy
-- _(install-scripts)_ Update Docker installation process to include manual installation fallback and improve error handling
-- _(logs-view)_ Update logs display for service containers with improved headings and dynamic key binding
-- _(logs)_ Enhance container loading logic and improve UI for logs display across various resource types
-- _(cloudflare-tunnel)_ Enhance layout and structure of Cloudflare Tunnel documentation and confirmation modal
-- _(terminal-connection)_ Streamline auto-connection logic and improve component readiness checks
-- _(logs)_ Remove unused methods and debug functionality from Logs.php for cleaner code
-- _(remoteProcess)_ Update sanitize_utf8_text function to accept nullable string parameter for improved type safety
-- _(events)_ Remove ProxyStarted event and associated ProxyStartedNotification listener for code cleanup
-- _(navbar)_ Remove unnecessary parameters from server navbar component for cleaner implementation
-- _(proxy)_ Remove commented-out listener and method for cleaner code structure
-- _(events)_ Update ProxyStatusChangedUI constructor to accept nullable teamId for improved flexibility
-- _(cloudflare)_ Update server retrieval method for improved query efficiency
-- _(navbar)_ Remove unused PHP use statement for cleaner code
-- _(proxy)_ Streamline proxy status handling and improve dashboard availability checks
-- _(navbar)_ Simplify proxy status handling and enhance loading indicators for better user experience
-- _(resource-operations)_ Filter out build servers from the server list and clean up commented-out code in the resource operations view
-- _(execute-container-command)_ Simplify connection logic and improve terminal availability checks
-- _(navigation)_ Remove wire:navigate directive from configuration links for cleaner HTML structure
-- _(proxy)_ Update StartProxy calls to use named parameter for async option
-- _(clone-project)_ Enhance server retrieval by including destinations and filtering out build servers
-- _(ui)_ Terminal
-- _(ui)_ Remove terminal header from execute-container-command view
-- _(ui)_ Remove unnecessary padding from deployment, backup, and logs sections
-- _(service)_ Update Hoarder to their new name karakeep (#5964)
-- _(service)_ Karakeep naming and formatting
-- _(service)_ Improve miniflux
-- _(core)_ Rename API rate limit ENV
-- _(ui)_ Simplify container selection form in execute-container-command view
-- _(email)_ Streamline SMTP and resend settings logic for improved clarity
-- _(invitation)_ Rename methods for consistency and enhance invitation deletion logic
-- _(user)_ Streamline user deletion process and enhance team management logic
-- _(ui)_ Separate views for instance settings to separate paths to make it cleaner
-- _(ui)_ Remove unnecessary step3ButtonText attributes from modal confirmation components for cleaner code
-- _(ui)_ Enhance project cloning interface with improved table layout for server and resource selection
-- _(terminal)_ Simplify command construction for SSH execution
-- _(settings)_ Streamline instance admin checks and initialization of settings in Livewire components
-- _(policy)_ Optimize team membership checks in S3StoragePolicy
-- _(popup)_ Improve styling and structure of the small popup component
-- _(shared)_ Enhance FQDN generation logic for services in newParser function
-- _(redis)_ Enhance CleanupRedis command with dry-run option and improved key deletion logic
-- _(init)_ Standardize method naming conventions and improve command structure in Init.php
-- _(shared)_ Improve error handling in getTopLevelNetworks function to return network name on invalid docker-compose.yml
-- _(database)_ Improve error handling for unsupported database types in StartDatabaseProxy
-- _(previews)_ Streamline preview URL generation by utilizing application method
-- _(application)_ Adjust layout and spacing in general application view for improved UI
-- _(postgresql)_ Improve layout and spacing in SSL and Proxy configuration sections for better UI consistency
-- _(scheduling)_ Replace deprecated job checks with ScheduledJobManager and ServerResourceManager for improved scheduling efficiency
-- _(previews)_ Move preview domain generation logic to ApplicationPreview model for better encapsulation and consistency across webhook handlers
-- _(service)_ Improve gowa
-- _(previews)_ Streamline preview domain generation logic in ApplicationDeploymentJob for improved clarity and maintainability
-- _(services)_ Simplify environment variable updates by using updateOrCreate and add cleanup for removed FQDNs
-- _(jobs)_ Remove logging for ScheduledJobManager and ServerResourceManager start and completion
-- _(services)_ Update validation rules to be optional
-- _(service)_ Improve langfuse
-- _(service)_ Improve openpanel template
-- _(service)_ Improve librechat
-- _(public-git-repository)_ Enhance form structure and add autofocus to repository URL input
-- _(public-git-repository)_ Remove commented-out code for cleaner template
-- _(templates)_ Update service template file handling to use dynamic file name from constants
-- _(parsers)_ Streamline domain handling in applicationParser and improve DNS validation logic
-- _(templates)_ Replace SERVICE_FQDN variables with SERVICE_URL in compose files for consistency
-- _(links)_ Replace inline SVGs with reusable external link component for consistency and improved maintainability
-- _(previews)_ Improve layout and add deployment/application logs links for previews
-- _(docker compose)_ Remove deprecated newParser function and associated test file to streamline codebase
-- _(shared helpers)_ Remove unused parseServiceVolumes function to clean up codebase
-- _(parsers)_ Update volume parsing logic to use beforeLast and afterLast for improved accuracy
-- _(validation)_ Implement centralized validation patterns across components
-- _(jobs)_ Rename job classes to indicate deprecation status
+- *(ui)* Simplify file storage modal confirmations
+- *(notifications)* Improve transactional email settings handling
+- *(scheduled-tasks)* Improve scheduled task creation and management
+- *(billing)* Enhance Stripe subscription status handling and notifications
+- *(ui)* Unhide log toggle in application settings
+- *(nginx)* Streamline default Nginx configuration and improve error handling
+- *(install)* Clean up install script and enhance Docker installation logic
+- *(ScheduledTask)* Clean up code formatting and remove unused import
+- *(app)* Remove unused MagicBar component and related code
+- *(database)* Streamline SSL configuration handling across database types
+- *(application)* Streamline healthcheck parsing from Dockerfile
+- *(notifications)* Standardize getRecipients method signatures
+- *(configuration)* Centralize configuration management in ConfigurationRepository
+- *(docker)* Update image references to use centralized registry URL
+- *(env)* Add centralized registry URL to environment configuration
+- *(storage)* Simplify file storage iteration in Blade template
+- *(models)* Add is_directory attribute to LocalFileVolume model
+- *(modal)* Add ignoreWire attribute to modal-confirmation component
+- *(invite-link)* Adjust layout for better responsiveness in form
+- *(invite-link)* Enhance form layout for improved responsiveness
+- *(network)* Enhance docker network creation with ipv6 fallback
+- *(network)* Check for existing coolify network before creation
+- *(database)* Enhance encryption process for local file volumes
+- *(proxy)* Improve port availability checks with multiple methods
+- *(database)* Update MongoDB SSL configuration for improved security
+- *(database)* Enhance SSL configuration handling for various databases
+- *(notifications)* Update Telegram button URL for staging environment
+- *(models)* Remove unnecessary cloud check in isEnabled method
+- *(database)* Streamline event listeners in Redis General component
+- *(database)* Remove redundant database status display in MongoDB view
+- *(database)* Update import statements for Auth in database components
+- *(database)* Require PEM key file for SSL certificate regeneration
+- *(database)* Change MySQL daemon command to MariaDB daemon
+- *(nightly)* Update version numbers and enhance upgrade script
+- *(versions)* Update version numbers for coolify and nightly
+- *(email)* Validate team membership for email recipients
+- *(shared)* Simplify deployment status check logic
+- *(shared)* Add logging for running deployment jobs
+- *(shared)* Enhance job status check to include 'reserved'
+- *(email)* Improve error handling by passing context to handleError
+- *(email)* Streamline email sending logic and improve configuration handling
+- *(email)* Remove unnecessary whitespace in email sending logic
+- *(email)* Allow custom email recipients in email sending logic
+- *(email)* Enhance sender information formatting in email logic
+- *(proxy)* Remove redundant stop call in restart method
+- *(file-storage)* Add loadStorageOnServer method for improved error handling
+- *(docker)* Parse and sanitize YAML compose file before encoding
+- *(file-storage)* Improve layout and structure of input fields
+- *(email)* Update label for test email recipient input
+- *(database-backup)* Remove existing Docker container before backup upload
+- *(database)* Improve decryption and deduplication of local file volumes
+- *(database)* Remove debug output from volume update process
+- *(dev)* Remove OpenAPI generation functionality
+- *(migration)* Enhance local file volumes migration with logging
+- *(CheckProxy)* Replace 'which' with 'command -v' for command availability checks
+- *(Server)* Use data_get for safer access to settings properties in isFunctional method
+- *(Application)* Rename network_aliases to custom_network_aliases across the application for clarity and consistency
+- *(ApplicationDeploymentJob)* Streamline environment variable handling by introducing generate_coolify_env_variables method and consolidating logic for pull request and main branch scenarios
+- *(ApplicationDeploymentJob, ApplicationDeploymentQueue)* Improve deployment status handling and log entry management with transaction support
+- *(SourceManagement)* Sort sources by name and improve UI for changing Git source with better error handling
+- *(Email)* Streamline SMTP and resend settings handling in copyFromInstanceSettings method
+- *(Email)* Enhance error handling in SMTP and resend methods by passing context to handleError function
+- *(DynamicConfigurations)* Improve handling of dynamic configuration content by ensuring fallback to empty string when content is null
+- *(ServicesGenerate)* Update command signature from 'services:generate' to 'generate:services' for consistency; update Dockerfile to run service generation during build; update Odoo image version to 18 and add extra addons volume in compose configuration
+- *(Dockerfile)* Streamline RUN commands for improved readability and maintainability by adding line continuations
+- *(Dockerfile)* Reintroduce service generation command in the build process for consistency and ensure proper asset compilation
+- *(commands)* Reorganize OpenAPI and Services generation commands into a new namespace for better structure; remove old command files
+- *(Dockerfile)* Remove service generation command from the build process to streamline Dockerfile and improve build efficiency
+- *(navbar-delete-team)* Simplify modal confirmation layout and enhance button styling for better user experience
+- *(Server)* Remove debug logging from isReachableChanged method to clean up code and improve performance
+- *(source)* Conditionally display connected source and change source options based on private key presence
+- *(jobs)* Update WithoutOverlapping middleware to use expireAfter for better queue management
+- *(jobs)* Comment out unused Caddy label handling in ApplicationDeploymentJob and simplify proxy path logic in Server model
+- *(database)* Simplify database type checks in ServiceDatabase and enhance image validation in Docker helper
+- *(shared)* Remove unused ray debugging statement from newParser function
+- *(applications)* Remove redundant error response in create_env method
+- *(api)* Restructure routes to include versioning and maintain existing feedback endpoint
+- *(api)* Remove token variable from OpenAPI specifications for clarity
+- *(environment-variables)* Remove protected variable checks from delete methods for cleaner logic
+- *(http-basic-auth)* Rename 'http_basic_auth_enable' to 'http_basic_auth_enabled' across application files for consistency
+- *(docker)* Remove debug statement and enhance hostname handling in Docker run conversion
+- *(server)* Simplify proxy path logic and remove unnecessary conditions
+- *(Database)* Streamline container shutdown process and reduce timeout duration
+- *(core)* Streamline container stopping process and reduce timeout duration; update related methods for consistency
+- *(database)* Update DB facade usage for consistency across service files
+- *(database)* Enhance application conversion logic and add existence checks for databases and applications
+- *(actions)* Standardize method naming for network and configuration deletion across application and service classes
+- *(logdrain)* Consolidate log drain stopping logic to reduce redundancy
+- *(StandaloneMariadb)* Add type hint for destination method to improve code clarity
+- *(DeleteResourceJob)* Streamline resource deletion logic and improve conditional checks for database types
+- *(jobs)* Update middleware to prevent job release after expiration for CleanupInstanceStuffsJob, RestartProxyJob, and ServerCheckJob
+- *(jobs)* Unify middleware configuration to prevent job release after expiration for DockerCleanupJob and PushServerUpdateJob
+- *(service)* Observium
+- *(service)* Improve leantime
+- *(service)* Imporve limesurvey
+- *(service)* Improve CodiMD
+- *(service)* Typsense
+- *(services)* Improve yamtrack
+- *(service)* Improve paymenter
+- *(service)* Consolidate configuration change dispatch logic and remove unused navbar component
+- *(sidebar)* Simplify server patching link by removing button element
+- *(slide-over)* Streamline button element and improve code readability
+- *(service)* Enhance modal confirmation component with event dispatching for service stop actions
+- *(slide-over)* Enhance class merging for improved component styling
+- *(core)* Use property promotion
+- *(service)* Improve maybe
+- *(applications)* Remove unused docker compose raw decoding
+- *(service)* Make TYPESENSE_API_KEY required
+- *(ui)* Show toast when server does not work and on stop
+- *(service)* Improve superset
+- *(service)* Improve Onetimesecret
+- *(service)* Improve Seafile
+- *(service)* Improve orangehrm
+- *(service)* Improve grist
+- *(application)* Enhance application stopping logic to support multiple servers
+- *(pricing-plans)* Improve label class binding for payment frequency selection
+- *(error-handling)* Replace generic Exception with RuntimeException for improved error specificity
+- *(error-handling)* Change Exception to RuntimeException for clearer error reporting
+- *(service)* Remove informational dispatch during service stop for cleaner execution
+- *(server-ui)* Improve layout and messaging in advanced settings and charts views
+- *(terminal-access)* Streamline resource retrieval and enhance terminal access messaging in UI
+- *(terminal)* Enhance terminal connection management and error handling, including improved reconnection logic and cleanup procedures
+- *(application-deployment)* Separate handling of FAILED and CANCELLED_BY_USER statuses for clearer logic and notification
+- *(jobs)* Update middleware to include job-specific identifiers for WithoutOverlapping
+- *(jobs)* Modify middleware to use job-specific identifier for WithoutOverlapping
+- *(environment-variables)* Remove debug logging from bulk submit handling for cleaner code
+- *(environment-variables)* Simplify application build pack check in environment variable handling
+- *(logs)* Adjust padding in logs view for improved layout consistency
+- *(application-deployment)* Streamline post-deployment process by always dispatching container status check
+- *(service-management)* Enhance container stopping logic by implementing parallel processing and removing deprecated methods
+- *(activity-monitor)* Change activity property visibility and update view references for consistency
+- *(activity-monitor)* Enhance layout responsiveness by adjusting class bindings and structure for better display
+- *(service-management)* Update stopContainersInParallel method to enforce Server type hint for improved type safety
+- *(service-management)* Rearrange docker cleanup logic in StopService to improve readability
+- *(database-management)* Simplify docker cleanup logic in StopDatabase to enhance readability
+- *(activity-monitor)* Consolidate activity monitoring logic and remove deprecated NewActivityMonitor component
+- *(activity-monitor)* Update dispatch method to use activityMonitor instead of deprecated newActivityMonitor
+- *(push-server-update)* Enhance application preview handling by incorporating pull request IDs and adding status update protections
+- *(docker-compose)* Replace hardcoded Docker Compose configuration with external YAML template for improved database detection testing
+- *(test-database-detection)* Rename services for clarity, add new database configurations, and update application service dependencies
+- *(database-detection)* Enhance isDatabaseImage function to utilize service configuration for improved detection accuracy
+- *(install-scripts)* Update Docker installation process to include manual installation fallback and improve error handling
+- *(logs-view)* Update logs display for service containers with improved headings and dynamic key binding
+- *(logs)* Enhance container loading logic and improve UI for logs display across various resource types
+- *(cloudflare-tunnel)* Enhance layout and structure of Cloudflare Tunnel documentation and confirmation modal
+- *(terminal-connection)* Streamline auto-connection logic and improve component readiness checks
+- *(logs)* Remove unused methods and debug functionality from Logs.php for cleaner code
+- *(remoteProcess)* Update sanitize_utf8_text function to accept nullable string parameter for improved type safety
+- *(events)* Remove ProxyStarted event and associated ProxyStartedNotification listener for code cleanup
+- *(navbar)* Remove unnecessary parameters from server navbar component for cleaner implementation
+- *(proxy)* Remove commented-out listener and method for cleaner code structure
+- *(events)* Update ProxyStatusChangedUI constructor to accept nullable teamId for improved flexibility
+- *(cloudflare)* Update server retrieval method for improved query efficiency
+- *(navbar)* Remove unused PHP use statement for cleaner code
+- *(proxy)* Streamline proxy status handling and improve dashboard availability checks
+- *(navbar)* Simplify proxy status handling and enhance loading indicators for better user experience
+- *(resource-operations)* Filter out build servers from the server list and clean up commented-out code in the resource operations view
+- *(execute-container-command)* Simplify connection logic and improve terminal availability checks
+- *(navigation)* Remove wire:navigate directive from configuration links for cleaner HTML structure
+- *(proxy)* Update StartProxy calls to use named parameter for async option
+- *(clone-project)* Enhance server retrieval by including destinations and filtering out build servers
+- *(ui)* Terminal
+- *(ui)* Remove terminal header from execute-container-command view
+- *(ui)* Remove unnecessary padding from deployment, backup, and logs sections
+- *(service)* Update Hoarder to their new name karakeep (#5964)
+- *(service)* Karakeep naming and formatting
+- *(service)* Improve miniflux
+- *(core)* Rename API rate limit ENV
+- *(ui)* Simplify container selection form in execute-container-command view
+- *(email)* Streamline SMTP and resend settings logic for improved clarity
+- *(invitation)* Rename methods for consistency and enhance invitation deletion logic
+- *(user)* Streamline user deletion process and enhance team management logic
+- *(ui)* Separate views for instance settings to separate paths to make it cleaner
+- *(ui)* Remove unnecessary step3ButtonText attributes from modal confirmation components for cleaner code
+- *(ui)* Enhance project cloning interface with improved table layout for server and resource selection
+- *(terminal)* Simplify command construction for SSH execution
+- *(settings)* Streamline instance admin checks and initialization of settings in Livewire components
+- *(policy)* Optimize team membership checks in S3StoragePolicy
+- *(popup)* Improve styling and structure of the small popup component
+- *(shared)* Enhance FQDN generation logic for services in newParser function
+- *(redis)* Enhance CleanupRedis command with dry-run option and improved key deletion logic
+- *(init)* Standardize method naming conventions and improve command structure in Init.php
+- *(shared)* Improve error handling in getTopLevelNetworks function to return network name on invalid docker-compose.yml
+- *(database)* Improve error handling for unsupported database types in StartDatabaseProxy
+- *(previews)* Streamline preview URL generation by utilizing application method
+- *(application)* Adjust layout and spacing in general application view for improved UI
+- *(postgresql)* Improve layout and spacing in SSL and Proxy configuration sections for better UI consistency
+- *(scheduling)* Replace deprecated job checks with ScheduledJobManager and ServerResourceManager for improved scheduling efficiency
+- *(previews)* Move preview domain generation logic to ApplicationPreview model for better encapsulation and consistency across webhook handlers
+- *(service)* Improve gowa
+- *(previews)* Streamline preview domain generation logic in ApplicationDeploymentJob for improved clarity and maintainability
+- *(services)* Simplify environment variable updates by using updateOrCreate and add cleanup for removed FQDNs
+- *(jobs)* Remove logging for ScheduledJobManager and ServerResourceManager start and completion
+- *(services)* Update validation rules to be optional
+- *(service)* Improve langfuse
+- *(service)* Improve openpanel template
+- *(service)* Improve librechat
+- *(public-git-repository)* Enhance form structure and add autofocus to repository URL input
+- *(public-git-repository)* Remove commented-out code for cleaner template
+- *(templates)* Update service template file handling to use dynamic file name from constants
+- *(parsers)* Streamline domain handling in applicationParser and improve DNS validation logic
+- *(templates)* Replace SERVICE_FQDN variables with SERVICE_URL in compose files for consistency
+- *(links)* Replace inline SVGs with reusable external link component for consistency and improved maintainability
+- *(previews)* Improve layout and add deployment/application logs links for previews
+- *(docker compose)* Remove deprecated newParser function and associated test file to streamline codebase
+- *(shared helpers)* Remove unused parseServiceVolumes function to clean up codebase
+- *(parsers)* Update volume parsing logic to use beforeLast and afterLast for improved accuracy
+- *(validation)* Implement centralized validation patterns across components
+- *(jobs)* Rename job classes to indicate deprecation status
 - Update check frequency logic for cloud and self-hosted environments; streamline server task scheduling and timezone handling
-- _(policies)_ Remove Response type hint from update methods in ApplicationPreviewPolicy and DatabasePolicy for improved flexibility
-- _(policies)_ Remove Response type hint from update methods in ApplicationPreviewPolicy and DatabasePolicy for improved flexibility
-- _(git)_ Improve submodule cloning
-- _(parsers)_ Remove unnecessary hyphen-to-underscore replacement for service names in serviceParser function
-- _(urls)_ Replace generateFqdn with generateUrl for consistent URL generation across applications
-- _(domains)_ Rename check_domain_usage to checkDomainUsage and update references across the application
-- _(auth)_ Simplify access control logic in CanAccessTerminal and ServerPolicy by allowing all users to perform actions
-- _(policy)_ Simplify ServiceDatabasePolicy methods to always return true and add manageBackups method
-- _(jobs)_ Pull github changelogs from cdn instead of github
-- _(command)_ Streamline database deletion process to handle multiple database types and improve user experience
-- _(command)_ Improve database collection logic for deletion command by using unique identifiers and enhancing user experience
-- _(command)_ Remove InitChangelog command as it is no longer needed
-- _(command)_ Streamline Init command by removing unnecessary options and enhancing error handling for various operations
-- _(webhook)_ Replace direct forceDelete calls with DeleteResourceJob dispatch for application previews
-- _(command)_ Replace forceDelete calls with DeleteResourceJob dispatch for all stuck resources in cleanup process
-- _(command)_ Simplify SSH command retry logic by removing unnecessary logging and improving delay calculation
-- _(ssh)_ Enhance error handling in SSH command execution and improve connection validation logging
-- _(backlog)_ Remove outdated guidelines and project manager agent files to streamline task management documentation
-- _(error-handling)_ Remove ray debugging statements from CheckUpdates and shared helper functions to clean up error reporting
-- _(file-transfer)_ Replace base64 encoding with direct file transfer method across multiple database actions for improved clarity and efficiency
-- _(remoteProcess)_ Remove debugging statement from transfer_file_to_server function to clean up code
-- _(dns-validation)_ Rename DNS validation functions for consistency and clarity, and remove unused code
-- _(file-transfer)_ Replace base64 encoding with direct file transfer method in various components for improved clarity and efficiency
-- _(private-key)_ Remove debugging statement from storeInFileSystem method for cleaner code
-- _(github-webhook)_ Restructure application processing by grouping applications by server for improved deployment handling
-- _(deployment)_ Enhance queuing logic to support concurrent deployments by including pull request ID in checks
-- _(remoteProcess)_ Remove debugging statement from transfer_file_to_container function for cleaner code
-- _(deployment)_ Streamline next deployment queuing logic by repositioning queue_next_deployment call
-- _(deployment)_ Add validation for pull request existence in deployment process to enhance error handling
-- _(database)_ Remove volume_configuration_dir and streamline configuration directory usage in MongoDB and PostgreSQL handlers
-- _(application-source)_ Improve layout and accessibility of Git repository links in the application source view
-- _(models)_ Remove 'is_readonly' attribute from multiple database models for consistency
-- _(webhook)_ Remove Webhook model and related logic; add migrations to drop webhooks and kubernetes tables
-- _(clone)_ Consolidate application cloning logic into a dedicated function for improved maintainability and readability
-- _(clone)_ Integrate preview cloning logic directly into application cloning function for improved clarity and maintainability
-- _(application)_ Enhance environment variable retrieval in configuration change check for improved accuracy
-- _(clone)_ Enhance application cloning by separating production and preview environment variable handling
-- _(deployment)_ Add environment variable copying logic to Docker build commands for pull requests
-- _(environment)_ Standardize service name formatting by replacing '-' and '.' with '\_' in environment variable keys
-- _(deployment)_ Update environment file handling in Docker commands to use '/artifacts/' path and streamline variable management
-- _(openapi)_ Remove 'is_build_time' attribute from environment variable definitions to streamline configuration
-- _(environment)_ Remove 'is_build_time' attribute from environment variable handling across the application to simplify configuration
-- _(environment)_ Streamline environment variable handling by replacing sorting methods with direct property access and enhancing query ordering for improved performance
-- _(stripe-jobs)_ Comment out internal notification calls and add subscription status verification before sending failure notifications
-- _(deployment)_ Streamline environment variable handling for dockercompose and improve sorting of runtime variables
-- _(remoteProcess)_ Remove command log comments for file transfers to simplify code
-- _(remoteProcess)_ Remove file transfer handling from remote_process and instant_remote_process functions to simplify code
-- _(deployment)_ Update environment file paths in docker compose commands to use working directory for improved consistency
-- _(server)_ Remove debugging ray call from validateConnection method for cleaner code
-- _(deployment)_ Conditionally cleanup build secrets based on Docker BuildKit support and remove redundant calls for improved efficiency
-- _(deployment)_ Remove redundant environment variable documentation from Dockerfile comments to streamline the deployment process
-- _(deployment)_ Streamline Docker BuildKit detection and environment variable handling for enhanced security during application deployment
-- _(deployment)_ Optimize BuildKit capabilities detection and remove unnecessary comments for cleaner deployment logic
-- _(deployment)_ Rename method for modifying Dockerfile to improve clarity and streamline build secrets integration
-- _(environment)_ Conditionally render Docker Build Secrets checkbox based on build pack type
-- _(search)_ Optimize cache clearing logic to only trigger on searchable field changes
-- _(environment)_ Streamline rendering of Docker Build Secrets checkbox and adjust layout for environment variable settings
-- _(proxy)_ Streamline proxy configuration form layout and improve button placements
-- _(remoteProcess)_ Remove redundant file transfer functions for improved clarity
-- _(github)_ Enhance API request handling and validation
-- _(databases)_ Remove deprecated backup parameters from API documentation
-- _(databases)_ Streamline backup queries to use team context
-- _(databases)_ Update backup queries to use team-specific method
-- _(server)_ Update dispatch messages and streamline data synchronization
-- _(cache)_ Update team retrieval method in ClearsGlobalSearchCache trait
-- _(database-backup)_ Move unique UUID generation for backup execution to database loop
-- _(cloud-commands)_ Consolidate and enhance subscription management commands
-- _(toast-component)_ Improve layout and icon handling in toast notifications
-- _(private-key-update)_ Implement transaction for private key association and connection validation
-- _(installer)_ Improve install script
-- _(upgrade)_ Improve upgrade script
-- _(installer, upgrade)_ Enhance environment variable management
-- _(upgrade)_ Enhance logging and quoting in upgrade scripts
-- _(upgrade)_ Replace warning div with a callout component for better UI consistency
-- _(ui)_ Replace warning and error divs with callout components for improved consistency and readability
-- _(ui)_ Improve styling and consistency in environment variable warning and docker cleanup components
-- _(security)_ Streamline update check functionality and improve UI button interactions in patches view
-- _(tests)_ Simplify matchWatchPaths tests and update implementation for better clarity
-- _(deployment)_ Improve environment variable handling in ApplicationDeploymentJob
-- _(deployment)_ Remove commented-out code and streamline environment variable handling in ApplicationDeploymentJob
-- _(application)_ Improve handling of docker compose domains by normalizing keys and ensuring valid JSON structure
-- _(forms)_ Update wire:model bindings to use 'blur' instead of 'blur-sm' for input fields across multiple views
-- _(global-search)_ Change event listener to window level for global search modal
-- _(dashboard)_ Remove deployment loading logic and introduce DeploymentsIndicator component for better UI management
-- _(dashboard)_ Replace project navigation method with direct link in UI
-- _(global-search)_ Improve event handling and cleanup in global search component
-- _(environment-variables)_ Adjust ordering logic for environment variables
+- *(policies)* Remove Response type hint from update methods in ApplicationPreviewPolicy and DatabasePolicy for improved flexibility
+- *(policies)* Remove Response type hint from update methods in ApplicationPreviewPolicy and DatabasePolicy for improved flexibility
+- *(git)* Improve submodule cloning
+- *(parsers)* Remove unnecessary hyphen-to-underscore replacement for service names in serviceParser function
+- *(urls)* Replace generateFqdn with generateUrl for consistent URL generation across applications
+- *(domains)* Rename check_domain_usage to checkDomainUsage and update references across the application
+- *(auth)* Simplify access control logic in CanAccessTerminal and ServerPolicy by allowing all users to perform actions
+- *(policy)* Simplify ServiceDatabasePolicy methods to always return true and add manageBackups method
+- *(jobs)* Pull github changelogs from cdn instead of github
+- *(command)* Streamline database deletion process to handle multiple database types and improve user experience
+- *(command)* Improve database collection logic for deletion command by using unique identifiers and enhancing user experience
+- *(command)* Remove InitChangelog command as it is no longer needed
+- *(command)* Streamline Init command by removing unnecessary options and enhancing error handling for various operations
+- *(webhook)* Replace direct forceDelete calls with DeleteResourceJob dispatch for application previews
+- *(command)* Replace forceDelete calls with DeleteResourceJob dispatch for all stuck resources in cleanup process
+- *(command)* Simplify SSH command retry logic by removing unnecessary logging and improving delay calculation
+- *(ssh)* Enhance error handling in SSH command execution and improve connection validation logging
+- *(backlog)* Remove outdated guidelines and project manager agent files to streamline task management documentation
+- *(error-handling)* Remove ray debugging statements from CheckUpdates and shared helper functions to clean up error reporting
+- *(file-transfer)* Replace base64 encoding with direct file transfer method across multiple database actions for improved clarity and efficiency
+- *(remoteProcess)* Remove debugging statement from transfer_file_to_server function to clean up code
+- *(dns-validation)* Rename DNS validation functions for consistency and clarity, and remove unused code
+- *(file-transfer)* Replace base64 encoding with direct file transfer method in various components for improved clarity and efficiency
+- *(private-key)* Remove debugging statement from storeInFileSystem method for cleaner code
+- *(github-webhook)* Restructure application processing by grouping applications by server for improved deployment handling
+- *(deployment)* Enhance queuing logic to support concurrent deployments by including pull request ID in checks
+- *(remoteProcess)* Remove debugging statement from transfer_file_to_container function for cleaner code
+- *(deployment)* Streamline next deployment queuing logic by repositioning queue_next_deployment call
+- *(deployment)* Add validation for pull request existence in deployment process to enhance error handling
+- *(database)* Remove volume_configuration_dir and streamline configuration directory usage in MongoDB and PostgreSQL handlers
+- *(application-source)* Improve layout and accessibility of Git repository links in the application source view
+- *(models)* Remove 'is_readonly' attribute from multiple database models for consistency
+- *(webhook)* Remove Webhook model and related logic; add migrations to drop webhooks and kubernetes tables
+- *(clone)* Consolidate application cloning logic into a dedicated function for improved maintainability and readability
+- *(clone)* Integrate preview cloning logic directly into application cloning function for improved clarity and maintainability
+- *(application)* Enhance environment variable retrieval in configuration change check for improved accuracy
+- *(clone)* Enhance application cloning by separating production and preview environment variable handling
+- *(deployment)* Add environment variable copying logic to Docker build commands for pull requests
+- *(environment)* Standardize service name formatting by replacing '-' and '.' with '_' in environment variable keys
+- *(deployment)* Update environment file handling in Docker commands to use '/artifacts/' path and streamline variable management
+- *(openapi)* Remove 'is_build_time' attribute from environment variable definitions to streamline configuration
+- *(environment)* Remove 'is_build_time' attribute from environment variable handling across the application to simplify configuration
+- *(environment)* Streamline environment variable handling by replacing sorting methods with direct property access and enhancing query ordering for improved performance
+- *(stripe-jobs)* Comment out internal notification calls and add subscription status verification before sending failure notifications
+- *(deployment)* Streamline environment variable handling for dockercompose and improve sorting of runtime variables
+- *(remoteProcess)* Remove command log comments for file transfers to simplify code
+- *(remoteProcess)* Remove file transfer handling from remote_process and instant_remote_process functions to simplify code
+- *(deployment)* Update environment file paths in docker compose commands to use working directory for improved consistency
+- *(server)* Remove debugging ray call from validateConnection method for cleaner code
+- *(deployment)* Conditionally cleanup build secrets based on Docker BuildKit support and remove redundant calls for improved efficiency
+- *(deployment)* Remove redundant environment variable documentation from Dockerfile comments to streamline the deployment process
+- *(deployment)* Streamline Docker BuildKit detection and environment variable handling for enhanced security during application deployment
+- *(deployment)* Optimize BuildKit capabilities detection and remove unnecessary comments for cleaner deployment logic
+- *(deployment)* Rename method for modifying Dockerfile to improve clarity and streamline build secrets integration
+- *(environment)* Conditionally render Docker Build Secrets checkbox based on build pack type
+- *(search)* Optimize cache clearing logic to only trigger on searchable field changes
+- *(environment)* Streamline rendering of Docker Build Secrets checkbox and adjust layout for environment variable settings
+- *(proxy)* Streamline proxy configuration form layout and improve button placements
+- *(remoteProcess)* Remove redundant file transfer functions for improved clarity
+- *(github)* Enhance API request handling and validation
+- *(databases)* Remove deprecated backup parameters from API documentation
+- *(databases)* Streamline backup queries to use team context
+- *(databases)* Update backup queries to use team-specific method
+- *(server)* Update dispatch messages and streamline data synchronization
+- *(cache)* Update team retrieval method in ClearsGlobalSearchCache trait
+- *(database-backup)* Move unique UUID generation for backup execution to database loop
+- *(cloud-commands)* Consolidate and enhance subscription management commands
+- *(toast-component)* Improve layout and icon handling in toast notifications
+- *(private-key-update)* Implement transaction for private key association and connection validation
+- *(installer)* Improve install script
+- *(upgrade)* Improve upgrade script
+- *(installer, upgrade)* Enhance environment variable management
+- *(upgrade)* Enhance logging and quoting in upgrade scripts
+- *(upgrade)* Replace warning div with a callout component for better UI consistency
+- *(ui)* Replace warning and error divs with callout components for improved consistency and readability
+- *(ui)* Improve styling and consistency in environment variable warning and docker cleanup components
+- *(security)* Streamline update check functionality and improve UI button interactions in patches view
+- *(tests)* Simplify matchWatchPaths tests and update implementation for better clarity
+- *(deployment)* Improve environment variable handling in ApplicationDeploymentJob
+- *(deployment)* Remove commented-out code and streamline environment variable handling in ApplicationDeploymentJob
+- *(application)* Improve handling of docker compose domains by normalizing keys and ensuring valid JSON structure
+- *(forms)* Update wire:model bindings to use 'blur' instead of 'blur-sm' for input fields across multiple views
+- *(global-search)* Change event listener to window level for global search modal
+- *(dashboard)* Remove deployment loading logic and introduce DeploymentsIndicator component for better UI management
+- *(dashboard)* Replace project navigation method with direct link in UI
+- *(global-search)* Improve event handling and cleanup in global search component
+- *(environment-variables)* Adjust ordering logic for environment variables
 - Update ente photos configuration for improved service management
-- _(deployment)_ Streamline environment variable generation in ApplicationDeploymentJob
-- _(deployment)_ Enhance deployment data retrieval and relationships
-- _(deployment)_ Standardize environment variable handling in ApplicationDeploymentJob
-- _(deployment)_ Update environment variable handling for Docker builds
-- _(navbar, app)_ Improve layout and styling for better responsiveness
-- _(switch-team)_ Remove label from team selection component for cleaner UI
-- _(global-search, environment)_ Streamline environment retrieval with new query method
-- _(backup)_ Make backup_log_uuid initialization lazy
-- _(checkbox, utilities, global-search)_ Enhance focus styles for better accessibility
-- _(forms)_ Simplify wire:dirty class bindings for input, select, and textarea components
+- *(deployment)* Streamline environment variable generation in ApplicationDeploymentJob
+- *(deployment)* Enhance deployment data retrieval and relationships
+- *(deployment)* Standardize environment variable handling in ApplicationDeploymentJob
+- *(deployment)* Update environment variable handling for Docker builds
+- *(navbar, app)* Improve layout and styling for better responsiveness
+- *(switch-team)* Remove label from team selection component for cleaner UI
+- *(global-search, environment)* Streamline environment retrieval with new query method
+- *(backup)* Make backup_log_uuid initialization lazy
+- *(checkbox, utilities, global-search)* Enhance focus styles for better accessibility
+- *(forms)* Simplify wire:dirty class bindings for input, select, and textarea components
 - Replace direct SslCertificate queries with server relationship methods for consistency
-- _(ui)_ Improve cloud-init script save checkbox visibility and styling
+- *(ui)* Improve cloud-init script save checkbox visibility and styling
 - Enable cloud-init save checkbox at all times with backend validation
 - Improve cloud-init script UX and remove description field
 - Improve cloud-init script management UI and cache control
@@ -5441,7 +5474,7 @@ All notable changes to this project will be documented in this file.
 - Reposition POST badge as button
 - Migrate database components from legacy model binding to explicit properties
 - Volumes set back to ./pds-data:/pds
-- _(campfire)_ Streamline environment variable definitions in Docker Compose file
+- *(campfire)* Streamline environment variable definitions in Docker Compose file
 - Improve validation error handling and coding standards
 - Preserve exception chain in validation error handling
 - Harden and deduplicate validateShellSafePath
@@ -5464,33 +5497,33 @@ All notable changes to this project will be documented in this file.
 - Rename onWorktreeCreate script to setup in jean.json
 - Improve command handling and ensure correct working directory for Docker operations
 - Streamline required port retrieval in EditDomain and ServiceApplicationView; add environment_variables method in ServiceApplication
-- _(DatabaseBackupJob)_ Remove retry attempts and backoff logic for job execution
-- _(CleanupRedis)_ Optimize key retrieval in cleanupStuckJobs using Redis scan
-- _(CleanupRedis)_ Remove JSON decode error handling from cleanupStuckJobs method
+- *(DatabaseBackupJob)* Remove retry attempts and backoff logic for job execution
+- *(CleanupRedis)* Optimize key retrieval in cleanupStuckJobs using Redis scan
+- *(CleanupRedis)* Remove JSON decode error handling from cleanupStuckJobs method
 - Move buildpack cleanup logic to model lifecycle hooks
 - Simplify environment variable deletion logic in booted method
 - Move buildpack cleanup to model lifecycle hooks (#7268)
-- _(proxy)_ Implement parallel processing for Traefik version checks
-- _(proxy)_ Implement centralized caching for versions.json and improve UX
-- _(proxy)_ Simplify getNewerBranchInfo method parameters and streamline version checks
+- *(proxy)* Implement parallel processing for Traefik version checks
+- *(proxy)* Implement centralized caching for versions.json and improve UX
+- *(proxy)* Simplify getNewerBranchInfo method parameters and streamline version checks
 - Move buildpack cleanup logic to model lifecycle hooks
 - Simplify environment variable deletion logic in booted method
-- _(navbar)_ Clean up HTML structure and improve readability
-- _(CheckTraefikVersionForServerJob)_ Remove unnecessary onQueue assignment in constructor
-- _(migration)_ Remove unnecessary index on team_id in cloud_init_scripts table
+- *(navbar)* Clean up HTML structure and improve readability
+- *(CheckTraefikVersionForServerJob)* Remove unnecessary onQueue assignment in constructor
+- *(migration)* Remove unnecessary index on team_id in cloud_init_scripts table
 - Send immediate Traefik version notifications instead of delayed aggregation
 - Standardize Service model status aggregation to use ContainerStatusAggregator
 - Use Laravel route() helper for shared variable URLs
 - Move buildpack cleanup logic to model lifecycle hooks
 - Simplify environment variable deletion logic in booted method
 - Simplify environment variable deletion logic in booted method
-- _(proxy)_ Implement parallel processing for Traefik version checks
-- _(proxy)_ Implement centralized caching for versions.json and improve UX
-- _(proxy)_ Simplify getNewerBranchInfo method parameters and streamline version checks
+- *(proxy)* Implement parallel processing for Traefik version checks
+- *(proxy)* Implement centralized caching for versions.json and improve UX
+- *(proxy)* Simplify getNewerBranchInfo method parameters and streamline version checks
 - Simplify environment variable deletion logic in booted method
-- _(navbar)_ Clean up HTML structure and improve readability
-- _(CheckTraefikVersionForServerJob)_ Remove unnecessary onQueue assignment in constructor
-- _(migration)_ Remove unnecessary index on team_id in cloud_init_scripts table
+- *(navbar)* Clean up HTML structure and improve readability
+- *(CheckTraefikVersionForServerJob)* Remove unnecessary onQueue assignment in constructor
+- *(migration)* Remove unnecessary index on team_id in cloud_init_scripts table
 - Send immediate Traefik version notifications instead of delayed aggregation
 - Fix variable scope in docker entrypoint parsing
 - Fix variable scope in docker entrypoint parsing (#7341)
@@ -5501,15 +5534,16 @@ All notable changes to this project will be documented in this file.
 - Optimize UUID generation for cloud provider tokens using chunked processing
 - Move Swarm and Sentinel to dedicated sidebar menu items
 - Move Swarm and Sentinel to dedicated sidebar menu items (#7687)
-- _(redirect)_ Replace redirect calls with redirectRoute helper for consistency
+- *(redirect)* Replace redirect calls with redirectRoute helper for consistency
 - Remove unused updateServiceEnvironmentVariables method
-- _(server)_ Remove unused destinationsByServer method
-- _(service)_ Improve evolution-api
+- *(server)* Remove unused destinationsByServer method
+- *(service)* Improve evolution-api
 - Remove duplicated validation messages
-- _(service)_ Remove unused envs from hoppscotch (#6513)
+- *(service)* Remove unused envs from hoppscotch (#6513)
 - Move all env sorting to one place
-- _(api)_ Make docker_compose_raw description more clear
-- _(api)_ Update application create endpoints docs
+- *(api)* Make docker_compose_raw description more clear
+- *(api)* Update application create endpoints docs
+- *(api)* Application urls validation
 
 ### 📚 Documentation
 
@@ -5520,20 +5554,8 @@ All notable changes to this project will be documented in this file.
 - Update Plunk documentation link in compose/plunk.yaml
 - Update link to deploy api docs
 - Add TECH_STACK.md (#4883)
-- _(services)_ Reword nitropage url and slogan
-- _(readme)_ Add Convex to special sponsors section
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
-- _(CONTRIBUTING)_ Add note about Laravel Horizon accessibility
+- *(services)* Reword nitropage url and slogan
+- *(readme)* Add Convex to special sponsors section
 - Update changelog
 - Update changelog
 - Update changelog
@@ -5546,7 +5568,7 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
-- Update changelog
+- *(CONTRIBUTING)* Add note about Laravel Horizon accessibility
 - Update changelog
 - Update changelog
 - Update changelog
@@ -5567,7 +5589,6 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
-- _(service)_ Add new docs link for zipline (#5912)
 - Update changelog
 - Update changelog
 - Update changelog
@@ -5579,7 +5600,24 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
-- _(claude)_ Clarify that artisan commands should only be run inside the "coolify" container during development
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- *(service)* Add new docs link for zipline (#5912)
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- Update changelog
+- *(claude)* Clarify that artisan commands should only be run inside the "coolify" container during development
 - Add AGENTS.md for project guidance and development instructions
 - Update changelog
 - Update changelog
@@ -5595,15 +5633,11 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
-- _(testing-patterns)_ Add important note to always run tests inside the `coolify` container for clarity
+- *(testing-patterns)* Add important note to always run tests inside the `coolify` container for clarity
 - Update changelog
 - Update changelog
 - Update changelog
-- _(claude)_ Update testing guidelines and add note on Application::team relationship
-- Update changelog
-- Update changelog
-- Update changelog
-- Update changelog
+- *(claude)* Update testing guidelines and add note on Application::team relationship
 - Update changelog
 - Update changelog
 - Update changelog
@@ -5614,10 +5648,13 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
-- _(tests)_ Update testing guidelines for unit and feature tests
-- _(sync)_ Create AI Instructions Synchronization Guide and update CLAUDE.md references
 - Update changelog
-- _(database-patterns)_ Add critical note on mass assignment protection for new columns
+- Update changelog
+- Update changelog
+- Update changelog
+- *(tests)* Update testing guidelines for unit and feature tests
+- *(sync)* Create AI Instructions Synchronization Guide and update CLAUDE.md references
+- *(database-patterns)* Add critical note on mass assignment protection for new columns
 - Clarify cloud-init script compatibility
 - Update changelog
 - Update changelog
@@ -5643,32 +5680,35 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
+- Update changelog
 - Replace brittle line number references with maintainable method descriptions
 - Update application architecture and database patterns for request-level caching best practices
 - Remove git worktree symlink instructions from CLAUDE.md
 - Remove git worktree symlink instructions from CLAUDE.md (#7908)
-- Update changelog
+- Add transcript lol link and logo to readme (#7331)
+- *(api)* Change domains to urls
+- *(api)* Improve domains API docs
 
 ### ⚡ Performance
 
-- _(nginx)_ Increase client body buffer size to 256k for Sentinel payloads
+- *(nginx)* Increase client body buffer size to 256k for Sentinel payloads
 - Optimize S3 restore flow with immediate cleanup and progress tracking
 - Add request-level caching and indexes for dashboard optimization (#7533)
 - Remove dead server filtering code from Kernel scheduler
 - Remove dead server filtering code from Kernel scheduler (#7585)
-- _(server)_ Optimize destinationsByServer query
-- _(server)_ Optimize destinationsByServer query (#7854)
+- *(server)* Optimize destinationsByServer query
+- *(server)* Optimize destinationsByServer query (#7854)
 
 ### 🎨 Styling
 
 - Linting
-- _(css)_ Update padding utility for password input and add newline in app.css
-- _(css)_ Refine badge utility styles in utilities.css
-- _(css)_ Enhance badge utility styles in utilities.css
-- _(environment-variable)_ Adjust SVG icon margin for improved layout in locked state
-- _(proxy)_ Adjust padding in proxy configuration form for better visual alignment
-- _(campfire)_ Format environment variables for better readability in Docker Compose file
-- _(campfire)_ Update comment for DISABLE_SSL environment variable for clarity
+- *(css)* Update padding utility for password input and add newline in app.css
+- *(css)* Refine badge utility styles in utilities.css
+- *(css)* Enhance badge utility styles in utilities.css
+- *(environment-variable)* Adjust SVG icon margin for improved layout in locked state
+- *(proxy)* Adjust padding in proxy configuration form for better visual alignment
+- *(campfire)* Format environment variables for better readability in Docker Compose file
+- *(campfire)* Update comment for DISABLE_SSL environment variable for clarity
 - Update background colors to use gray-50 for consistency in auth views
 
 ### 🧪 Testing
@@ -6027,6 +6067,7 @@ All notable changes to this project will be documented in this file.
 - Update version numbers to 4.0.0-beta.337
 - Update Coolify installer and scripts to include a function for fetching programming jokes
 - Update docker network connection command in ApplicationDeploymentJob.php
+- V337
 - Add validation to prevent selecting 'default' server or container in RunCommand.php
 - Update versions.json to reflect latest version of realtime container
 - Update soketi image to version 1.0.1
@@ -6120,6 +6161,7 @@ All notable changes to this project will be documented in this file.
 - Update laravel/horizon dependency to version 5.29.1
 - Update service extra fields to use dynamic keys
 - Update livewire/livewire dependency to version 3.4.9
+- Edit www helper
 - Add transmission template desc
 - Update transmission docs link
 - Update version numbers to 4.0.0-beta.360 in configuration files
@@ -6140,7 +6182,6 @@ All notable changes to this project will be documented in this file.
 - Update Docker version to 26.0
 - Update project resource index page
 - Update project service configuration view
-- Edit www helper
 - Update dep
 - Regenerate openapi spec
 - Composer dep bump
@@ -6193,134 +6234,134 @@ All notable changes to this project will be documented in this file.
 - Remove limit on commit message
 - Remove dayjs
 - Remove unused code and fix import
-- _(dep)_ Bump nixpacks version
-- _(dep)_ Version++
-- _(dep)_ Bump helper version to 1.0.5
-- _(docker)_ Add blank line for readability in Dockerfile
-- _(versions)_ Update coolify versions to v4.0.0-beta.388
-- _(versions)_ Update coolify versions to v4.0.0-beta.389 and add helper version retrieval script
-- _(versions)_ Update coolify versions to v4.0.0-beta.389
-- _(core)_ EnvironmentVariable Model now extends BaseModel to remove duplicated code
-- _(versions)_ Update coolify versions to v4.0.0-beta.3909
-- _(version)_ Bump Coolify version to 4.0.0-beta.391
-- _(config)_ Increase default PHP memory limit to 256M
+- *(dep)* Bump nixpacks version
+- *(dep)* Version++
+- *(dep)* Bump helper version to 1.0.5
+- *(docker)* Add blank line for readability in Dockerfile
+- *(versions)* Update coolify versions to v4.0.0-beta.388
+- *(versions)* Update coolify versions to v4.0.0-beta.389 and add helper version retrieval script
+- *(versions)* Update coolify versions to v4.0.0-beta.389
+- *(core)* EnvironmentVariable Model now extends BaseModel to remove duplicated code
+- *(versions)* Update coolify versions to v4.0.0-beta.3909
+- *(version)* Bump Coolify version to 4.0.0-beta.391
+- *(config)* Increase default PHP memory limit to 256M
 - Add openapi response
-- _(workflows)_ Make naming more clear and remove unused code
+- *(workflows)* Make naming more clear and remove unused code
 - Bump Coolify version to 4.0.0-beta.392/393
-- _(ci)_ Update changelog generation workflow to target 'next' branch
-- _(ci)_ Update changelog generation workflow to target main branch
+- *(ci)* Update changelog generation workflow to target 'next' branch
+- *(ci)* Update changelog generation workflow to target main branch
 - Rollback Coolify version to 4.0.0-beta.392
 - Bump Coolify version to 4.0.0-beta.393
 - Bump Coolify version to 4.0.0-beta.394
 - Bump Coolify version to 4.0.0-beta.395
 - Bump Coolify version to 4.0.0-beta.396
-- _(services)_ Update zipline to use new Database env var. (#5210)
-- _(service)_ Upgrade authentik service
-- _(service)_ Remove unused env from zipline
+- *(services)* Update zipline to use new Database env var. (#5210)
+- *(service)* Upgrade authentik service
+- *(service)* Remove unused env from zipline
 - Bump helper and realtime version
-- _(migration)_ Remove unused columns
-- _(ssl)_ Improve code in ssl helper
-- _(migration)_ Ssl cert and key should not be nullable
-- _(ssl)_ Rename CA cert to `coolify-ca.crt` because of conflicts
+- *(migration)* Remove unused columns
+- *(ssl)* Improve code in ssl helper
+- *(migration)* Ssl cert and key should not be nullable
+- *(ssl)* Rename CA cert to `coolify-ca.crt` because of conflicts
 - Rename ca crt folder to ssl
-- _(ui)_ Improve valid until handling
+- *(ui)* Improve valid until handling
 - Improve code quality suggested by code rabbit
-- _(supabase)_ Update Supabase service template and Postgres image version
-- _(versions)_ Update version numbers for coolify and nightly
-- _(versions)_ Update version numbers for coolify and nightly
-- _(service)_ Update minecraft service ENVs
-- _(service)_ Add more vars to infisical.yaml (#5418)
-- _(service)_ Add google variables to plausible.yaml (#5429)
-- _(service)_ Update authentik.yaml versions (#5373)
-- _(core)_ Remove redocs
-- _(versions)_ Update coolify version numbers to 4.0.0-beta.403 and 4.0.0-beta.404
-- _(service)_ Remove unused code in Bugsink service
-- _(versions)_ Update version to 404
-- _(versions)_ Bump version to 403 (#5520)
-- _(versions)_ Bump version to 404
-- _(versions)_ Bump version to 406
-- _(versions)_ Bump version to 407
-- _(versions)_ Bump version to 406
-- _(versions)_ Bump version to 407 and 408 for coolify and nightly
-- _(versions)_ Bump version to 408 for coolify and 409 for nightly
-- _(versions)_ Update nightly version to 4.0.0-beta.410
-- _(pre-commit)_ Remove OpenAPI generation command from pre-commit hook
-- _(versions)_ Update realtime version to 1.0.7 and bump dependencies in package.json
-- _(versions)_ Bump coolify version to 4.0.0-beta.409 in configuration files
-- _(versions)_ Bump coolify version to 4.0.0-beta.410 and update nightly version to 4.0.0-beta.411 in configuration files
-- _(templates)_ Update plausible and clickhouse images to latest versions and remove mail service
-- _(versions)_ Update coolify version to 4.0.0-beta.411 and nightly version to 4.0.0-beta.412 in configuration files
-- _(versions)_ Update coolify version to 4.0.0-beta.412 and nightly version to 4.0.0-beta.413 in configuration files
-- _(versions)_ Update coolify version to 4.0.0-beta.413 and nightly version to 4.0.0-beta.414 in configuration files
-- _(versions)_ Update realtime version to 1.0.8 in versions.json
-- _(versions)_ Update realtime version to 1.0.8 in versions.json
-- _(docker)_ Update soketi image version to 1.0.8 in production configuration files
-- _(versions)_ Update coolify version to 4.0.0-beta.414 and nightly version to 4.0.0-beta.415 in configuration files
-- _(workflows)_ Adjust workflow for announcement
-- _(versions)_ Update coolify version to 4.0.0-beta.416 and nightly version to 4.0.0-beta.417 in configuration files; fix links in deployment view
-- _(seeder)_ Update git branch from 'main' to 'v4.x' for multiple examples in ApplicationSeeder
-- _(versions)_ Update coolify version to 4.0.0-beta.417 and nightly version to 4.0.0-beta.418
-- _(versions)_ Update coolify version to 4.0.0-beta.418
-- _(versions)_ Update coolify version to 4.0.0-beta.419 and nightly version to 4.0.0-beta.420 in configuration files
-- _(service)_ Rename hoarder server to karakeep (#5607)
-- _(service)_ Update Supabase services (#5708)
-- _(service)_ Remove unused documenso env
-- _(service)_ Formatting and cleanup of ryot
-- _(docs)_ Remove changelog and add it to gitignore
-- _(versions)_ Update version to 4.0.0-beta.419
-- _(service)_ Diun formatting
-- _(docs)_ Update CHANGELOG.md
-- _(service)_ Switch convex vars
-- _(service)_ Pgbackweb formatting and naming update
-- _(service)_ Remove typesense default API key
-- _(service)_ Format yamtrack healthcheck
-- _(core)_ Remove unused function
-- _(ui)_ Remove unused stopEvent code
-- _(service)_ Remove unused env
-- _(tests)_ Update test environment database name and add new feature test for converting container environment variables to array
-- _(service)_ Update Immich service (#5886)
-- _(service)_ Remove unused logo
-- _(api)_ Update API docs
-- _(dependencies)_ Update package versions in composer.json and composer.lock for improved compatibility and performance
-- _(dependencies)_ Update package versions in package.json and package-lock.json for improved stability and features
-- _(version)_ Update coolify-realtime to version 1.0.9 in docker-compose and versions files
-- _(version)_ Update coolify version to 4.0.0-beta.420 and nightly version to 4.0.0-beta.421
-- _(service)_ Changedetection remove unused code
-- _(service)_ Update Evolution API image to the official one (#6031)
-- _(versions)_ Bump coolify versions to v4.0.0-beta.420 and v4.0.0-beta.421
-- _(dependencies)_ Update composer dependencies to latest versions including resend-laravel to ^0.19.0 and aws-sdk-php to 3.347.0
-- _(versions)_ Update Coolify version to 4.0.0-beta.420.1 and add new services (karakeep, miniflux, pingvinshare) to service templates
-- _(versions)_ Update Coolify versions to 4.0.0-beta.420.2 and 4.0.0-beta.420.3 in multiple files
-- _(versions)_ Bump coolify and nightly versions to 4.0.0-beta.420.3 and 4.0.0-beta.420.4 respectively
-- _(versions)_ Update coolify and nightly versions to 4.0.0-beta.420.4 and 4.0.0-beta.420.5 respectively
-- _(service)_ Update Nitropage template (#6181)
-- _(versions)_ Update all version
-- _(bump)_ Update composer deps
-- _(version)_ Bump Coolify version to 4.0.0-beta.420.6
-- _(service)_ Improve matrix service
-- _(service)_ Format runner service
-- _(service)_ Improve sequin
-- _(service)_ Add `NOT_SECURED` env to Postiz (#6243)
-- _(service)_ Improve evolution-api environment variables (#6283)
-- _(service)_ Update Langfuse template to v3 (#6301)
-- _(core)_ Remove unused argument
-- _(deletion)_ Rename isDeleteOperation to deleteConnectedNetworks
-- _(docker)_ Remove unused arguments on StopService
-- _(service)_ Homebox formatting
+- *(supabase)* Update Supabase service template and Postgres image version
+- *(versions)* Update version numbers for coolify and nightly
+- *(versions)* Update version numbers for coolify and nightly
+- *(service)* Update minecraft service ENVs
+- *(service)* Add more vars to infisical.yaml (#5418)
+- *(service)* Add google variables to plausible.yaml (#5429)
+- *(service)* Update authentik.yaml versions (#5373)
+- *(core)* Remove redocs
+- *(versions)* Update coolify version numbers to 4.0.0-beta.403 and 4.0.0-beta.404
+- *(service)* Remove unused code in Bugsink service
+- *(versions)* Update version to 404
+- *(versions)* Bump version to 403 (#5520)
+- *(versions)* Bump version to 404
+- *(versions)* Bump version to 406
+- *(versions)* Bump version to 407
+- *(versions)* Bump version to 406
+- *(versions)* Bump version to 407 and 408 for coolify and nightly
+- *(versions)* Bump version to 408 for coolify and 409 for nightly
+- *(versions)* Update nightly version to 4.0.0-beta.410
+- *(pre-commit)* Remove OpenAPI generation command from pre-commit hook
+- *(versions)* Update realtime version to 1.0.7 and bump dependencies in package.json
+- *(versions)* Bump coolify version to 4.0.0-beta.409 in configuration files
+- *(versions)* Bump coolify version to 4.0.0-beta.410 and update nightly version to 4.0.0-beta.411 in configuration files
+- *(templates)* Update plausible and clickhouse images to latest versions and remove mail service
+- *(versions)* Update coolify version to 4.0.0-beta.411 and nightly version to 4.0.0-beta.412 in configuration files
+- *(versions)* Update coolify version to 4.0.0-beta.412 and nightly version to 4.0.0-beta.413 in configuration files
+- *(workflows)* Adjust workflow for announcement
+- *(versions)* Update coolify version to 4.0.0-beta.413 and nightly version to 4.0.0-beta.414 in configuration files
+- *(versions)* Update realtime version to 1.0.8 in versions.json
+- *(versions)* Update realtime version to 1.0.8 in versions.json
+- *(docker)* Update soketi image version to 1.0.8 in production configuration files
+- *(versions)* Update coolify version to 4.0.0-beta.414 and nightly version to 4.0.0-beta.415 in configuration files
+- *(versions)* Update coolify version to 4.0.0-beta.416 and nightly version to 4.0.0-beta.417 in configuration files; fix links in deployment view
+- *(seeder)* Update git branch from 'main' to 'v4.x' for multiple examples in ApplicationSeeder
+- *(versions)* Update coolify version to 4.0.0-beta.417 and nightly version to 4.0.0-beta.418
+- *(versions)* Update coolify version to 4.0.0-beta.418
+- *(versions)* Update coolify version to 4.0.0-beta.419 and nightly version to 4.0.0-beta.420 in configuration files
+- *(service)* Rename hoarder server to karakeep (#5607)
+- *(service)* Update Supabase services (#5708)
+- *(service)* Remove unused documenso env
+- *(service)* Formatting and cleanup of ryot
+- *(docs)* Remove changelog and add it to gitignore
+- *(versions)* Update version to 4.0.0-beta.419
+- *(service)* Diun formatting
+- *(docs)* Update CHANGELOG.md
+- *(service)* Switch convex vars
+- *(service)* Pgbackweb formatting and naming update
+- *(service)* Remove typesense default API key
+- *(service)* Format yamtrack healthcheck
+- *(core)* Remove unused function
+- *(ui)* Remove unused stopEvent code
+- *(service)* Remove unused env
+- *(tests)* Update test environment database name and add new feature test for converting container environment variables to array
+- *(service)* Update Immich service (#5886)
+- *(service)* Remove unused logo
+- *(api)* Update API docs
+- *(dependencies)* Update package versions in composer.json and composer.lock for improved compatibility and performance
+- *(dependencies)* Update package versions in package.json and package-lock.json for improved stability and features
+- *(version)* Update coolify-realtime to version 1.0.9 in docker-compose and versions files
+- *(version)* Update coolify version to 4.0.0-beta.420 and nightly version to 4.0.0-beta.421
+- *(service)* Changedetection remove unused code
+- *(service)* Update Evolution API image to the official one (#6031)
+- *(versions)* Bump coolify versions to v4.0.0-beta.420 and v4.0.0-beta.421
+- *(dependencies)* Update composer dependencies to latest versions including resend-laravel to ^0.19.0 and aws-sdk-php to 3.347.0
+- *(versions)* Update Coolify version to 4.0.0-beta.420.1 and add new services (karakeep, miniflux, pingvinshare) to service templates
+- *(versions)* Update Coolify versions to 4.0.0-beta.420.2 and 4.0.0-beta.420.3 in multiple files
+- *(versions)* Bump coolify and nightly versions to 4.0.0-beta.420.3 and 4.0.0-beta.420.4 respectively
+- *(versions)* Update coolify and nightly versions to 4.0.0-beta.420.4 and 4.0.0-beta.420.5 respectively
+- *(service)* Update Nitropage template (#6181)
+- *(versions)* Update all version
+- *(bump)* Update composer deps
+- *(version)* Bump Coolify version to 4.0.0-beta.420.6
+- *(service)* Improve matrix service
+- *(service)* Format runner service
+- *(service)* Improve sequin
+- *(service)* Add `NOT_SECURED` env to Postiz (#6243)
+- *(service)* Improve evolution-api environment variables (#6283)
+- *(service)* Update Langfuse template to v3 (#6301)
+- *(core)* Remove unused argument
+- *(deletion)* Rename isDeleteOperation to deleteConnectedNetworks
+- *(docker)* Remove unused arguments on StopService
+- *(service)* Homebox formatting
 - Clarify usage of custom redis configuration (#6321)
-- _(changelogs)_ Add .gitignore for changelogs directory and remove outdated changelog files for May, June, and July 2025
-- _(service)_ Change affine images (#6366)
+- *(changelogs)* Add .gitignore for changelogs directory and remove outdated changelog files for May, June, and July 2025
+- *(service)* Change affine images (#6366)
 - Elasticsearch URL, fromatting and add category
 - Update service-templates json files
-- _(docs)_ Remove AGENTS.md file; enhance CLAUDE.md with detailed form authorization patterns and service configuration examples
-- _(cleanup)_ Remove unused GitLab view files for change, new, and show pages
-- _(workflows)_ Add backlog directory to build triggers for production and staging workflows
-- _(config)_ Disable auto_commit in backlog configuration to prevent automatic commits
-- _(versions)_ Update coolify version to 4.0.0-beta.420.8 and nightly version to 4.0.0-beta.420.9 in versions.json and constants.php
-- _(docker)_ Update soketi image version to 1.0.10 in production and Windows configurations
-- _(core)_ Update version
-- _(core)_ Update version
-- _(versions)_ Update coolify version to 4.0.0-beta.421 and nightly version to 4.0.0-beta.422
+- *(docs)* Remove AGENTS.md file; enhance CLAUDE.md with detailed form authorization patterns and service configuration examples
+- *(cleanup)* Remove unused GitLab view files for change, new, and show pages
+- *(workflows)* Add backlog directory to build triggers for production and staging workflows
+- *(config)* Disable auto_commit in backlog configuration to prevent automatic commits
+- *(versions)* Update coolify version to 4.0.0-beta.420.8 and nightly version to 4.0.0-beta.420.9 in versions.json and constants.php
+- *(docker)* Update soketi image version to 1.0.10 in production and Windows configurations
+- *(core)* Update version
+- *(core)* Update version
+- *(versions)* Update coolify version to 4.0.0-beta.421 and nightly version to 4.0.0-beta.422
 - Update version
 - Update development node version
 - Update coolify version to 4.0.0-beta.423 and nightly version to 4.0.0-beta.424
@@ -6328,33 +6369,33 @@ All notable changes to this project will be documented in this file.
 - Update coolify version to 4.0.0-beta.425 and nightly version to 4.0.0-beta.426
 - Update coolify version to 4.0.0-beta.426 and nightly version to 4.0.0-beta.427
 - Update coolify version to 4.0.0-beta.427 and nightly version to 4.0.0-beta.428
-- Use main value then fallback to service\_ values
+- Use main value then fallback to service_ values
 - Remove webhooks table cleanup
-- _(cleanup)_ Remove deprecated ServerCheck and related job classes to streamline codebase
-- _(versions)_ Update sentinel version from 0.0.15 to 0.0.16 in versions.json files
-- _(constants)_ Update realtime_version from 1.0.10 to 1.0.11
-- _(versions)_ Increment coolify version to 4.0.0-beta.428 and update realtime_version to 1.0.10
-- _(docker)_ Add a blank line for improved readability in Dockerfile
-- _(versions)_ Bump coolify version to 4.0.0-beta.429 and nightly version to 4.0.0-beta.430
+- *(cleanup)* Remove deprecated ServerCheck and related job classes to streamline codebase
+- *(versions)* Update sentinel version from 0.0.15 to 0.0.16 in versions.json files
+- *(constants)* Update realtime_version from 1.0.10 to 1.0.11
+- *(versions)* Increment coolify version to 4.0.0-beta.428 and update realtime_version to 1.0.10
+- *(docker)* Add a blank line for improved readability in Dockerfile
+- *(versions)* Bump coolify version to 4.0.0-beta.429 and nightly version to 4.0.0-beta.430
 - Change order of runtime and buildtime
-- _(docker-compose)_ Update soketi image version to 1.0.10 in production and Windows configurations
-- _(versions)_ Update coolify version numbers to 4.0.0-beta.430 and 4.0.0-beta.431 in configuration files
-- _(versions)_ Increment coolify version numbers to 4.0.0-beta.431 and 4.0.0-beta.432 in configuration files
-- _(versions)_ Update coolify version numbers to 4.0.0-beta.432 and 4.0.0-beta.433 in configuration files
+- *(docker-compose)* Update soketi image version to 1.0.10 in production and Windows configurations
+- *(versions)* Update coolify version numbers to 4.0.0-beta.430 and 4.0.0-beta.431 in configuration files
+- *(versions)* Increment coolify version numbers to 4.0.0-beta.431 and 4.0.0-beta.432 in configuration files
+- *(versions)* Update coolify version numbers to 4.0.0-beta.432 and 4.0.0-beta.433 in configuration files
 - Remove unused files
 - Adjust wording
-- _(workflow)_ Update pull request trigger to pull_request_target and refine permissions for enhanced security
-- _(application)_ Remove debugging statement from loadComposeFile method
-- _(workflows)_ Update Claude GitHub Action configuration to support new event types and improve permissions
-- _(versions)_ Update coolify version to 4.0.0-beta.433 and nightly version to 4.0.0-beta.434 in configuration files
-- _(versions)_ Update version numbers for Coolify releases
-- _(versions)_ Bump Coolify stable version to 4.0.0-beta.434
-- _(versions)_ Update Coolify version numbers to 4.0.0-beta.435 and 4.0.0-beta.436
+- *(workflow)* Update pull request trigger to pull_request_target and refine permissions for enhanced security
+- *(application)* Remove debugging statement from loadComposeFile method
+- *(workflows)* Update Claude GitHub Action configuration to support new event types and improve permissions
+- *(versions)* Update coolify version to 4.0.0-beta.433 and nightly version to 4.0.0-beta.434 in configuration files
+- *(versions)* Update version numbers for Coolify releases
+- *(versions)* Bump Coolify stable version to 4.0.0-beta.434
+- *(versions)* Update Coolify version numbers to 4.0.0-beta.435 and 4.0.0-beta.436
 - Update package-lock.json
-- _(service)_ Update convex template and image
-- _(signoz)_ Remove unused ports
-- _(signoz)_ Bump version to 0.77.0
-- _(signoz)_ Bump version to 0.78.1
+- *(service)* Update convex template and image
+- *(signoz)* Remove unused ports
+- *(signoz)* Bump version to 0.77.0
+- *(signoz)* Bump version to 0.78.1
 - Add category field to siyuan.yaml
 - Update siyuan category in service templates
 - Better structure of readme
@@ -6364,17 +6405,17 @@ All notable changes to this project will be documented in this file.
 - Update coolify version to 4.0.0-beta.442
 - Update Nixpacks version to 1.41.0
 - Update Nixpacks version to 1.41.0 (#7061)
-- _(claude)_ Remove unused workflows
-- _(workflows)_ Improve security and update actions
-- _(workflows)_ Improve security of all workflows & update action (#7133)
-- _(workflow)_ Fix changelog generation
-- _(workflows)_ Refactor build-push jobs to use matrix strategy for multi-architecture support
+- *(claude)* Remove unused workflows
+- *(workflows)* Improve security and update actions
+- *(workflows)* Improve security of all workflows & update action (#7133)
+- *(workflow)* Fix changelog generation
+- *(workflows)* Refactor build-push jobs to use matrix strategy for multi-architecture support
 - Remove outdated testing guide for scheduled tasks
 - Remove unused reviews configuration from coderabbit.yaml
 - Better structure of readme (#6994)
 - Remove accidentally committed github runner migration
-- _(n8n)_ Upgrade n8n image version to 1.119.2 in compose templates
-- _(n8n)_ Upgrade n8n image version to 1.119.2 in compose templates (#7236)
+- *(n8n)* Upgrade n8n image version to 1.119.2 in compose templates
+- *(n8n)* Upgrade n8n image version to 1.119.2 in compose templates (#7236)
 - Better structure of readme
 - Update migration timestamp to 2025_11_26_124200
 - Update version numbers to 4.0.0-beta.457 and 4.0.0-beta.458
@@ -6383,22 +6424,26 @@ All notable changes to this project will be documented in this file.
 - Updated pull request template to include more details for our new contributors guideline
 - Update contributors guide (#7807)
 - Update versions.json for consistency across environments
-- _(docker)_ Add healthchecks to dev services (#7856)
-- _(services)_ Update service-templates.json
-- _(service)_ Upgrade uptime kuma to version 2 (#7258)
-- _(git)_ Remove pre-commit hooks
-- _(service)_ Upgrade activepieces and postgres
-- _(services)_ Update service templates json
-- _(service)_ Improve n8n v2
-- _(services)_ Update service json
-- _(service)_ Change sqlite pool size to v2 default
-- _(service)_ Improve mosquitto template (#6227)
-- _(services)_ Update service json
+- *(docker)* Add healthchecks to dev services (#7856)
+- *(services)* Update service-templates.json
+- *(service)* Upgrade uptime kuma to version 2 (#7258)
+- *(git)* Remove pre-commit hooks
+- *(service)* Upgrade activepieces and postgres
+- *(services)* Update service templates json
+- *(service)* Improve n8n v2
+- *(services)* Update service json
+- *(service)* Change sqlite pool size to v2 default
+- *(service)* Improve mosquitto template (#6227)
+- *(services)* Update service json
 - Remove raw sql from env relationship
-- _(service)_ Improve uptime kuma
-- _(services)_ Upgrade service template json files
-- _(api)_ Update openapi json and yaml
-- _(api)_ Regenerate openapi docs
+- *(service)* Improve uptime kuma
+- *(services)* Upgrade service template json files
+- *(api)* Update openapi json and yaml
+- *(api)* Regenerate openapi docs
+- Prepare for PR
+- *(api)* Improve current request error message
+- *(api)* Improve current request error message
+- *(api)* Update openapi files
 
 ### ◀️ Revert
 
@@ -6413,6 +6458,6 @@ All notable changes to this project will be documented in this file.
 - Databasebackup
 - Remove Cloudflare async tag attributes
 - Encrypting mount and fs_path
-- _(parser)_ Enhance FQDN generation logic for services and applications
+- *(parser)* Enhance FQDN generation logic for services and applications
 
 <!-- generated by git-cliff -->
