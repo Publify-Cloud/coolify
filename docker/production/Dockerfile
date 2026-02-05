@@ -1,6 +1,7 @@
 # Versions
 # https://hub.docker.com/r/serversideup/php/tags?name=8.4-fpm-nginx-alpine
-ARG SERVERSIDEUP_PHP_VERSION=8.4-fpm-nginx-alpine
+# Using Alpine 3.22 - Alpine 3.23 dropped postgresql15-client from repos
+ARG SERVERSIDEUP_PHP_VERSION=8.4-fpm-nginx-alpine3.22
 # https://github.com/minio/mc/releases
 ARG MINIO_VERSION=RELEASE.2025-05-21T01-59-54Z
 # https://github.com/cloudflare/cloudflared/releases
