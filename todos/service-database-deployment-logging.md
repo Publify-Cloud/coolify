@@ -11,34 +11,39 @@
 ### Application Deployments (Working Model)
 
 **Model:** `ApplicationDeploymentQueue`
+
 - **Location:** `app/Models/ApplicationDeploymentQueue.php`
 - **Table:** `application_deployment_queues`
 - **Key Features:**
-  - Stores deployment logs as JSON in `logs` column
-  - Tracks status: queued, in_progress, finished, failed, cancelled-by-user
-  - Stores metadata: deployment_uuid, commit, pull_request_id, server info
-  - Has `addLogEntry()` method with sensitive data redaction
-  - Relationships: belongsTo Application, server attribute accessor
+    - Stores deployment logs as JSON in `logs` column
+    - Tracks status: queued, in_progress, finished, failed, cancelled-by-user
+    - Stores metadata: deployment_uuid, commit, pull_request_id, server info
+    - Has `addLogEntry()` method with sensitive data redaction
+    - Relationships: belongsTo Application, server attribute accessor
 
 **Job:** `ApplicationDeploymentJob`
+
 - **Location:** `app/Jobs/ApplicationDeploymentJob.php`
 - Handles entire deployment lifecycle
 - Uses `addLogEntry()` to stream logs to database
 - Updates status throughout deployment
 
 **Helper Function:** `queue_application_deployment()`
+
 - **Location:** `bootstrap/helpers/applications.php`
 - Creates deployment queue record
 - Dispatches job if ready
 - Returns deployment status and UUID
 
 **API Endpoints:**
+
 - `GET /api/deployments` - List all running deployments
 - `GET /api/deployments/{uuid}` - Get specific deployment
 - `GET /api/deployments/applications/{uuid}` - List app deployment history
 - Sensitive data filtering based on permissions
 
 **Migration History:**
+
 - `2023_05_24_083426_create_application_deployment_queues_table.php`
 - `2023_06_23_114133_use_application_deployment_queues_as_activity.php` (added logs, current_process_id)
 - `2025_01_16_110406_change_commit_message_to_text_in_application_deployment_queues.php`
@@ -48,16 +53,19 @@
 ### Services (Current State - No History)
 
 **Model:** `Service`
+
 - **Location:** `app/Models/Service.php`
 - Represents Docker Compose services with multiple applications/databases
 
 **Action:** `StartService`
+
 - **Location:** `app/Actions/Service/StartService.php`
 - Executes commands via `remote_process()`
 - Returns Activity log (Spatie ActivityLog) - ephemeral, not stored
 - Fires `ServiceStatusChanged` event on completion
 
 **Current Behavior:**
+
 ```php
 public function handle(Service $service, bool $pullLatestImages, bool $stopBeforeStart)
 {
@@ -76,6 +84,7 @@ public function handle(Service $service, bool $pullLatestImages, bool $stopBefor
 ### Databases (Current State - No History)
 
 **Models:** 9 Standalone Database Types
+
 - `StandalonePostgresql`
 - `StandaloneRedis`
 - `StandaloneMongodb`
@@ -87,16 +96,19 @@ public function handle(Service $service, bool $pullLatestImages, bool $stopBefor
 - (All in `app/Models/`)
 
 **Actions:** Type-Specific Start Actions
+
 - `StartPostgresql`, `StartRedis`, `StartMongodb`, etc.
 - **Location:** `app/Actions/Database/Start*.php`
 - Each builds docker-compose config, writes to disk, starts container
 - Uses `remote_process()` with `DatabaseStatusChanged` event
 
 **Dispatcher:** `StartDatabase`
+
 - **Location:** `app/Actions/Database/StartDatabase.php`
 - Routes to correct Start action based on database type
 
 **Current Behavior:**
+
 ```php
 // StartPostgresql example
 public function handle(StandalonePostgresql $database)
@@ -118,25 +130,27 @@ public function handle(StandalonePostgresql $database)
 **Decision:** Create `service_deployment_queues` and `database_deployment_queues` (two separate tables)
 
 **Reasoning:**
+
 1. **Different Attributes:**
-   - Services: multiple containers, docker-compose specific, pull_latest_images flag
-   - Databases: type-specific configs, SSL settings, init scripts
-   - Applications: git commits, pull requests, build cache
+    - Services: multiple containers, docker-compose specific, pull_latest_images flag
+    - Databases: type-specific configs, SSL settings, init scripts
+    - Applications: git commits, pull requests, build cache
 
 2. **Query Performance:**
-   - Separate indexes per resource type
-   - No polymorphic type checks in every query
-   - Easier to optimize per-resource-type
+    - Separate indexes per resource type
+    - No polymorphic type checks in every query
+    - Easier to optimize per-resource-type
 
 3. **Type Safety:**
-   - Explicit relationships and foreign keys (where possible)
-   - IDE autocomplete and static analysis benefits
+    - Explicit relationships and foreign keys (where possible)
+    - IDE autocomplete and static analysis benefits
 
 4. **Existing Pattern:**
-   - Coolify already uses separate tables: `applications`, `services`, `standalone_*`
-   - Consistent with codebase conventions
+    - Publify already uses separate tables: `applications`, `services`, `standalone_*`
+    - Consistent with codebase conventions
 
 **Alternative Considered:** Single `resource_deployments` polymorphic table
+
 - **Pros:** DRY, one model to maintain
 - **Cons:** Harder to query efficiently, less type-safe, complex indexes
 - **Decision:** Rejected in favor of clarity and performance
@@ -176,6 +190,7 @@ Schema::create('service_deployment_queues', function (Blueprint $table) {
 ```
 
 **Key Design Choices:**
+
 - `logs` as TEXT (JSON) - Same pattern as ApplicationDeploymentQueue
 - Denormalized server/service names for API responses without joins
 - `deployment_url` for direct link generation
@@ -212,6 +227,7 @@ Schema::create('database_deployment_queues', function (Blueprint $table) {
 ```
 
 **Key Design Choices:**
+
 - Polymorphic relationship using `database_id` + `database_type`
 - Can't use foreignId constraint due to multiple target tables
 - Composite index on polymorphic keys for efficient queries
@@ -369,6 +385,7 @@ class ServiceDeploymentQueue extends Model
 ```
 
 **Key Features:**
+
 - Exact same log structure as ApplicationDeploymentQueue
 - `addLogEntry()` with sensitive data redaction
 - Atomic log appends using DB transactions
@@ -522,6 +539,7 @@ class DatabaseDeploymentQueue extends Model
 ```
 
 **Key Differences from ServiceDeploymentQueue:**
+
 - Polymorphic `database()` relationship
 - More extensive sensitive data redaction (database passwords, connection strings)
 - Handles all 9 database types
@@ -683,6 +701,7 @@ function queue_database_deployment(
 **File:** `app/Actions/Service/StartService.php`
 
 **Before:**
+
 ```php
 public function handle(Service $service, bool $pullLatestImages = false, bool $stopBeforeStart = false)
 {
@@ -693,6 +712,7 @@ public function handle(Service $service, bool $pullLatestImages = false, bool $s
 ```
 
 **After:**
+
 ```php
 use App\Models\ServiceDeploymentQueue;
 use Visus\Cuid2\Cuid2;
@@ -734,6 +754,7 @@ public function handle(Service $service, bool $pullLatestImages = false, bool $s
 ```
 
 **Key Changes:**
+
 1. Generate deployment UUID at start
 2. Call `queue_service_deployment()` helper
 3. Pass `$deployment` as `model` parameter to `remote_process()`
@@ -744,6 +765,7 @@ public function handle(Service $service, bool $pullLatestImages = false, bool $s
 #### Actions 2-10: Database Start Actions (9 files)
 
 **Files to Update:**
+
 - `app/Actions/Database/StartPostgresql.php`
 - `app/Actions/Database/StartRedis.php`
 - `app/Actions/Database/StartMongodb.php`
@@ -756,6 +778,7 @@ public function handle(Service $service, bool $pullLatestImages = false, bool $s
 **Pattern (using StartPostgresql as example):**
 
 **Before:**
+
 ```php
 public function handle(StandalonePostgresql $database)
 {
@@ -766,6 +789,7 @@ public function handle(StandalonePostgresql $database)
 ```
 
 **After:**
+
 ```php
 use App\Models\DatabaseDeploymentQueue;
 use Visus\Cuid2\Cuid2;
@@ -807,6 +831,7 @@ public function handle(StandalonePostgresql $database)
 **File:** `app/Actions/Database/StartDatabase.php`
 
 **Before:**
+
 ```php
 public function handle(/* all database types */)
 {
@@ -820,7 +845,7 @@ public function handle(/* all database types */)
 }
 ```
 
-**After:** No changes needed - already returns Activity from Start* actions
+**After:** No changes needed - already returns Activity from Start\* actions
 
 ---
 
@@ -829,16 +854,19 @@ public function handle(/* all database types */)
 **File:** `app/Actions/CoolifyTask/PrepareCoolifyTask.php`
 
 **Current Behavior:**
+
 - Accepts `$model` parameter (currently only used for ApplicationDeploymentQueue)
 - Streams logs to Activity (Spatie ActivityLog)
 - Calls event on finish
 
 **Required Changes:**
+
 1. Check if `$model` is `ServiceDeploymentQueue` or `DatabaseDeploymentQueue`
 2. Call `addLogEntry()` on deployment model alongside Activity logs
 3. Update deployment status on completion/failure
 
 **Pseudocode for Changes:**
+
 ```php
 // In log streaming section
 if ($model instanceof ApplicationDeploymentQueue ||
@@ -1086,6 +1114,7 @@ private function removeSensitiveData($deployment)
 #### Update: deploy_resource() method
 
 **Before:**
+
 ```php
 case Service::class:
     StartService::run($resource);
@@ -1099,6 +1128,7 @@ default: // Database
 ```
 
 **After:**
+
 ```php
 case Service::class:
     $this->authorize('deploy', $resource);
@@ -1128,6 +1158,7 @@ default: // Database
 **File:** `app/Models/Service.php`
 
 **Add Method:**
+
 ```php
 /**
  * Get deployment history for this service
@@ -1157,6 +1188,7 @@ public function latestDeployment()
 #### Update 2: All Standalone Database Models (9 files)
 
 **Files:**
+
 - `app/Models/StandalonePostgresql.php`
 - `app/Models/StandaloneRedis.php`
 - `app/Models/StandaloneMongodb.php`
@@ -1167,6 +1199,7 @@ public function latestDeployment()
 - `app/Models/StandaloneClickhouse.php`
 
 **Add Methods to Each:**
+
 ```php
 /**
  * Get deployment history for this database
@@ -1200,6 +1233,7 @@ public function latestDeployment()
 **File:** `routes/api.php`
 
 **Add Routes:**
+
 ```php
 Route::middleware(['auth:sanctum'])->group(function () {
     // Existing routes...
@@ -1223,10 +1257,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 ### Phase 10: Policies & Authorization (Optional - If needed)
 
 **Service Policy:** `app/Policies/ServicePolicy.php`
+
 - May need to add `viewDeployment` and `viewDeployments` methods if they don't exist
 - Check existing `view` gate - it should cover deployment viewing
 
 **Database Policies:**
+
 - Each StandaloneDatabase type may have its own policy
 - Verify `view` gate exists and covers deployment history access
 
@@ -1471,38 +1507,42 @@ it('requires authentication for service deployments', function () {
 
 ### Phase Order (Safest to Riskiest)
 
-| Phase | Risk | Can Break Production? | Rollback Strategy |
-|-------|------|----------------------|-------------------|
-| 1. Schema | Low | No (new tables) | Drop tables |
-| 2. Models | Low | No (unused code) | Remove files |
-| 3. Enums | Low | No (unused code) | Remove files |
-| 4. Helpers | Low | No (unused code) | Remove functions |
-| 5. Actions | **HIGH** | **YES** | Revert to old actions |
-| 6. Remote Process | **CRITICAL** | **YES** | Revert changes |
-| 7. API | Medium | No (new endpoints) | Remove routes |
-| 8. Relationships | Low | No (new methods) | Remove methods |
-| 9. UI | Low | No (optional) | Remove components |
-| 10. Policies | Low | Maybe (if breaking existing) | Revert gates |
+| Phase             | Risk         | Can Break Production?        | Rollback Strategy     |
+| ----------------- | ------------ | ---------------------------- | --------------------- |
+| 1. Schema         | Low          | No (new tables)              | Drop tables           |
+| 2. Models         | Low          | No (unused code)             | Remove files          |
+| 3. Enums          | Low          | No (unused code)             | Remove files          |
+| 4. Helpers        | Low          | No (unused code)             | Remove functions      |
+| 5. Actions        | **HIGH**     | **YES**                      | Revert to old actions |
+| 6. Remote Process | **CRITICAL** | **YES**                      | Revert changes        |
+| 7. API            | Medium       | No (new endpoints)           | Remove routes         |
+| 8. Relationships  | Low          | No (new methods)             | Remove methods        |
+| 9. UI             | Low          | No (optional)                | Remove components     |
+| 10. Policies      | Low          | Maybe (if breaking existing) | Revert gates          |
 
 ### Recommended Rollout Strategy
 
 **Week 1: Foundation (No Risk)**
+
 - Complete Phases 1-4
 - Write and run all unit tests
 - Verify migrations work in dev/staging
 
 **Week 2: Critical Changes (High Risk)**
+
 - Complete Phase 5 (Actions) for **Services only**
 - Complete Phase 6 (Remote Process handler) for Services
 - Test extensively in staging
 - Monitor for errors
 
 **Week 3: Database Support**
+
 - Extend Phase 5 to all 9 database types
 - Update Phase 6 for database support
 - Test each database type individually
 
 **Week 4: API & Polish**
+
 - Complete Phases 7-10
 - Feature tests
 - API documentation
@@ -1511,22 +1551,26 @@ it('requires authentication for service deployments', function () {
 ### Testing Checkpoints
 
 **After Phase 4:**
+
 - ✅ Migrations apply cleanly
 - ✅ Models instantiate without errors
 - ✅ Unit tests pass
 
 **After Phase 5 (Services):**
+
 - ✅ Service start creates deployment queue
 - ✅ Service logs stream to deployment queue
 - ✅ Service deployments appear in database
 - ✅ No disruption to existing service starts
 
 **After Phase 5 (Databases):**
+
 - ✅ Each database type creates deployment queue
 - ✅ Database logs stream correctly
 - ✅ No errors on database start
 
 **After Phase 7:**
+
 - ✅ API endpoints return correct data
 - ✅ Authorization works correctly
 - ✅ Sensitive data is redacted
@@ -1536,56 +1580,66 @@ it('requires authentication for service deployments', function () {
 ## Known Risks & Mitigation
 
 ### Risk 1: Breaking Existing Deployments
+
 **Probability:** Medium
 **Impact:** Critical
 
 **Mitigation:**
+
 - Test exhaustively in staging before production
 - Deploy during low-traffic window
 - Have rollback plan ready (git revert + migration rollback)
 - Monitor error logs closely after deploy
 
 ### Risk 2: Database Performance Impact
+
 **Probability:** Low
 **Impact:** Medium
 
 **Details:** Each deployment now writes logs to DB multiple times (via `addLogEntry()`)
 
 **Mitigation:**
+
 - Use `saveQuietly()` to avoid triggering events
 - JSON column is indexed for fast retrieval
 - Logs are text (compressed well by Postgres)
 - Add monitoring for slow queries
 
 ### Risk 3: Disk Space Growth
+
 **Probability:** Medium (long-term)
 **Impact:** Low
 
 **Details:** Deployment logs accumulate over time
 
 **Mitigation:**
+
 - Implement log retention policy (delete deployments older than X days/months)
 - Add background job to prune old deployment records
 - Monitor disk usage trends
 
 ### Risk 4: Polymorphic Relationship Complexity
+
 **Probability:** Low
 **Impact:** Low
 
 **Details:** DatabaseDeploymentQueue uses polymorphic relationship (9 database types)
 
 **Mitigation:**
+
 - Thorough testing of each database type
 - Composite indexes on (database_id, database_type)
 - Clear documentation of relationship structure
 
 ### Risk 5: Remote Process Integration
+
 **Probability:** High
 **Impact:** Critical
 
 **Details:** `PrepareCoolifyTask` is core to all deployments. Changes here affect everything.
 
 **Mitigation:**
+
 - Review `PrepareCoolifyTask` code in detail before changes
 - Add type checks (`instanceof`) to avoid breaking existing logic
 - Extensive testing of application deployments after changes
@@ -1604,6 +1658,7 @@ it('requires authentication for service deployments', function () {
 - This is acceptable - deployment history starts "now"
 
 **Alternative (if history is critical):**
+
 - Could create fake deployment records for currently running resources
 - Not recommended - logs don't exist, would be misleading
 
@@ -1616,11 +1671,13 @@ it('requires authentication for service deployments', function () {
 **Current:** ~1 write per deployment (Activity log, TTL-based)
 
 **New:** ~1 write per deployment + N writes for log entries
+
 - Application deployments: ~50-200 log entries
 - Service deployments: ~10-30 log entries
 - Database deployments: ~5-15 log entries
 
 **Impact:** Minimal
+
 - Writes are async (queued)
 - Postgres handles small JSON updates efficiently
 - `saveQuietly()` skips event dispatching overhead
@@ -1628,11 +1685,13 @@ it('requires authentication for service deployments', function () {
 ### Query Performance
 
 **Critical Queries:**
+
 - "Get deployment history for service/database" - indexed on (resource_id, status, created_at)
 - "Get deployment by UUID" - unique index on deployment_uuid
 - "Get all in-progress deployments" - composite index on (server_id, status, created_at)
 
 **Expected Performance:**
+
 - < 10ms for single deployment lookup
 - < 50ms for paginated history (10 records)
 - < 100ms for server-wide deployment status
@@ -1642,15 +1701,18 @@ it('requires authentication for service deployments', function () {
 ## Storage Estimates
 
 **Per Deployment:**
+
 - Metadata: ~500 bytes
 - Logs (avg): ~50KB (application), ~10KB (service), ~5KB (database)
 
 **1000 deployments/day:**
+
 - Services: ~10MB/day = ~300MB/month
 - Databases: ~5MB/day = ~150MB/month
 - Total: ~450MB/month (highly compressible)
 
 **Retention Policy Recommendation:**
+
 - Keep all deployments for 30 days
 - Keep successful deployments for 90 days
 - Keep failed deployments for 180 days (for debugging)
@@ -1662,6 +1724,7 @@ it('requires authentication for service deployments', function () {
 ### Option 1: Unified Resource Deployments Table
 
 **Schema:**
+
 ```sql
 CREATE TABLE resource_deployments (
     id BIGINT PRIMARY KEY,
@@ -1674,11 +1737,13 @@ CREATE TABLE resource_deployments (
 ```
 
 **Pros:**
+
 - Single model to maintain
 - DRY (Don't Repeat Yourself)
 - Easier to query "all deployments across all resources"
 
 **Cons:**
+
 - Polymorphic queries are slower
 - No foreign key constraints
 - Different resources have different deployment attributes
@@ -1694,10 +1759,12 @@ CREATE TABLE resource_deployments (
 **Approach:** Don't create deployment queue tables. Use existing Activity log with longer TTL.
 
 **Pros:**
+
 - Zero new code
 - Activity log already stores logs
 
 **Cons:**
+
 - Activity log is ephemeral (not designed for permanent history)
 - No structured deployment metadata (status, UUIDs, etc.)
 - Would need to change Activity TTL globally (affects all activities)
@@ -1712,10 +1779,12 @@ CREATE TABLE resource_deployments (
 **Approach:** Stream logs to external service (S3, CloudWatch, etc.)
 
 **Pros:**
+
 - Offload storage from main database
 - Better for very large log volumes
 
 **Cons:**
+
 - Additional infrastructure complexity
 - Requires external dependencies
 - Harder to query deployment history
@@ -1728,28 +1797,33 @@ CREATE TABLE resource_deployments (
 ## Future Enhancements (Out of Scope)
 
 ### 1. Deployment Queue System
+
 - Like application deployments, queue service/database starts
 - Respect server concurrent limits
 - **Complexity:** High
 - **Value:** Medium (services/databases deploy fast, queueing less critical)
 
 ### 2. UI for Deployment History
+
 - Livewire components to view past deployments
 - Similar to application deployment history page
 - **Complexity:** Medium
 - **Value:** High (nice-to-have, not critical for first release)
 
 ### 3. Deployment Comparison
+
 - Diff between two deployments (config changes)
 - **Complexity:** High
 - **Value:** Low
 
 ### 4. Deployment Rollback
+
 - Roll back service/database to previous deployment
 - **Complexity:** Very High (databases especially risky)
 - **Value:** Medium
 
 ### 5. Deployment Notifications
+
 - Notify on service/database deployment success/failure
 - **Complexity:** Low
 - **Value:** Medium
@@ -1781,36 +1855,38 @@ CREATE TABLE resource_deployments (
 ## Questions to Resolve Before Implementation
 
 1. **Should we queue service/database starts (like applications)?**
-   - Current: Services/databases start immediately
-   - With queue: Respect server concurrent limits, better for cloud instance
-   - **Recommendation:** Start without queue, add later if needed
+    - Current: Services/databases start immediately
+    - With queue: Respect server concurrent limits, better for cloud instance
+    - **Recommendation:** Start without queue, add later if needed
 
 2. **Should API deploy endpoints return deployment_uuid for services/databases?**
-   - Current: Application deploys return deployment_uuid
-   - Proposed: Services/databases should too
-   - **Recommendation:** Yes, for consistency. Requires actions to return deployment object.
+    - Current: Application deploys return deployment_uuid
+    - Proposed: Services/databases should too
+    - **Recommendation:** Yes, for consistency. Requires actions to return deployment object.
 
 3. **What's the log retention policy?**
-   - **Recommendation:** 90 days for all, with background job to prune
+    - **Recommendation:** 90 days for all, with background job to prune
 
 4. **Do we need UI in first release?**
-   - **Recommendation:** No, API is sufficient. Add UI iteratively.
+    - **Recommendation:** No, API is sufficient. Add UI iteratively.
 
 5. **Should we implement deployment cancellation?**
-   - Applications support cancellation
-   - **Recommendation:** Not in MVP, add later if requested
+    - Applications support cancellation
+    - **Recommendation:** Not in MVP, add later if requested
 
 ---
 
 ## Implementation Checklist
 
 ### Pre-Implementation
+
 - [ ] Review this plan with team
 - [ ] Get approval on architectural decisions
 - [ ] Resolve open questions
 - [ ] Set up staging environment for testing
 
 ### Phase 1: Schema
+
 - [ ] Create `create_service_deployment_queues_table` migration
 - [ ] Create `create_database_deployment_queues_table` migration
 - [ ] Create index optimization migration
@@ -1818,6 +1894,7 @@ CREATE TABLE resource_deployments (
 - [ ] Run migrations in staging
 
 ### Phase 2: Models
+
 - [ ] Create `ServiceDeploymentQueue` model
 - [ ] Create `DatabaseDeploymentQueue` model
 - [ ] Add `$fillable`, `$guarded` properties
@@ -1826,15 +1903,18 @@ CREATE TABLE resource_deployments (
 - [ ] Add OpenAPI schemas
 
 ### Phase 3: Enums
+
 - [ ] Create `ServiceDeploymentStatus` enum
 - [ ] Create `DatabaseDeploymentStatus` enum
 
 ### Phase 4: Helpers
+
 - [ ] Add `queue_service_deployment()` to `bootstrap/helpers/services.php`
 - [ ] Add `queue_database_deployment()` to `bootstrap/helpers/databases.php`
 - [ ] Test helpers in Tinker
 
 ### Phase 5: Actions
+
 - [ ] Update `StartService` action
 - [ ] Update `StartPostgresql` action
 - [ ] Update `StartRedis` action
@@ -1847,6 +1927,7 @@ CREATE TABLE resource_deployments (
 - [ ] Test each action in staging
 
 ### Phase 6: Remote Process
+
 - [ ] Review `PrepareCoolifyTask` code
 - [ ] Add type checks for ServiceDeploymentQueue
 - [ ] Add type checks for DatabaseDeploymentQueue
@@ -1857,6 +1938,7 @@ CREATE TABLE resource_deployments (
 - [ ] Test with database deployments
 
 ### Phase 7: API
+
 - [ ] Add `get_service_deployments()` endpoint
 - [ ] Add `service_deployment_by_uuid()` endpoint
 - [ ] Add `get_database_deployments()` endpoint
@@ -1867,12 +1949,14 @@ CREATE TABLE resource_deployments (
 - [ ] Test endpoints with Postman/curl
 
 ### Phase 8: Relationships
+
 - [ ] Add `deployments()` method to `Service` model
 - [ ] Add `latestDeployment()` method to `Service` model
 - [ ] Add `deployments()` method to all 9 Standalone database models
 - [ ] Add `latestDeployment()` method to all 9 Standalone database models
 
 ### Phase 9: Tests
+
 - [ ] Write `ServiceDeploymentQueueTest` (unit)
 - [ ] Write `DatabaseDeploymentQueueTest` (unit)
 - [ ] Write `ServiceDeploymentTest` (feature)
@@ -1882,11 +1966,13 @@ CREATE TABLE resource_deployments (
 - [ ] Run full test suite, ensure no regressions
 
 ### Phase 10: Documentation
+
 - [ ] Update API documentation
 - [ ] Update CLAUDE.md if needed
 - [ ] Add code comments for complex sections
 
 ### Deployment
+
 - [ ] Create PR with all changes
 - [ ] Code review
 - [ ] Test in staging (full regression suite)
@@ -1895,6 +1981,7 @@ CREATE TABLE resource_deployments (
 - [ ] Verify deployments are being tracked
 
 ### Post-Deployment
+
 - [ ] Monitor disk usage trends
 - [ ] Monitor query performance
 - [ ] Gather user feedback

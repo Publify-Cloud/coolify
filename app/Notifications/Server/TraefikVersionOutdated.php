@@ -43,9 +43,19 @@ class TraefikVersionOutdated extends CustomEmailNotification
         $mail = new MailMessage;
         $count = $this->servers->count();
 
-        $mail->subject("Coolify: Traefik proxy outdated on {$count} server(s)");
+        // Transform servers to include URLs
+        $serversWithUrls = $this->servers->map(function ($server) {
+            return [
+                'name' => $server->name,
+                'uuid' => $server->uuid,
+                'url' => base_url().'/server/'.$server->uuid.'/proxy',
+                'outdatedInfo' => $server->outdatedInfo ?? [],
+            ];
+        });
+
+        $mail->subject("Publify: Traefik proxy outdated on {$count} server(s)");
         $mail->view('emails.traefik-version-outdated', [
-            'servers' => $this->servers,
+            'servers' => $serversWithUrls,
             'count' => $count,
         ]);
 
@@ -89,7 +99,7 @@ class TraefikVersionOutdated extends CustomEmailNotification
         }
 
         return new DiscordMessage(
-            title: ':warning: Coolify: Traefik proxy outdated',
+            title: ':warning: Publify: Traefik proxy outdated',
             description: $description,
             color: DiscordMessage::warningColor(),
         );
@@ -102,7 +112,7 @@ class TraefikVersionOutdated extends CustomEmailNotification
             isset($s->outdatedInfo['newer_branch_target'])
         );
 
-        $message = "⚠️ Coolify: Traefik proxy outdated on {$count} server(s)!\n\n";
+        $message = "⚠️ Publify: Traefik proxy outdated on {$count} server(s)!\n\n";
         $message .= "Update recommended for security and features.\n";
         $message .= "📊 Affected servers:\n";
 
@@ -218,7 +228,7 @@ class TraefikVersionOutdated extends CustomEmailNotification
         }
 
         return new SlackMessage(
-            title: 'Coolify: Traefik proxy outdated',
+            title: 'Publify: Traefik proxy outdated',
             description: $description,
             color: SlackMessage::warningColor()
         );

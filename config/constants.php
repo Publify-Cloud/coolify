@@ -2,7 +2,7 @@
 
 return [
     'coolify' => [
-        'version' => '4.0.0-beta.446',
+        'version' => '4.0.0-beta.462',
         'helper_version' => '1.0.12',
         'realtime_version' => '1.0.10',
         'self_hosted' => env('SELF_HOSTED', true),
@@ -12,6 +12,9 @@ return [
         'helper_image' => env('HELPER_IMAGE', 'ghcr.io/coollabsio/coolify-helper'),
         'realtime_image' => env('REALTIME_IMAGE', 'ghcr.io/coollabsio/coolify-realtime'),
         'is_windows_docker_desktop' => env('IS_WINDOWS_DOCKER_DESKTOP', false),
+        'cdn_url' => env('CDN_URL', 'https://cdn.publify.justahost.cloud'),
+        'versions_url' => env('VERSIONS_URL', env('CDN_URL', 'https://cdn.publify.justahost.cloud').'/coolify/versions.json'),
+        'upgrade_script_url' => env('UPGRADE_SCRIPT_URL', env('CDN_URL', 'https://cdn.publify.justahost.cloud').'/coolify/upgrade.sh'),
         'releases_url' => 'https://cdn.coolify.io/releases.json',
     ],
 
