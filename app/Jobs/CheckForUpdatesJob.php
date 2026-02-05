@@ -43,7 +43,7 @@ class CheckForUpdatesJob implements ShouldBeEncrypted, ShouldQueue
 
                 // Check if cache has newer version than CDN
                 if ($existingCoolifyVersion && version_compare($existingCoolifyVersion, $bestVersion, '>')) {
-                    Log::warning('CDN served older Coolify version than cache', [
+                    Log::warning('CDN served older Publify version than cache', [
                         'cdn_version' => $latest_version,
                         'cached_version' => $existingCoolifyVersion,
                         'current_version' => $current_version,

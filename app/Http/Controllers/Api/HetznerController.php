@@ -456,7 +456,7 @@ class HetznerController extends Controller
 
     #[OA\Post(
         summary: 'Create Hetzner Server',
-        description: 'Create a new server on Hetzner and register it in Coolify.',
+        description: 'Create a new server on Hetzner and register it in Publify.',
         path: '/servers/hetzner',
         operationId: 'create-hetzner-server',
         security: [

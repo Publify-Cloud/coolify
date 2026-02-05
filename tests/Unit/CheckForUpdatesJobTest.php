@@ -134,7 +134,7 @@ it('uses data_set for safe version mutation', function () {
     $job->handle();
 })->skip('Needs better mock setup for instanceSettings');
 
-it('preserves other component versions when preventing Coolify downgrade', function () {
+it('preserves other component versions when preventing Publify downgrade', function () {
     // CDN has older Coolify but newer Traefik
     Http::fake([
         '*' => Http::response([
@@ -171,7 +171,7 @@ it('preserves other component versions when preventing Coolify downgrade', funct
 
     \Illuminate\Support\Facades\Log::shouldReceive('warning')
         ->once()
-        ->with('CDN served older Coolify version than cache', Mockery::type('array'));
+        ->with('CDN served older Publify version than cache', Mockery::type('array'));
 
     \Illuminate\Support\Facades\Log::shouldReceive('warning')
         ->once()

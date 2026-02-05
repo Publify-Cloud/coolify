@@ -31,7 +31,7 @@ fi
 
 echo ""
 echo "=========================================="
-echo "   Coolify Installation - ${DATE}"
+echo "   Publify Installation - ${DATE}"
 echo "=========================================="
 echo ""
 echo "Welcome to Publify Installer!"
@@ -899,8 +899,8 @@ chmod -R 700 /data/coolify
 log "SSH key check completed"
 echo "     Done."
 
-log_section "Step 9/9: Installing Coolify"
-echo "9/9 Installing Coolify ($LATEST_VERSION)..."
+log_section "Step 9/9: Installing Publify"
+echo "9/9 Installing Publify ($LATEST_VERSION)..."
 echo -e " - It could take a while based on your server's performance, network speed, stars, etc."
 echo -e " - Please wait."
 getAJoke
@@ -911,7 +911,7 @@ else
     bash /data/coolify/source/upgrade.sh "${LATEST_VERSION:-latest}" "${LATEST_HELPER_VERSION:-latest}" "${REGISTRY_URL:-public.ecr.aws/g6l4g2t4}" "true"
 fi
 echo " - Publify installed successfully."
-echo " - Waiting for Coolify to be ready..."
+echo " - Waiting for Publify to be ready..."
 
 # Wait for upgrade.sh background process to complete
 # upgrade.sh writes status to /data/coolify/source/.upgrade-status
@@ -971,14 +971,14 @@ if [ $WAITED -ge $MAX_WAIT ]; then
 fi
 
 # Final health verification - wait for container to be healthy
-echo " - Verifying Coolify is healthy..."
+echo " - Verifying Publify is healthy..."
 HEALTH_WAIT=60
 HEALTH_WAITED=0
 while [ $HEALTH_WAITED -lt $HEALTH_WAIT ]; do
     HEALTH=$(docker inspect --format='{{.State.Health.Status}}' coolify 2>/dev/null || echo "unknown")
     if [ "$HEALTH" = "healthy" ]; then
-        log "Coolify container is healthy"
-        echo " - Coolify is ready!"
+        log "Publify container is healthy"
+        echo " - Publify is ready!"
         break
     fi
     sleep 2
@@ -986,7 +986,7 @@ while [ $HEALTH_WAITED -lt $HEALTH_WAIT ]; do
 done
 
 if [ "$HEALTH" != "healthy" ]; then
-    echo " - ERROR: Coolify container is not healthy after ${HEALTH_WAIT}s. Status: $HEALTH"
+    echo " - ERROR: Publify container is not healthy after ${HEALTH_WAIT}s. Status: $HEALTH"
     echo " - Please check: docker logs coolify"
     exit 1
 fi
@@ -1037,6 +1037,6 @@ fi
 echo -e "\nWARNING: It is highly recommended to backup your Environment variables file (/data/coolify/source/.env) to a safe location, outside of this server (e.g. into a Password Manager).\n"
 
 log_section "Installation Complete"
-log "Coolify installation completed successfully"
+log "Publify installation completed successfully"
 log "Version: ${LATEST_VERSION}"
 log "Log file: ${INSTALLATION_LOG_WITH_DATE}"

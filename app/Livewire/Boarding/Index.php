@@ -473,7 +473,7 @@ class Index extends Component
     private function createNewPrivateKey()
     {
         $this->privateKeyName = generate_random_name();
-        $this->privateKeyDescription = 'Created by Coolify';
+        $this->privateKeyDescription = 'Created by Publify';
         ['private' => $this->privateKey, 'public' => $this->publicKey] = generateSSHKey();
     }
 

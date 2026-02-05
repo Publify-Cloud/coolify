@@ -26,23 +26,23 @@ class DeleteServer
             );
         }
 
-        ray($server ? 'Deleting server from Coolify' : 'Server already deleted from Coolify, skipping Coolify deletion');
+        ray($server ? 'Deleting server from Publify' : 'Server already deleted from Publify, skipping Publify deletion');
 
         // If server is already deleted from Coolify, skip this part
         if (! $server) {
             return; // Server already force deleted from Coolify
         }
 
-        ray('force deleting server from Coolify', ['server_id' => $server->id]);
+        ray('force deleting server from Publify', ['server_id' => $server->id]);
 
         try {
             $server->forceDelete();
         } catch (\Throwable $e) {
-            ray('Failed to force delete server from Coolify', [
+            ray('Failed to force delete server from Publify', [
                 'error' => $e->getMessage(),
                 'server_id' => $server->id,
             ]);
-            logger()->error('Failed to force delete server from Coolify', [
+            logger()->error('Failed to force delete server from Publify', [
                 'error' => $e->getMessage(),
                 'server_id' => $server->id,
             ]);

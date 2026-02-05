@@ -58,7 +58,7 @@ test('RuntimeException is still reported when thrown', function () {
     $handler = new Handler(app());
 
     // RuntimeException should still be reported (this is for Coolify bugs)
-    $exception = new RuntimeException('Unexpected error in Coolify code');
+    $exception = new RuntimeException('Unexpected error in Publify code');
 
     // Check that the exception should be reported
     $reflection = new ReflectionClass($handler);

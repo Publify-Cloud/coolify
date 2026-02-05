@@ -119,7 +119,7 @@ class Test extends Notification implements ShouldQueue
     {
         return [
             'success' => true,
-            'message' => 'This is a test webhook notification from Coolify.',
+            'message' => 'This is a test webhook notification from Publify.',
             'event' => 'test',
             'url' => base_url(),
         ];
