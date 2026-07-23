@@ -22,7 +22,7 @@
     <meta name="twitter:site" content="@coolifyio" />
     <meta name="twitter:title" content="Publify" />
     <meta name="twitter:description" content="An open-source & self-hostable Heroku / Netlify / Vercel alternative." />
-    <meta name="twitter:image" content="https://cdn.publify.justahost.cloud/assets/og-image.png" />
+    <meta name="twitter:image" content="https://cdn.coollabs.io/og-images/coolify.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://coolify.io" />
     <meta property="og:title" content="Publify" />
@@ -44,7 +44,11 @@
         }
     @endphp
     <title>{{ $name }}{{ $title ?? 'Publify' }}</title>
-    <link rel="icon" href="{{ asset('publify-transparent.png') }}" type="image/png" />
+    @env('local')
+        <link rel="icon" href="{{ asset('publify-transparent.png') }}" type="image/png" />
+    @else
+        <link rel="icon" href="{{ asset('publify-transparent.png') }}" type="image/png" />
+    @endenv
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     <script>
@@ -58,7 +62,7 @@
             display: none !important;
         }
     </style>
-    @if (config('app.name') == 'Publify Cloud')
+    @if (config('app.name') == 'Coolify Cloud')
         <script defer data-domain="app.coolify.io" src="https://analytics.coollabs.io/js/plausible.js"></script>
         <script src="https://js.sentry-cdn.com/0f8593910512b5cdd48c6da78d4093be.min.js" crossorigin="anonymous"></script>
     @endif
@@ -168,7 +172,8 @@
         }
         @auth
             window.Pusher = Pusher;
-            window.Echo = new Echo({
+            const EchoConstructor = typeof Echo === 'function' ? Echo : Echo.default;
+            window.Echo = new EchoConstructor({
                 broadcaster: 'pusher',
                 cluster: "{{ config('constants.pusher.host') }}" || window.location.hostname,
                 key: "{{ config('constants.pusher.app_key') }}" || 'coolify',
@@ -198,30 +203,6 @@
         @endauth
         let checkHealthInterval = null;
         let checkIfIamDeadInterval = null;
-
-        function changePasswordFieldType(event) {
-            let element = event.target
-            for (let i = 0; i < 10; i++) {
-                if (element.className === "relative") {
-                    break;
-                }
-                element = element.parentElement;
-            }
-            element = element.children[1];
-            if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
-                if (element.type === 'password') {
-                    element.type = 'text';
-                    if (element.disabled) return;
-                    element.classList.add('truncate');
-                    this.type = 'text';
-                } else {
-                    element.type = 'password';
-                    if (element.disabled) return;
-                    element.classList.remove('truncate');
-                    this.type = 'password';
-                }
-            }
-        }
 
         function copyToClipboard(text) {
             navigator?.clipboard?.writeText(text) && window.Livewire.dispatch('success', 'Copied to clipboard.');

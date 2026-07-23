@@ -2,8 +2,12 @@
 
 namespace App\Livewire\Project\Shared\Storages;
 
+use App\Models\Application;
 use App\Models\LocalPersistentVolume;
+use App\Models\ScheduledVolumeBackup;
+use App\Support\ValidationPatterns;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Show extends Component
@@ -29,17 +33,38 @@ class Show extends Component
 
     public ?string $hostPath = null;
 
-    protected $rules = [
-        'name' => 'required|string',
-        'mountPath' => 'required|string',
-        'hostPath' => 'string|nullable',
-    ];
+    public bool $isPreviewSuffixEnabled = true;
+
+    public bool $hasEnabledBackup = false;
+
+    public ?string $backupUrl = null;
 
     protected $validationAttributes = [
         'name' => 'name',
         'mountPath' => 'mount',
         'hostPath' => 'host',
     ];
+
+    protected function rules(): array
+    {
+        return [
+            'name' => ValidationPatterns::volumeNameRules(),
+            'mountPath' => ['required', 'string', 'regex:'.ValidationPatterns::DIRECTORY_PATH_PATTERN],
+            'hostPath' => ['nullable', 'string', 'regex:'.ValidationPatterns::DIRECTORY_PATH_PATTERN],
+            'isPreviewSuffixEnabled' => 'required|boolean',
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return array_merge(
+            ValidationPatterns::volumeNameMessages(),
+            [
+                'mountPath.regex' => 'Mount path must start with / and only contain safe path characters.',
+                'hostPath.regex' => 'Host path must start with / and only contain safe path characters.',
+            ]
+        );
+    }
 
     /**
      * Sync data between component properties and model
@@ -53,18 +78,58 @@ class Show extends Component
             $this->storage->name = $this->name;
             $this->storage->mount_path = $this->mountPath;
             $this->storage->host_path = $this->hostPath;
+            $this->storage->is_preview_suffix_enabled = $this->isPreviewSuffixEnabled;
         } else {
             // Sync FROM model (on load/refresh)
             $this->name = $this->storage->name;
             $this->mountPath = $this->storage->mount_path;
             $this->hostPath = $this->storage->host_path;
+            $this->isPreviewSuffixEnabled = $this->storage->is_preview_suffix_enabled ?? true;
         }
     }
 
-    public function mount()
+    public function mount(): void
     {
         $this->syncData(false);
         $this->isReadOnly = $this->storage->shouldBeReadOnlyInUI();
+        $this->refreshBackupStatus();
+    }
+
+    #[On('refreshVolumeBackups')]
+    public function refreshBackupStatus(): void
+    {
+        $backup = $this->storage->scheduledBackups()->first();
+
+        $this->hasEnabledBackup = $backup?->enabled ?? false;
+        $this->backupUrl = null;
+
+        if (! $this->hasEnabledBackup || ! $this->resource instanceof Application) {
+            return;
+        }
+
+        $parameters = [
+            'project_uuid' => $this->resource->project()->uuid,
+            'environment_uuid' => $this->resource->environment->uuid,
+            'application_uuid' => $this->resource->uuid,
+        ];
+        $hasOtherBackups = ScheduledVolumeBackup::query()
+            ->forApplication($this->resource)
+            ->where('id', '!=', $backup->id)
+            ->exists();
+
+        $this->backupUrl = $hasOtherBackups
+            ? route('project.application.backup.index', [...$parameters, 'search' => $this->storage->name])
+            : route('project.application.backup.show', [...$parameters, 'backup_uuid' => $backup->uuid]);
+    }
+
+    public function instantSave(): void
+    {
+        $this->authorize('update', $this->resource);
+        $this->validate();
+
+        $this->syncData(true);
+        $this->storage->save();
+        $this->dispatch('success', 'Storage updated successfully');
     }
 
     public function submit()
@@ -77,15 +142,24 @@ class Show extends Component
         $this->dispatch('success', 'Storage updated successfully');
     }
 
-    public function delete($password)
+    public function delete($password, $selectedActions = [])
     {
         $this->authorize('update', $this->resource);
 
         if (! verifyPasswordConfirmation($password, $this)) {
-            return;
+            return 'The provided password is incorrect.';
+        }
+
+        if ($this->storage->scheduledBackups()->exists()) {
+            $this->dispatch('error', 'Delete this volume backup schedule and its archives before deleting the volume.');
+
+            return false;
         }
 
         $this->storage->delete();
         $this->dispatch('refreshStorages');
+        $this->dispatch('configurationChanged');
+
+        return true;
     }
 }
