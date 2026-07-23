@@ -51,7 +51,7 @@ it('only removes validated Coolify CDN temporary directories', function () {
 
 it('syncs full files to BunnyCDN only when explicitly requested', function () {
     Http::fake([
-        'https://cdn.coollabs.io/coolify/*' => Http::response('', 404),
+        'https://cdn.publify.justahost.cloud/coolify/*' => Http::response('', 404),
         'https://storage.bunnycdn.com/*' => Http::response([], 201),
         'https://api.bunny.net/purge*' => Http::response([], 200),
     ]);
@@ -107,7 +107,7 @@ SH);
         && $request->url() === 'https://storage.bunnycdn.com/coolcdn/coolify/upgrade-postgres.sh');
 
     Http::assertSent(fn ($request) => str_starts_with($request->url(), 'https://api.bunny.net/purge')
-        && $request['url'] === 'https://cdn.coollabs.io/coolify/upgrade-postgres.sh');
+        && $request['url'] === 'https://cdn.publify.justahost.cloud/coolify/upgrade-postgres.sh');
 });
 
 it('selects the environment and release files to sync to GitHub', function (string $targetDirectory, string $environment, array $selectedBasenames) {

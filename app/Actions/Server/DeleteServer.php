@@ -44,7 +44,7 @@ class DeleteServer
             );
         }
 
-        logger()->debug($server ? 'Deleting server from Coolify' : 'Server already deleted from Coolify, skipping Coolify deletion');
+        logger()->debug($server ? 'Deleting server from Publify' : 'Server already deleted from Publify, skipping Publify deletion');
 
         // If server is already deleted from Coolify, skip this part
         if (! $server) {
@@ -54,7 +54,7 @@ class DeleteServer
         try {
             $server->forceDelete();
         } catch (\Throwable $e) {
-            logger()->error('Failed to force delete server from Coolify', [
+            logger()->error('Failed to force delete server from Publify', [
                 'error' => $e->getMessage(),
                 'server_id' => $server->id,
             ]);

@@ -14,8 +14,8 @@ return [
         'realtime_image' => env('REALTIME_IMAGE', env('REGISTRY_URL', 'public.ecr.aws/g6l4g2t4').'/coollabsio/coolify-realtime'),
         'is_windows_docker_desktop' => env('IS_WINDOWS_DOCKER_DESKTOP', false),
         'cdn_url' => env('CDN_URL', 'https://cdn.publify.justahost.cloud'),
-        'versions_url' => env('VERSIONS_URL', env('CDN_URL', 'https://cdn.publify.justahost.cloud').'/coolify/versions.json'),
-        'upgrade_script_url' => env('UPGRADE_SCRIPT_URL', env('CDN_URL', 'https://cdn.publify.justahost.cloud').'/coolify/upgrade.sh'),
+        'versions_url' => env('VERSIONS_URL', env('CDN_URL', 'https://cdn.publify.justahost.cloud').'/versions.json'),
+        'upgrade_script_url' => env('UPGRADE_SCRIPT_URL', env('CDN_URL', 'https://cdn.publify.justahost.cloud').'/upgrade.sh'),
         'releases_url' => env('RELEASES_URL', 'https://cdn.coollabs.io/coolify/releases.json'),
     ],
 

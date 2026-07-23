@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Do not modify this file. You will lose the ability to autoupdate!
 
-CDN="https://cdn.coollabs.io/coolify-nightly"
+CDN="https://cdn.publify.justahost.cloud"
 LATEST_IMAGE=${1:-latest}
 LATEST_HELPER_VERSION=${2:-latest}
 ENV_FILE="/data/coolify/source/.env"
@@ -10,7 +10,7 @@ if [ -n "${3+x}" ]; then
 elif [ -f "$ENV_FILE" ] && grep -q "^REGISTRY_URL=" "$ENV_FILE"; then
     REGISTRY_URL=$(grep "^REGISTRY_URL=" "$ENV_FILE" | cut -d '=' -f2- | head -n1)
 else
-    REGISTRY_URL="docker.io"
+    REGISTRY_URL="public.ecr.aws/g6l4g2t4"
 fi
 SKIP_BACKUP=${4:-false}
 STATUS_FILE="/data/coolify/source/.upgrade-status"
@@ -40,13 +40,13 @@ write_status() {
 
 echo ""
 echo "=========================================="
-echo "   Coolify Upgrade - ${DATE}"
+echo "   Publify Upgrade - ${DATE}"
 echo "=========================================="
 echo ""
 
 # Initialize log file with header
 echo "============================================================" >>"$LOGFILE"
-echo "Coolify Upgrade Log" >>"$LOGFILE"
+echo "Publify Upgrade Log" >>"$LOGFILE"
 echo "Started: $(date '+%Y-%m-%d %H:%M:%S')" >>"$LOGFILE"
 echo "Target Version: ${LATEST_IMAGE}" >>"$LOGFILE"
 echo "Helper Version: ${LATEST_HELPER_VERSION}" >>"$LOGFILE"
@@ -155,7 +155,7 @@ log "Environment variables check complete"
 echo "     Done."
 
 # Make sure coolify network exists
-# It is created when starting Coolify with docker compose
+# It is created when starting Publify with docker compose
 log "Checking Docker network 'coolify'..."
 if ! docker network inspect coolify >/dev/null 2>&1; then
     log "Network 'coolify' does not exist, creating..."
@@ -220,7 +220,7 @@ log_section "Step 4/6: Stopping and restarting containers"
 write_status "4" "Stopping containers"
 echo ""
 echo "4/6 Stopping containers and starting new ones..."
-echo "     This step will restart all Coolify containers."
+echo "     This step will restart all Publify containers."
 echo "     Check the log file for details: ${LOGFILE}"
 
 # From this point forward, we need to ensure the script continues even if
@@ -285,7 +285,7 @@ nohup bash -c "
     log 'Step 6/6: Upgrade complete'
     echo '============================================================' >>\"\$LOGFILE\"
     write_status '6' 'Upgrade complete'
-    log 'Coolify upgrade completed successfully'
+    log 'Publify upgrade completed successfully'
     log \"Version: \${LATEST_IMAGE}\"
     echo '' >>\"\$LOGFILE\"
     echo '============================================================' >>\"\$LOGFILE\"
@@ -306,9 +306,9 @@ echo "5/6 Containers are being restarted in the background..."
 echo "6/6 Upgrade process initiated!"
 echo ""
 echo "=========================================="
-echo "   Coolify upgrade to ${LATEST_IMAGE} in progress"
+echo "   Publify upgrade to ${LATEST_IMAGE} in progress"
 echo "=========================================="
 echo ""
 echo "   The upgrade will continue in the background."
-echo "   Coolify will be available again shortly."
+echo "   Publify will be available again shortly."
 echo "   Log file: ${LOGFILE}"

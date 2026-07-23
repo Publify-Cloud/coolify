@@ -256,7 +256,7 @@ class SyncBunny extends Command
             ],
             default: 'production',
         ) === 'nightly';
-        $bunny_cdn = 'https://cdn.coollabs.io';
+        $bunny_cdn = 'https://cdn.publify.justahost.cloud';
         $bunny_cdn_path = 'coolify';
         $bunny_cdn_storage_name = 'coolcdn';
 

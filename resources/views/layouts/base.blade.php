@@ -22,7 +22,7 @@
     <meta name="twitter:site" content="@coolifyio" />
     <meta name="twitter:title" content="Publify" />
     <meta name="twitter:description" content="An open-source & self-hostable Heroku / Netlify / Vercel alternative." />
-    <meta name="twitter:image" content="https://cdn.coollabs.io/og-images/coolify.png" />
+    <meta name="twitter:image" content="https://cdn.publify.justahost.cloud/assets/og-image.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://coolify.io" />
     <meta property="og:title" content="Publify" />

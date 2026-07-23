@@ -160,7 +160,7 @@ class StripeProcessJob implements ShouldBeEncrypted, ShouldQueue
                     $team = data_get($subscription, 'team');
                     if (! $team) {
                         // send_internal_notification('invoice.payment_failed failed but no team found in Coolify for customer: '.$customerId);
-                        throw new \RuntimeException("No team found in Coolify for customer: {$customerId}");
+                        throw new \RuntimeException("No team found in Publify for customer: {$customerId}");
                     }
 
                     // Verify payment status with Stripe API before sending failure notification
@@ -305,7 +305,7 @@ class StripeProcessJob implements ShouldBeEncrypted, ShouldQueue
                             $team->subscriptionEnded();
                         } else {
                             // send_internal_notification('Subscription unpaid but no team found in Coolify for customer: '.$customerId);
-                            throw new \RuntimeException("No team found in Coolify for customer: {$customerId}");
+                            throw new \RuntimeException("No team found in Publify for customer: {$customerId}");
                         }
                     }
                     if ($status === 'active') {
@@ -334,7 +334,7 @@ class StripeProcessJob implements ShouldBeEncrypted, ShouldQueue
                             $team->subscriptionEnded();
                         } else {
                             // send_internal_notification('Subscription deleted but no team found in Coolify for customer: '.$customerId);
-                            throw new \RuntimeException("No team found in Coolify for customer: {$customerId}");
+                            throw new \RuntimeException("No team found in Publify for customer: {$customerId}");
                         }
                     } else {
                         // send_internal_notification('Subscription deleted but no subscription found in Coolify for customer: '.$customerId);

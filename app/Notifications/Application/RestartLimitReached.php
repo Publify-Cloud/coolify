@@ -68,7 +68,7 @@ class RestartLimitReached extends CustomEmailNotification
     {
         return new DiscordMessage(
             title: ':warning: Restart limit reached',
-            description: "{$this->resource_name} has been stopped after {$this->restart_count} restarts (limit: {$this->max_restart_count}).\n\n[Open Application in Coolify]({$this->resource_url})",
+            description: "{$this->resource_name} has been stopped after {$this->restart_count} restarts (limit: {$this->max_restart_count}).\n\n[Open Application in Publify]({$this->resource_url})",
             color: DiscordMessage::errorColor(),
             isCritical: true,
         );
@@ -82,7 +82,7 @@ class RestartLimitReached extends CustomEmailNotification
             'message' => $message,
             'buttons' => [
                 [
-                    'text' => 'Open Application in Coolify',
+                    'text' => 'Open Application in Publify',
                     'url' => $this->resource_url,
                 ],
             ],
@@ -99,7 +99,7 @@ class RestartLimitReached extends CustomEmailNotification
             message: $message,
             buttons: [
                 [
-                    'text' => 'Open Application in Coolify',
+                    'text' => 'Open Application in Publify',
                     'url' => $this->resource_url,
                 ],
             ],
