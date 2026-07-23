@@ -27,7 +27,8 @@ it('preserves Publify stable and nightly install and upgrade configuration', fun
         expect(file_get_contents($projectRoot.'/'.$path))
             ->toContain('CDN="https://cdn.publify.justahost.cloud"')
             ->toContain('REGISTRY_URL="public.ecr.aws/g6l4g2t4"')
-            ->toContain('${REGISTRY_URL:-docker.io}/coollabsio/coolify-helper')
+            ->toContain('ghcr.io/coollabsio/coolify-helper')
+            ->not->toContain('${REGISTRY_URL:-docker.io}/coollabsio/coolify-helper')
             ->toContain('Publify Upgrade')
             ->not->toContain('Coolify Upgrade');
     }
@@ -45,7 +46,8 @@ it('preserves Publify stable and nightly install and upgrade configuration', fun
         ->toContain('APP_NAME=Coolify')
         ->toContain('REGISTRY_URL=public.ecr.aws/g6l4g2t4')
         ->and(file_get_contents($projectRoot.'/other/nightly/docker-compose.prod.yml'))
-        ->toContain('image: \'${REGISTRY_URL:-docker.io}/coollabsio/coolify-realtime:1.0.16\'')
+        ->toContain("image: 'ghcr.io/coollabsio/coolify-realtime:1.0.16'")
+        ->not->toContain("image: '\${REGISTRY_URL:-docker.io}/coollabsio/coolify-realtime:1.0.16'")
         ->and(file_get_contents($projectRoot.'/resources/views/layouts/base.blade.php'))
         ->toContain('https://cdn.publify.justahost.cloud/assets/og-image.png')
         ->toContain("config('app.name') == 'Coolify Cloud'")
@@ -56,5 +58,9 @@ it('preserves Publify stable and nightly install and upgrade configuration', fun
     expect(config('constants.coolify.versions_url'))
         ->toBe('https://cdn.publify.justahost.cloud/versions.json')
         ->and(config('constants.coolify.upgrade_script_url'))
-        ->toBe('https://cdn.publify.justahost.cloud/upgrade.sh');
+        ->toBe('https://cdn.publify.justahost.cloud/upgrade.sh')
+        ->and(config('constants.coolify.helper_image'))
+        ->toBe('ghcr.io/coollabsio/coolify-helper')
+        ->and(config('constants.coolify.realtime_image'))
+        ->toBe('ghcr.io/coollabsio/coolify-realtime');
 });
