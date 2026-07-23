@@ -5451,6 +5451,7 @@ All notable changes to this project will be documented in this file.
 - *(backups)* Allow volume backup delete without password when 2FA off
 - *(backups)* Retain volume backups without server
 - *(backups)* Enforce authorization and safe retention
+- *(images)* Use GHCR for helper and realtime images
 
 ### 💼 Other
 
@@ -6840,6 +6841,7 @@ All notable changes to this project will be documented in this file.
 - *(readme)* Serve sponsor images from Coollabs CDN
 - *(release)* Document SHA image promotion workflow
 - *(release)* Clarify branch strategy and SHA build flow
+- Update changelog
 
 ### ⚡ Performance
 
