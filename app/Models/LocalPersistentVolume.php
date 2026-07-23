@@ -3,12 +3,33 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Symfony\Component\Yaml\Yaml;
 
-class LocalPersistentVolume extends Model
+class LocalPersistentVolume extends BaseModel
 {
-    protected $guarded = [];
+    protected static function booted(): void
+    {
+        static::deleting(function (LocalPersistentVolume $volume): void {
+            if ($volume->scheduledBackups()->exists()) {
+                throw new \RuntimeException('Delete this volume backup schedule and its archives before deleting the volume.');
+            }
+        });
+    }
+
+    protected $fillable = [
+        'name',
+        'mount_path',
+        'host_path',
+        'container_id',
+        'resource_type',
+        'resource_id',
+        'is_preview_suffix_enabled',
+    ];
+
+    protected $casts = [
+        'is_preview_suffix_enabled' => 'boolean',
+    ];
 
     public function resource()
     {
@@ -28,6 +49,18 @@ class LocalPersistentVolume extends Model
     public function database()
     {
         return $this->morphTo('resource');
+    }
+
+    public function scheduledBackups(): MorphMany
+    {
+        return $this->morphMany(ScheduledVolumeBackup::class, 'backupable');
+    }
+
+    public function abortIfScheduledBackupsExist(): void
+    {
+        if ($this->scheduledBackups()->exists()) {
+            abort(422, 'Delete this volume backup schedule and its archives before deleting the volume.');
+        }
     }
 
     protected function customizeName($value)
@@ -176,7 +209,6 @@ class LocalPersistentVolume extends Model
 
             return false;
         } catch (\Throwable $e) {
-            ray($e->getMessage(), 'Error checking read-only persistent volume');
 
             return false;
         }
