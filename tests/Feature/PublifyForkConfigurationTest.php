@@ -12,6 +12,21 @@ it('preserves Publify fork branding and production image references', function (
         ->toContain('image: "${REGISTRY_URL}/publify:${LATEST_IMAGE:-latest}"');
 });
 
+it('does not expose Coolify sponsorship prompts', function () {
+    $projectRoot = dirname(__DIR__, 2);
+
+    expect(file_get_contents($projectRoot.'/resources/views/components/navbar.blade.php'))
+        ->not->toContain('Sponsor us')
+        ->not->toContain('coolify.io/sponsorships')
+        ->and(file_get_contents($projectRoot.'/resources/views/livewire/layout-popups.blade.php'))
+        ->not->toContain('popups.sponsorship')
+        ->not->toContain('popupSponsorship')
+        ->not->toContain('github.com/sponsors/coollabsio')
+        ->and(file_get_contents($projectRoot.'/resources/views/livewire/settings/advanced.blade.php'))
+        ->not->toContain('Show Sponsorship Popup')
+        ->not->toContain('is_sponsorship_popup_enabled');
+});
+
 it('preserves Publify stable and nightly install and upgrade configuration', function () {
     $projectRoot = dirname(__DIR__, 2);
 

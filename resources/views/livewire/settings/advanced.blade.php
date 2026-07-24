@@ -95,11 +95,6 @@
                         <x-forms.checkbox instantSave id="is_wire_navigate_enabled" label="SPA Navigation"
                             helper="Enable single-page application (SPA) style navigation with prefetching on hover. When enabled, page transitions are smoother without full page reloads and pages are prefetched when hovering over links. Disable if you experience navigation issues." />
                     </div>
-                    <h4 class="pt-4">Confirmation Settings</h4>
-                    <div class="md:w-96">
-                        <x-forms.checkbox instantSave id="is_sponsorship_popup_enabled" label="Show Sponsorship Popup"
-                            helper="Show monthly sponsorship reminders to support Publify development. Disable to hide these messages permanently." />
-                    </div>
                 </div>
                 <div class="flex flex-col gap-1">
                     @if ($disable_two_step_confirmation)
