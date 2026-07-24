@@ -5453,6 +5453,7 @@ All notable changes to this project will be documented in this file.
 - *(backups)* Enforce authorization and safe retention
 - *(images)* Use GHCR for helper and realtime images
 - *(ui)* Remove Coolify sponsorship prompts
+- *(release)* Revert Coolify v4 version to 4.1.2
 
 ### 💼 Other
 
@@ -6842,6 +6843,7 @@ All notable changes to this project will be documented in this file.
 - *(readme)* Serve sponsor images from Coollabs CDN
 - *(release)* Document SHA image promotion workflow
 - *(release)* Clarify branch strategy and SHA build flow
+- Update changelog
 - Update changelog
 - Update changelog
 
